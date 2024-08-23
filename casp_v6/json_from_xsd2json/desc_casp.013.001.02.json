@@ -1,0 +1,443 @@
+{
+    "definitions": {
+        "ISODateTime": {
+            "$ref": "#/definitions/xs:dateTime",
+            "description": "A particular point in the progression of time defined by a mandatory date and a mandatory time component, expressed in either UTC time format (YYYY-MM-DDThh:mm:ss.sssZ), local time with UTC offset format (YYYY-MM-DDThh:mm:ss.sss+/-hh:mm), or local time format (YYYY-MM-DDThh:mm:ss.sss). These representations are defined in \"XML Schema Part 2: Datatypes Second Edition - W3C Recommendation 28 October 2004\" which is aligned with ISO 8601.\nNote on the time format:\n1) beginning / end of calendar day\n00:00:00 = the beginning of a calendar day\n24:00:00 = the end of a calendar day\n2) fractions of second in time format\nDecimal fractions of seconds may be included. In this case, the involved parties shall agree on the maximum number of digits that are allowed."
+        },
+        "NetworkType1Code": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {}
+            ],
+            "enum": [
+                "IPNW",
+                "PSTN"
+            ],
+            "description": "Type of communication network.\nCode: IPNW:\tInternetProtocol:\tDefinition: Protocol of an IP network.\nCode: PSTN:\tPublicTelephone:\tDefinition: Protocol of a Public Switched Telephone Network (PSTN).\nCode: HTTP:\tHTTP:\tDefinition: HTTP proxy.\nCode: SCK4:\tSock4:\tDefinition: Sock4 proxy.\nCode: SCK5:\tSock5:\tDefinition: Sock5 proxy."
+        },
+        "PartyType33Code": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {}
+            ],
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS",
+                "MTMG",
+                "TAXH",
+                "TMGT"
+            ],
+            "description": "Identification of the type of entity involved in a transaction.\nCode: SALE:\tSaleSystem:\tDefinition: Party selling goods and services.\nCode: PCPT:\tPOIComponent:\tDefinition: Party component of a POI system or POI terminal (Point of Interaction).\nCode: ISUR:\tIssuer:\tDefinition: Issuer is the entitled party.\nCode: HLDR:\tHolder:\tDefinition: Holder is the entitled party.\nCode: INVE:\tInvestor:\tDefinition: Party, either an individual or organisation, whose assets are being invested.\nCode: EXEC:\tExecutingFirm:\tDefinition: Party that identifies an executing / give-up broker.\nCode: BROK:\tBrokerOfCredit:\tDefinition: Party that receives the trade credit.\nCode: CORR:\tCorrespondentClearingFirm:\tDefinition: Party that is going to carry the position on their books at another clearinghouse (exchanges).\nCode: COFI:\tContraFirm:\tDefinition: Party that is the counterparty in a trade.\nCode: COCL:\tContraClearingFirm:\tDefinition: Party that is the clearing firm of the counterparty in a trade.\nCode: UNDE:\tUnderlyingContraFirm:\tDefinition: Party (broker or other firm), which is the contra side of the trade for the underlying security.\nCode: GIVE:\tGiveUpClearingFirm:\tDefinition: Party to which the trade is given up (carries the position that results from a trade).\nCode: ORDE:\tOrderOriginationFirm:\tDefinition: Party that originates an order.\nCode: SPON:\tSponsoringFirm:\tDefinition: Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.\nCode: CLEA:\tClearingfirm:\tDefinition: Party (broker) that settles security transactions from another broker for a fee = take up broker.\nCode: INTR:\tIntroducingFirm:\tDefinition: Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.\nCode: ENTE:\tEnteringFirm:\tDefinition: Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.\nCode: CLIE:\tClient:\tDefinition: A client is identified in third party-transactions or for investor in intermediary transactions.\nCode: STEP:\tStepInBroker:\tDefinition: Broker to which the investment manager directs the execution of a portion of the trade.\nCode: AFFI:\tAffirmingParty:\tDefinition: Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.\nCode: ETC1:\tETCServiceProvider1:\tDefinition: Party acting as the Electronic Trade Confirmation (ETC) service provider 1.\nCode: ETC2:\tETCServiceProvider2:\tDefinition: Party acting as the Electronic Trade Confirmation (ETC) service provider 2.\nCode: RQBR:\tRequestedBroker:\tDefinition: In a directed order, broker with which the Receiver of the message is requested to execute the order.\nCode: TAXH:\tTaxAuthority:\tDefinition: Tax authority.\nCode: DLIS:\tDelegateIssuer:\tDefinition: Party to whom the card issuer delegates to authorise card payment transactions.\nCode: OPOI:\tOriginatingPOI:\tDefinition: Point Of Interaction initiating the card payment transaction.\nCode: CISS:\tCardIssuer:\tDefinition: Party that issues cards.\nCode: ACCP:\tAcceptor:\tDefinition: Card acceptor, party accepting the card and presenting transaction data to the acquirer.\nCode: MERC:\tMerchant:\tDefinition: Merchant providing goods and service in the card payment transaction.\nCode: ACQR:\tAcquirer:\tDefinition: Entity acquiring card transactions.\nCode: ITAG:\tIntermediaryAgent:\tDefinition: Party acting on behalf of other parties to process or forward data to other parties.\nCode: MTMG:\tMasterTerminalManager:\tDefinition: Responsible for the maintenance of a card payment acceptance terminal.\nCode: TMGT:\tTerminalManager:\tDefinition: Responsible for one or several maintenance functions of a card payment acceptance terminal.\nCode: ACQP:\tAcquirerProcessor:\tDefinition: Entity providing acquiring card payment processing services on behalf on an acquirer.\nCode: CISP:\tCardIssuerProcessor:\tDefinition: Entity providing issuing card payment processing services on behalf on an issuer.\nCode: CSCH:\tCardScheme:\tDefinition: Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.\nCode: SCHP:\tCardSchemeProcessor:\tDefinition: Entity providing card payment processing services acting on behalf of a card scheme.\nCode: ATMG:\tATMManager:\tDefinition: Entity managing the ATM.\nCode: HSTG:\tHostingEntity:\tDefinition: Entity hosting the ATM.\nCode: OATM:\tOriginatingATM:\tDefinition: ATM initiating the transaction.\nCode: OTRM:\tOriginatingTerminal:\tDefinition: Application on the terminal which has initiated the transaction.\nCode: ICCA:\tCardApplication:\tDefinition: Application in the smart card.\nCode: PSYS:\tPOISystem:\tDefinition: Configuration to apply to the whole POI system.\nCode: PGRP:\tPOIGroup:\tDefinition: Configuration to apply to a subset of the whole POI system.\nCode: PSNG:\tSinglePOI:\tDefinition: Configuration to apply to a single POI terminal.\nCode: BKAF:\tAccountFromBank:\tDefinition: The bank of the source account.\nCode: BKAT:\tAccountToBank:\tDefinition: The bank of the destination account.\nCode: AGNT:\tAgent:\tDefinition: Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.\nCode: CRDH:\tCardholder:\tDefinition: Holder of a payment card.\nCode: CLRA:\tClearingAgent:\tDefinition: Agent in charge of clearing payment or related transactions.\nCode: GVIU:\tGovernmentInvestigationUnit:\tDefinition: Government organisation investigation unit. \nCode: OTHN:\tOtherNational:\tDefinition: Other card payment entity type defined at national level\nCode: OTHP:\tOtherPrivate:\tDefinition: Other card payment entity type defined at private level\nCode: PISP:\tPaymentInitiationServiceProvider:\tDefinition: Payment Initiation Service Provider (PISP)\nCode: PASP:\tPaymentServiceProvider:\tDefinition: Entity provding payments services.\nCode: POOI:\tPointOfInteraction:\tDefinition: Party in charge of controlling or supervising a card acceptance Point of Interaction\nCode: SETA:\tSettlementAgent:\tDefinition: Agent in charge of the settlement of a payment or related transaction.\nCode: WLPR:\tWalletProvider:\tDefinition: Provider of an electronic wallet",
+            "example": "OPOI"
+        },
+        "RejectReason1Code": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {}
+            ],
+            "enum": [
+                "UNPR",
+                "IMSG",
+                "PARS",
+                "SECU",
+                "INTP",
+                "RCPP",
+                "DPMG",
+                "VERS",
+                "MSGT"
+            ],
+            "description": "Reason of transmission of a rejection message in response to a request or an advice.\nCode: UNPR:\tUnableToProcess:\tDefinition: Not possible to process the message, for instance the security module is unavailable, the hardware is unavailable, or there is a problem of resource.\nCode: IMSG:\tInvalidMessage:\tDefinition: Invalid envelope of the message.\nCode: PARS:\tParsingError:\tDefinition: Invalid message: At least one of the data element or data structure is not present, the format, or the content of one data element or one data structure is not correct.\nCode: SECU:\tSecurity:\tDefinition: Security error (for example an invalid key or an incorrect MAC value).\nCode: INTP:\tInitiatingParty:\tDefinition: Invalid identification data for the sender.\nCode: RCPP:\tRecipientParty:\tDefinition: Invalid identification data for the the receiver.\nCode: DPMG:\tDuplicateMessage:\tDefinition: Duplicate message, the identification of the exchange is the same than a previous message.\nCode: VERS:\tProtocolVersion:\tDefinition: Version of the protocol couldn't be supported by the recipient.\nCode: MSGT:\tMessageType:\tDefinition: Type of message the recipient receives is unknow or unsupported.",
+            "example": "UNPR"
+        },
+        "RetailerMessage1Code": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {}
+            ],
+            "enum": [
+                "SSAB",
+                "SAAQ",
+                "SAAP",
+                "SDDR",
+                "SDDP",
+                "SSEN",
+                "SSMQ",
+                "SSMR",
+                "SSRJ",
+                "SARQ",
+                "SARP",
+                "SFRP",
+                "SFRQ",
+                "SFSQ",
+                "SFSP",
+                "SASQ",
+                "SASP"
+            ],
+            "description": "Identifies the type of process related to the message.\nCode: SFSQ:\tSaleFinancialServiceRequest:\tDefinition: Request a financial service like payment, reversal, loyalty, Balance Inquiry, etc.\nCode: SFSP:\tSaleFinancialServiceResponse:\tDefinition: Response to a financial service request.\nCode: SFRQ:\tSaleFinancialReconciliationRequest:\tDefinition: Request a reconciliation (different types) between Sale System and POI System.\nCode: SFRP:\tSaleFinancialReconciliationResponse:\tDefinition: Response to a Reconciliation Request.\nCode: SASQ:\tSessionManagementRequest:\tDefinition: Request the management of a session: login, logout and diagnosis services. Initiated by the Sale system.\nCode: SASP:\tSessionManagementResponse:\tDefinition: Response to a session management request to initiate/terminate a session.\nCode: SAAQ:\tAdminRequest:\tDefinition: To select and start customised administrative services provided by the POI, using a \"menu\" for an interactive or software interface, initiated by the Sale system.\nCode: SAAP:\tAdminResponse:\tDefinition: Response to the Admin request.\nCode: SARQ:\tReportRequest:\tDefinition: To request, by the Sale System, a report on a list of transactions on the POI system, or the status of a transaction.\nCode: SARP:\tReportResponse:\tDefinition: Response to a Report request.\nCode: SSAB:\tAbort:\tDefinition: Abort the current process or the last request.\nCode: SSEN:\tEventNotification:\tDefinition: Notify the other party of an event that occurs on its side.\nCode: SSRJ:\tRejection:\tDefinition: Reject a previous received message, for technical or functional reasons.\nCode: SSMQ:\tMessageStatusRequest:\tDefinition: Request the status of a previous message for which the Sale system has no response.\nCode: SSMR:\tMessageStatusResponse:\tDefinition: Response to a Message Status request.\nCode: SDDR:\tDeviceRequest:\tDefinition: Request one or several functions of the device, from user Interface or payment peripherals on the POI system or on the Sale system. Functions can be Display, Input, Print, play sound, Card reader capabilities or Transmit a message.\nCode: SDDP:\tDeviceResponse:\tDefinition: Response to a Device request."
+        },
+        "Max100KBinary": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:base64Binary"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 102400
+                }
+            ],
+            "description": "Binary data of 100K maximum."
+        },
+        "Max10KBinary": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:base64Binary"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 10240
+                }
+            ],
+            "description": "Binary data of 10K maximum."
+        },
+        "Max140Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:base64Binary"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 140
+                }
+            ],
+            "description": "Specifies a binary string with a maximum length of 140 binary bytes."
+        },
+        "Max35Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:base64Binary"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 35
+                }
+            ],
+            "description": "Specifies a binary string with a maximum length of 35 binary bytes."
+        },
+        "Max35Text": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 35
+                }
+            ],
+            "description": "Specifies a character string with a maximum length of 35 characters."
+        },
+        "Max500Text": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 500
+                }
+            ],
+            "description": "Specifies a character string with a maximum length of 500 characters."
+        },
+        "Max6Text": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {
+                    "minLength": 1,
+                    "maxLength": 6
+                }
+            ],
+            "description": "Specifies a character string with a maximum length of 6 characters."
+        },
+        "Min2Max3AlphaText": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/xs:string"
+                },
+                {
+                    "pattern": "[a-zA-Z]{2,3}"
+                }
+            ],
+            "description": "Specifies an alpha string with a minimum length of 2 characters and a maximum length of 3 characters."
+        },
+        "AcceptorRejection2": {
+            "required": [
+                "RjctRsn"
+            ],
+            "type": "object",
+            "properties": {
+                "RjctRsn": {
+                    "$ref": "#/definitions/RejectReason1Code"
+                },
+                "AddtlInf": {
+                    "$ref": "#/definitions/Max500Text"
+                },
+                "MsgInErr": {
+                    "$ref": "#/definitions/Max100KBinary"
+                }
+            },
+            "description": "Reject of an exchange."
+        },
+        "Document": {
+            "required": [
+                "SaleToPOIMsgRjctn"
+            ],
+            "type": "object",
+            "properties": {
+                "SaleToPOIMsgRjctn": {
+                    "$ref": "#/definitions/SaleToPOIMessageRejectionV02"
+                }
+            },
+            "description": "General information that unambiguously identifies a document, such as identification number and issue date time."
+        },
+        "GenericIdentification177": {
+            "required": [
+                "Id"
+            ],
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/definitions/PartyType33Code"
+                },
+                "Issr": {
+                    "$ref": "#/definitions/PartyType33Code"
+                },
+                "Ctry": {
+                    "$ref": "#/definitions/Min2Max3AlphaText"
+                },
+                "ShrtNm": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "RmotAccs": {
+                    "$ref": "#/definitions/NetworkParameters7"
+                },
+                "Glctn": {
+                    "$ref": "#/definitions/Geolocation1"
+                }
+            },
+            "description": "Identification of an entity."
+        },
+        "Geolocation1": {
+            "type": "object",
+            "properties": {
+                "GeogcCordints": {
+                    "$ref": "#/definitions/GeolocationGeographicCoordinates1"
+                },
+                "UTMCordints": {
+                    "$ref": "#/definitions/GeolocationUTMCoordinates1"
+                }
+            },
+            "description": "Geographic location specified by geographic or UTM coordinates."
+        },
+        "GeolocationGeographicCoordinates1": {
+            "required": [
+                "Lat",
+                "Long"
+            ],
+            "type": "object",
+            "properties": {
+                "Lat": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "Long": {
+                    "$ref": "#/definitions/Max35Text"
+                }
+            },
+            "description": "Location on the Earth specified by two numbers representing vertical and horizontal position."
+        },
+        "GeolocationUTMCoordinates1": {
+            "required": [
+                "UTMZone",
+                "UTMEstwrd",
+                "UTMNrthwrd"
+            ],
+            "type": "object",
+            "properties": {
+                "UTMZone": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "UTMEstwrd": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "UTMNrthwrd": {
+                    "$ref": "#/definitions/Max35Text"
+                }
+            },
+            "description": "Location on the Earth specified by the Universal Transverse Mercator coordinate system.\r\nIdentifies the geographic location using the WGS84 ellipsoid spatial reference system."
+        },
+        "Header41": {
+            "required": [
+                "MsgFctn",
+                "PrtcolVrsn",
+                "XchgId",
+                "CreDtTm",
+                "InitgPty"
+            ],
+            "type": "object",
+            "properties": {
+                "MsgFctn": {
+                    "$ref": "#/definitions/RetailerMessage1Code"
+                },
+                "PrtcolVrsn": {
+                    "$ref": "#/definitions/Max6Text"
+                },
+                "XchgId": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "CreDtTm": {
+                    "$ref": "#/definitions/ISODateTime"
+                },
+                "InitgPty": {
+                    "$ref": "#/definitions/GenericIdentification177"
+                },
+                "RcptPty": {
+                    "$ref": "#/definitions/GenericIdentification177"
+                },
+                "Tracblt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Traceability8"
+                    },
+                    "minItems": 0
+                }
+            },
+            "description": "Set of characteristics related to the protocol."
+        },
+        "NetworkParameters7": {
+            "required": [
+                "Adr"
+            ],
+            "type": "object",
+            "properties": {
+                "Adr": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetworkParameters9"
+                    },
+                    "minItems": 1
+                },
+                "UsrNm": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "AccsCd": {
+                    "$ref": "#/definitions/Max35Binary"
+                },
+                "SvrCert": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Max10KBinary"
+                    },
+                    "minItems": 0
+                },
+                "SvrCertIdr": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Max140Binary"
+                    },
+                    "minItems": 0
+                },
+                "ClntCert": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Max10KBinary"
+                    },
+                    "minItems": 0
+                },
+                "SctyPrfl": {
+                    "$ref": "#/definitions/Max35Text"
+                }
+            },
+            "description": "Parameters to communicate with a host."
+        },
+        "NetworkParameters9": {
+            "required": [
+                "NtwkTp",
+                "AdrVal"
+            ],
+            "type": "object",
+            "properties": {
+                "NtwkTp": {
+                    "$ref": "#/definitions/NetworkType1Code"
+                },
+                "AdrVal": {
+                    "$ref": "#/definitions/Max500Text"
+                }
+            },
+            "description": "Parameters to communicate with a host."
+        },
+        "SaleToPOIMessageRejectionV02": {
+            "required": [
+                "Hdr",
+                "Rjct"
+            ],
+            "type": "object",
+            "properties": {
+                "Hdr": {
+                    "$ref": "#/definitions/Header41"
+                },
+                "Rjct": {
+                    "$ref": "#/definitions/AcceptorRejection2"
+                }
+            },
+            "description": "The SaleToPOIMessageRejection message is sent by one of the parties when it detects a technical or functional error in a previous received message."
+        },
+        "Traceability8": {
+            "required": [
+                "RlayId",
+                "TracDtTmIn",
+                "TracDtTmOut"
+            ],
+            "type": "object",
+            "properties": {
+                "RlayId": {
+                    "$ref": "#/definitions/GenericIdentification177"
+                },
+                "PrtcolNm": {
+                    "$ref": "#/definitions/Max35Text"
+                },
+                "PrtcolVrsn": {
+                    "$ref": "#/definitions/Max6Text"
+                },
+                "TracDtTmIn": {
+                    "$ref": "#/definitions/ISODateTime"
+                },
+                "TracDtTmOut": {
+                    "$ref": "#/definitions/ISODateTime"
+                }
+            },
+            "description": "Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges."
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/Document"
+        }
+    ],
+    "$schema": "http://json-schema.org/draft-04/schema#"
+}

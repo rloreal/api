@@ -1,0 +1,6573 @@
+{
+  "definitions": {
+    "BaseOneRate": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	}
+      ]
+    },
+    "DecimalNumber": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	}
+      ]
+    },
+    "ISODate": {
+      "$ref":"#/definitions/xs:date"
+    },
+    "ISODateTime": {
+      "$ref":"#/definitions/xs:dateTime"
+    },
+    "LanguageCode": {
+      "$ref":"#/definitions/xs:string"
+    },
+    "Number": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	}
+      ]
+    },
+    "PercentageRate": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	}
+      ]
+    },
+    "PlusOrMinusIndicator": {
+      "$ref":"#/definitions/xs:boolean"
+    },
+    "TrueFalseIndicator": {
+      "$ref":"#/definitions/xs:boolean"
+    },
+    "ActionType13Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BUSY",
+	"CPTR",
+	"DISP",
+	"NOVR",
+	"RQID",
+	"PINL",
+	"PINR",
+	"PRNT",
+	"RFRL",
+	"RQDT",
+	"DCCQ",
+	"FLFW",
+	"PINQ",
+	"CDCV",
+	"CHDA",
+	"STAR",
+	"STOR",
+	"ACUP",
+	"TALT",
+	"DNTA"
+      ]
+    },
+    "AddressType2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ADDR",
+	"PBOX",
+	"HOME",
+	"BIZZ",
+	"MLTO",
+	"DLVY"
+      ]
+    },
+    "Algorithm26Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"HS25",
+	"HS38",
+	"HS51",
+	"HS01",
+	"SH31",
+	"SH32",
+	"SH33",
+	"SH35",
+	"SHK1",
+	"SHK2",
+	"SMS3"
+      ]
+    },
+    "Algorithm27Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MACC",
+	"MCCS",
+	"CMA1",
+	"MCC1",
+	"CMA9",
+	"CMA5",
+	"CMA2",
+	"CM31",
+	"CM32",
+	"CM33",
+	"MCS3",
+	"CCA1",
+	"CCA2",
+	"CCA3",
+	"S34C",
+	"S34R"
+      ]
+    },
+    "Algorithm28Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"EA2C",
+	"E3DC",
+	"DKP9",
+	"UKPT",
+	"UKA2",
+	"EA9C",
+	"EA5C",
+	"DA12",
+	"DA19",
+	"DA25",
+	"N108",
+	"EA5R",
+	"EA9R",
+	"EA2R",
+	"E3DR",
+	"E36C",
+	"E36R",
+	"SD5C",
+	"UKA1",
+	"UKA3",
+	"SM4C",
+	"SM4R"
+      ]
+    },
+    "Algorithm29Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ERS2",
+	"ERS1",
+	"RPSS",
+	"ERS3",
+	"ED32",
+	"ED33",
+	"ED35",
+	"ED23",
+	"ED25",
+	"ES22",
+	"ES32",
+	"ES33",
+	"ES35",
+	"ES23",
+	"ES25",
+	"ED22",
+	"EF32",
+	"EF22",
+	"EF33",
+	"EF35",
+	"EF23",
+	"EO33",
+	"EF25",
+	"EO32",
+	"EO22",
+	"EO35",
+	"EO23",
+	"EO25",
+	"DD22",
+	"DD32",
+	"DD33",
+	"DD35",
+	"DD23",
+	"DD25",
+	"SM22",
+	"SM33",
+	"SM32",
+	"SM35",
+	"SM23",
+	"SM25",
+	"S2S3"
+      ]
+    },
+    "Algorithm7Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ERSA",
+	"RSAO"
+      ]
+    },
+    "Algorithm8Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MGF1"
+      ]
+    },
+    "AmountUnit1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MONE",
+	"POIN"
+      ]
+    },
+    "AttendanceContext1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ATTD",
+	"SATT",
+	"UATT"
+      ]
+    },
+    "AttendanceContext2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ATTL",
+	"CARR",
+	"CUST",
+	"FULL",
+	"SELF"
+      ]
+    },
+    "AttributeType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"CNAT",
+	"LATT",
+	"OATT",
+	"OUAT",
+	"CATT"
+      ]
+    },
+    "AuthenticationEntity2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ICCD",
+	"AGNT",
+	"MERC",
+	"ACQR",
+	"ISSR",
+	"TRML"
+      ]
+    },
+    "AuthenticationMethod6Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"NPIN",
+	"PPSG",
+	"PSWD",
+	"SCRT",
+	"SCNL",
+	"SNCT",
+	"CPSG",
+	"ADDB",
+	"BIOM",
+	"CDHI",
+	"CRYP",
+	"CSCV",
+	"PSVE",
+	"CSEC",
+	"ADDS",
+	"MANU",
+	"FPIN",
+	"TOKP"
+      ]
+    },
+    "AuthenticationMethod8Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"TOKA",
+	"ADDB",
+	"BYPS",
+	"BIOM",
+	"CDHI",
+	"CRYP",
+	"CSCV",
+	"MANU",
+	"MERC",
+	"MOBL",
+	"FPIN",
+	"NPIN",
+	"OTHR",
+	"PPSG",
+	"PSVE",
+	"PSWD",
+	"TOKP",
+	"SCRT",
+	"SCNL",
+	"CSEC",
+	"SNCT",
+	"ADDS",
+	"CPSG",
+	"TOKN",
+	"UKNW"
+      ]
+    },
+    "AuthenticationResult1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"DENY",
+	"MRCH",
+	"CARD",
+	"AUTH",
+	"CRPT",
+	"UCRP"
+      ]
+    },
+    "BarcodeType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"COQR",
+	"C128",
+	"C025",
+	"C039",
+	"EA13",
+	"EAN8",
+	"P417",
+	"UPCA"
+      ]
+    },
+    "BusinessArea2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"AIBD",
+	"PPAY",
+	"TKNF",
+	"EOPT",
+	"TOPT"
+      ]
+    },
+    "BytePadding1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"LNGT",
+	"NUL8",
+	"NULG",
+	"NULL",
+	"RAND"
+      ]
+    },
+    "CardAccountType3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"CTDP",
+	"CHCK",
+	"CRDT",
+	"CURR",
+	"CDBT",
+	"DFLT",
+	"EPRS",
+	"HEQL",
+	"ISTL",
+	"INVS",
+	"LCDT",
+	"MBNW",
+	"MNMK",
+	"MNMC",
+	"MTGL",
+	"RTRM",
+	"RVLV",
+	"SVNG",
+	"STBD",
+	"UVRL",
+	"PRPD",
+	"FLTC"
+      ]
+    },
+    "CardDataReading5Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"TAGC",
+	"PHYS",
+	"BRCD",
+	"MGST",
+	"CICC",
+	"DFLE",
+	"CTLS",
+	"ECTL",
+	"CDFL"
+      ]
+    },
+    "CardDataReading8Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"TAGC",
+	"PHYS",
+	"BRCD",
+	"MGST",
+	"CICC",
+	"DFLE",
+	"CTLS",
+	"ECTL",
+	"CDFL",
+	"SICC",
+	"UNKW",
+	"QRCD",
+	"OPTC"
+      ]
+    },
+    "CardFallback1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"FFLB",
+	"SFLB",
+	"NFLB"
+      ]
+    },
+    "CardIdentificationType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ACCT",
+	"BARC",
+	"ISO2",
+	"PHON",
+	"CPAN",
+	"PRIV",
+	"UUID"
+      ]
+    },
+    "CardPaymentServiceType12Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BALC",
+	"CACT",
+	"CRDP",
+	"CAFH",
+	"CAVR",
+	"CSHW",
+	"CSHD",
+	"DEFR",
+	"LOAD",
+	"ORCR",
+	"PINC",
+	"QUCH",
+	"RFND",
+	"RESA",
+	"VALC",
+	"UNLD",
+	"CAFT",
+	"CAFL",
+	"CIDD"
+      ]
+    },
+    "CardPaymentServiceType14Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"IRES",
+	"URES",
+	"PRES",
+	"ARES",
+	"FREC",
+	"RREC",
+	"GOPT"
+      ]
+    },
+    "CardPaymentServiceType5Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BALC",
+	"CACT",
+	"CRDP",
+	"CAFH",
+	"CAVR",
+	"CSHW",
+	"CSHD",
+	"DEFR",
+	"LOAD",
+	"ORCR",
+	"PINC",
+	"QUCH",
+	"RFND",
+	"RESA",
+	"VALC",
+	"UNLD",
+	"CAFT",
+	"CAFL"
+      ]
+    },
+    "CardPaymentServiceType9Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"AGGR",
+	"DCCV",
+	"GRTT",
+	"LOYT",
+	"NRES",
+	"PUCO",
+	"RECP",
+	"SOAF",
+	"VCAU",
+	"INSI",
+	"INSA",
+	"CSHB",
+	"INST",
+	"NRFD"
+      ]
+    },
+    "CardProductType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"COMM",
+	"CONS"
+      ]
+    },
+    "CardholderVerificationCapability4Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"APKI",
+	"CHDT",
+	"MNSG",
+	"MNVR",
+	"FBIG",
+	"FBIO",
+	"FDSG",
+	"FCPN",
+	"FEPN",
+	"NPIN",
+	"PKIS",
+	"SCEC",
+	"NBIO",
+	"NOVF",
+	"OTHR"
+      ]
+    },
+    "CheckType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BANK",
+	"BUSI",
+	"GOVC",
+	"PAYR",
+	"PERS"
+      ]
+    },
+    "ContentType2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"DATA",
+	"SIGN",
+	"EVLP",
+	"DGST",
+	"AUTH"
+      ]
+    },
+    "CryptographicKeyType3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"AES2",
+	"EDE3",
+	"DKP9",
+	"AES9",
+	"AES5",
+	"EDE4"
+      ]
+    },
+    "CurrencyConversionResponse3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ODCC",
+	"DCCA",
+	"ICRD",
+	"IMER",
+	"IPRD",
+	"IRAT",
+	"NDCC",
+	"REST",
+	"CATG"
+      ]
+    },
+    "DocumentType7Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"JNRL",
+	"CRCP",
+	"HRCP",
+	"SRCP",
+	"RPIN",
+	"VCHR"
+      ]
+    },
+    "EncryptionFormat2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"TR31",
+	"TR34",
+	"I238"
+      ]
+    },
+    "Exemption1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"LOWA",
+	"MINT",
+	"RECP",
+	"SCPE",
+	"SCAD",
+	"TRAE",
+	"PKGE",
+	"TMBE"
+      ]
+    },
+    "Frequency3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"YEAR",
+	"MNTH",
+	"QURT",
+	"MIAN",
+	"WEEK",
+	"DAIL",
+	"TEND"
+      ]
+    },
+    "GracePeriodUnitType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"WEKS",
+	"PMTS",
+	"OTHP",
+	"OTHN",
+	"MNTH",
+	"DAYS"
+      ]
+    },
+    "InformationQualify1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"CUSA",
+	"DISP",
+	"DOCT",
+	"ERRO",
+	"INPT",
+	"POIR",
+	"RCPT",
+	"SOND",
+	"STAT",
+	"VCHR"
+      ]
+    },
+    "InstalmentAmountDetailsType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"TAXX",
+	"RQST",
+	"OTHP",
+	"OTHN",
+	"OTHC",
+	"INSU",
+	"FUNA",
+	"FEES",
+	"EXPN",
+	"AFCO"
+      ]
+    },
+    "InstalmentPeriod1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MNTH",
+	"ANNU"
+      ]
+    },
+    "InstalmentPlan1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"EQPM",
+	"NQPM",
+	"DFRI"
+      ]
+    },
+    "InterestRate1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"GSRT",
+	"NTRT",
+	"OTHN",
+	"OTHP"
+      ]
+    },
+    "KeyUsage1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ENCR",
+	"DCPT",
+	"DENC",
+	"DDEC",
+	"TRNI",
+	"TRNX",
+	"MACG",
+	"MACV",
+	"SIGG",
+	"SUGV",
+	"PINE",
+	"PIND",
+	"PINV",
+	"KEYG",
+	"KEYI",
+	"KEYX",
+	"KEYD"
+      ]
+    },
+    "LocationCategory3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"INDR",
+	"IPMP",
+	"MPOI",
+	"MPMP",
+	"MSLE",
+	"SSLE",
+	"VNDG"
+      ]
+    },
+    "LocationCategory4Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ABRD",
+	"NMDC",
+	"FIXD",
+	"VIRT"
+      ]
+    },
+    "LoyaltyHandling1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ALLO",
+	"DENY",
+	"PRCS",
+	"PROP",
+	"REQU"
+      ]
+    },
+    "MemoryUnit1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BYTE",
+	"EXAB",
+	"GIGA",
+	"KILO",
+	"MEGA",
+	"PETA",
+	"TERA"
+      ]
+    },
+    "NetworkType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"IPNW",
+	"PSTN"
+      ]
+    },
+    "OnLineCapability1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"OFLN",
+	"ONLN",
+	"SMON"
+      ]
+    },
+    "OnLineReason2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"RNDM",
+	"ICCF",
+	"MERF",
+	"TRMF",
+	"ISSF",
+	"FRLT",
+	"EXFL",
+	"TAMT",
+	"CBIN",
+	"UBIN",
+	"CPAN",
+	"FLOW",
+	"CRCY",
+	"IFPR"
+      ]
+    },
+    "OutputFormat1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MREF",
+	"TEXT",
+	"HTML"
+      ]
+    },
+    "OutputFormat3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BARC",
+	"MENT",
+	"MREF",
+	"SREF",
+	"TEXT",
+	"HTML"
+      ]
+    },
+    "PINFormat3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ISO0",
+	"ISO1",
+	"ISO2",
+	"ISO3",
+	"ISO4",
+	"ISO5"
+      ]
+    },
+    "POICommunicationType2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BLTH",
+	"ETHR",
+	"GPRS",
+	"GSMF",
+	"PSTN",
+	"RS23",
+	"USBD",
+	"USBH",
+	"WIFI",
+	"WT2G",
+	"WT3G",
+	"WT4G",
+	"WT5G"
+      ]
+    },
+    "POIComponentAssessment1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"APPL",
+	"CERT",
+	"EVAL"
+      ]
+    },
+    "POIComponentStatus1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"WAIT",
+	"OUTD",
+	"OPER",
+	"DACT"
+      ]
+    },
+    "POIComponentType6Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"AQPP",
+	"APPR",
+	"TLPR",
+	"SCPR",
+	"SERV",
+	"TERM",
+	"DVCE",
+	"SECM",
+	"APLI",
+	"EMVK",
+	"EMVO",
+	"MDWR",
+	"DRVR",
+	"OPST",
+	"MRPR",
+	"CRTF",
+	"TMSP",
+	"SACP",
+	"SAPR",
+	"LOGF",
+	"MDFL",
+	"SOFT",
+	"CONF",
+	"RPFL"
+      ]
+    },
+    "PartyType14Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"OPOI",
+	"MERC",
+	"ACCP",
+	"ITAG",
+	"ACQR",
+	"CISS",
+	"DLIS",
+	"ICCA"
+      ]
+    },
+    "PartyType33Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"OPOI",
+	"MERC",
+	"ACCP",
+	"ITAG",
+	"ACQR",
+	"CISS",
+	"DLIS",
+	"MTMG",
+	"TAXH",
+	"TMGT"
+      ]
+    },
+    "PartyType3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"OPOI",
+	"MERC",
+	"ACCP",
+	"ITAG",
+	"ACQR",
+	"CISS",
+	"DLIS"
+      ]
+    },
+    "PartyType4Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MERC",
+	"ACCP",
+	"ITAG",
+	"ACQR",
+	"CISS",
+	"TAXH"
+      ]
+    },
+    "PartyType7Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ACQR",
+	"ITAG",
+	"PCPT",
+	"TMGT",
+	"SALE"
+      ]
+    },
+    "PlanOwner1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ACCP",
+	"ACQR",
+	"ISSR",
+	"OTHN",
+	"OTHP"
+      ]
+    },
+    "QRCodeEncodingMode1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ALFA",
+	"BINA",
+	"KANJ",
+	"NUME"
+      ]
+    },
+    "QRCodeErrorCorrection1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"M015",
+	"Q025",
+	"H030",
+	"L007"
+      ]
+    },
+    "Response11Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"WARN",
+	"FAIL",
+	"SUCC"
+      ]
+    },
+    "Response9Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"APPR",
+	"DECL",
+	"PART",
+	"SUSP",
+	"TECH"
+      ]
+    },
+    "RetailerMessage1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"SSAB",
+	"SAAQ",
+	"SAAP",
+	"SDDR",
+	"SDDP",
+	"SSEN",
+	"SSMQ",
+	"SSMR",
+	"SSRJ",
+	"SARQ",
+	"SARP",
+	"SFRP",
+	"SFRQ",
+	"SFSQ",
+	"SFSP",
+	"SASQ",
+	"SASP"
+      ]
+    },
+    "RetailerResultDetail1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ABRT",
+	"BUSY",
+	"CANC",
+	"DEVO",
+	"WPIN",
+	"NHOS",
+	"UNVS",
+	"UNVD",
+	"REFU",
+	"PAYR",
+	"TNFD",
+	"NALW",
+	"LOUT",
+	"IVCA",
+	"ICAR",
+	"WIPG"
+      ]
+    },
+    "RetailerService3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"FSPP",
+	"FSRP",
+	"FSIP",
+	"FSBP",
+	"FSLP",
+	"FSVP",
+	"FSEP",
+	"FSAP",
+	"FSCP"
+      ]
+    },
+    "SaleCapabilities1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"CHDI",
+	"CHER",
+	"CHIN",
+	"CHST",
+	"CUDI",
+	"CUAS",
+	"CUER",
+	"CUIN",
+	"POIR",
+	"PRDC",
+	"PRRP",
+	"PRVC"
+      ]
+    },
+    "SaleTokenScope1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MULT",
+	"SNGL"
+      ]
+    },
+    "StoredValueAccountType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"BNKA",
+	"CWVC",
+	"CPYA",
+	"ELMY",
+	"GIFT",
+	"GCER",
+	"MLVC",
+	"OLVC",
+	"MERC",
+	"OTHR",
+	"PHON",
+	"CARD",
+	"TRVL"
+      ]
+    },
+    "StoredValueTransactionType3Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ACTV",
+	"DUPL",
+	"LOAD",
+	"RESV",
+	"REVS",
+	"ULOA",
+	"CLOS",
+	"DCTV",
+	"OPEN",
+	"BALC"
+      ]
+    },
+    "SupportedPaymentOption2Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"PART",
+	"MSRV",
+	"INSI",
+	"PINQ"
+      ]
+    },
+    "TMSContactLevel1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"CRIT",
+	"ASAP",
+	"DTIM"
+      ]
+    },
+    "TimeUnit1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"DAYC",
+	"HOUR",
+	"MINU",
+	"MNTH",
+	"SECO",
+	"WEEK",
+	"YEAR"
+      ]
+    },
+    "TrackFormat1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"AAMV",
+	"CMC7",
+	"E13B",
+	"ISOF",
+	"JIS1",
+	"JIS2"
+      ]
+    },
+    "TransactionChannel5Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MAIL",
+	"TLPH",
+	"ECOM",
+	"TVPY",
+	"SECM",
+	"MOBL",
+	"MPOS"
+      ]
+    },
+    "TransactionEnvironment1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"MERC",
+	"PRIV",
+	"PUBL"
+      ]
+    },
+    "TypeOfAmount8Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"ACTL",
+	"ESTM",
+	"MAXI",
+	"DFLT",
+	"RPLT",
+	"INCR",
+	"DECR",
+	"RESD"
+      ]
+    },
+    "UnitOfMeasure6Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"PIEC",
+	"TONS",
+	"FOOT",
+	"GBGA",
+	"USGA",
+	"GRAM",
+	"INCH",
+	"KILO",
+	"PUND",
+	"METR",
+	"CMET",
+	"MMET",
+	"LITR",
+	"CELI",
+	"MILI",
+	"GBOU",
+	"USOU",
+	"GBQA",
+	"USQA",
+	"GBPI",
+	"USPI",
+	"MILE",
+	"KMET",
+	"YARD",
+	"SQKI",
+	"HECT",
+	"ARES",
+	"SMET",
+	"SCMT",
+	"SMIL",
+	"SQMI",
+	"SQYA",
+	"SQFO",
+	"SQIN",
+	"ACRE",
+	"KWHO",
+	"DGEU",
+	"GGEU"
+      ]
+    },
+    "UserInterface4Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"CDSP",
+	"CRCP",
+	"MDSP",
+	"MRCP",
+	"CRDO"
+      ]
+    },
+    "Verification1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"FAIL",
+	"MISS",
+	"NOVF",
+	"PART",
+	"SUCC",
+	"ERRR"
+      ]
+    },
+    "ActiveCurrencyAndAmount_SimpleType": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	  "minimum":0,
+	  "exclusiveMinimum":false
+	}
+      ]
+    },
+    "ActiveCurrencyCode": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[A-Z]{3,3}"
+	}
+      ]
+    },
+    "AnyBICDec2014Identifier": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}"
+	}
+      ]
+    },
+    "BBANIdentifier": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[a-zA-Z0-9]{1,30}"
+	}
+      ]
+    },
+    "CountryCode": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[A-Z]{2,2}"
+	}
+      ]
+    },
+    "Exact3AlphaNumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[a-zA-Z0-9]{3}"
+	}
+      ]
+    },
+    "Exact3NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{3}"
+	}
+      ]
+    },
+    "Exact4NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{4}"
+	}
+      ]
+    },
+    "IBAN2007Identifier": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}"
+	}
+      ]
+    },
+    "ISO3NumericCountryCode": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{3,3}"
+	}
+      ]
+    },
+    "ImpliedCurrencyAndAmount": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	  "minimum":0,
+	  "exclusiveMinimum":false
+	}
+      ]
+    },
+    "Max10000Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":10000
+	}
+      ]
+    },
+    "Max100KBinary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":102400
+	}
+      ]
+    },
+    "Max1025Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":1025
+	}
+      ]
+    },
+    "Max104Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":104
+	}
+      ]
+    },
+    "Max10KBinary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":10240
+	}
+      ]
+    },
+    "Max10Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":10
+	}
+      ]
+    },
+    "Max11NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,11}"
+	}
+      ]
+    },
+    "Max140Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":140
+	}
+      ]
+    },
+    "Max140Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":140
+	}
+      ]
+    },
+    "Max15NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,15}"
+	}
+      ]
+    },
+    "Max16Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":16
+	}
+      ]
+    },
+    "Max19NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,19}"
+	}
+      ]
+    },
+    "Max20000Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":20000
+	}
+      ]
+    },
+    "Max256Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":256
+	}
+      ]
+    },
+    "Max2KBinary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":2048
+	}
+      ]
+    },
+    "Max2MBBinary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":2097152
+	}
+      ]
+    },
+    "Max2NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,2}"
+	}
+      ]
+    },
+    "Max3000Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":3000
+	}
+      ]
+    },
+    "Max30Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "maxLength":30
+	}
+      ]
+    },
+    "Max350Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":350
+	}
+      ]
+    },
+    "Max35Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":35
+	}
+      ]
+    },
+    "Max35NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,35}"
+	}
+      ]
+    },
+    "Max35Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":35
+	}
+      ]
+    },
+    "Max37Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":37
+	}
+      ]
+    },
+    "Max3NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,3}"
+	}
+      ]
+    },
+    "Max3Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":3
+	}
+      ]
+    },
+    "Max45Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":45
+	}
+      ]
+    },
+    "Max5000Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":5000
+	}
+      ]
+    },
+    "Max500Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":500
+	}
+      ]
+    },
+    "Max500Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":500
+	}
+      ]
+    },
+    "Max5NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,5}"
+	}
+      ]
+    },
+    "Max6Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":6
+	}
+      ]
+    },
+    "Max70Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":70
+	}
+      ]
+    },
+    "Max76Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":76
+	}
+      ]
+    },
+    "Max8000Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":8000
+	}
+      ]
+    },
+    "Max8Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":8
+	}
+      ]
+    },
+    "Max9NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{1,9}"
+	}
+      ]
+    },
+    "Min2Max3AlphaText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[a-zA-Z]{2,3}"
+	}
+      ]
+    },
+    "Min2Max3NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{2,3}"
+	}
+      ]
+    },
+    "Min3Max4Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":3,
+	  "maxLength":4
+	}
+      ]
+    },
+    "Min6Max8Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":6,
+	  "maxLength":8
+	}
+      ]
+    },
+    "Min8Max28NumericText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{8,28}"
+	}
+      ]
+    },
+    "PhoneNumber": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"\\+[0-9]{1,3}-[0-9()+\\-]{1,30}"
+	}
+      ]
+    },
+    "PositiveNumber": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:decimal"
+	},
+	{
+	  "minimum":1,
+	  "exclusiveMinimum":false
+	}
+      ]
+    },
+    "UPICIdentifier": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[0-9]{8,17}"
+	}
+      ]
+    },
+    "Acquirer10": {
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"ParamsVrsn": {
+	  "$ref":"#/definitions/Max256Text"
+	}
+      }
+    },
+    "Action15": {
+      "required": [
+	"ActnTp"
+      ],
+      "type":"object",
+      "properties": {
+	"ActnTp": {
+	  "$ref":"#/definitions/ActionType13Code"
+	},
+	"MsgToPres": {
+	  "$ref":"#/definitions/ActionMessage11"
+	},
+	"RmotAccs": {
+	  "$ref":"#/definitions/NetworkParameters7"
+	},
+	"Rtry": {
+	  "$ref":"#/definitions/ProcessRetry3"
+	},
+	"TmCond": {
+	  "$ref":"#/definitions/ProcessTiming6"
+	}
+      }
+    },
+    "ActionMessage11": {
+      "required": [
+	"MsgDstn"
+      ],
+      "type":"object",
+      "properties": {
+	"MsgDstn": {
+	  "$ref":"#/definitions/UserInterface4Code"
+	},
+	"InfQlfr": {
+	  "$ref":"#/definitions/InformationQualify1Code"
+	},
+	"Frmt": {
+	  "$ref":"#/definitions/OutputFormat3Code"
+	},
+	"MsgCntt": {
+	  "$ref":"#/definitions/Max20000Text"
+	},
+	"MsgCnttSgntr": {
+	  "$ref":"#/definitions/ContentInformationType38"
+	},
+	"OutptBrcd": {
+	  "$ref":"#/definitions/OutputBarcode2"
+	},
+	"RspnReqrdFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"MinDispTm": {
+	  "$ref":"#/definitions/Number"
+	}
+      }
+    },
+    "AddressVerification1": {
+      "type":"object",
+      "properties": {
+	"AdrDgts": {
+	  "$ref":"#/definitions/Max5NumericText"
+	},
+	"PstlCdDgts": {
+	  "$ref":"#/definitions/Max5NumericText"
+	}
+      }
+    },
+    "AggregationTransaction3": {
+      "type":"object",
+      "properties": {
+	"FrstPmtDtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"LastPmtDtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"NbOfPmts": {
+	  "$ref":"#/definitions/Number"
+	},
+	"IndvPmt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/DetailedAmount21"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "AlgorithmIdentification31": {
+      "required": [
+	"Algo"
+      ],
+      "type":"object",
+      "properties": {
+	"Algo": {
+	  "$ref":"#/definitions/Algorithm27Code"
+	},
+	"Param": {
+	  "$ref":"#/definitions/Parameter7"
+	}
+      }
+    },
+    "AlgorithmIdentification32": {
+      "required": [
+	"Algo"
+      ],
+      "type":"object",
+      "properties": {
+	"Algo": {
+	  "$ref":"#/definitions/Algorithm28Code"
+	},
+	"Param": {
+	  "$ref":"#/definitions/Parameter12"
+	}
+      }
+    },
+    "AlgorithmIdentification33": {
+      "required": [
+	"Algo"
+      ],
+      "type":"object",
+      "properties": {
+	"Algo": {
+	  "$ref":"#/definitions/Algorithm29Code"
+	},
+	"Param": {
+	  "$ref":"#/definitions/Parameter16"
+	}
+      }
+    },
+    "AlgorithmIdentification34": {
+      "required": [
+	"Algo"
+      ],
+      "type":"object",
+      "properties": {
+	"Algo": {
+	  "$ref":"#/definitions/Algorithm8Code"
+	},
+	"Param": {
+	  "$ref":"#/definitions/Parameter18"
+	}
+      }
+    },
+    "AlgorithmIdentification35": {
+      "required": [
+	"Algo"
+      ],
+      "type":"object",
+      "properties": {
+	"Algo": {
+	  "$ref":"#/definitions/Algorithm7Code"
+	},
+	"Param": {
+	  "$ref":"#/definitions/Parameter17"
+	}
+      }
+    },
+    "AlgorithmIdentification36": {
+      "required": [
+	"Algo"
+      ],
+      "type":"object",
+      "properties": {
+	"Algo": {
+	  "$ref":"#/definitions/Algorithm26Code"
+	}
+      }
+    },
+    "Amount5": {
+      "required": [
+	"Amt"
+      ],
+      "type":"object",
+      "properties": {
+	"Amt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Sgn": {
+	  "$ref":"#/definitions/PlusOrMinusIndicator"
+	}
+      }
+    },
+    "AmountAndDirection93": {
+      "required": [
+	"Amt",
+	"Ccy"
+      ],
+      "type":"object",
+      "properties": {
+	"Amt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"Sgn": {
+	  "$ref":"#/definitions/PlusOrMinusIndicator"
+	}
+      }
+    },
+    "AuthenticatedData10": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"Rcpt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Recipient15Choice"
+	  },
+	  "minItems":1
+	},
+	"MACAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification31"
+	},
+	"NcpsltdCntt": {
+	  "$ref":"#/definitions/EncapsulatedContent3"
+	},
+	"MAC": {
+	  "$ref":"#/definitions/Max140Binary"
+	}
+      },
+      "required": [
+	"Rcpt",
+	"MACAlgo",
+	"NcpsltdCntt",
+	"MAC"
+      ]
+    },
+    "AuthorisationResult17": {
+      "type":"object",
+      "properties": {
+	"AuthstnNtty": {
+	  "$ref":"#/definitions/GenericIdentification90"
+	},
+	"RspnToAuthstn": {
+	  "$ref":"#/definitions/ResponseType10"
+	},
+	"AuthstnCd": {
+	  "$ref":"#/definitions/Max8Text"
+	},
+	"CmpltnReqrd": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"TMSTrggr": {
+	  "$ref":"#/definitions/TMSTrigger1"
+	}
+      },
+      "required": [
+	"RspnToAuthstn"
+      ]
+    },
+    "AuthorisationResult18": {
+      "type":"object",
+      "properties": {
+	"AuthstnNtty": {
+	  "$ref":"#/definitions/GenericIdentification90"
+	},
+	"RspnToAuthstn": {
+	  "$ref":"#/definitions/ResponseType10"
+	},
+	"AuthstnCd": {
+	  "$ref":"#/definitions/Max8Text"
+	}
+      },
+      "required": [
+	"RspnToAuthstn"
+      ]
+    },
+    "BalanceInquiryResponse6": {
+      "type":"object",
+      "properties": {
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"PmtAcct": {
+	  "$ref":"#/definitions/PaymentAccount3"
+	},
+	"LltyAcct": {
+	  "$ref":"#/definitions/LoyaltyAccount3"
+	},
+	"StordValAcct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/StoredValueAccount2"
+	  },
+	  "minItems":0
+	},
+	"Rct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PaymentReceipt6"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "BatchResponse6": {
+      "type":"object",
+      "properties": {
+	"SaleBtchId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POIBtchId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"PrfrmdTx": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PerformedTransaction6"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "BinRange1": {
+      "required": [
+	"LwrBin",
+	"HghrBin"
+      ],
+      "type":"object",
+      "properties": {
+	"LwrBin": {
+	  "$ref":"#/definitions/Max15NumericText"
+	},
+	"HghrBin": {
+	  "$ref":"#/definitions/Max15NumericText"
+	}
+      }
+    },
+    "CapturedSignature1": {
+      "required": [
+	"ImgFrmt"
+      ],
+      "type":"object",
+      "properties": {
+	"ImgFrmt": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ImgData": {
+	  "$ref":"#/definitions/Max2MBBinary"
+	},
+	"ImgRef": {
+	  "$ref":"#/definitions/Max500Text"
+	},
+	"AddtlInf": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "CardAcquisitionResponse3": {
+      "type":"object",
+      "properties": {
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"PmtBrnd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":0
+	},
+	"CstmrLang": {
+	  "$ref":"#/definitions/LanguageCode"
+	},
+	"LltyAcct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LoyaltyAccount3"
+	  },
+	  "minItems":0
+	},
+	"CstmrOrdr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CustomerOrder1"
+	  },
+	  "minItems":0
+	}
+      },
+      "required": [
+	"POITxId"
+      ]
+    },
+    "CardDirectDebit2": {
+      "type":"object",
+      "properties": {
+	"DbtrId": {
+	  "$ref":"#/definitions/Debtor4"
+	},
+	"CdtrId": {
+	  "$ref":"#/definitions/Creditor4"
+	},
+	"MndtRltdInf": {
+	  "$ref":"#/definitions/MandateRelatedInformation13"
+	}
+      },
+      "required": [
+	"CdtrId",
+	"MndtRltdInf"
+      ]
+    },
+    "CardPaymentContext30": {
+      "type":"object",
+      "properties": {
+	"PmtCntxt": {
+	  "$ref":"#/definitions/PaymentContext29"
+	},
+	"SaleCntxt": {
+	  "$ref":"#/definitions/SaleContext4"
+	},
+	"DrctDbtCntxt": {
+	  "$ref":"#/definitions/CardDirectDebit2"
+	}
+      }
+    },
+    "CardPaymentEnvironment80": {
+      "type":"object",
+      "properties": {
+	"Acqrr": {
+	  "$ref":"#/definitions/Acquirer10"
+	},
+	"SvcPrvdr": {
+	  "$ref":"#/definitions/Acquirer10"
+	},
+	"Mrchnt": {
+	  "$ref":"#/definitions/Organisation41"
+	},
+	"POI": {
+	  "$ref":"#/definitions/PointOfInteraction14"
+	},
+	"Card": {
+	  "$ref":"#/definitions/PaymentCard35"
+	},
+	"Chck": {
+	  "$ref":"#/definitions/Check1"
+	},
+	"StordValAcct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/StoredValueAccount2"
+	  },
+	  "minItems":0
+	},
+	"LltyAcct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LoyaltyAccount3"
+	  },
+	  "minItems":0
+	},
+	"CstmrDvc": {
+	  "$ref":"#/definitions/CustomerDevice3"
+	},
+	"Wllt": {
+	  "$ref":"#/definitions/CustomerDevice3"
+	},
+	"PmtTkn": {
+	  "$ref":"#/definitions/Token1"
+	},
+	"MrchntTkn": {
+	  "$ref":"#/definitions/MerchantToken2"
+	},
+	"Crdhldr": {
+	  "$ref":"#/definitions/Cardholder21"
+	},
+	"PrtctdCrdhldrData": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	},
+	"SaleEnvt": {
+	  "$ref":"#/definitions/RetailerSaleEnvironment2"
+	}
+      }
+    },
+    "CardPaymentToken5": {
+      "type":"object",
+      "properties": {
+	"Tkn": {
+	  "$ref":"#/definitions/Min8Max28NumericText"
+	},
+	"CardSeqNb": {
+	  "$ref":"#/definitions/Min2Max3NumericText"
+	},
+	"TknXpryDt": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"TknChrtc": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":0
+	},
+	"TknRqstr": {
+	  "$ref":"#/definitions/PaymentTokenIdentifiers1"
+	},
+	"TknAssrncLvl": {
+	  "$ref":"#/definitions/Number"
+	},
+	"TknAssrncData": {
+	  "$ref":"#/definitions/Max500Binary"
+	},
+	"TknAssrncMtd": {
+	  "$ref":"#/definitions/Max2NumericText"
+	},
+	"TknInittdInd": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	}
+      }
+    },
+    "CardPaymentTransaction131": {
+      "type":"object",
+      "properties": {
+	"SaleRefId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POIId": {
+	  "$ref":"#/definitions/GenericIdentification32"
+	},
+	"CcyConvs": {
+	  "$ref":"#/definitions/CurrencyConversion31"
+	}
+      },
+      "required": [
+	"TxId",
+	"POIId"
+      ]
+    },
+    "CardPaymentTransaction132": {
+      "required": [
+	"AuthstnRslt"
+      ],
+      "type":"object",
+      "properties": {
+	"AuthstnRslt": {
+	  "$ref":"#/definitions/AuthorisationResult17"
+	},
+	"AllwdPdctCd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Product4"
+	  },
+	  "minItems":0
+	},
+	"NotAllwdPdctCd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Product4"
+	  },
+	  "minItems":0
+	},
+	"AddtlAvlblPdct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Product5"
+	  },
+	  "minItems":0
+	},
+	"Bal": {
+	  "$ref":"#/definitions/AmountAndDirection93"
+	},
+	"PrtctdBal": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	},
+	"Actn": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Action15"
+	  },
+	  "minItems":0
+	},
+	"CcyConvsElgblty": {
+	  "$ref":"#/definitions/CurrencyConversion29"
+	}
+      }
+    },
+    "CardPaymentTransaction136": {
+      "type":"object",
+      "properties": {
+	"TxCaptr": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"TxTp": {
+	  "$ref":"#/definitions/CardPaymentServiceType5Code"
+	},
+	"AddtlSvc": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CardPaymentServiceType9Code"
+	  },
+	  "minItems":0
+	},
+	"SvcAttr": {
+	  "$ref":"#/definitions/CardPaymentServiceType14Code"
+	},
+	"LastTxFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"MrchntCtgyCd": {
+	  "$ref":"#/definitions/Min3Max4Text"
+	},
+	"SaleRefId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"OrgnlTx": {
+	  "$ref":"#/definitions/CardPaymentTransaction131"
+	},
+	"RcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IssrRefData": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"IssrCITId": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"MrchntCITId": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"TxDtls": {
+	  "$ref":"#/definitions/CardPaymentTransactionDetails53"
+	},
+	"AuthstnRslt": {
+	  "$ref":"#/definitions/AuthorisationResult18"
+	},
+	"MrchntRefData": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"CstmrOrdr": {
+	  "$ref":"#/definitions/CustomerOrder1"
+	},
+	"CstmrTkn": {
+	  "$ref":"#/definitions/CardPaymentToken5"
+	},
+	"CstmrCnsnt": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"CardPrgrmmPropsd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":0
+	},
+	"CardPrgrmmApld": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SaleToPOIData": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"SaleToAcqrrData": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"SaleToIssrData": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AddtlTxData": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max70Text"
+	  },
+	  "minItems":0
+	}
+      },
+      "required": [
+	"TxTp",
+	"TxId",
+	"TxDtls"
+      ]
+    },
+    "CardPaymentTransactionDetails53": {
+      "type":"object",
+      "properties": {
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"TtlAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"CmltvAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"AmtQlfr": {
+	  "$ref":"#/definitions/TypeOfAmount8Code"
+	},
+	"DtldAmt": {
+	  "$ref":"#/definitions/DetailedAmount15"
+	},
+	"ReqdAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"AuthrsdAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"InvcAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"VldtyDt": {
+	  "$ref":"#/definitions/ISODate"
+	},
+	"OnLineRsn": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/OnLineReason2Code"
+	  },
+	  "minItems":0
+	},
+	"UattnddLvlCtgy": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"AcctTp": {
+	  "$ref":"#/definitions/CardAccountType3Code"
+	},
+	"CcyConvsRslt": {
+	  "$ref":"#/definitions/CurrencyConversion30"
+	},
+	"Instlmt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Instalment5"
+	  },
+	  "minItems":0
+	},
+	"Rcrng": {
+	  "$ref":"#/definitions/RecurringTransaction6"
+	},
+	"AggtnTx": {
+	  "$ref":"#/definitions/AggregationTransaction3"
+	},
+	"PdctCdSetId": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"SaleItm": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Product6"
+	  },
+	  "minItems":0
+	},
+	"DlvryLctn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ReSubmissnCntr": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"CmpltnSeqNb": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"CmpltnSeqCntr": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"TtlAuthrsdAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"AddtlInf": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/ExternallyDefinedData5"
+	  },
+	  "minItems":0
+	},
+	"ICCRltdData": {
+	  "$ref":"#/definitions/Max10000Binary"
+	}
+      },
+      "required": [
+	"TtlAmt"
+      ]
+    },
+    "Cardholder21": {
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/PersonIdentification15"
+	},
+	"Nm": {
+	  "$ref":"#/definitions/Max45Text"
+	},
+	"Lang": {
+	  "$ref":"#/definitions/LanguageCode"
+	},
+	"BllgAdr": {
+	  "$ref":"#/definitions/PostalAddress22"
+	},
+	"ShppgAdr": {
+	  "$ref":"#/definitions/PostalAddress22"
+	},
+	"TripNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Vhcl": {
+	  "$ref":"#/definitions/Vehicle1"
+	},
+	"Authntcn": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CardholderAuthentication17"
+	  },
+	  "minItems":0
+	},
+	"TxVrfctnRslt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/TransactionVerificationResult4"
+	  },
+	  "minItems":0
+	},
+	"PrsnlData": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"MobData": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/MobileData6"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "CardholderAuthentication17": {
+      "type":"object",
+      "properties": {
+	"AuthntcnMtd": {
+	  "$ref":"#/definitions/AuthenticationMethod8Code"
+	},
+	"AuthntcnXmptn": {
+	  "$ref":"#/definitions/Exemption1Code"
+	},
+	"AuthntcnVal": {
+	  "$ref":"#/definitions/Max5000Binary"
+	},
+	"PrtctdAuthntcnVal": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	},
+	"CrdhldrOnLinePIN": {
+	  "$ref":"#/definitions/OnLinePIN11"
+	},
+	"CrdhldrId": {
+	  "$ref":"#/definitions/PersonIdentification15"
+	},
+	"AdrVrfctn": {
+	  "$ref":"#/definitions/AddressVerification1"
+	},
+	"AuthntcnTp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AuthntcnLvl": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AuthntcnRslt": {
+	  "$ref":"#/definitions/AuthenticationResult1Code"
+	},
+	"AuthntcnAddtlInf": {
+	  "$ref":"#/definitions/ExternallyDefinedData5"
+	}
+      }
+    },
+    "CashAccountIdentification7Choice": {
+      "required": [
+	"IBAN",
+	"BBAN",
+	"UPIC",
+	"DmstAcct"
+      ],
+      "type":"object",
+      "properties": {
+	"IBAN": {
+	  "$ref":"#/definitions/IBAN2007Identifier"
+	},
+	"BBAN": {
+	  "$ref":"#/definitions/BBANIdentifier"
+	},
+	"UPIC": {
+	  "$ref":"#/definitions/UPICIdentifier"
+	},
+	"DmstAcct": {
+	  "$ref":"#/definitions/SimpleIdentificationInformation4"
+	}
+      }
+    },
+    "CertificateIssuer1": {
+      "required": [
+	"RltvDstngshdNm"
+      ],
+      "type":"object",
+      "properties": {
+	"RltvDstngshdNm": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/RelativeDistinguishedName1"
+	  },
+	  "minItems":1
+	}
+      }
+    },
+    "Check1": {
+      "type":"object",
+      "properties": {
+	"BkId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AcctNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ChckNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ChckCardNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ChckTrckData2": {
+	  "$ref":"#/definitions/TrackData2"
+	},
+	"ChckTp": {
+	  "$ref":"#/definitions/CheckType1Code"
+	},
+	"Ctry": {
+	  "$ref":"#/definitions/Max3Text"
+	}
+      }
+    },
+    "Commission18": {
+      "required": [
+	"Rate"
+      ],
+      "type":"object",
+      "properties": {
+	"Rate": {
+	  "$ref":"#/definitions/PercentageRate"
+	},
+	"AddtlInf": {
+	  "$ref":"#/definitions/Max350Text"
+	}
+      }
+    },
+    "Commission19": {
+      "required": [
+	"Amt"
+      ],
+      "type":"object",
+      "properties": {
+	"Amt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"AddtlInf": {
+	  "$ref":"#/definitions/Max350Text"
+	}
+      }
+    },
+    "CommunicationAddress9": {
+      "type":"object",
+      "properties": {
+	"PstlAdr": {
+	  "$ref":"#/definitions/PostalAddress22"
+	},
+	"Email": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"URLAdr": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"Phne": {
+	  "$ref":"#/definitions/PhoneNumber"
+	},
+	"CstmrSvc": {
+	  "$ref":"#/definitions/PhoneNumber"
+	},
+	"AddtlCtctInf": {
+	  "$ref":"#/definitions/Max256Text"
+	}
+      }
+    },
+    "CommunicationCharacteristics5": {
+      "required": [
+	"ComTp",
+	"RmotPty",
+	"Actv"
+      ],
+      "type":"object",
+      "properties": {
+	"ComTp": {
+	  "$ref":"#/definitions/POICommunicationType2Code"
+	},
+	"RmotPty": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PartyType7Code"
+	  },
+	  "minItems":1
+	},
+	"Actv": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"Params": {
+	  "$ref":"#/definitions/NetworkParameters7"
+	},
+	"PhysIntrfc": {
+	  "$ref":"#/definitions/PhysicalInterfaceParameter1"
+	}
+      }
+    },
+    "ContentInformationType38": {
+      "required": [
+	"CnttTp"
+      ],
+      "type":"object",
+      "properties": {
+	"CnttTp": {
+	  "$ref":"#/definitions/ContentType2Code"
+	},
+	"AuthntcdData": {
+	  "$ref":"#/definitions/AuthenticatedData10"
+	},
+	"SgndData": {
+	  "$ref":"#/definitions/SignedData9"
+	}
+      }
+    },
+    "ContentInformationType39": {
+      "required": [
+	"CnttTp"
+      ],
+      "type":"object",
+      "properties": {
+	"CnttTp": {
+	  "$ref":"#/definitions/ContentType2Code"
+	},
+	"EnvlpdData": {
+	  "$ref":"#/definitions/EnvelopedData11"
+	},
+	"AuthntcdData": {
+	  "$ref":"#/definitions/AuthenticatedData10"
+	},
+	"SgndData": {
+	  "$ref":"#/definitions/SignedData9"
+	},
+	"DgstdData": {
+	  "$ref":"#/definitions/DigestedData6"
+	}
+      }
+    },
+    "ContentInformationType40": {
+      "required": [
+	"CnttTp",
+	"EnvlpdData"
+      ],
+      "type":"object",
+      "properties": {
+	"CnttTp": {
+	  "$ref":"#/definitions/ContentType2Code"
+	},
+	"EnvlpdData": {
+	  "$ref":"#/definitions/EnvelopedData11"
+	}
+      }
+    },
+    "Creditor4": {
+      "required": [
+	"Cdtr"
+      ],
+      "type":"object",
+      "properties": {
+	"Cdtr": {
+	  "$ref":"#/definitions/PartyIdentification178Choice"
+	},
+	"RegnId": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "CryptographicKey18": {
+      "required": [
+	"Id",
+	"Vrsn"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max350Text"
+	},
+	"AddtlId": {
+	  "$ref":"#/definitions/Max35Binary"
+	},
+	"Nm": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"SctyPrfl": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ItmNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Vrsn": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/CryptographicKeyType3Code"
+	},
+	"Fctn": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/KeyUsage1Code"
+	  },
+	  "minItems":0
+	},
+	"ActvtnDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"DeactvtnDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"KeyVal": {
+	  "$ref":"#/definitions/ContentInformationType39"
+	},
+	"CmpntWthAuthrsdAccs": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GenericIdentification186"
+	  },
+	  "minItems":0
+	},
+	"PrtctdCmpntWthAuthrsdAccs": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/ContentInformationType39"
+	  },
+	  "minItems":0
+	},
+	"KeyChckVal": {
+	  "$ref":"#/definitions/Max35Binary"
+	},
+	"AddtlMgmtInf": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GenericInformation1"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "CurrencyConversion29": {
+      "type":"object",
+      "properties": {
+	"CcyConvsId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TrgtCcy": {
+	  "$ref":"#/definitions/CurrencyDetails3"
+	},
+	"RsltgAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"XchgRate": {
+	  "$ref":"#/definitions/PercentageRate"
+	},
+	"NvrtdXchgRate": {
+	  "$ref":"#/definitions/PercentageRate"
+	},
+	"QtnDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"VldFr": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"VldUntil": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"SrcCcy": {
+	  "$ref":"#/definitions/CurrencyDetails2"
+	},
+	"AplblBinRg": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/BinRange1"
+	  },
+	  "minItems":0
+	},
+	"OrgnlAmt": {
+	  "$ref":"#/definitions/OriginalAmountDetails1"
+	},
+	"ComssnDtls": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Commission19"
+	  },
+	  "minItems":0
+	},
+	"MrkUpDtls": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Commission18"
+	  },
+	  "minItems":0
+	},
+	"DclrtnDtls": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/ActionMessage11"
+	  },
+	  "minItems":0
+	}
+      },
+      "required": [
+	"TrgtCcy",
+	"XchgRate",
+	"SrcCcy"
+      ]
+    },
+    "CurrencyConversion30": {
+      "type":"object",
+      "properties": {
+	"AccptdByCrdhldr": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"Convs": {
+	  "$ref":"#/definitions/CurrencyConversion29"
+	}
+      }
+    },
+    "CurrencyConversion31": {
+      "required": [
+	"Rslt"
+      ],
+      "type":"object",
+      "properties": {
+	"Rslt": {
+	  "$ref":"#/definitions/CurrencyConversionResponse3Code"
+	},
+	"RsltRsn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ConvsDtls": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CurrencyConversion29"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "CurrencyDetails2": {
+      "type":"object",
+      "properties": {
+	"AlphaCd": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"NmrcCd": {
+	  "$ref":"#/definitions/Exact3NumericText"
+	},
+	"Dcml": {
+	  "$ref":"#/definitions/Number"
+	},
+	"Nm": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "CurrencyDetails3": {
+      "required": [
+	"AlphaCd",
+	"NmrcCd",
+	"Dcml"
+      ],
+      "type":"object",
+      "properties": {
+	"AlphaCd": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"NmrcCd": {
+	  "$ref":"#/definitions/Exact3NumericText"
+	},
+	"Dcml": {
+	  "$ref":"#/definitions/Number"
+	},
+	"Nm": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "CustomerDevice3": {
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"Prvdr": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "CustomerOrder1": {
+      "required": [
+	"CstmrOrdrId",
+	"SaleRefId",
+	"StartDt",
+	"FrcstdAmt"
+      ],
+      "type":"object",
+      "properties": {
+	"CstmrOrdrId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SaleRefId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"OpnOrdrStat": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"StartDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"EndDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"Unit": {
+	  "$ref":"#/definitions/AmountUnit1Code"
+	},
+	"FrcstdAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"CurAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"AccsdBy": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AddtlInf": {
+	  "$ref":"#/definitions/Max1025Text"
+	}
+      }
+    },
+    "DateAndPlaceOfBirth1": {
+      "required": [
+	"BirthDt",
+	"CityOfBirth",
+	"CtryOfBirth"
+      ],
+      "type":"object",
+      "properties": {
+	"BirthDt": {
+	  "$ref":"#/definitions/ISODate"
+	},
+	"PrvcOfBirth": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CityOfBirth": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CtryOfBirth": {
+	  "$ref":"#/definitions/CountryCode"
+	}
+      }
+    },
+    "Debtor4": {
+      "type":"object",
+      "properties": {
+	"Dbtr": {
+	  "$ref":"#/definitions/PartyIdentification178Choice"
+	},
+	"AcctId": {
+	  "$ref":"#/definitions/CashAccountIdentification7Choice"
+	}
+      }
+    },
+    "DetailedAmount15": {
+      "type":"object",
+      "properties": {
+	"AmtGoodsAndSvcs": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"CshBck": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Grtty": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Fees": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/DetailedAmount4"
+	  },
+	  "minItems":0
+	},
+	"Rbt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/DetailedAmount4"
+	  },
+	  "minItems":0
+	},
+	"ValAddedTax": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/DetailedAmount4"
+	  },
+	  "minItems":0
+	},
+	"Srchrg": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/DetailedAmount4"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "DetailedAmount21": {
+      "required": [
+	"Amt",
+	"DtTm"
+      ],
+      "type":"object",
+      "properties": {
+	"Amt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"DtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"CardDataNtryMd": {
+	  "$ref":"#/definitions/CardDataReading8Code"
+	},
+	"ICCRltdData": {
+	  "$ref":"#/definitions/Max10000Binary"
+	},
+	"Labl": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "DetailedAmount4": {
+      "required": [
+	"Amt"
+      ],
+      "type":"object",
+      "properties": {
+	"Amt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Labl": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "DigestedData6": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"DgstAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification36"
+	},
+	"NcpsltdCntt": {
+	  "$ref":"#/definitions/EncapsulatedContent3"
+	},
+	"Dgst": {
+	  "$ref":"#/definitions/Max140Binary"
+	}
+      },
+      "required": [
+	"DgstAlgo",
+	"NcpsltdCntt",
+	"Dgst"
+      ]
+    },
+    "DisplayCapabilities4": {
+      "required": [
+	"Dstn"
+      ],
+      "type":"object",
+      "properties": {
+	"Dstn": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/UserInterface4Code"
+	  },
+	  "minItems":1
+	},
+	"AvlblFrmt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/OutputFormat1Code"
+	  },
+	  "minItems":0
+	},
+	"NbOfLines": {
+	  "$ref":"#/definitions/Number"
+	},
+	"LineWidth": {
+	  "$ref":"#/definitions/Number"
+	},
+	"AvlblLang": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LanguageCode"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "Document": {
+      "required": [
+	"SaleToPOISvcRspn"
+      ],
+      "type":"object",
+      "properties": {
+	"SaleToPOISvcRspn": {
+	  "$ref":"#/definitions/SaleToPOIServiceResponseV06"
+	}
+      }
+    },
+    "EncapsulatedContent3": {
+      "required": [
+	"CnttTp"
+      ],
+      "type":"object",
+      "properties": {
+	"CnttTp": {
+	  "$ref":"#/definitions/ContentType2Code"
+	},
+	"Cntt": {
+	  "$ref":"#/definitions/Max100KBinary"
+	}
+      }
+    },
+    "EncryptedContent7": {
+      "required": [
+	"CnttTp",
+	"NcrptdData"
+      ],
+      "type":"object",
+      "properties": {
+	"CnttTp": {
+	  "$ref":"#/definitions/ContentType2Code"
+	},
+	"CnttNcrptnAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification32"
+	},
+	"NcrptdData": {
+	  "$ref":"#/definitions/Max100KBinary"
+	}
+      }
+    },
+    "EnvelopedData11": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"OrgtrInf": {
+	  "$ref":"#/definitions/OriginatorInformation1"
+	},
+	"Rcpt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Recipient15Choice"
+	  },
+	  "minItems":1
+	},
+	"NcrptdCntt": {
+	  "$ref":"#/definitions/EncryptedContent7"
+	}
+      },
+      "required": [
+	"Rcpt"
+      ]
+    },
+    "ExternallyDefinedData5": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max1025Text"
+	},
+	"Val": {
+	  "$ref":"#/definitions/Max100KBinary"
+	},
+	"PrtctdVal": {
+	  "$ref":"#/definitions/ContentInformationType39"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/Max1025Text"
+	}
+      }
+    },
+    "GenericIdentification176": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/PartyType33Code"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/PartyType33Code"
+	},
+	"Ctry": {
+	  "$ref":"#/definitions/Min2Max3AlphaText"
+	},
+	"ShrtNm": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GenericIdentification177": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/PartyType33Code"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/PartyType33Code"
+	},
+	"Ctry": {
+	  "$ref":"#/definitions/Min2Max3AlphaText"
+	},
+	"ShrtNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"RmotAccs": {
+	  "$ref":"#/definitions/NetworkParameters7"
+	},
+	"Glctn": {
+	  "$ref":"#/definitions/Geolocation1"
+	}
+      }
+    },
+    "GenericIdentification186": {
+      "required": [
+	"Id",
+	"Tp"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/PartyType7Code"
+	}
+      }
+    },
+    "GenericIdentification32": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/PartyType3Code"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/PartyType4Code"
+	},
+	"ShrtNm": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GenericIdentification36": {
+      "required": [
+	"Id",
+	"Issr"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SchmeNm": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GenericIdentification4": {
+      "required": [
+	"Id",
+	"IdTp"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IdTp": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GenericIdentification48": {
+      "required": [
+	"Id",
+	"Vrsn",
+	"Issr"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Vrsn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GenericIdentification90": {
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/PartyType14Code"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/PartyType4Code"
+	},
+	"Ctry": {
+	  "$ref":"#/definitions/Min2Max3AlphaText"
+	},
+	"ShrtNm": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      },
+      "required": [
+	"Tp"
+      ]
+    },
+    "GenericInformation1": {
+      "required": [
+	"Nm"
+      ],
+      "type":"object",
+      "properties": {
+	"Nm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"Val": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "Geolocation1": {
+      "type":"object",
+      "properties": {
+	"GeogcCordints": {
+	  "$ref":"#/definitions/GeolocationGeographicCoordinates1"
+	},
+	"UTMCordints": {
+	  "$ref":"#/definitions/GeolocationUTMCoordinates1"
+	}
+      }
+    },
+    "GeolocationGeographicCoordinates1": {
+      "required": [
+	"Lat",
+	"Long"
+      ],
+      "type":"object",
+      "properties": {
+	"Lat": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Long": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GeolocationUTMCoordinates1": {
+      "required": [
+	"UTMZone",
+	"UTMEstwrd",
+	"UTMNrthwrd"
+      ],
+      "type":"object",
+      "properties": {
+	"UTMZone": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"UTMEstwrd": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"UTMNrthwrd": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GracePeriod1": {
+      "required": [
+	"Tm",
+	"UnitTp"
+      ],
+      "type":"object",
+      "properties": {
+	"Tm": {
+	  "$ref":"#/definitions/Max3NumericText"
+	},
+	"UnitTp": {
+	  "$ref":"#/definitions/GracePeriodUnitType1Code"
+	},
+	"OthrUnitTp": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "Header41": {
+      "required": [
+	"MsgFctn",
+	"PrtcolVrsn",
+	"XchgId",
+	"CreDtTm",
+	"InitgPty"
+      ],
+      "type":"object",
+      "properties": {
+	"MsgFctn": {
+	  "$ref":"#/definitions/RetailerMessage1Code"
+	},
+	"PrtcolVrsn": {
+	  "$ref":"#/definitions/Max6Text"
+	},
+	"XchgId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CreDtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"InitgPty": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"RcptPty": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"Tracblt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Traceability8"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "Instalment5": {
+      "type":"object",
+      "properties": {
+	"InstlmtPlan": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/InstalmentPlan1Code"
+	  },
+	  "minItems":0
+	},
+	"PlanId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PlanOwnr": {
+	  "$ref":"#/definitions/PlanOwner1Code"
+	},
+	"SeqNb": {
+	  "$ref":"#/definitions/Number"
+	},
+	"PrdUnit": {
+	  "$ref":"#/definitions/Frequency3Code"
+	},
+	"InstlmtPrd": {
+	  "$ref":"#/definitions/Number"
+	},
+	"TtlNbOfPmts": {
+	  "$ref":"#/definitions/Number"
+	},
+	"FrstPmtDt": {
+	  "$ref":"#/definitions/ISODate"
+	},
+	"TtlAmt": {
+	  "$ref":"#/definitions/ActiveCurrencyAndAmount"
+	},
+	"FrstAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"SbsqntAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"LastAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Chrgs": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"DtldChrgs": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/InstalmentAmountDetails1"
+	  },
+	  "minItems":0
+	},
+	"IntrstRate": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/InterestRateDetails1"
+	  },
+	  "minItems":0
+	},
+	"GracePrd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GracePeriod1"
+	  },
+	  "minItems":0
+	},
+	"PlanNtce": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/ActionMessage11"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "InstalmentAmountDetails1": {
+      "type":"object",
+      "properties": {
+	"Tp": {
+	  "$ref":"#/definitions/InstalmentAmountDetailsType1Code"
+	},
+	"OthrTp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SubTp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Amt": {
+	  "$ref":"#/definitions/Amount5"
+	},
+	"Pctg": {
+	  "$ref":"#/definitions/PercentageRate"
+	}
+      }
+    },
+    "InterestRateDetails1": {
+      "type":"object",
+      "properties": {
+	"Tp": {
+	  "$ref":"#/definitions/InterestRate1Code"
+	},
+	"OthrTp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Prd": {
+	  "$ref":"#/definitions/InstalmentPeriod1Code"
+	},
+	"Rate": {
+	  "$ref":"#/definitions/BaseOneRate"
+	}
+      },
+      "required": [
+	"Prd",
+	"Rate"
+      ]
+    },
+    "IssuerAndSerialNumber2": {
+      "required": [
+	"Issr",
+	"SrlNb"
+      ],
+      "type":"object",
+      "properties": {
+	"Issr": {
+	  "$ref":"#/definitions/CertificateIssuer1"
+	},
+	"SrlNb": {
+	  "$ref":"#/definitions/Max500Binary"
+	}
+      }
+    },
+    "KEK9": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"KEKId": {
+	  "$ref":"#/definitions/KEKIdentifier7"
+	},
+	"KeyNcrptnAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification32"
+	},
+	"NcrptdKey": {
+	  "$ref":"#/definitions/Max500Binary"
+	}
+      },
+      "required": [
+	"KEKId",
+	"KeyNcrptnAlgo"
+      ]
+    },
+    "KEKIdentifier7": {
+      "required": [
+	"KeyId",
+	"KeyVrsn"
+      ],
+      "type":"object",
+      "properties": {
+	"KeyId": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"KeyVrsn": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"SeqNb": {
+	  "$ref":"#/definitions/Number"
+	},
+	"DerivtnId": {
+	  "$ref":"#/definitions/Max500Binary"
+	}
+      }
+    },
+    "KeyTransport10": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"RcptId": {
+	  "$ref":"#/definitions/Recipient13Choice"
+	},
+	"KeyNcrptnAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification35"
+	},
+	"NcrptdKey": {
+	  "$ref":"#/definitions/Max5000Binary"
+	}
+      },
+      "required": [
+	"RcptId",
+	"KeyNcrptnAlgo",
+	"NcrptdKey"
+      ]
+    },
+    "LoyaltyAccount3": {
+      "required": [
+	"LltyId"
+      ],
+      "type":"object",
+      "properties": {
+	"LltyId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"NtryMd": {
+	  "$ref":"#/definitions/CardDataReading8Code"
+	},
+	"IdTp": {
+	  "$ref":"#/definitions/CardIdentificationType1Code"
+	},
+	"Brnd": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Prvdr": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"OwnrNm": {
+	  "$ref":"#/definitions/Max45Text"
+	},
+	"Unit": {
+	  "$ref":"#/definitions/AmountUnit1Code"
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"Bal": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	}
+      }
+    },
+    "LoyaltyAmount1": {
+      "type":"object",
+      "properties": {
+	"Unit": {
+	  "$ref":"#/definitions/AmountUnit1Code"
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"Amt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	}
+      },
+      "required": [
+	"Amt"
+      ]
+    },
+    "LoyaltyRebates1": {
+      "type":"object",
+      "properties": {
+	"TtlRbt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"RbtLabl": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SaleItmRbt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/SaleItemRebate1"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "LoyaltyResponse3": {
+      "required": [
+	"SaleTxId",
+	"POITxId"
+      ],
+      "type":"object",
+      "properties": {
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POIRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Rslt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LoyaltyResult3"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "LoyaltyResult3": {
+      "required": [
+	"Acct"
+      ],
+      "type":"object",
+      "properties": {
+	"Acct": {
+	  "$ref":"#/definitions/LoyaltyAccount3"
+	},
+	"Amt": {
+	  "$ref":"#/definitions/LoyaltyAmount1"
+	},
+	"SvrData": {
+	  "$ref":"#/definitions/LoyaltyServerData1"
+	},
+	"Rbts": {
+	  "$ref":"#/definitions/LoyaltyRebates1"
+	}
+      }
+    },
+    "LoyaltyServerData1": {
+      "type":"object",
+      "properties": {
+	"LltySvrId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"ApprvlCd": {
+	  "$ref":"#/definitions/Min6Max8Text"
+	},
+	"LltyTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"HstRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "MandateRelatedInformation13": {
+      "required": [
+	"MndtId"
+      ],
+      "type":"object",
+      "properties": {
+	"MndtId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"DtOfSgntr": {
+	  "$ref":"#/definitions/ISODate"
+	},
+	"MndtImg": {
+	  "$ref":"#/definitions/Max2MBBinary"
+	}
+      }
+    },
+    "MemoryCharacteristics1": {
+      "required": [
+	"Id",
+	"TtlSz",
+	"FreeSz",
+	"Unit"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TtlSz": {
+	  "$ref":"#/definitions/DecimalNumber"
+	},
+	"FreeSz": {
+	  "$ref":"#/definitions/DecimalNumber"
+	},
+	"Unit": {
+	  "$ref":"#/definitions/MemoryUnit1Code"
+	}
+      }
+    },
+    "MerchantToken2": {
+      "type":"object",
+      "properties": {
+	"Tkn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TknXpryDt": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"TknChrtc": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":0
+	},
+	"TknRqstr": {
+	  "$ref":"#/definitions/PaymentTokenIdentifiers1"
+	},
+	"TknAssrncLvl": {
+	  "$ref":"#/definitions/Number"
+	},
+	"TknAssrncData": {
+	  "$ref":"#/definitions/Max500Binary"
+	},
+	"TknAssrncMtd": {
+	  "$ref":"#/definitions/Max2NumericText"
+	},
+	"TknInittdInd": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	}
+      }
+    },
+    "MobileData6": {
+      "type":"object",
+      "properties": {
+	"MobCtryCd": {
+	  "$ref":"#/definitions/Min2Max3AlphaText"
+	},
+	"MobNtwkCd": {
+	  "$ref":"#/definitions/Min2Max3NumericText"
+	},
+	"MobMskdMSISDN": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Glctn": {
+	  "$ref":"#/definitions/Geolocation1"
+	},
+	"SnstvMobData": {
+	  "$ref":"#/definitions/SensitiveMobileData1"
+	},
+	"PrtctdMobData": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	}
+      }
+    },
+    "NameAndAddress6": {
+      "required": [
+	"Nm",
+	"Adr"
+      ],
+      "type":"object",
+      "properties": {
+	"Nm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"Adr": {
+	  "$ref":"#/definitions/PostalAddress2"
+	}
+      }
+    },
+    "NetworkParameters7": {
+      "required": [
+	"Adr"
+      ],
+      "type":"object",
+      "properties": {
+	"Adr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/NetworkParameters9"
+	  },
+	  "minItems":1
+	},
+	"UsrNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AccsCd": {
+	  "$ref":"#/definitions/Max35Binary"
+	},
+	"SvrCert": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max10KBinary"
+	  },
+	  "minItems":0
+	},
+	"SvrCertIdr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max140Binary"
+	  },
+	  "minItems":0
+	},
+	"ClntCert": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max10KBinary"
+	  },
+	  "minItems":0
+	},
+	"SctyPrfl": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "NetworkParameters9": {
+      "required": [
+	"NtwkTp",
+	"AdrVal"
+      ],
+      "type":"object",
+      "properties": {
+	"NtwkTp": {
+	  "$ref":"#/definitions/NetworkType1Code"
+	},
+	"AdrVal": {
+	  "$ref":"#/definitions/Max500Text"
+	}
+      }
+    },
+    "OnLinePIN11": {
+      "required": [
+	"NcrptdPINBlck",
+	"PINFrmt"
+      ],
+      "type":"object",
+      "properties": {
+	"NcrptdPINBlck": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	},
+	"PINFrmt": {
+	  "$ref":"#/definitions/PINFormat3Code"
+	},
+	"AddtlInpt": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "Organisation26": {
+      "required": [
+	"CmonNm",
+	"CtryCd",
+	"MrchntCtgyCd",
+	"RegdIdr"
+      ],
+      "type":"object",
+      "properties": {
+	"CmonNm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"Adr": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"CtryCd": {
+	  "$ref":"#/definitions/ISO3NumericCountryCode"
+	},
+	"MrchntCtgyCd": {
+	  "$ref":"#/definitions/Min3Max4Text"
+	},
+	"RegdIdr": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "Organisation41": {
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/GenericIdentification32"
+	},
+	"CmonNm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"LctnCtgy": {
+	  "$ref":"#/definitions/LocationCategory4Code"
+	},
+	"LctnAndCtct": {
+	  "$ref":"#/definitions/CommunicationAddress9"
+	},
+	"SchmeData": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "OriginalAmountDetails1": {
+      "type":"object",
+      "properties": {
+	"ActlAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"MinAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"MaxAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	}
+      }
+    },
+    "OriginatorInformation1": {
+      "type":"object",
+      "properties": {
+	"Cert": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max5000Binary"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "OutputBarcode2": {
+      "required": [
+	"BrcdTp"
+      ],
+      "type":"object",
+      "properties": {
+	"BrcdTp": {
+	  "$ref":"#/definitions/BarcodeType1Code"
+	},
+	"BrcdVal": {
+	  "$ref":"#/definitions/Max8000Text"
+	},
+	"QRCdBinryVal": {
+	  "$ref":"#/definitions/Max3000Binary"
+	},
+	"QRCdVrsn": {
+	  "$ref":"#/definitions/Max16Text"
+	},
+	"QRCdNcodgMd": {
+	  "$ref":"#/definitions/QRCodeEncodingMode1Code"
+	},
+	"QRCdErrCrrctn": {
+	  "$ref":"#/definitions/QRCodeErrorCorrection1Code"
+	}
+      }
+    },
+    "PackageType5": {
+      "type":"object",
+      "properties": {
+	"PackgId": {
+	  "$ref":"#/definitions/GenericIdentification176"
+	},
+	"PackgLngth": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"OffsetStart": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"OffsetEnd": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"PackgBlck": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/ExternallyDefinedData5"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "Parameter12": {
+      "type":"object",
+      "properties": {
+	"NcrptnFrmt": {
+	  "$ref":"#/definitions/EncryptionFormat2Code"
+	},
+	"InitlstnVctr": {
+	  "$ref":"#/definitions/Max500Binary"
+	},
+	"BPddg": {
+	  "$ref":"#/definitions/BytePadding1Code"
+	}
+      }
+    },
+    "Parameter16": {
+      "type":"object",
+      "properties": {
+	"DgstAlgo": {
+	  "$ref":"#/definitions/Algorithm26Code"
+	},
+	"MskGnrtrAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification34"
+	},
+	"SaltLngth": {
+	  "$ref":"#/definitions/Number"
+	},
+	"TrlrFld": {
+	  "$ref":"#/definitions/Number"
+	},
+	"OIDCrvNm": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "Parameter17": {
+      "type":"object",
+      "properties": {
+	"NcrptnFrmt": {
+	  "$ref":"#/definitions/EncryptionFormat2Code"
+	},
+	"DgstAlgo": {
+	  "$ref":"#/definitions/Algorithm26Code"
+	},
+	"MskGnrtrAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification34"
+	}
+      }
+    },
+    "Parameter18": {
+      "type":"object",
+      "properties": {
+	"DgstAlgo": {
+	  "$ref":"#/definitions/Algorithm26Code"
+	}
+      }
+    },
+    "Parameter7": {
+      "type":"object",
+      "properties": {
+	"InitlstnVctr": {
+	  "$ref":"#/definitions/Max500Binary"
+	},
+	"BPddg": {
+	  "$ref":"#/definitions/BytePadding1Code"
+	}
+      }
+    },
+    "PartyIdentification178Choice": {
+      "required": [
+	"AnyBIC",
+	"PrtryId",
+	"NmAndAdr"
+      ],
+      "type":"object",
+      "properties": {
+	"AnyBIC": {
+	  "$ref":"#/definitions/AnyBICDec2014Identifier"
+	},
+	"PrtryId": {
+	  "$ref":"#/definitions/GenericIdentification36"
+	},
+	"NmAndAdr": {
+	  "$ref":"#/definitions/NameAndAddress6"
+	}
+      }
+    },
+    "PaymentAccount3": {
+      "type":"object",
+      "properties": {
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"CurBal": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"PmtAcqrrData": {
+	  "$ref":"#/definitions/Acquirer10"
+	}
+      }
+    },
+    "PaymentCard35": {
+      "type":"object",
+      "properties": {
+	"PrtctdCardData": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	},
+	"PrvtCardData": {
+	  "$ref":"#/definitions/Max100KBinary"
+	},
+	"PlainCardData": {
+	  "$ref":"#/definitions/PlainCardData22"
+	},
+	"PmtAcctRef": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"MskdPAN": {
+	  "$ref":"#/definitions/Max30Text"
+	},
+	"IssrBIN": {
+	  "$ref":"#/definitions/Max15NumericText"
+	},
+	"CardCtryCd": {
+	  "$ref":"#/definitions/Max3Text"
+	},
+	"CardCcyCd": {
+	  "$ref":"#/definitions/Exact3AlphaNumericText"
+	},
+	"CardPdctPrfl": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CardBrnd": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CardPdctTp": {
+	  "$ref":"#/definitions/CardProductType1Code"
+	},
+	"CardPdctSubTp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IntrnlCard": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"AllwdPdct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max70Text"
+	  },
+	  "minItems":0
+	},
+	"SvcOptn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AddtlCardData": {
+	  "$ref":"#/definitions/Max70Text"
+	}
+      }
+    },
+    "PaymentContext29": {
+      "type":"object",
+      "properties": {
+	"CardPres": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"CrdhldrPres": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"OnLineCntxt": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"AttndncCntxt": {
+	  "$ref":"#/definitions/AttendanceContext1Code"
+	},
+	"TxEnvt": {
+	  "$ref":"#/definitions/TransactionEnvironment1Code"
+	},
+	"TxChanl": {
+	  "$ref":"#/definitions/TransactionChannel5Code"
+	},
+	"BizArea": {
+	  "$ref":"#/definitions/BusinessArea2Code"
+	},
+	"AttndntMsgCpbl": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"AttndntLang": {
+	  "$ref":"#/definitions/LanguageCode"
+	},
+	"CardDataNtryMd": {
+	  "$ref":"#/definitions/CardDataReading8Code"
+	},
+	"FllbckInd": {
+	  "$ref":"#/definitions/CardFallback1Code"
+	},
+	"SpprtdOptn": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/SupportedPaymentOption2Code"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PaymentReceipt6": {
+      "required": [
+	"DocQlfr",
+	"OutptCntt"
+      ],
+      "type":"object",
+      "properties": {
+	"DocQlfr": {
+	  "$ref":"#/definitions/DocumentType7Code"
+	},
+	"IntgrtdPrtFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"ReqrdSgntrFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"OutptCntt": {
+	  "$ref":"#/definitions/ActionMessage11"
+	}
+      }
+    },
+    "PaymentResponse6": {
+      "required": [
+	"SaleTxId",
+	"POITxId",
+	"RtlrPmtRslt"
+      ],
+      "type":"object",
+      "properties": {
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"SaleRefId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POIRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IssrRefData": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"RtlrPmtRslt": {
+	  "$ref":"#/definitions/RetailerPaymentResult6"
+	},
+	"PmtRct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PaymentReceipt6"
+	  },
+	  "minItems":0
+	},
+	"LltyRslt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LoyaltyResult3"
+	  },
+	  "minItems":0
+	},
+	"CstmrOrdr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CustomerOrder1"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PaymentTokenIdentifiers1": {
+      "required": [
+	"PrvdrId",
+	"RqstrId"
+      ],
+      "type":"object",
+      "properties": {
+	"PrvdrId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"RqstrId": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "PerformedTransaction6": {
+      "required": [
+	"Rspn"
+      ],
+      "type":"object",
+      "properties": {
+	"Rspn": {
+	  "$ref":"#/definitions/ResponseType11"
+	},
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POIRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PmtRslt": {
+	  "$ref":"#/definitions/RetailerPaymentResult6"
+	},
+	"LltyRslt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LoyaltyResult3"
+	  },
+	  "minItems":0
+	},
+	"RvsdAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	}
+      }
+    },
+    "PersonIdentification15": {
+      "type":"object",
+      "properties": {
+	"DrvrLicNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"DrvrLicLctn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"DrvrLicNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"DrvrId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CstmrNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SclSctyNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AlnRegnNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PsptNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TaxIdNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IdntyCardNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"MplyrIdNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"MplyeeIdNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"JobNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Dept": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"EmailAdr": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"DtAndPlcOfBirth": {
+	  "$ref":"#/definitions/DateAndPlaceOfBirth1"
+	},
+	"Othr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GenericIdentification4"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PhysicalInterfaceParameter1": {
+      "required": [
+	"IntrfcNm"
+      ],
+      "type":"object",
+      "properties": {
+	"IntrfcNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IntrfcTp": {
+	  "$ref":"#/definitions/POICommunicationType2Code"
+	},
+	"UsrNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AccsCd": {
+	  "$ref":"#/definitions/Max35Binary"
+	},
+	"SctyPrfl": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AddtlParams": {
+	  "$ref":"#/definitions/Max2KBinary"
+	}
+      }
+    },
+    "PlainCardData17": {
+      "type":"object",
+      "properties": {
+	"PAN": {
+	  "$ref":"#/definitions/Min8Max28NumericText"
+	},
+	"Trck1": {
+	  "$ref":"#/definitions/Max76Text"
+	},
+	"Trck2": {
+	  "$ref":"#/definitions/Max37Text"
+	},
+	"Trck3": {
+	  "$ref":"#/definitions/Max104Text"
+	},
+	"AddtlCardData": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":0
+	},
+	"NtryMd": {
+	  "$ref":"#/definitions/CardDataReading5Code"
+	}
+      }
+    },
+    "PlainCardData22": {
+      "required": [
+	"PAN"
+      ],
+      "type":"object",
+      "properties": {
+	"PAN": {
+	  "$ref":"#/definitions/Min8Max28NumericText"
+	},
+	"CardSeqNb": {
+	  "$ref":"#/definitions/Min2Max3NumericText"
+	},
+	"FctvDt": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"XpryDt": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"SvcCd": {
+	  "$ref":"#/definitions/Exact3NumericText"
+	},
+	"Trck1": {
+	  "$ref":"#/definitions/Max76Text"
+	},
+	"Trck2": {
+	  "$ref":"#/definitions/Max37Text"
+	},
+	"Trck3": {
+	  "$ref":"#/definitions/Max104Text"
+	},
+	"CrdhldrNm": {
+	  "$ref":"#/definitions/Max45Text"
+	}
+      }
+    },
+    "PointOfInteraction14": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"SysNm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"GrpId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Cpblties": {
+	  "$ref":"#/definitions/PointOfInteractionCapabilities9"
+	},
+	"TmZone": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"TermnlIntgtn": {
+	  "$ref":"#/definitions/LocationCategory3Code"
+	},
+	"Cmpnt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PointOfInteractionComponent15"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PointOfInteractionCapabilities9": {
+      "type":"object",
+      "properties": {
+	"CardRdngCpblties": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CardDataReading8Code"
+	  },
+	  "minItems":0
+	},
+	"CrdhldrVrfctnCpblties": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CardholderVerificationCapability4Code"
+	  },
+	  "minItems":0
+	},
+	"PINLngthCpblties": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"ApprvlCdLngth": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"MxScrptLngth": {
+	  "$ref":"#/definitions/PositiveNumber"
+	},
+	"CardCaptrCpbl": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"OnLineCpblties": {
+	  "$ref":"#/definitions/OnLineCapability1Code"
+	},
+	"MsgCpblties": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/DisplayCapabilities4"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PointOfInteractionComponent15": {
+      "required": [
+	"Tp",
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Tp": {
+	  "$ref":"#/definitions/POIComponentType6Code"
+	},
+	"SubTpInf": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"Id": {
+	  "$ref":"#/definitions/PointOfInteractionComponentIdentification2"
+	},
+	"Sts": {
+	  "$ref":"#/definitions/PointOfInteractionComponentStatus3"
+	},
+	"StdCmplc": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GenericIdentification48"
+	  },
+	  "minItems":0
+	},
+	"Chrtcs": {
+	  "$ref":"#/definitions/PointOfInteractionComponentCharacteristics10"
+	},
+	"Assmnt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PointOfInteractionComponentAssessment1"
+	  },
+	  "minItems":0
+	},
+	"Packg": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PackageType5"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PointOfInteractionComponentAssessment1": {
+      "required": [
+	"Tp",
+	"Assgnr",
+	"Nb"
+      ],
+      "type":"object",
+      "properties": {
+	"Tp": {
+	  "$ref":"#/definitions/POIComponentAssessment1Code"
+	},
+	"Assgnr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":1
+	},
+	"DlvryDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"XprtnDt": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"Nb": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "PointOfInteractionComponentCharacteristics10": {
+      "type":"object",
+      "properties": {
+	"Mmry": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/MemoryCharacteristics1"
+	  },
+	  "minItems":0
+	},
+	"Com": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CommunicationCharacteristics5"
+	  },
+	  "minItems":0
+	},
+	"SctyAccsMdls": {
+	  "$ref":"#/definitions/Number"
+	},
+	"SbcbrIdntyMdls": {
+	  "$ref":"#/definitions/Number"
+	},
+	"SctyElmt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CryptographicKey18"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "PointOfInteractionComponentIdentification2": {
+      "type":"object",
+      "properties": {
+	"ItmNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PrvdrId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Id": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"SrlNb": {
+	  "$ref":"#/definitions/Max256Text"
+	}
+      }
+    },
+    "PointOfInteractionComponentStatus3": {
+      "type":"object",
+      "properties": {
+	"VrsnNb": {
+	  "$ref":"#/definitions/Max256Text"
+	},
+	"Sts": {
+	  "$ref":"#/definitions/POIComponentStatus1Code"
+	},
+	"XpryDt": {
+	  "$ref":"#/definitions/ISODate"
+	}
+      }
+    },
+    "PostalAddress2": {
+      "type":"object",
+      "properties": {
+	"StrtNm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"PstCdId": {
+	  "$ref":"#/definitions/Max16Text"
+	},
+	"TwnNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CtrySubDvsn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Ctry": {
+	  "$ref":"#/definitions/CountryCode"
+	}
+      },
+      "required": [
+	"PstCdId",
+	"TwnNm",
+	"Ctry"
+      ]
+    },
+    "PostalAddress22": {
+      "type":"object",
+      "properties": {
+	"AdrTp": {
+	  "$ref":"#/definitions/AddressType2Code"
+	},
+	"Dept": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"SubDept": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AdrLine": {
+	  "maxItems":2,
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max70Text"
+	  },
+	  "minItems":0
+	},
+	"StrtNm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"BldgNb": {
+	  "$ref":"#/definitions/Max16Text"
+	},
+	"PstCd": {
+	  "$ref":"#/definitions/Max16Text"
+	},
+	"TwnNm": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"CtrySubDvsn": {
+	  "maxItems":2,
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max35Text"
+	  },
+	  "minItems":0
+	},
+	"CtryCd": {
+	  "$ref":"#/definitions/Min2Max3AlphaText"
+	}
+      }
+    },
+    "ProcessRetry3": {
+      "required": [
+	"Dely"
+      ],
+      "type":"object",
+      "properties": {
+	"Dely": {
+	  "$ref":"#/definitions/Max9NumericText"
+	},
+	"MaxNb": {
+	  "$ref":"#/definitions/Number"
+	},
+	"UnitOfTm": {
+	  "$ref":"#/definitions/TimeUnit1Code"
+	}
+      }
+    },
+    "ProcessTiming6": {
+      "type":"object",
+      "properties": {
+	"StartTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"EndTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"Prd": {
+	  "$ref":"#/definitions/Max9NumericText"
+	},
+	"UnitOfTm": {
+	  "$ref":"#/definitions/TimeUnit1Code"
+	}
+      }
+    },
+    "Product4": {
+      "required": [
+	"PdctCd"
+      ],
+      "type":"object",
+      "properties": {
+	"PdctCd": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AddtlPdctCd": {
+	  "$ref":"#/definitions/Max70Text"
+	}
+      }
+    },
+    "Product5": {
+      "required": [
+	"PdctCd"
+      ],
+      "type":"object",
+      "properties": {
+	"PdctCd": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AddtlPdctCd": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AmtLmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"QtyLmt": {
+	  "$ref":"#/definitions/DecimalNumber"
+	},
+	"UnitOfMeasr": {
+	  "$ref":"#/definitions/UnitOfMeasure6Code"
+	}
+      }
+    },
+    "Product6": {
+      "type":"object",
+      "properties": {
+	"ItmId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PdctCd": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AddtlPdctCd": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"UnitOfMeasr": {
+	  "$ref":"#/definitions/UnitOfMeasure6Code"
+	},
+	"PdctQty": {
+	  "$ref":"#/definitions/DecimalNumber"
+	},
+	"UnitPric": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"UnitPricSgn": {
+	  "$ref":"#/definitions/PlusOrMinusIndicator"
+	},
+	"PdctAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"PdctAmtSgn": {
+	  "$ref":"#/definitions/PlusOrMinusIndicator"
+	},
+	"ValAddedTax": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"TaxTp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PdctDesc": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"DlvryLctn": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"DlvrySvc": {
+	  "$ref":"#/definitions/AttendanceContext2Code"
+	},
+	"SaleChanl": {
+	  "$ref":"#/definitions/Max70Text"
+	},
+	"AddtlPdctDesc": {
+	  "$ref":"#/definitions/Max256Text"
+	}
+      },
+      "required": [
+	"PdctCd",
+	"PdctAmt"
+      ]
+    },
+    "Recipient13Choice": {
+      "required": [
+	"IssrAndSrlNb",
+	"SbjtKeyIdr"
+      ],
+      "type":"object",
+      "properties": {
+	"IssrAndSrlNb": {
+	  "$ref":"#/definitions/IssuerAndSerialNumber2"
+	},
+	"SbjtKeyIdr": {
+	  "$ref":"#/definitions/Max140Binary"
+	}
+      }
+    },
+    "Recipient15Choice": {
+      "required": [
+	"KeyTrnsprt",
+	"KEK",
+	"KeyIdr"
+      ],
+      "type":"object",
+      "properties": {
+	"KeyTrnsprt": {
+	  "$ref":"#/definitions/KeyTransport10"
+	},
+	"KEK": {
+	  "$ref":"#/definitions/KEK9"
+	},
+	"KeyIdr": {
+	  "$ref":"#/definitions/KEKIdentifier7"
+	}
+      }
+    },
+    "RecurringTransaction6": {
+      "type":"object",
+      "properties": {
+	"PlanId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SeqNb": {
+	  "$ref":"#/definitions/Number"
+	},
+	"PrdUnit": {
+	  "$ref":"#/definitions/Frequency3Code"
+	},
+	"GracePrd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GracePeriod1"
+	  },
+	  "minItems":0
+	},
+	"PlanNtce": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/ActionMessage11"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "RelativeDistinguishedName1": {
+      "required": [
+	"AttrTp",
+	"AttrVal"
+      ],
+      "type":"object",
+      "properties": {
+	"AttrTp": {
+	  "$ref":"#/definitions/AttributeType1Code"
+	},
+	"AttrVal": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "ResponseType10": {
+      "required": [
+	"Rspn"
+      ],
+      "type":"object",
+      "properties": {
+	"Rspn": {
+	  "$ref":"#/definitions/Response9Code"
+	},
+	"RspnRsn": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AddtlRspnInf": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "ResponseType11": {
+      "required": [
+	"Rspn"
+      ],
+      "type":"object",
+      "properties": {
+	"Rspn": {
+	  "$ref":"#/definitions/Response11Code"
+	},
+	"RspnRsn": {
+	  "$ref":"#/definitions/RetailerResultDetail1Code"
+	},
+	"AddtlRspnInf": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      }
+    },
+    "RetailerPaymentResult6": {
+      "required": [
+	"TxTp"
+      ],
+      "type":"object",
+      "properties": {
+	"TxTp": {
+	  "$ref":"#/definitions/CardPaymentServiceType12Code"
+	},
+	"AddtlSvc": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CardPaymentServiceType9Code"
+	  },
+	  "minItems":0
+	},
+	"SvcAttr": {
+	  "$ref":"#/definitions/CardPaymentServiceType14Code"
+	},
+	"ReqdTx": {
+	  "$ref":"#/definitions/CardPaymentTransaction136"
+	},
+	"TxRspn": {
+	  "$ref":"#/definitions/CardPaymentTransaction132"
+	},
+	"CstmrOrdr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CustomerOrder1"
+	  },
+	  "minItems":0
+	},
+	"ImgCaptrdSgntr": {
+	  "$ref":"#/definitions/CapturedSignature1"
+	},
+	"PrtctdCaptrdSgntr": {
+	  "$ref":"#/definitions/ContentInformationType40"
+	},
+	"MrchntOvrrdFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"CstmrLang": {
+	  "$ref":"#/definitions/LanguageCode"
+	},
+	"OnlnFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	}
+      }
+    },
+    "RetailerReversalResult6": {
+      "type":"object",
+      "properties": {
+	"POIRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"OrgnlPmtTx": {
+	  "$ref":"#/definitions/CardPaymentTransaction136"
+	},
+	"CstmrOrdr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CustomerOrder1"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "RetailerSaleEnvironment2": {
+      "type":"object",
+      "properties": {
+	"SaleCpblties": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/SaleCapabilities1Code"
+	  },
+	  "minItems":0
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"MinAmtToDlvr": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"MaxCshBckAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"MinSpltAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"DbtPrefrdFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"LltyHdlg": {
+	  "$ref":"#/definitions/LoyaltyHandling1Code"
+	}
+      }
+    },
+    "ReversalResponse8": {
+      "required": [
+	"SaleTxId",
+	"POITxId",
+	"RvslTxRslt"
+      ],
+      "type":"object",
+      "properties": {
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"SaleRefId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POIRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"IssrRefData": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"RvslTxRslt": {
+	  "$ref":"#/definitions/RetailerReversalResult6"
+	},
+	"RvsdAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Rct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PaymentReceipt6"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "SaleContext4": {
+      "type":"object",
+      "properties": {
+	"SaleId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SaleRefNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SaleRcncltnId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CshrId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CshrLang": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/LanguageCode"
+	  },
+	  "minItems":0
+	},
+	"ShftNb": {
+	  "$ref":"#/definitions/Max2NumericText"
+	},
+	"CstmrOrdrReqFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"PurchsOrdrNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"InvcNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"DlvryNoteNb": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"SpnsrdMrchnt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Organisation26"
+	  },
+	  "minItems":0
+	},
+	"SpltPmt": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"RmngAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"ForceOnlnFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"ReuseCardDataFlg": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"AllwdNtryMd": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/CardDataReading8Code"
+	  },
+	  "minItems":0
+	},
+	"SaleTknScp": {
+	  "$ref":"#/definitions/SaleTokenScope1Code"
+	},
+	"AddtlSaleData": {
+	  "$ref":"#/definitions/Max70Text"
+	}
+      }
+    },
+    "SaleItemRebate1": {
+      "required": [
+	"SaleItm"
+      ],
+      "type":"object",
+      "properties": {
+	"SaleItm": {
+	  "$ref":"#/definitions/Product6"
+	},
+	"RbtLabl": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "SaleToPOIServiceResponseV06": {
+      "required": [
+	"Hdr",
+	"SvcRspn"
+      ],
+      "type":"object",
+      "properties": {
+	"Hdr": {
+	  "$ref":"#/definitions/Header41"
+	},
+	"SvcRspn": {
+	  "$ref":"#/definitions/ServiceResponse8"
+	},
+	"SctyTrlr": {
+	  "$ref":"#/definitions/ContentInformationType38"
+	}
+      }
+    },
+    "SensitiveMobileData1": {
+      "required": [
+	"MSISDN"
+      ],
+      "type":"object",
+      "properties": {
+	"MSISDN": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"IMSI": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"IMEI": {
+	  "$ref":"#/definitions/Max35NumericText"
+	}
+      }
+    },
+    "ServiceResponse8": {
+      "required": [
+	"Envt",
+	"Cntxt",
+	"SvcCntt",
+	"Rspn"
+      ],
+      "type":"object",
+      "properties": {
+	"Envt": {
+	  "$ref":"#/definitions/CardPaymentEnvironment80"
+	},
+	"Cntxt": {
+	  "$ref":"#/definitions/CardPaymentContext30"
+	},
+	"SvcCntt": {
+	  "$ref":"#/definitions/RetailerService3Code"
+	},
+	"PmtRspn": {
+	  "$ref":"#/definitions/PaymentResponse6"
+	},
+	"RvslRspn": {
+	  "$ref":"#/definitions/ReversalResponse8"
+	},
+	"BalNqryRspn": {
+	  "$ref":"#/definitions/BalanceInquiryResponse6"
+	},
+	"LltyRspn": {
+	  "$ref":"#/definitions/LoyaltyResponse3"
+	},
+	"StordValRspn": {
+	  "$ref":"#/definitions/StoredValueResponse7"
+	},
+	"BtchRspn": {
+	  "$ref":"#/definitions/BatchResponse6"
+	},
+	"CardAcqstnRspn": {
+	  "$ref":"#/definitions/CardAcquisitionResponse3"
+	},
+	"Rspn": {
+	  "$ref":"#/definitions/ResponseType11"
+	},
+	"SplmtryData": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/SupplementaryData1"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "SignedData9": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"DgstAlgo": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/AlgorithmIdentification36"
+	  },
+	  "minItems":0
+	},
+	"NcpsltdCntt": {
+	  "$ref":"#/definitions/EncapsulatedContent3"
+	},
+	"Cert": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max5000Binary"
+	  },
+	  "minItems":0
+	},
+	"Sgnr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Signer8"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "Signer8": {
+      "type":"object",
+      "properties": {
+	"Vrsn": {
+	  "$ref":"#/definitions/Number"
+	},
+	"SgnrId": {
+	  "$ref":"#/definitions/Recipient13Choice"
+	},
+	"DgstAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification36"
+	},
+	"SgndAttrbts": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/GenericInformation1"
+	  },
+	  "minItems":0
+	},
+	"SgntrAlgo": {
+	  "$ref":"#/definitions/AlgorithmIdentification33"
+	},
+	"Sgntr": {
+	  "$ref":"#/definitions/Max3000Binary"
+	}
+      },
+      "required": [
+	"DgstAlgo",
+	"SgntrAlgo",
+	"Sgntr"
+      ]
+    },
+    "SimpleIdentificationInformation4": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "StoredValueAccount2": {
+      "type":"object",
+      "properties": {
+	"AcctTp": {
+	  "$ref":"#/definitions/StoredValueAccountType1Code"
+	},
+	"IdTp": {
+	  "$ref":"#/definitions/CardIdentificationType1Code"
+	},
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Brnd": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Prvdr": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"OwnrNm": {
+	  "$ref":"#/definitions/Max45Text"
+	},
+	"XpryDt": {
+	  "$ref":"#/definitions/Max10Text"
+	},
+	"NtryMd": {
+	  "$ref":"#/definitions/CardDataReading8Code"
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"Bal": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	}
+      }
+    },
+    "StoredValueData7": {
+      "type":"object",
+      "properties": {
+	"Prvdr": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TxTp": {
+	  "$ref":"#/definitions/StoredValueTransactionType3Code"
+	},
+	"AcctId": {
+	  "$ref":"#/definitions/StoredValueAccount2"
+	},
+	"OrgnlPOITx": {
+	  "$ref":"#/definitions/CardPaymentTransaction136"
+	},
+	"PdctCd": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"EANUPC": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"ItmAmt": {
+	  "$ref":"#/definitions/ImpliedCurrencyAndAmount"
+	},
+	"Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"HstTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	}
+      },
+      "required": [
+	"TxTp"
+      ]
+    },
+    "StoredValueResponse7": {
+      "type":"object",
+      "properties": {
+	"SaleTxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"POITxId": {
+	  "$ref":"#/definitions/TransactionIdentifier1"
+	},
+	"Rslt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/StoredValueData7"
+	  },
+	  "minItems":0
+	},
+	"Rct": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/PaymentReceipt6"
+	  },
+	  "minItems":0
+	}
+      },
+      "required": [
+	"POITxId"
+      ]
+    },
+    "SupplementaryData1": {
+      "type":"object",
+      "properties": {
+	"PlcAndNm": {
+	  "$ref":"#/definitions/Max350Text"
+	},
+	"Envlp": {
+	  "$ref":"#/definitions/SupplementaryDataEnvelope1"
+	}
+      },
+      "required": [
+	"Envlp"
+      ]
+    },
+    "TMSTrigger1": {
+      "required": [
+	"TMSCtctLvl"
+      ],
+      "type":"object",
+      "properties": {
+	"TMSCtctLvl": {
+	  "$ref":"#/definitions/TMSContactLevel1Code"
+	},
+	"TMSId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"TMSCtctDtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	}
+      }
+    },
+    "Token1": {
+      "type":"object",
+      "properties": {
+	"PmtTkn": {
+	  "$ref":"#/definitions/Max19NumericText"
+	},
+	"TknXpryDt": {
+	  "$ref":"#/definitions/Exact4NumericText"
+	},
+	"TknRqstrId": {
+	  "$ref":"#/definitions/Max11NumericText"
+	},
+	"TknAssrncData": {
+	  "$ref":"#/definitions/Max140Text"
+	},
+	"TknAssrncMtd": {
+	  "$ref":"#/definitions/Max2NumericText"
+	},
+	"TknInittdInd": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	}
+      }
+    },
+    "Traceability8": {
+      "required": [
+	"RlayId",
+	"TracDtTmIn",
+	"TracDtTmOut"
+      ],
+      "type":"object",
+      "properties": {
+	"RlayId": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"PrtcolNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PrtcolVrsn": {
+	  "$ref":"#/definitions/Max6Text"
+	},
+	"TracDtTmIn": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"TracDtTmOut": {
+	  "$ref":"#/definitions/ISODateTime"
+	}
+      }
+    },
+    "TrackData2": {
+      "type":"object",
+      "properties": {
+	"TrckNb": {
+	  "$ref":"#/definitions/Number"
+	},
+	"TrckFrmt": {
+	  "$ref":"#/definitions/TrackFormat1Code"
+	},
+	"TrckVal": {
+	  "$ref":"#/definitions/Max140Text"
+	}
+      },
+      "required": [
+	"TrckVal"
+      ]
+    },
+    "TransactionIdentifier1": {
+      "required": [
+	"TxDtTm",
+	"TxRef"
+      ],
+      "type":"object",
+      "properties": {
+	"TxDtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"TxRef": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "TransactionVerificationResult4": {
+      "required": [
+	"Mtd"
+      ],
+      "type":"object",
+      "properties": {
+	"Mtd": {
+	  "$ref":"#/definitions/AuthenticationMethod6Code"
+	},
+	"VrfctnNtty": {
+	  "$ref":"#/definitions/AuthenticationEntity2Code"
+	},
+	"Rslt": {
+	  "$ref":"#/definitions/Verification1Code"
+	},
+	"AddtlRslt": {
+	  "$ref":"#/definitions/Max500Text"
+	}
+      }
+    },
+    "Vehicle1": {
+      "type":"object",
+      "properties": {
+	"VhclNb": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"TrlrNb": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"VhclTag": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"VhclTagNtryMd": {
+	  "$ref":"#/definitions/CardDataReading5Code"
+	},
+	"UnitNb": {
+	  "$ref":"#/definitions/Max35NumericText"
+	},
+	"RplcmntCar": {
+	  "$ref":"#/definitions/TrueFalseIndicator"
+	},
+	"Odmtr": {
+	  "$ref":"#/definitions/DecimalNumber"
+	},
+	"Hbmtr": {
+	  "$ref":"#/definitions/DecimalNumber"
+	},
+	"TrlrHrs": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"RefrHrs": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"MntncId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"DrvrOrVhclCard": {
+	  "$ref":"#/definitions/PlainCardData17"
+	},
+	"AddtlVhclData": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Vehicle2"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "Vehicle2": {
+      "type":"object",
+      "properties": {
+	"Tp": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"NtryMd": {
+	  "$ref":"#/definitions/CardDataReading5Code"
+	},
+	"Data": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      },
+      "required": [
+	"Data"
+      ]
+    },
+    "ActiveCurrencyAndAmount": {
+      "properties": {
+	"@Ccy": {
+	  "$ref":"#/definitions/ActiveCurrencyCode"
+	},
+	"value": {
+	  "$ref":"#/definitions/ActiveCurrencyAndAmount_SimpleType"
+	}
+      },
+      "required": [
+	"Ccy",
+	"value"
+      ],
+      "type":"object"
+    }
+  },
+  "allOf": [
+    {
+      "$ref":"#/definitions/Document"
+    }
+  ],
+  "$schema":"http://json-schema.org/draft-04/schema#"
+}

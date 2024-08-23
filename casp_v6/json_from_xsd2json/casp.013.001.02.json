@@ -1,0 +1,421 @@
+{
+  "definitions": {
+    "ISODateTime": {
+      "$ref":"#/definitions/xs:dateTime"
+    },
+    "NetworkType1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"IPNW",
+	"PSTN"
+      ]
+    },
+    "PartyType33Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"OPOI",
+	"MERC",
+	"ACCP",
+	"ITAG",
+	"ACQR",
+	"CISS",
+	"DLIS",
+	"MTMG",
+	"TAXH",
+	"TMGT"
+      ]
+    },
+    "RejectReason1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"UNPR",
+	"IMSG",
+	"PARS",
+	"SECU",
+	"INTP",
+	"RCPP",
+	"DPMG",
+	"VERS",
+	"MSGT"
+      ]
+    },
+    "RetailerMessage1Code": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	}
+      ],
+      "enum": [
+	"SSAB",
+	"SAAQ",
+	"SAAP",
+	"SDDR",
+	"SDDP",
+	"SSEN",
+	"SSMQ",
+	"SSMR",
+	"SSRJ",
+	"SARQ",
+	"SARP",
+	"SFRP",
+	"SFRQ",
+	"SFSQ",
+	"SFSP",
+	"SASQ",
+	"SASP"
+      ]
+    },
+    "Max100KBinary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":102400
+	}
+      ]
+    },
+    "Max10KBinary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":10240
+	}
+      ]
+    },
+    "Max140Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":140
+	}
+      ]
+    },
+    "Max35Binary": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:base64Binary"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":35
+	}
+      ]
+    },
+    "Max35Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":35
+	}
+      ]
+    },
+    "Max500Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":500
+	}
+      ]
+    },
+    "Max6Text": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "minLength":1,
+	  "maxLength":6
+	}
+      ]
+    },
+    "Min2Max3AlphaText": {
+      "allOf": [
+	{
+	  "$ref":"#/definitions/xs:string"
+	},
+	{
+	  "pattern":"[a-zA-Z]{2,3}"
+	}
+      ]
+    },
+    "AcceptorRejection2": {
+      "required": [
+	"RjctRsn"
+      ],
+      "type":"object",
+      "properties": {
+	"RjctRsn": {
+	  "$ref":"#/definitions/RejectReason1Code"
+	},
+	"AddtlInf": {
+	  "$ref":"#/definitions/Max500Text"
+	},
+	"MsgInErr": {
+	  "$ref":"#/definitions/Max100KBinary"
+	}
+      }
+    },
+    "Document": {
+      "required": [
+	"SaleToPOIMsgRjctn"
+      ],
+      "type":"object",
+      "properties": {
+	"SaleToPOIMsgRjctn": {
+	  "$ref":"#/definitions/SaleToPOIMessageRejectionV02"
+	}
+      }
+    },
+    "GenericIdentification177": {
+      "required": [
+	"Id"
+      ],
+      "type":"object",
+      "properties": {
+	"Id": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Tp": {
+	  "$ref":"#/definitions/PartyType33Code"
+	},
+	"Issr": {
+	  "$ref":"#/definitions/PartyType33Code"
+	},
+	"Ctry": {
+	  "$ref":"#/definitions/Min2Max3AlphaText"
+	},
+	"ShrtNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"RmotAccs": {
+	  "$ref":"#/definitions/NetworkParameters7"
+	},
+	"Glctn": {
+	  "$ref":"#/definitions/Geolocation1"
+	}
+      }
+    },
+    "Geolocation1": {
+      "type":"object",
+      "properties": {
+	"GeogcCordints": {
+	  "$ref":"#/definitions/GeolocationGeographicCoordinates1"
+	},
+	"UTMCordints": {
+	  "$ref":"#/definitions/GeolocationUTMCoordinates1"
+	}
+      }
+    },
+    "GeolocationGeographicCoordinates1": {
+      "required": [
+	"Lat",
+	"Long"
+      ],
+      "type":"object",
+      "properties": {
+	"Lat": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"Long": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "GeolocationUTMCoordinates1": {
+      "required": [
+	"UTMZone",
+	"UTMEstwrd",
+	"UTMNrthwrd"
+      ],
+      "type":"object",
+      "properties": {
+	"UTMZone": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"UTMEstwrd": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"UTMNrthwrd": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "Header41": {
+      "required": [
+	"MsgFctn",
+	"PrtcolVrsn",
+	"XchgId",
+	"CreDtTm",
+	"InitgPty"
+      ],
+      "type":"object",
+      "properties": {
+	"MsgFctn": {
+	  "$ref":"#/definitions/RetailerMessage1Code"
+	},
+	"PrtcolVrsn": {
+	  "$ref":"#/definitions/Max6Text"
+	},
+	"XchgId": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"CreDtTm": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"InitgPty": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"RcptPty": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"Tracblt": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Traceability8"
+	  },
+	  "minItems":0
+	}
+      }
+    },
+    "NetworkParameters7": {
+      "required": [
+	"Adr"
+      ],
+      "type":"object",
+      "properties": {
+	"Adr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/NetworkParameters9"
+	  },
+	  "minItems":1
+	},
+	"UsrNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"AccsCd": {
+	  "$ref":"#/definitions/Max35Binary"
+	},
+	"SvrCert": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max10KBinary"
+	  },
+	  "minItems":0
+	},
+	"SvrCertIdr": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max140Binary"
+	  },
+	  "minItems":0
+	},
+	"ClntCert": {
+	  "type":"array",
+	  "items": {
+	    "$ref":"#/definitions/Max10KBinary"
+	  },
+	  "minItems":0
+	},
+	"SctyPrfl": {
+	  "$ref":"#/definitions/Max35Text"
+	}
+      }
+    },
+    "NetworkParameters9": {
+      "required": [
+	"NtwkTp",
+	"AdrVal"
+      ],
+      "type":"object",
+      "properties": {
+	"NtwkTp": {
+	  "$ref":"#/definitions/NetworkType1Code"
+	},
+	"AdrVal": {
+	  "$ref":"#/definitions/Max500Text"
+	}
+      }
+    },
+    "SaleToPOIMessageRejectionV02": {
+      "required": [
+	"Hdr",
+	"Rjct"
+      ],
+      "type":"object",
+      "properties": {
+	"Hdr": {
+	  "$ref":"#/definitions/Header41"
+	},
+	"Rjct": {
+	  "$ref":"#/definitions/AcceptorRejection2"
+	}
+      }
+    },
+    "Traceability8": {
+      "required": [
+	"RlayId",
+	"TracDtTmIn",
+	"TracDtTmOut"
+      ],
+      "type":"object",
+      "properties": {
+	"RlayId": {
+	  "$ref":"#/definitions/GenericIdentification177"
+	},
+	"PrtcolNm": {
+	  "$ref":"#/definitions/Max35Text"
+	},
+	"PrtcolVrsn": {
+	  "$ref":"#/definitions/Max6Text"
+	},
+	"TracDtTmIn": {
+	  "$ref":"#/definitions/ISODateTime"
+	},
+	"TracDtTmOut": {
+	  "$ref":"#/definitions/ISODateTime"
+	}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref":"#/definitions/Document"
+    }
+  ],
+  "$schema":"http://json-schema.org/draft-04/schema#"
+}

@@ -1,0 +1,17 @@
+1/ remove all n1, .n1, orphan . (Document)
+2/ inspect schema object
+3/ rewrite Choice with unevaluated properties
+4/ code sets
+"allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                }
+            ],
+with
+"type": "string"
+4/ remove xs:string
+5/ add pattern ISODateTime, ISODate
+6/ add "contentEncoding": "base64" to binary
+7/ pattern for decimal

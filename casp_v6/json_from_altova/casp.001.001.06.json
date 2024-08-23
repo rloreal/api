@@ -1,0 +1,5874 @@
+{
+	"$defs": {
+		".n1:Document": {
+			"$ref": "#/$defs/n1:Document"
+		},
+		"n1:Acquirer10": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:GenericIdentification177"
+				},
+				"n1:ParamsVrsn": {
+					"$ref": "#/$defs/n1:Max256Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActionMessage11": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Frmt": {
+					"$ref": "#/$defs/n1:OutputFormat3Code"
+				},
+				"n1:InfQlfr": {
+					"$ref": "#/$defs/n1:InformationQualify1Code"
+				},
+				"n1:MinDispTm": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:MsgCntt": {
+					"$ref": "#/$defs/n1:Max20000Text"
+				},
+				"n1:MsgCnttSgntr": {
+					"$ref": "#/$defs/n1:ContentInformationType38"
+				},
+				"n1:MsgDstn": {
+					"$ref": "#/$defs/n1:UserInterface4Code"
+				},
+				"n1:OutptBrcd": {
+					"$ref": "#/$defs/n1:OutputBarcode2"
+				},
+				"n1:RspnReqrdFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				}
+			},
+			"required": [
+				"n1:MsgDstn"
+			],
+			"type": "object"
+		},
+		"n1:ActiveCurrencyAndAmount": {
+			"additionalProperties": false,
+			"properties": {
+				"$": {
+					"$ref": "#/$defs/n1:ActiveCurrencyAndAmount_SimpleType"
+				},
+				"@Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				}
+			},
+			"required": [
+				"@Ccy"
+			],
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		"n1:ActiveCurrencyAndAmount_SimpleType": {
+			"minimum": 0,
+			"type": "number"
+		},
+		"n1:ActiveCurrencyCode": {
+			"pattern": "^([A-Z]{3,3})$",
+			"type": "string"
+		},
+		"n1:AddressType2Code": {
+			"enum": [
+				"ADDR",
+				"PBOX",
+				"HOME",
+				"BIZZ",
+				"MLTO",
+				"DLVY"
+			],
+			"type": "string"
+		},
+		"n1:AddressVerification1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AdrDgts": {
+					"$ref": "#/$defs/n1:Max5NumericText"
+				},
+				"n1:PstlCdDgts": {
+					"$ref": "#/$defs/n1:Max5NumericText"
+				}
+			},
+			"type": "object"
+		},
+		"n1:AggregationTransaction3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:FrstPmtDtTm": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:IndvPmt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:DetailedAmount21"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:DetailedAmount21"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:LastPmtDtTm": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:NbOfPmts": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Algorithm26Code": {
+			"enum": [
+				"HS25",
+				"HS38",
+				"HS51",
+				"HS01",
+				"SH31",
+				"SH32",
+				"SH33",
+				"SH35",
+				"SHK1",
+				"SHK2",
+				"SMS3"
+			],
+			"type": "string"
+		},
+		"n1:Algorithm27Code": {
+			"enum": [
+				"MACC",
+				"MCCS",
+				"CMA1",
+				"MCC1",
+				"CMA9",
+				"CMA5",
+				"CMA2",
+				"CM31",
+				"CM32",
+				"CM33",
+				"MCS3",
+				"CCA1",
+				"CCA2",
+				"CCA3",
+				"S34C",
+				"S34R"
+			],
+			"type": "string"
+		},
+		"n1:Algorithm28Code": {
+			"enum": [
+				"EA2C",
+				"E3DC",
+				"DKP9",
+				"UKPT",
+				"UKA2",
+				"EA9C",
+				"EA5C",
+				"DA12",
+				"DA19",
+				"DA25",
+				"N108",
+				"EA5R",
+				"EA9R",
+				"EA2R",
+				"E3DR",
+				"E36C",
+				"E36R",
+				"SD5C",
+				"UKA1",
+				"UKA3",
+				"SM4C",
+				"SM4R"
+			],
+			"type": "string"
+		},
+		"n1:Algorithm29Code": {
+			"enum": [
+				"ERS2",
+				"ERS1",
+				"RPSS",
+				"ERS3",
+				"ED32",
+				"ED33",
+				"ED35",
+				"ED23",
+				"ED25",
+				"ES22",
+				"ES32",
+				"ES33",
+				"ES35",
+				"ES23",
+				"ES25",
+				"ED22",
+				"EF32",
+				"EF22",
+				"EF33",
+				"EF35",
+				"EF23",
+				"EO33",
+				"EF25",
+				"EO32",
+				"EO22",
+				"EO35",
+				"EO23",
+				"EO25",
+				"DD22",
+				"DD32",
+				"DD33",
+				"DD35",
+				"DD23",
+				"DD25",
+				"SM22",
+				"SM33",
+				"SM32",
+				"SM35",
+				"SM23",
+				"SM25",
+				"S2S3"
+			],
+			"type": "string"
+		},
+		"n1:Algorithm7Code": {
+			"enum": [
+				"ERSA",
+				"RSAO"
+			],
+			"type": "string"
+		},
+		"n1:Algorithm8Code": {
+			"enum": [
+				"MGF1"
+			],
+			"type": "string"
+		},
+		"n1:AlgorithmIdentification31": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Algo": {
+					"$ref": "#/$defs/n1:Algorithm27Code"
+				},
+				"n1:Param": {
+					"$ref": "#/$defs/n1:Parameter7"
+				}
+			},
+			"required": [
+				"n1:Algo"
+			],
+			"type": "object"
+		},
+		"n1:AlgorithmIdentification32": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Algo": {
+					"$ref": "#/$defs/n1:Algorithm28Code"
+				},
+				"n1:Param": {
+					"$ref": "#/$defs/n1:Parameter12"
+				}
+			},
+			"required": [
+				"n1:Algo"
+			],
+			"type": "object"
+		},
+		"n1:AlgorithmIdentification33": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Algo": {
+					"$ref": "#/$defs/n1:Algorithm29Code"
+				},
+				"n1:Param": {
+					"$ref": "#/$defs/n1:Parameter16"
+				}
+			},
+			"required": [
+				"n1:Algo"
+			],
+			"type": "object"
+		},
+		"n1:AlgorithmIdentification34": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Algo": {
+					"$ref": "#/$defs/n1:Algorithm8Code"
+				},
+				"n1:Param": {
+					"$ref": "#/$defs/n1:Parameter18"
+				}
+			},
+			"required": [
+				"n1:Algo"
+			],
+			"type": "object"
+		},
+		"n1:AlgorithmIdentification35": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Algo": {
+					"$ref": "#/$defs/n1:Algorithm7Code"
+				},
+				"n1:Param": {
+					"$ref": "#/$defs/n1:Parameter17"
+				}
+			},
+			"required": [
+				"n1:Algo"
+			],
+			"type": "object"
+		},
+		"n1:AlgorithmIdentification36": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Algo": {
+					"$ref": "#/$defs/n1:Algorithm26Code"
+				}
+			},
+			"required": [
+				"n1:Algo"
+			],
+			"type": "object"
+		},
+		"n1:Amount5": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Sgn": {
+					"$ref": "#/$defs/n1:PlusOrMinusIndicator"
+				}
+			},
+			"required": [
+				"n1:Amt"
+			],
+			"type": "object"
+		},
+		"n1:AmountUnit1Code": {
+			"enum": [
+				"MONE",
+				"POIN"
+			],
+			"type": "string"
+		},
+		"n1:AnyBICDec2014Identifier": {
+			"pattern": "^([0-9A-Z]{4,4}[A-Z]{2,2}[0-9A-Z]{2,2}([0-9A-Z]{3,3})?)$",
+			"type": "string"
+		},
+		"n1:AttendanceContext1Code": {
+			"enum": [
+				"ATTD",
+				"SATT",
+				"UATT"
+			],
+			"type": "string"
+		},
+		"n1:AttendanceContext2Code": {
+			"enum": [
+				"ATTL",
+				"CARR",
+				"CUST",
+				"FULL",
+				"SELF"
+			],
+			"type": "string"
+		},
+		"n1:AttributeType1Code": {
+			"enum": [
+				"CNAT",
+				"LATT",
+				"OATT",
+				"OUAT",
+				"CATT"
+			],
+			"type": "string"
+		},
+		"n1:AuthenticatedData10": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:MAC": {
+					"$ref": "#/$defs/n1:Max140Binary"
+				},
+				"n1:MACAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification31"
+				},
+				"n1:NcpsltdCntt": {
+					"$ref": "#/$defs/n1:EncapsulatedContent3"
+				},
+				"n1:Rcpt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Recipient15Choice"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Recipient15Choice"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:MAC",
+				"n1:MACAlgo",
+				"n1:NcpsltdCntt",
+				"n1:Rcpt"
+			],
+			"type": "object"
+		},
+		"n1:AuthenticationEntity2Code": {
+			"enum": [
+				"ICCD",
+				"AGNT",
+				"MERC",
+				"ACQR",
+				"ISSR",
+				"TRML"
+			],
+			"type": "string"
+		},
+		"n1:AuthenticationMethod6Code": {
+			"enum": [
+				"NPIN",
+				"PPSG",
+				"PSWD",
+				"SCRT",
+				"SCNL",
+				"SNCT",
+				"CPSG",
+				"ADDB",
+				"BIOM",
+				"CDHI",
+				"CRYP",
+				"CSCV",
+				"PSVE",
+				"CSEC",
+				"ADDS",
+				"MANU",
+				"FPIN",
+				"TOKP"
+			],
+			"type": "string"
+		},
+		"n1:AuthenticationMethod8Code": {
+			"enum": [
+				"TOKA",
+				"ADDB",
+				"BYPS",
+				"BIOM",
+				"CDHI",
+				"CRYP",
+				"CSCV",
+				"MANU",
+				"MERC",
+				"MOBL",
+				"FPIN",
+				"NPIN",
+				"OTHR",
+				"PPSG",
+				"PSVE",
+				"PSWD",
+				"TOKP",
+				"SCRT",
+				"SCNL",
+				"CSEC",
+				"SNCT",
+				"ADDS",
+				"CPSG",
+				"TOKN",
+				"UKNW"
+			],
+			"type": "string"
+		},
+		"n1:AuthenticationResult1Code": {
+			"enum": [
+				"DENY",
+				"MRCH",
+				"CARD",
+				"AUTH",
+				"CRPT",
+				"UCRP"
+			],
+			"type": "string"
+		},
+		"n1:AuthorisationResult18": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AuthstnCd": {
+					"$ref": "#/$defs/n1:Max8Text"
+				},
+				"n1:AuthstnNtty": {
+					"$ref": "#/$defs/n1:GenericIdentification90"
+				},
+				"n1:RspnToAuthstn": {
+					"$ref": "#/$defs/n1:ResponseType10"
+				}
+			},
+			"required": [
+				"n1:RspnToAuthstn"
+			],
+			"type": "object"
+		},
+		"n1:BBANIdentifier": {
+			"pattern": "^([0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"n1:BalanceInquiryRequest7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:LltyAcctReq": {
+					"$ref": "#/$defs/n1:LoyaltyAccountRequest3"
+				},
+				"n1:PmtAcctReq": {
+					"$ref": "#/$defs/n1:PaymentAccountRequest1"
+				},
+				"n1:SaleTxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				},
+				"n1:StordValAcctReq": {
+					"$ref": "#/$defs/n1:StoredValueRequest7"
+				}
+			},
+			"type": "object"
+		},
+		"n1:BarcodeType1Code": {
+			"enum": [
+				"COQR",
+				"C128",
+				"C025",
+				"C039",
+				"EA13",
+				"EAN8",
+				"P417",
+				"UPCA"
+			],
+			"type": "string"
+		},
+		"n1:BaseOneRate": {
+			"type": "number"
+		},
+		"n1:BatchRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:RmvAllFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:SaleBtchId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				},
+				"n1:TxToPrfrm": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:TransactionToPerform6Choice"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:TransactionToPerform6Choice"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"n1:BinRange1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:HghrBin": {
+					"$ref": "#/$defs/n1:Max15NumericText"
+				},
+				"n1:LwrBin": {
+					"$ref": "#/$defs/n1:Max15NumericText"
+				}
+			},
+			"required": [
+				"n1:HghrBin",
+				"n1:LwrBin"
+			],
+			"type": "object"
+		},
+		"n1:BusinessArea2Code": {
+			"enum": [
+				"AIBD",
+				"PPAY",
+				"TKNF",
+				"EOPT",
+				"TOPT"
+			],
+			"type": "string"
+		},
+		"n1:BytePadding1Code": {
+			"enum": [
+				"LNGT",
+				"NUL8",
+				"NULG",
+				"NULL",
+				"RAND"
+			],
+			"type": "string"
+		},
+		"n1:CardAccountType3Code": {
+			"enum": [
+				"CTDP",
+				"CHCK",
+				"CRDT",
+				"CURR",
+				"CDBT",
+				"DFLT",
+				"EPRS",
+				"HEQL",
+				"ISTL",
+				"INVS",
+				"LCDT",
+				"MBNW",
+				"MNMK",
+				"MNMC",
+				"MTGL",
+				"RTRM",
+				"RVLV",
+				"SVNG",
+				"STBD",
+				"UVRL",
+				"PRPD",
+				"FLTC"
+			],
+			"type": "string"
+		},
+		"n1:CardAcquisitionRequest3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AllwdLltyBrnd": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:AllwdPmtBrnd": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CshBckFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:ForceCstmrSelctnFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:PmtTp": {
+					"$ref": "#/$defs/n1:CardPaymentServiceType13Code"
+				},
+				"n1:SaleToAcqrrData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SaleToIssrData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SaleToPOIData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SaleTxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				},
+				"n1:TtlAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CardDataReading5Code": {
+			"enum": [
+				"TAGC",
+				"PHYS",
+				"BRCD",
+				"MGST",
+				"CICC",
+				"DFLE",
+				"CTLS",
+				"ECTL",
+				"CDFL"
+			],
+			"type": "string"
+		},
+		"n1:CardDataReading8Code": {
+			"enum": [
+				"TAGC",
+				"PHYS",
+				"BRCD",
+				"MGST",
+				"CICC",
+				"DFLE",
+				"CTLS",
+				"ECTL",
+				"CDFL",
+				"SICC",
+				"UNKW",
+				"QRCD",
+				"OPTC"
+			],
+			"type": "string"
+		},
+		"n1:CardDirectDebit2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CdtrId": {
+					"$ref": "#/$defs/n1:Creditor4"
+				},
+				"n1:DbtrId": {
+					"$ref": "#/$defs/n1:Debtor4"
+				},
+				"n1:MndtRltdInf": {
+					"$ref": "#/$defs/n1:MandateRelatedInformation13"
+				}
+			},
+			"required": [
+				"n1:CdtrId",
+				"n1:MndtRltdInf"
+			],
+			"type": "object"
+		},
+		"n1:CardFallback1Code": {
+			"enum": [
+				"FFLB",
+				"SFLB",
+				"NFLB"
+			],
+			"type": "string"
+		},
+		"n1:CardIdentificationType1Code": {
+			"enum": [
+				"ACCT",
+				"BARC",
+				"ISO2",
+				"PHON",
+				"CPAN",
+				"PRIV",
+				"UUID"
+			],
+			"type": "string"
+		},
+		"n1:CardPaymentContext30": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DrctDbtCntxt": {
+					"$ref": "#/$defs/n1:CardDirectDebit2"
+				},
+				"n1:PmtCntxt": {
+					"$ref": "#/$defs/n1:PaymentContext29"
+				},
+				"n1:SaleCntxt": {
+					"$ref": "#/$defs/n1:SaleContext4"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CardPaymentEnvironment80": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Acqrr": {
+					"$ref": "#/$defs/n1:Acquirer10"
+				},
+				"n1:Card": {
+					"$ref": "#/$defs/n1:PaymentCard35"
+				},
+				"n1:Chck": {
+					"$ref": "#/$defs/n1:Check1"
+				},
+				"n1:Crdhldr": {
+					"$ref": "#/$defs/n1:Cardholder21"
+				},
+				"n1:CstmrDvc": {
+					"$ref": "#/$defs/n1:CustomerDevice3"
+				},
+				"n1:LltyAcct": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:LoyaltyAccount3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:LoyaltyAccount3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Mrchnt": {
+					"$ref": "#/$defs/n1:Organisation41"
+				},
+				"n1:MrchntTkn": {
+					"$ref": "#/$defs/n1:MerchantToken2"
+				},
+				"n1:POI": {
+					"$ref": "#/$defs/n1:PointOfInteraction14"
+				},
+				"n1:PmtTkn": {
+					"$ref": "#/$defs/n1:Token1"
+				},
+				"n1:PrtctdCrdhldrData": {
+					"$ref": "#/$defs/n1:ContentInformationType40"
+				},
+				"n1:SaleEnvt": {
+					"$ref": "#/$defs/n1:RetailerSaleEnvironment2"
+				},
+				"n1:StordValAcct": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:StoredValueAccount2"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:StoredValueAccount2"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SvcPrvdr": {
+					"$ref": "#/$defs/n1:Acquirer10"
+				},
+				"n1:Wllt": {
+					"$ref": "#/$defs/n1:CustomerDevice3"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CardPaymentServiceType13Code": {
+			"enum": [
+				"CRDP",
+				"CSHW",
+				"CSHD",
+				"IRES",
+				"DEFR",
+				"URES",
+				"PRES",
+				"RECP",
+				"INSP",
+				"INSI",
+				"RFND",
+				"VCAU"
+			],
+			"type": "string"
+		},
+		"n1:CardPaymentServiceType14Code": {
+			"enum": [
+				"IRES",
+				"URES",
+				"PRES",
+				"ARES",
+				"FREC",
+				"RREC",
+				"GOPT"
+			],
+			"type": "string"
+		},
+		"n1:CardPaymentServiceType5Code": {
+			"enum": [
+				"BALC",
+				"CACT",
+				"CRDP",
+				"CAFH",
+				"CAVR",
+				"CSHW",
+				"CSHD",
+				"DEFR",
+				"LOAD",
+				"ORCR",
+				"PINC",
+				"QUCH",
+				"RFND",
+				"RESA",
+				"VALC",
+				"UNLD",
+				"CAFT",
+				"CAFL"
+			],
+			"type": "string"
+		},
+		"n1:CardPaymentServiceType9Code": {
+			"enum": [
+				"AGGR",
+				"DCCV",
+				"GRTT",
+				"LOYT",
+				"NRES",
+				"PUCO",
+				"RECP",
+				"SOAF",
+				"VCAU",
+				"INSI",
+				"INSA",
+				"CSHB",
+				"INST",
+				"NRFD"
+			],
+			"type": "string"
+		},
+		"n1:CardPaymentToken5": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CardSeqNb": {
+					"$ref": "#/$defs/n1:Min2Max3NumericText"
+				},
+				"n1:Tkn": {
+					"$ref": "#/$defs/n1:Min8Max28NumericText"
+				},
+				"n1:TknAssrncData": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				},
+				"n1:TknAssrncLvl": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:TknAssrncMtd": {
+					"$ref": "#/$defs/n1:Max2NumericText"
+				},
+				"n1:TknChrtc": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:TknInittdInd": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:TknRqstr": {
+					"$ref": "#/$defs/n1:PaymentTokenIdentifiers1"
+				},
+				"n1:TknXpryDt": {
+					"$ref": "#/$defs/n1:Max10Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CardPaymentTransaction131": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CcyConvs": {
+					"$ref": "#/$defs/n1:CurrencyConversion31"
+				},
+				"n1:POIId": {
+					"$ref": "#/$defs/n1:GenericIdentification32"
+				},
+				"n1:SaleRefId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				}
+			},
+			"required": [
+				"n1:POIId",
+				"n1:TxId"
+			],
+			"type": "object"
+		},
+		"n1:CardPaymentTransaction136": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlSvc": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CardPaymentServiceType9Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CardPaymentServiceType9Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:AddtlTxData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max70Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max70Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:AuthstnRslt": {
+					"$ref": "#/$defs/n1:AuthorisationResult18"
+				},
+				"n1:CardPrgrmmApld": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CardPrgrmmPropsd": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CstmrCnsnt": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:CstmrOrdr": {
+					"$ref": "#/$defs/n1:CustomerOrder1"
+				},
+				"n1:CstmrTkn": {
+					"$ref": "#/$defs/n1:CardPaymentToken5"
+				},
+				"n1:IssrCITId": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:IssrRefData": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:LastTxFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:MrchntCITId": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:MrchntCtgyCd": {
+					"$ref": "#/$defs/n1:Min3Max4Text"
+				},
+				"n1:MrchntRefData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:OrgnlTx": {
+					"$ref": "#/$defs/n1:CardPaymentTransaction131"
+				},
+				"n1:RcncltnId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SaleRefId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SaleToAcqrrData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SaleToIssrData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SaleToPOIData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SvcAttr": {
+					"$ref": "#/$defs/n1:CardPaymentServiceType14Code"
+				},
+				"n1:TxCaptr": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:TxDtls": {
+					"$ref": "#/$defs/n1:CardPaymentTransactionDetails53"
+				},
+				"n1:TxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				},
+				"n1:TxTp": {
+					"$ref": "#/$defs/n1:CardPaymentServiceType5Code"
+				}
+			},
+			"required": [
+				"n1:TxDtls",
+				"n1:TxId",
+				"n1:TxTp"
+			],
+			"type": "object"
+		},
+		"n1:CardPaymentTransactionDetails53": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AcctTp": {
+					"$ref": "#/$defs/n1:CardAccountType3Code"
+				},
+				"n1:AddtlInf": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:ExternallyDefinedData5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:ExternallyDefinedData5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:AggtnTx": {
+					"$ref": "#/$defs/n1:AggregationTransaction3"
+				},
+				"n1:AmtQlfr": {
+					"$ref": "#/$defs/n1:TypeOfAmount8Code"
+				},
+				"n1:AuthrsdAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:CcyConvsRslt": {
+					"$ref": "#/$defs/n1:CurrencyConversion30"
+				},
+				"n1:CmltvAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:CmpltnSeqCntr": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:CmpltnSeqNb": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:DlvryLctn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:DtldAmt": {
+					"$ref": "#/$defs/n1:DetailedAmount15"
+				},
+				"n1:ICCRltdData": {
+					"$ref": "#/$defs/n1:Max10000Binary"
+				},
+				"n1:Instlmt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Instalment5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Instalment5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:InvcAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:OnLineRsn": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:OnLineReason2Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:OnLineReason2Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PdctCdSetId": {
+					"$ref": "#/$defs/n1:Max10Text"
+				},
+				"n1:Rcrng": {
+					"$ref": "#/$defs/n1:RecurringTransaction6"
+				},
+				"n1:ReSubmissnCntr": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:ReqdAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:SaleItm": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Product6"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Product6"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:TtlAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:TtlAuthrsdAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:UattnddLvlCtgy": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:VldtyDt": {
+					"$ref": "#/$defs/n1:ISODate"
+				}
+			},
+			"required": [
+				"n1:TtlAmt"
+			],
+			"type": "object"
+		},
+		"n1:CardProductType1Code": {
+			"enum": [
+				"COMM",
+				"CONS"
+			],
+			"type": "string"
+		},
+		"n1:Cardholder21": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Authntcn": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CardholderAuthentication17"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CardholderAuthentication17"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:BllgAdr": {
+					"$ref": "#/$defs/n1:PostalAddress22"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:PersonIdentification15"
+				},
+				"n1:Lang": {
+					"$ref": "#/$defs/n1:LanguageCode"
+				},
+				"n1:MobData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:MobileData6"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:MobileData6"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Nm": {
+					"$ref": "#/$defs/n1:Max45Text"
+				},
+				"n1:PrsnlData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:ShppgAdr": {
+					"$ref": "#/$defs/n1:PostalAddress22"
+				},
+				"n1:TripNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TxVrfctnRslt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:TransactionVerificationResult4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:TransactionVerificationResult4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Vhcl": {
+					"$ref": "#/$defs/n1:Vehicle1"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CardholderAuthentication17": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AdrVrfctn": {
+					"$ref": "#/$defs/n1:AddressVerification1"
+				},
+				"n1:AuthntcnAddtlInf": {
+					"$ref": "#/$defs/n1:ExternallyDefinedData5"
+				},
+				"n1:AuthntcnLvl": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:AuthntcnMtd": {
+					"$ref": "#/$defs/n1:AuthenticationMethod8Code"
+				},
+				"n1:AuthntcnRslt": {
+					"$ref": "#/$defs/n1:AuthenticationResult1Code"
+				},
+				"n1:AuthntcnTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:AuthntcnVal": {
+					"$ref": "#/$defs/n1:Max5000Binary"
+				},
+				"n1:AuthntcnXmptn": {
+					"$ref": "#/$defs/n1:Exemption1Code"
+				},
+				"n1:CrdhldrId": {
+					"$ref": "#/$defs/n1:PersonIdentification15"
+				},
+				"n1:CrdhldrOnLinePIN": {
+					"$ref": "#/$defs/n1:OnLinePIN11"
+				},
+				"n1:PrtctdAuthntcnVal": {
+					"$ref": "#/$defs/n1:ContentInformationType40"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CardholderVerificationCapability4Code": {
+			"enum": [
+				"APKI",
+				"CHDT",
+				"MNSG",
+				"MNVR",
+				"FBIG",
+				"FBIO",
+				"FDSG",
+				"FCPN",
+				"FEPN",
+				"NPIN",
+				"PKIS",
+				"SCEC",
+				"NBIO",
+				"NOVF",
+				"OTHR"
+			],
+			"type": "string"
+		},
+		"n1:CashAccountIdentification7Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:BBAN": {
+					"$ref": "#/$defs/n1:BBANIdentifier"
+				},
+				"n1:DmstAcct": {
+					"$ref": "#/$defs/n1:SimpleIdentificationInformation4"
+				},
+				"n1:IBAN": {
+					"$ref": "#/$defs/n1:IBAN2007Identifier"
+				},
+				"n1:UPIC": {
+					"$ref": "#/$defs/n1:UPICIdentifier"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CertificateIssuer1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:RltvDstngshdNm": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:RelativeDistinguishedName1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:RelativeDistinguishedName1"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				}
+			},
+			"required": [
+				"n1:RltvDstngshdNm"
+			],
+			"type": "object"
+		},
+		"n1:Check1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AcctNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:BkId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:ChckCardNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:ChckNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:ChckTp": {
+					"$ref": "#/$defs/n1:CheckType1Code"
+				},
+				"n1:ChckTrckData2": {
+					"$ref": "#/$defs/n1:TrackData2"
+				},
+				"n1:Ctry": {
+					"$ref": "#/$defs/n1:Max3Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CheckType1Code": {
+			"enum": [
+				"BANK",
+				"BUSI",
+				"GOVC",
+				"PAYR",
+				"PERS"
+			],
+			"type": "string"
+		},
+		"n1:Commission18": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlInf": {
+					"$ref": "#/$defs/n1:Max350Text"
+				},
+				"n1:Rate": {
+					"$ref": "#/$defs/n1:PercentageRate"
+				}
+			},
+			"required": [
+				"n1:Rate"
+			],
+			"type": "object"
+		},
+		"n1:Commission19": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlInf": {
+					"$ref": "#/$defs/n1:Max350Text"
+				},
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				}
+			},
+			"required": [
+				"n1:Amt"
+			],
+			"type": "object"
+		},
+		"n1:CommunicationAddress9": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlCtctInf": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:CstmrSvc": {
+					"$ref": "#/$defs/n1:PhoneNumber"
+				},
+				"n1:Email": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:Phne": {
+					"$ref": "#/$defs/n1:PhoneNumber"
+				},
+				"n1:PstlAdr": {
+					"$ref": "#/$defs/n1:PostalAddress22"
+				},
+				"n1:URLAdr": {
+					"$ref": "#/$defs/n1:Max256Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CommunicationCharacteristics5": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Actv": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:ComTp": {
+					"$ref": "#/$defs/n1:POICommunicationType2Code"
+				},
+				"n1:Params": {
+					"$ref": "#/$defs/n1:NetworkParameters7"
+				},
+				"n1:PhysIntrfc": {
+					"$ref": "#/$defs/n1:PhysicalInterfaceParameter1"
+				},
+				"n1:RmotPty": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:PartyType7Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:PartyType7Code"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				}
+			},
+			"required": [
+				"n1:Actv",
+				"n1:ComTp",
+				"n1:RmotPty"
+			],
+			"type": "object"
+		},
+		"n1:ContentInformationType38": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AuthntcdData": {
+					"$ref": "#/$defs/n1:AuthenticatedData10"
+				},
+				"n1:CnttTp": {
+					"$ref": "#/$defs/n1:ContentType2Code"
+				},
+				"n1:SgndData": {
+					"$ref": "#/$defs/n1:SignedData9"
+				}
+			},
+			"required": [
+				"n1:CnttTp"
+			],
+			"type": "object"
+		},
+		"n1:ContentInformationType39": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AuthntcdData": {
+					"$ref": "#/$defs/n1:AuthenticatedData10"
+				},
+				"n1:CnttTp": {
+					"$ref": "#/$defs/n1:ContentType2Code"
+				},
+				"n1:DgstdData": {
+					"$ref": "#/$defs/n1:DigestedData6"
+				},
+				"n1:EnvlpdData": {
+					"$ref": "#/$defs/n1:EnvelopedData11"
+				},
+				"n1:SgndData": {
+					"$ref": "#/$defs/n1:SignedData9"
+				}
+			},
+			"required": [
+				"n1:CnttTp"
+			],
+			"type": "object"
+		},
+		"n1:ContentInformationType40": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CnttTp": {
+					"$ref": "#/$defs/n1:ContentType2Code"
+				},
+				"n1:EnvlpdData": {
+					"$ref": "#/$defs/n1:EnvelopedData11"
+				}
+			},
+			"required": [
+				"n1:CnttTp",
+				"n1:EnvlpdData"
+			],
+			"type": "object"
+		},
+		"n1:ContentType2Code": {
+			"enum": [
+				"DATA",
+				"SIGN",
+				"EVLP",
+				"DGST",
+				"AUTH"
+			],
+			"type": "string"
+		},
+		"n1:CountryCode": {
+			"pattern": "^([A-Z]{2,2})$",
+			"type": "string"
+		},
+		"n1:Creditor4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Cdtr": {
+					"$ref": "#/$defs/n1:PartyIdentification178Choice"
+				},
+				"n1:RegnId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Cdtr"
+			],
+			"type": "object"
+		},
+		"n1:CryptographicKey18": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:ActvtnDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:AddtlId": {
+					"$ref": "#/$defs/n1:Max35Binary"
+				},
+				"n1:AddtlMgmtInf": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GenericInformation1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GenericInformation1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CmpntWthAuthrsdAccs": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GenericIdentification186"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GenericIdentification186"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:DeactvtnDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:Fctn": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:KeyUsage1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:KeyUsage1Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max350Text"
+				},
+				"n1:ItmNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:KeyChckVal": {
+					"$ref": "#/$defs/n1:Max35Binary"
+				},
+				"n1:KeyVal": {
+					"$ref": "#/$defs/n1:ContentInformationType39"
+				},
+				"n1:Nm": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:PrtctdCmpntWthAuthrsdAccs": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:ContentInformationType39"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:ContentInformationType39"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SctyPrfl": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:CryptographicKeyType3Code"
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Max256Text"
+				}
+			},
+			"required": [
+				"n1:Id",
+				"n1:Vrsn"
+			],
+			"type": "object"
+		},
+		"n1:CryptographicKeyType3Code": {
+			"enum": [
+				"AES2",
+				"EDE3",
+				"DKP9",
+				"AES9",
+				"AES5",
+				"EDE4"
+			],
+			"type": "string"
+		},
+		"n1:CurrencyConversion29": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AplblBinRg": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:BinRange1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:BinRange1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CcyConvsId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:ComssnDtls": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Commission19"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Commission19"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:DclrtnDtls": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:ActionMessage11"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:ActionMessage11"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:MrkUpDtls": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Commission18"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Commission18"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:NvrtdXchgRate": {
+					"$ref": "#/$defs/n1:PercentageRate"
+				},
+				"n1:OrgnlAmt": {
+					"$ref": "#/$defs/n1:OriginalAmountDetails1"
+				},
+				"n1:QtnDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:RsltgAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:SrcCcy": {
+					"$ref": "#/$defs/n1:CurrencyDetails2"
+				},
+				"n1:TrgtCcy": {
+					"$ref": "#/$defs/n1:CurrencyDetails3"
+				},
+				"n1:VldFr": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:VldUntil": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:XchgRate": {
+					"$ref": "#/$defs/n1:PercentageRate"
+				}
+			},
+			"required": [
+				"n1:SrcCcy",
+				"n1:TrgtCcy",
+				"n1:XchgRate"
+			],
+			"type": "object"
+		},
+		"n1:CurrencyConversion30": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AccptdByCrdhldr": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:Convs": {
+					"$ref": "#/$defs/n1:CurrencyConversion29"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CurrencyConversion31": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:ConvsDtls": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CurrencyConversion29"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CurrencyConversion29"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Rslt": {
+					"$ref": "#/$defs/n1:CurrencyConversionResponse3Code"
+				},
+				"n1:RsltRsn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Rslt"
+			],
+			"type": "object"
+		},
+		"n1:CurrencyConversionResponse3Code": {
+			"enum": [
+				"ODCC",
+				"DCCA",
+				"ICRD",
+				"IMER",
+				"IPRD",
+				"IRAT",
+				"NDCC",
+				"REST",
+				"CATG"
+			],
+			"type": "string"
+		},
+		"n1:CurrencyDetails2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AlphaCd": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:Dcml": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:Nm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:NmrcCd": {
+					"$ref": "#/$defs/n1:Exact3NumericText"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CurrencyDetails3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AlphaCd": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:Dcml": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:Nm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:NmrcCd": {
+					"$ref": "#/$defs/n1:Exact3NumericText"
+				}
+			},
+			"required": [
+				"n1:AlphaCd",
+				"n1:Dcml",
+				"n1:NmrcCd"
+			],
+			"type": "object"
+		},
+		"n1:CustomerDevice3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Prvdr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:Max70Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CustomerOrder1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AccsdBy": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:AddtlInf": {
+					"$ref": "#/$defs/n1:Max1025Text"
+				},
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:CstmrOrdrId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CurAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:EndDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:FrcstdAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:OpnOrdrStat": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:SaleRefId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:StartDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:Unit": {
+					"$ref": "#/$defs/n1:AmountUnit1Code"
+				}
+			},
+			"required": [
+				"n1:CstmrOrdrId",
+				"n1:FrcstdAmt",
+				"n1:SaleRefId",
+				"n1:StartDt"
+			],
+			"type": "object"
+		},
+		"n1:DateAndPlaceOfBirth1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:BirthDt": {
+					"$ref": "#/$defs/n1:ISODate"
+				},
+				"n1:CityOfBirth": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CtryOfBirth": {
+					"$ref": "#/$defs/n1:CountryCode"
+				},
+				"n1:PrvcOfBirth": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:BirthDt",
+				"n1:CityOfBirth",
+				"n1:CtryOfBirth"
+			],
+			"type": "object"
+		},
+		"n1:Debtor4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AcctId": {
+					"$ref": "#/$defs/n1:CashAccountIdentification7Choice"
+				},
+				"n1:Dbtr": {
+					"$ref": "#/$defs/n1:PartyIdentification178Choice"
+				}
+			},
+			"type": "object"
+		},
+		"n1:DecimalNumber": {
+			"type": "number"
+		},
+		"n1:DetailedAmount15": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AmtGoodsAndSvcs": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:CshBck": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Fees": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Grtty": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Rbt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Srchrg": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:ValAddedTax": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"n1:DetailedAmount21": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:CardDataNtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading8Code"
+				},
+				"n1:DtTm": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:ICCRltdData": {
+					"$ref": "#/$defs/n1:Max10000Binary"
+				},
+				"n1:Labl": {
+					"$ref": "#/$defs/n1:Max140Text"
+				}
+			},
+			"required": [
+				"n1:Amt",
+				"n1:DtTm"
+			],
+			"type": "object"
+		},
+		"n1:DetailedAmount4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Labl": {
+					"$ref": "#/$defs/n1:Max140Text"
+				}
+			},
+			"required": [
+				"n1:Amt"
+			],
+			"type": "object"
+		},
+		"n1:DigestedData6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Dgst": {
+					"$ref": "#/$defs/n1:Max140Binary"
+				},
+				"n1:DgstAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification36"
+				},
+				"n1:NcpsltdCntt": {
+					"$ref": "#/$defs/n1:EncapsulatedContent3"
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:Dgst",
+				"n1:DgstAlgo",
+				"n1:NcpsltdCntt"
+			],
+			"type": "object"
+		},
+		"n1:DisplayCapabilities4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AvlblFrmt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:OutputFormat1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:OutputFormat1Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:AvlblLang": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:LanguageCode"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:LanguageCode"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Dstn": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:UserInterface4Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:UserInterface4Code"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"n1:LineWidth": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:NbOfLines": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:Dstn"
+			],
+			"type": "object"
+		},
+		"n1:Document": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:SaleToPOISvcReq": {
+					"$ref": "#/$defs/n1:SaleToPOIServiceRequestV06"
+				}
+			},
+			"required": [
+				"n1:SaleToPOISvcReq"
+			],
+			"type": "object"
+		},
+		"n1:EnableServiceRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DispOutpt": {
+					"$ref": "#/$defs/n1:ActionMessage11"
+				},
+				"n1:SvcsNbld": {
+					"$ref": "#/$defs/n1:RetailerService2Code"
+				},
+				"n1:TxActn": {
+					"$ref": "#/$defs/n1:TransactionAction1Code"
+				}
+			},
+			"required": [
+				"n1:TxActn"
+			],
+			"type": "object"
+		},
+		"n1:EncapsulatedContent3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Cntt": {
+					"$ref": "#/$defs/n1:Max100KBinary"
+				},
+				"n1:CnttTp": {
+					"$ref": "#/$defs/n1:ContentType2Code"
+				}
+			},
+			"required": [
+				"n1:CnttTp"
+			],
+			"type": "object"
+		},
+		"n1:EncryptedContent7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CnttNcrptnAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification32"
+				},
+				"n1:CnttTp": {
+					"$ref": "#/$defs/n1:ContentType2Code"
+				},
+				"n1:NcrptdData": {
+					"$ref": "#/$defs/n1:Max100KBinary"
+				}
+			},
+			"required": [
+				"n1:CnttTp",
+				"n1:NcrptdData"
+			],
+			"type": "object"
+		},
+		"n1:EncryptionFormat2Code": {
+			"enum": [
+				"TR31",
+				"TR34",
+				"I238"
+			],
+			"type": "string"
+		},
+		"n1:EnvelopedData11": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:NcrptdCntt": {
+					"$ref": "#/$defs/n1:EncryptedContent7"
+				},
+				"n1:OrgtrInf": {
+					"$ref": "#/$defs/n1:OriginatorInformation1"
+				},
+				"n1:Rcpt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Recipient15Choice"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Recipient15Choice"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:Rcpt"
+			],
+			"type": "object"
+		},
+		"n1:Exact3AlphaNumericText": {
+			"pattern": "^([0-9A-Za-z]{3,3})$",
+			"type": "string"
+		},
+		"n1:Exact3NumericText": {
+			"pattern": "^([0-9]{3,3})$",
+			"type": "string"
+		},
+		"n1:Exact4NumericText": {
+			"pattern": "^([0-9]{4,4})$",
+			"type": "string"
+		},
+		"n1:Exemption1Code": {
+			"enum": [
+				"LOWA",
+				"MINT",
+				"RECP",
+				"SCPE",
+				"SCAD",
+				"TRAE",
+				"PKGE",
+				"TMBE"
+			],
+			"type": "string"
+		},
+		"n1:ExternallyDefinedData5": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max1025Text"
+				},
+				"n1:PrtctdVal": {
+					"$ref": "#/$defs/n1:ContentInformationType39"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:Max1025Text"
+				},
+				"n1:Val": {
+					"$ref": "#/$defs/n1:Max100KBinary"
+				}
+			},
+			"required": [
+				"n1:Id"
+			],
+			"type": "object"
+		},
+		"n1:Frequency3Code": {
+			"enum": [
+				"YEAR",
+				"MNTH",
+				"QURT",
+				"MIAN",
+				"WEEK",
+				"DAIL",
+				"TEND"
+			],
+			"type": "string"
+		},
+		"n1:GenericIdentification176": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Ctry": {
+					"$ref": "#/$defs/n1:Min2Max3AlphaText"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:PartyType33Code"
+				},
+				"n1:ShrtNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:PartyType33Code"
+				}
+			},
+			"required": [
+				"n1:Id"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification177": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Ctry": {
+					"$ref": "#/$defs/n1:Min2Max3AlphaText"
+				},
+				"n1:Glctn": {
+					"$ref": "#/$defs/n1:Geolocation1"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:PartyType33Code"
+				},
+				"n1:RmotAccs": {
+					"$ref": "#/$defs/n1:NetworkParameters7"
+				},
+				"n1:ShrtNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:PartyType33Code"
+				}
+			},
+			"required": [
+				"n1:Id"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification186": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:PartyType7Code"
+				}
+			},
+			"required": [
+				"n1:Id",
+				"n1:Tp"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification32": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:PartyType4Code"
+				},
+				"n1:ShrtNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:PartyType3Code"
+				}
+			},
+			"required": [
+				"n1:Id"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification36": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SchmeNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Id",
+				"n1:Issr"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:IdTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Id",
+				"n1:IdTp"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification48": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Id",
+				"n1:Issr",
+				"n1:Vrsn"
+			],
+			"type": "object"
+		},
+		"n1:GenericIdentification90": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Ctry": {
+					"$ref": "#/$defs/n1:Min2Max3AlphaText"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:PartyType4Code"
+				},
+				"n1:ShrtNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:PartyType14Code"
+				}
+			},
+			"required": [
+				"n1:Tp"
+			],
+			"type": "object"
+		},
+		"n1:GenericInformation1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Nm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:Val": {
+					"$ref": "#/$defs/n1:Max140Text"
+				}
+			},
+			"required": [
+				"n1:Nm"
+			],
+			"type": "object"
+		},
+		"n1:Geolocation1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:GeogcCordints": {
+					"$ref": "#/$defs/n1:GeolocationGeographicCoordinates1"
+				},
+				"n1:UTMCordints": {
+					"$ref": "#/$defs/n1:GeolocationUTMCoordinates1"
+				}
+			},
+			"type": "object"
+		},
+		"n1:GeolocationGeographicCoordinates1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Lat": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Long": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Lat",
+				"n1:Long"
+			],
+			"type": "object"
+		},
+		"n1:GeolocationUTMCoordinates1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:UTMEstwrd": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:UTMNrthwrd": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:UTMZone": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:UTMEstwrd",
+				"n1:UTMNrthwrd",
+				"n1:UTMZone"
+			],
+			"type": "object"
+		},
+		"n1:GracePeriod1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:OthrUnitTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tm": {
+					"$ref": "#/$defs/n1:Max3NumericText"
+				},
+				"n1:UnitTp": {
+					"$ref": "#/$defs/n1:GracePeriodUnitType1Code"
+				}
+			},
+			"required": [
+				"n1:Tm",
+				"n1:UnitTp"
+			],
+			"type": "object"
+		},
+		"n1:GracePeriodUnitType1Code": {
+			"enum": [
+				"WEKS",
+				"PMTS",
+				"OTHP",
+				"OTHN",
+				"MNTH",
+				"DAYS"
+			],
+			"type": "string"
+		},
+		"n1:Header41": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CreDtTm": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:InitgPty": {
+					"$ref": "#/$defs/n1:GenericIdentification177"
+				},
+				"n1:MsgFctn": {
+					"$ref": "#/$defs/n1:RetailerMessage1Code"
+				},
+				"n1:PrtcolVrsn": {
+					"$ref": "#/$defs/n1:Max6Text"
+				},
+				"n1:RcptPty": {
+					"$ref": "#/$defs/n1:GenericIdentification177"
+				},
+				"n1:Tracblt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Traceability8"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Traceability8"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:XchgId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:CreDtTm",
+				"n1:InitgPty",
+				"n1:MsgFctn",
+				"n1:PrtcolVrsn",
+				"n1:XchgId"
+			],
+			"type": "object"
+		},
+		"n1:IBAN2007Identifier": {
+			"pattern": "^([A-Z]{2,2}[0-9]{2,2}[0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"n1:ISO3NumericCountryCode": {
+			"pattern": "^([0-9]{3,3})$",
+			"type": "string"
+		},
+		"n1:ISODate": {
+			"type": "string"
+		},
+		"n1:ISODateTime": {
+			"type": "string"
+		},
+		"n1:ImpliedCurrencyAndAmount": {
+			"minimum": 0,
+			"type": "number"
+		},
+		"n1:InformationQualify1Code": {
+			"enum": [
+				"CUSA",
+				"DISP",
+				"DOCT",
+				"ERRO",
+				"INPT",
+				"POIR",
+				"RCPT",
+				"SOND",
+				"STAT",
+				"VCHR"
+			],
+			"type": "string"
+		},
+		"n1:Instalment5": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Chrgs": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:DtldChrgs": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:InstalmentAmountDetails1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:InstalmentAmountDetails1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:FrstAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:FrstPmtDt": {
+					"$ref": "#/$defs/n1:ISODate"
+				},
+				"n1:GracePrd": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GracePeriod1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GracePeriod1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:InstlmtPlan": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:InstalmentPlan1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:InstalmentPlan1Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:InstlmtPrd": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:IntrstRate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:InterestRateDetails1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:InterestRateDetails1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:LastAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:PlanId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PlanNtce": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:ActionMessage11"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:ActionMessage11"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PlanOwnr": {
+					"$ref": "#/$defs/n1:PlanOwner1Code"
+				},
+				"n1:PrdUnit": {
+					"$ref": "#/$defs/n1:Frequency3Code"
+				},
+				"n1:SbsqntAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:SeqNb": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:TtlAmt": {
+					"$ref": "#/$defs/n1:ActiveCurrencyAndAmount"
+				},
+				"n1:TtlNbOfPmts": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"type": "object"
+		},
+		"n1:InstalmentAmountDetails1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:Amount5"
+				},
+				"n1:OthrTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Pctg": {
+					"$ref": "#/$defs/n1:PercentageRate"
+				},
+				"n1:SubTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:InstalmentAmountDetailsType1Code"
+				}
+			},
+			"type": "object"
+		},
+		"n1:InstalmentAmountDetailsType1Code": {
+			"enum": [
+				"TAXX",
+				"RQST",
+				"OTHP",
+				"OTHN",
+				"OTHC",
+				"INSU",
+				"FUNA",
+				"FEES",
+				"EXPN",
+				"AFCO"
+			],
+			"type": "string"
+		},
+		"n1:InstalmentPeriod1Code": {
+			"enum": [
+				"MNTH",
+				"ANNU"
+			],
+			"type": "string"
+		},
+		"n1:InstalmentPlan1Code": {
+			"enum": [
+				"EQPM",
+				"NQPM",
+				"DFRI"
+			],
+			"type": "string"
+		},
+		"n1:InterestRate1Code": {
+			"enum": [
+				"GSRT",
+				"NTRT",
+				"OTHN",
+				"OTHP"
+			],
+			"type": "string"
+		},
+		"n1:InterestRateDetails1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:OthrTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Prd": {
+					"$ref": "#/$defs/n1:InstalmentPeriod1Code"
+				},
+				"n1:Rate": {
+					"$ref": "#/$defs/n1:BaseOneRate"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:InterestRate1Code"
+				}
+			},
+			"required": [
+				"n1:Prd",
+				"n1:Rate"
+			],
+			"type": "object"
+		},
+		"n1:IssuerAndSerialNumber2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Issr": {
+					"$ref": "#/$defs/n1:CertificateIssuer1"
+				},
+				"n1:SrlNb": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				}
+			},
+			"required": [
+				"n1:Issr",
+				"n1:SrlNb"
+			],
+			"type": "object"
+		},
+		"n1:KEK9": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:KEKId": {
+					"$ref": "#/$defs/n1:KEKIdentifier7"
+				},
+				"n1:KeyNcrptnAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification32"
+				},
+				"n1:NcrptdKey": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:KEKId",
+				"n1:KeyNcrptnAlgo"
+			],
+			"type": "object"
+		},
+		"n1:KEKIdentifier7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DerivtnId": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				},
+				"n1:KeyId": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:KeyVrsn": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:SeqNb": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:KeyId",
+				"n1:KeyVrsn"
+			],
+			"type": "object"
+		},
+		"n1:KeyTransport10": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:KeyNcrptnAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification35"
+				},
+				"n1:NcrptdKey": {
+					"$ref": "#/$defs/n1:Max5000Binary"
+				},
+				"n1:RcptId": {
+					"$ref": "#/$defs/n1:Recipient13Choice"
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:KeyNcrptnAlgo",
+				"n1:NcrptdKey",
+				"n1:RcptId"
+			],
+			"type": "object"
+		},
+		"n1:KeyUsage1Code": {
+			"enum": [
+				"ENCR",
+				"DCPT",
+				"DENC",
+				"DDEC",
+				"TRNI",
+				"TRNX",
+				"MACG",
+				"MACV",
+				"SIGG",
+				"SUGV",
+				"PINE",
+				"PIND",
+				"PINV",
+				"KEYG",
+				"KEYI",
+				"KEYX",
+				"KEYD"
+			],
+			"type": "string"
+		},
+		"n1:LanguageCode": {
+			"type": "string"
+		},
+		"n1:LocationCategory3Code": {
+			"enum": [
+				"INDR",
+				"IPMP",
+				"MPOI",
+				"MPMP",
+				"MSLE",
+				"SSLE",
+				"VNDG"
+			],
+			"type": "string"
+		},
+		"n1:LocationCategory4Code": {
+			"enum": [
+				"ABRD",
+				"NMDC",
+				"FIXD",
+				"VIRT"
+			],
+			"type": "string"
+		},
+		"n1:LoyaltyAccount3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Bal": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Brnd": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:IdTp": {
+					"$ref": "#/$defs/n1:CardIdentificationType1Code"
+				},
+				"n1:LltyId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:NtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading8Code"
+				},
+				"n1:OwnrNm": {
+					"$ref": "#/$defs/n1:Max45Text"
+				},
+				"n1:Prvdr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Unit": {
+					"$ref": "#/$defs/n1:AmountUnit1Code"
+				}
+			},
+			"required": [
+				"n1:LltyId"
+			],
+			"type": "object"
+		},
+		"n1:LoyaltyAccountRequest3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Acct": {
+					"$ref": "#/$defs/n1:LoyaltyAccount3"
+				},
+				"n1:CstmrOrdr": {
+					"$ref": "#/$defs/n1:CustomerOrder1"
+				}
+			},
+			"type": "object"
+		},
+		"n1:LoyaltyAmount1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:Unit": {
+					"$ref": "#/$defs/n1:AmountUnit1Code"
+				}
+			},
+			"required": [
+				"n1:Amt"
+			],
+			"type": "object"
+		},
+		"n1:LoyaltyHandling1Code": {
+			"enum": [
+				"ALLO",
+				"DENY",
+				"PRCS",
+				"PROP",
+				"REQU"
+			],
+			"type": "string"
+		},
+		"n1:LoyaltyRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CstmrOrdr": {
+					"$ref": "#/$defs/n1:CustomerOrder1"
+				},
+				"n1:Data": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:LoyaltyRequestData3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:LoyaltyRequestData3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Tx": {
+					"$ref": "#/$defs/n1:LoyaltyTransaction6"
+				}
+			},
+			"required": [
+				"n1:Tx"
+			],
+			"type": "object"
+		},
+		"n1:LoyaltyRequestData3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Acct": {
+					"$ref": "#/$defs/n1:LoyaltyAccount3"
+				},
+				"n1:Amt": {
+					"$ref": "#/$defs/n1:LoyaltyAmount1"
+				},
+				"n1:CstmrOrdr": {
+					"$ref": "#/$defs/n1:CustomerOrder1"
+				}
+			},
+			"type": "object"
+		},
+		"n1:LoyaltyTransaction6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:LltyTxTp": {
+					"$ref": "#/$defs/n1:LoyaltyTransactionType1Code"
+				},
+				"n1:OrgnlPOITx": {
+					"$ref": "#/$defs/n1:CardPaymentTransaction136"
+				},
+				"n1:SaleItm": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Product6"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Product6"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SaleTxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				},
+				"n1:TtlAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				}
+			},
+			"required": [
+				"n1:LltyTxTp"
+			],
+			"type": "object"
+		},
+		"n1:LoyaltyTransactionType1Code": {
+			"enum": [
+				"AWRD",
+				"AWRR",
+				"REBR",
+				"REBA",
+				"REDE",
+				"REDR"
+			],
+			"type": "string"
+		},
+		"n1:MandateRelatedInformation13": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DtOfSgntr": {
+					"$ref": "#/$defs/n1:ISODate"
+				},
+				"n1:MndtId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:MndtImg": {
+					"$ref": "#/$defs/n1:Max2MBBinary"
+				}
+			},
+			"required": [
+				"n1:MndtId"
+			],
+			"type": "object"
+		},
+		"n1:Max10000Binary": {
+			"maxLength": 10000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max100KBinary": {
+			"maxLength": 102400,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max1025Text": {
+			"maxLength": 1025,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max104Text": {
+			"maxLength": 104,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max10KBinary": {
+			"maxLength": 10240,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max10Text": {
+			"maxLength": 10,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max11NumericText": {
+			"pattern": "^([0-9]{1,11})$",
+			"type": "string"
+		},
+		"n1:Max140Binary": {
+			"maxLength": 140,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max140Text": {
+			"maxLength": 140,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max15NumericText": {
+			"pattern": "^([0-9]{1,15})$",
+			"type": "string"
+		},
+		"n1:Max16Text": {
+			"maxLength": 16,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max19NumericText": {
+			"pattern": "^([0-9]{1,19})$",
+			"type": "string"
+		},
+		"n1:Max20000Text": {
+			"maxLength": 20000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max256Text": {
+			"maxLength": 256,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max2KBinary": {
+			"maxLength": 2048,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max2MBBinary": {
+			"maxLength": 2097152,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max2NumericText": {
+			"pattern": "^([0-9]{1,2})$",
+			"type": "string"
+		},
+		"n1:Max3000Binary": {
+			"maxLength": 3000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max30Text": {
+			"maxLength": 30,
+			"type": "string"
+		},
+		"n1:Max350Text": {
+			"maxLength": 350,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max35Binary": {
+			"maxLength": 35,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max35NumericText": {
+			"pattern": "^([0-9]{1,35})$",
+			"type": "string"
+		},
+		"n1:Max35Text": {
+			"maxLength": 35,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max37Text": {
+			"maxLength": 37,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max3NumericText": {
+			"pattern": "^([0-9]{1,3})$",
+			"type": "string"
+		},
+		"n1:Max3Text": {
+			"maxLength": 3,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max45Text": {
+			"maxLength": 45,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max5000Binary": {
+			"maxLength": 5000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max500Binary": {
+			"maxLength": 500,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max500Text": {
+			"maxLength": 500,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max5NumericText": {
+			"pattern": "^([0-9]{1,5})$",
+			"type": "string"
+		},
+		"n1:Max6Text": {
+			"maxLength": 6,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max70Text": {
+			"maxLength": 70,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max76Text": {
+			"maxLength": 76,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max8000Text": {
+			"maxLength": 8000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:Max8Text": {
+			"maxLength": 8,
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:MemoryCharacteristics1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:FreeSz": {
+					"$ref": "#/$defs/n1:DecimalNumber"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TtlSz": {
+					"$ref": "#/$defs/n1:DecimalNumber"
+				},
+				"n1:Unit": {
+					"$ref": "#/$defs/n1:MemoryUnit1Code"
+				}
+			},
+			"required": [
+				"n1:FreeSz",
+				"n1:Id",
+				"n1:TtlSz",
+				"n1:Unit"
+			],
+			"type": "object"
+		},
+		"n1:MemoryUnit1Code": {
+			"enum": [
+				"BYTE",
+				"EXAB",
+				"GIGA",
+				"KILO",
+				"MEGA",
+				"PETA",
+				"TERA"
+			],
+			"type": "string"
+		},
+		"n1:MerchantToken2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Tkn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TknAssrncData": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				},
+				"n1:TknAssrncLvl": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:TknAssrncMtd": {
+					"$ref": "#/$defs/n1:Max2NumericText"
+				},
+				"n1:TknChrtc": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:TknInittdInd": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:TknRqstr": {
+					"$ref": "#/$defs/n1:PaymentTokenIdentifiers1"
+				},
+				"n1:TknXpryDt": {
+					"$ref": "#/$defs/n1:Max10Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Min2Max3AlphaText": {
+			"pattern": "^([A-Za-z]{2,3})$",
+			"type": "string"
+		},
+		"n1:Min2Max3NumericText": {
+			"pattern": "^([0-9]{2,3})$",
+			"type": "string"
+		},
+		"n1:Min3Max4Text": {
+			"maxLength": 4,
+			"minLength": 3,
+			"type": "string"
+		},
+		"n1:Min8Max28NumericText": {
+			"pattern": "^([0-9]{8,28})$",
+			"type": "string"
+		},
+		"n1:MobileData6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Glctn": {
+					"$ref": "#/$defs/n1:Geolocation1"
+				},
+				"n1:MobCtryCd": {
+					"$ref": "#/$defs/n1:Min2Max3AlphaText"
+				},
+				"n1:MobMskdMSISDN": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:MobNtwkCd": {
+					"$ref": "#/$defs/n1:Min2Max3NumericText"
+				},
+				"n1:PrtctdMobData": {
+					"$ref": "#/$defs/n1:ContentInformationType40"
+				},
+				"n1:SnstvMobData": {
+					"$ref": "#/$defs/n1:SensitiveMobileData1"
+				}
+			},
+			"type": "object"
+		},
+		"n1:NameAndAddress6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Adr": {
+					"$ref": "#/$defs/n1:PostalAddress2"
+				},
+				"n1:Nm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				}
+			},
+			"required": [
+				"n1:Adr",
+				"n1:Nm"
+			],
+			"type": "object"
+		},
+		"n1:NetworkParameters7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AccsCd": {
+					"$ref": "#/$defs/n1:Max35Binary"
+				},
+				"n1:Adr": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:NetworkParameters9"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:NetworkParameters9"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"n1:ClntCert": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max10KBinary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max10KBinary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SctyPrfl": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SvrCert": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max10KBinary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max10KBinary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SvrCertIdr": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max140Binary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max140Binary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:UsrNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Adr"
+			],
+			"type": "object"
+		},
+		"n1:NetworkParameters9": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AdrVal": {
+					"$ref": "#/$defs/n1:Max500Text"
+				},
+				"n1:NtwkTp": {
+					"$ref": "#/$defs/n1:NetworkType1Code"
+				}
+			},
+			"required": [
+				"n1:AdrVal",
+				"n1:NtwkTp"
+			],
+			"type": "object"
+		},
+		"n1:NetworkType1Code": {
+			"enum": [
+				"IPNW",
+				"PSTN"
+			],
+			"type": "string"
+		},
+		"n1:Number": {
+			"type": "number"
+		},
+		"n1:OnLineCapability1Code": {
+			"enum": [
+				"OFLN",
+				"ONLN",
+				"SMON"
+			],
+			"type": "string"
+		},
+		"n1:OnLinePIN11": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlInpt": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:NcrptdPINBlck": {
+					"$ref": "#/$defs/n1:ContentInformationType40"
+				},
+				"n1:PINFrmt": {
+					"$ref": "#/$defs/n1:PINFormat3Code"
+				}
+			},
+			"required": [
+				"n1:NcrptdPINBlck",
+				"n1:PINFrmt"
+			],
+			"type": "object"
+		},
+		"n1:OnLineReason2Code": {
+			"enum": [
+				"RNDM",
+				"ICCF",
+				"MERF",
+				"TRMF",
+				"ISSF",
+				"FRLT",
+				"EXFL",
+				"TAMT",
+				"CBIN",
+				"UBIN",
+				"CPAN",
+				"FLOW",
+				"CRCY",
+				"IFPR"
+			],
+			"type": "string"
+		},
+		"n1:Organisation26": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Adr": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:CmonNm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:CtryCd": {
+					"$ref": "#/$defs/n1:ISO3NumericCountryCode"
+				},
+				"n1:MrchntCtgyCd": {
+					"$ref": "#/$defs/n1:Min3Max4Text"
+				},
+				"n1:RegdIdr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:CmonNm",
+				"n1:CtryCd",
+				"n1:MrchntCtgyCd",
+				"n1:RegdIdr"
+			],
+			"type": "object"
+		},
+		"n1:Organisation41": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CmonNm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:GenericIdentification32"
+				},
+				"n1:LctnAndCtct": {
+					"$ref": "#/$defs/n1:CommunicationAddress9"
+				},
+				"n1:LctnCtgy": {
+					"$ref": "#/$defs/n1:LocationCategory4Code"
+				},
+				"n1:SchmeData": {
+					"$ref": "#/$defs/n1:Max140Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:OriginalAmountDetails1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:ActlAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:MaxAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:MinAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				}
+			},
+			"type": "object"
+		},
+		"n1:OriginatorInformation1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Cert": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max5000Binary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max5000Binary"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"n1:OutputBarcode2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:BrcdTp": {
+					"$ref": "#/$defs/n1:BarcodeType1Code"
+				},
+				"n1:BrcdVal": {
+					"$ref": "#/$defs/n1:Max8000Text"
+				},
+				"n1:QRCdBinryVal": {
+					"$ref": "#/$defs/n1:Max3000Binary"
+				},
+				"n1:QRCdErrCrrctn": {
+					"$ref": "#/$defs/n1:QRCodeErrorCorrection1Code"
+				},
+				"n1:QRCdNcodgMd": {
+					"$ref": "#/$defs/n1:QRCodeEncodingMode1Code"
+				},
+				"n1:QRCdVrsn": {
+					"$ref": "#/$defs/n1:Max16Text"
+				}
+			},
+			"required": [
+				"n1:BrcdTp"
+			],
+			"type": "object"
+		},
+		"n1:OutputFormat1Code": {
+			"enum": [
+				"MREF",
+				"TEXT",
+				"HTML"
+			],
+			"type": "string"
+		},
+		"n1:OutputFormat3Code": {
+			"enum": [
+				"BARC",
+				"MENT",
+				"MREF",
+				"SREF",
+				"TEXT",
+				"HTML"
+			],
+			"type": "string"
+		},
+		"n1:PINFormat3Code": {
+			"enum": [
+				"ISO0",
+				"ISO1",
+				"ISO2",
+				"ISO3",
+				"ISO4",
+				"ISO5"
+			],
+			"type": "string"
+		},
+		"n1:POICommunicationType2Code": {
+			"enum": [
+				"BLTH",
+				"ETHR",
+				"GPRS",
+				"GSMF",
+				"PSTN",
+				"RS23",
+				"USBD",
+				"USBH",
+				"WIFI",
+				"WT2G",
+				"WT3G",
+				"WT4G",
+				"WT5G"
+			],
+			"type": "string"
+		},
+		"n1:POIComponentAssessment1Code": {
+			"enum": [
+				"APPL",
+				"CERT",
+				"EVAL"
+			],
+			"type": "string"
+		},
+		"n1:POIComponentStatus1Code": {
+			"enum": [
+				"WAIT",
+				"OUTD",
+				"OPER",
+				"DACT"
+			],
+			"type": "string"
+		},
+		"n1:POIComponentType6Code": {
+			"enum": [
+				"AQPP",
+				"APPR",
+				"TLPR",
+				"SCPR",
+				"SERV",
+				"TERM",
+				"DVCE",
+				"SECM",
+				"APLI",
+				"EMVK",
+				"EMVO",
+				"MDWR",
+				"DRVR",
+				"OPST",
+				"MRPR",
+				"CRTF",
+				"TMSP",
+				"SACP",
+				"SAPR",
+				"LOGF",
+				"MDFL",
+				"SOFT",
+				"CONF",
+				"RPFL"
+			],
+			"type": "string"
+		},
+		"n1:PackageType5": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:OffsetEnd": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:OffsetStart": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:PackgBlck": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:ExternallyDefinedData5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:ExternallyDefinedData5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PackgId": {
+					"$ref": "#/$defs/n1:GenericIdentification176"
+				},
+				"n1:PackgLngth": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Parameter12": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:BPddg": {
+					"$ref": "#/$defs/n1:BytePadding1Code"
+				},
+				"n1:InitlstnVctr": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				},
+				"n1:NcrptnFrmt": {
+					"$ref": "#/$defs/n1:EncryptionFormat2Code"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Parameter16": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DgstAlgo": {
+					"$ref": "#/$defs/n1:Algorithm26Code"
+				},
+				"n1:MskGnrtrAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification34"
+				},
+				"n1:OIDCrvNm": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:SaltLngth": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:TrlrFld": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Parameter17": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DgstAlgo": {
+					"$ref": "#/$defs/n1:Algorithm26Code"
+				},
+				"n1:MskGnrtrAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification34"
+				},
+				"n1:NcrptnFrmt": {
+					"$ref": "#/$defs/n1:EncryptionFormat2Code"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Parameter18": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DgstAlgo": {
+					"$ref": "#/$defs/n1:Algorithm26Code"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Parameter7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:BPddg": {
+					"$ref": "#/$defs/n1:BytePadding1Code"
+				},
+				"n1:InitlstnVctr": {
+					"$ref": "#/$defs/n1:Max500Binary"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyIdentification178Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AnyBIC": {
+					"$ref": "#/$defs/n1:AnyBICDec2014Identifier"
+				},
+				"n1:NmAndAdr": {
+					"$ref": "#/$defs/n1:NameAndAddress6"
+				},
+				"n1:PrtryId": {
+					"$ref": "#/$defs/n1:GenericIdentification36"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyType14Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS",
+				"ICCA"
+			],
+			"type": "string"
+		},
+		"n1:PartyType33Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS",
+				"MTMG",
+				"TAXH",
+				"TMGT"
+			],
+			"type": "string"
+		},
+		"n1:PartyType3Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS"
+			],
+			"type": "string"
+		},
+		"n1:PartyType4Code": {
+			"enum": [
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"TAXH"
+			],
+			"type": "string"
+		},
+		"n1:PartyType7Code": {
+			"enum": [
+				"ACQR",
+				"ITAG",
+				"PCPT",
+				"TMGT",
+				"SALE"
+			],
+			"type": "string"
+		},
+		"n1:PaymentAccountRequest1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AcctRef": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:AcctTp": {
+					"$ref": "#/$defs/n1:CardAccountType3Code"
+				},
+				"n1:CstmrOrdr": {
+					"$ref": "#/$defs/n1:CustomerOrder1"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PaymentCard35": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlCardData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:AllwdPdct": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max70Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max70Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CardBrnd": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CardCcyCd": {
+					"$ref": "#/$defs/n1:Exact3AlphaNumericText"
+				},
+				"n1:CardCtryCd": {
+					"$ref": "#/$defs/n1:Max3Text"
+				},
+				"n1:CardPdctPrfl": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CardPdctSubTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CardPdctTp": {
+					"$ref": "#/$defs/n1:CardProductType1Code"
+				},
+				"n1:IntrnlCard": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:IssrBIN": {
+					"$ref": "#/$defs/n1:Max15NumericText"
+				},
+				"n1:MskdPAN": {
+					"$ref": "#/$defs/n1:Max30Text"
+				},
+				"n1:PlainCardData": {
+					"$ref": "#/$defs/n1:PlainCardData22"
+				},
+				"n1:PmtAcctRef": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:PrtctdCardData": {
+					"$ref": "#/$defs/n1:ContentInformationType40"
+				},
+				"n1:PrvtCardData": {
+					"$ref": "#/$defs/n1:Max100KBinary"
+				},
+				"n1:SvcOptn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PaymentContext29": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AttndncCntxt": {
+					"$ref": "#/$defs/n1:AttendanceContext1Code"
+				},
+				"n1:AttndntLang": {
+					"$ref": "#/$defs/n1:LanguageCode"
+				},
+				"n1:AttndntMsgCpbl": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:BizArea": {
+					"$ref": "#/$defs/n1:BusinessArea2Code"
+				},
+				"n1:CardDataNtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading8Code"
+				},
+				"n1:CardPres": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:CrdhldrPres": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:FllbckInd": {
+					"$ref": "#/$defs/n1:CardFallback1Code"
+				},
+				"n1:OnLineCntxt": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:SpprtdOptn": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:SupportedPaymentOption2Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:SupportedPaymentOption2Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:TxChanl": {
+					"$ref": "#/$defs/n1:TransactionChannel5Code"
+				},
+				"n1:TxEnvt": {
+					"$ref": "#/$defs/n1:TransactionEnvironment1Code"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PaymentRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:LltyData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:LoyaltyRequestData3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:LoyaltyRequestData3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PmtTx": {
+					"$ref": "#/$defs/n1:CardPaymentTransaction136"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PaymentTokenIdentifiers1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:PrvdrId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:RqstrId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:PrvdrId",
+				"n1:RqstrId"
+			],
+			"type": "object"
+		},
+		"n1:PercentageRate": {
+			"type": "number"
+		},
+		"n1:PersonIdentification15": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AlnRegnNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CstmrNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Dept": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:DrvrId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:DrvrLicLctn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:DrvrLicNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:DrvrLicNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:DtAndPlcOfBirth": {
+					"$ref": "#/$defs/n1:DateAndPlaceOfBirth1"
+				},
+				"n1:EmailAdr": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:IdntyCardNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:JobNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:MplyeeIdNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:MplyrIdNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Othr": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GenericIdentification4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GenericIdentification4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PsptNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SclSctyNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TaxIdNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PhoneNumber": {
+			"pattern": "^(\\+[0-9]{1,3}\\-[\\(-\\)\\+\\-0-9]{1,30})$",
+			"type": "string"
+		},
+		"n1:PhysicalInterfaceParameter1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AccsCd": {
+					"$ref": "#/$defs/n1:Max35Binary"
+				},
+				"n1:AddtlParams": {
+					"$ref": "#/$defs/n1:Max2KBinary"
+				},
+				"n1:IntrfcNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:IntrfcTp": {
+					"$ref": "#/$defs/n1:POICommunicationType2Code"
+				},
+				"n1:SctyPrfl": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:UsrNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:IntrfcNm"
+			],
+			"type": "object"
+		},
+		"n1:PlainCardData17": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlCardData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:NtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading5Code"
+				},
+				"n1:PAN": {
+					"$ref": "#/$defs/n1:Min8Max28NumericText"
+				},
+				"n1:Trck1": {
+					"$ref": "#/$defs/n1:Max76Text"
+				},
+				"n1:Trck2": {
+					"$ref": "#/$defs/n1:Max37Text"
+				},
+				"n1:Trck3": {
+					"$ref": "#/$defs/n1:Max104Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PlainCardData22": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CardSeqNb": {
+					"$ref": "#/$defs/n1:Min2Max3NumericText"
+				},
+				"n1:CrdhldrNm": {
+					"$ref": "#/$defs/n1:Max45Text"
+				},
+				"n1:FctvDt": {
+					"$ref": "#/$defs/n1:Max10Text"
+				},
+				"n1:PAN": {
+					"$ref": "#/$defs/n1:Min8Max28NumericText"
+				},
+				"n1:SvcCd": {
+					"$ref": "#/$defs/n1:Exact3NumericText"
+				},
+				"n1:Trck1": {
+					"$ref": "#/$defs/n1:Max76Text"
+				},
+				"n1:Trck2": {
+					"$ref": "#/$defs/n1:Max37Text"
+				},
+				"n1:Trck3": {
+					"$ref": "#/$defs/n1:Max104Text"
+				},
+				"n1:XpryDt": {
+					"$ref": "#/$defs/n1:Max10Text"
+				}
+			},
+			"required": [
+				"n1:PAN"
+			],
+			"type": "object"
+		},
+		"n1:PlanOwner1Code": {
+			"enum": [
+				"ACCP",
+				"ACQR",
+				"ISSR",
+				"OTHN",
+				"OTHP"
+			],
+			"type": "string"
+		},
+		"n1:PlusOrMinusIndicator": {
+			"type": "boolean"
+		},
+		"n1:PointOfInteraction14": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Cmpnt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:PointOfInteractionComponent15"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:PointOfInteractionComponent15"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Cpblties": {
+					"$ref": "#/$defs/n1:PointOfInteractionCapabilities9"
+				},
+				"n1:GrpId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:GenericIdentification177"
+				},
+				"n1:SysNm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:TermnlIntgtn": {
+					"$ref": "#/$defs/n1:LocationCategory3Code"
+				},
+				"n1:TmZone": {
+					"$ref": "#/$defs/n1:Max70Text"
+				}
+			},
+			"required": [
+				"n1:Id"
+			],
+			"type": "object"
+		},
+		"n1:PointOfInteractionCapabilities9": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:ApprvlCdLngth": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:CardCaptrCpbl": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:CardRdngCpblties": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CardDataReading8Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CardDataReading8Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CrdhldrVrfctnCpblties": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CardholderVerificationCapability4Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CardholderVerificationCapability4Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:MsgCpblties": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:DisplayCapabilities4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:DisplayCapabilities4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:MxScrptLngth": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				},
+				"n1:OnLineCpblties": {
+					"$ref": "#/$defs/n1:OnLineCapability1Code"
+				},
+				"n1:PINLngthCpblties": {
+					"$ref": "#/$defs/n1:PositiveNumber"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PointOfInteractionComponent15": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Assmnt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:PointOfInteractionComponentAssessment1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:PointOfInteractionComponentAssessment1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Chrtcs": {
+					"$ref": "#/$defs/n1:PointOfInteractionComponentCharacteristics10"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:PointOfInteractionComponentIdentification2"
+				},
+				"n1:Packg": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:PackageType5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:PackageType5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:StdCmplc": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GenericIdentification48"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GenericIdentification48"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Sts": {
+					"$ref": "#/$defs/n1:PointOfInteractionComponentStatus3"
+				},
+				"n1:SubTpInf": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:POIComponentType6Code"
+				}
+			},
+			"required": [
+				"n1:Id",
+				"n1:Tp"
+			],
+			"type": "object"
+		},
+		"n1:PointOfInteractionComponentAssessment1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Assgnr": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"n1:DlvryDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:Nb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:POIComponentAssessment1Code"
+				},
+				"n1:XprtnDt": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				}
+			},
+			"required": [
+				"n1:Assgnr",
+				"n1:Nb",
+				"n1:Tp"
+			],
+			"type": "object"
+		},
+		"n1:PointOfInteractionComponentCharacteristics10": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Com": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CommunicationCharacteristics5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CommunicationCharacteristics5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Mmry": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:MemoryCharacteristics1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:MemoryCharacteristics1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SbcbrIdntyMdls": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:SctyAccsMdls": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:SctyElmt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CryptographicKey18"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CryptographicKey18"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"n1:PointOfInteractionComponentIdentification2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:ItmNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PrvdrId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SrlNb": {
+					"$ref": "#/$defs/n1:Max256Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PointOfInteractionComponentStatus3": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Sts": {
+					"$ref": "#/$defs/n1:POIComponentStatus1Code"
+				},
+				"n1:VrsnNb": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:XpryDt": {
+					"$ref": "#/$defs/n1:ISODate"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PositiveNumber": {
+			"minimum": 1,
+			"type": "number"
+		},
+		"n1:PostalAddress2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Ctry": {
+					"$ref": "#/$defs/n1:CountryCode"
+				},
+				"n1:CtrySubDvsn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PstCdId": {
+					"$ref": "#/$defs/n1:Max16Text"
+				},
+				"n1:StrtNm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:TwnNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Ctry",
+				"n1:PstCdId",
+				"n1:TwnNm"
+			],
+			"type": "object"
+		},
+		"n1:PostalAddress22": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AdrLine": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max70Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max70Text"
+							},
+							"maxItems": 2,
+							"type": "array"
+						}
+					]
+				},
+				"n1:AdrTp": {
+					"$ref": "#/$defs/n1:AddressType2Code"
+				},
+				"n1:BldgNb": {
+					"$ref": "#/$defs/n1:Max16Text"
+				},
+				"n1:CtryCd": {
+					"$ref": "#/$defs/n1:Min2Max3AlphaText"
+				},
+				"n1:CtrySubDvsn": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max35Text"
+							},
+							"maxItems": 2,
+							"type": "array"
+						}
+					]
+				},
+				"n1:Dept": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:PstCd": {
+					"$ref": "#/$defs/n1:Max16Text"
+				},
+				"n1:StrtNm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:SubDept": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:TwnNm": {
+					"$ref": "#/$defs/n1:Max70Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Product6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlPdctCd": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:AddtlPdctDesc": {
+					"$ref": "#/$defs/n1:Max256Text"
+				},
+				"n1:DlvryLctn": {
+					"$ref": "#/$defs/n1:Max10Text"
+				},
+				"n1:DlvrySvc": {
+					"$ref": "#/$defs/n1:AttendanceContext2Code"
+				},
+				"n1:ItmId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PdctAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:PdctAmtSgn": {
+					"$ref": "#/$defs/n1:PlusOrMinusIndicator"
+				},
+				"n1:PdctCd": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:PdctDesc": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:PdctQty": {
+					"$ref": "#/$defs/n1:DecimalNumber"
+				},
+				"n1:SaleChanl": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:TaxTp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:UnitOfMeasr": {
+					"$ref": "#/$defs/n1:UnitOfMeasure6Code"
+				},
+				"n1:UnitPric": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:UnitPricSgn": {
+					"$ref": "#/$defs/n1:PlusOrMinusIndicator"
+				},
+				"n1:ValAddedTax": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				}
+			},
+			"required": [
+				"n1:PdctAmt",
+				"n1:PdctCd"
+			],
+			"type": "object"
+		},
+		"n1:QRCodeEncodingMode1Code": {
+			"enum": [
+				"ALFA",
+				"BINA",
+				"KANJ",
+				"NUME"
+			],
+			"type": "string"
+		},
+		"n1:QRCodeErrorCorrection1Code": {
+			"enum": [
+				"M015",
+				"Q025",
+				"H030",
+				"L007"
+			],
+			"type": "string"
+		},
+		"n1:Recipient13Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:IssrAndSrlNb": {
+					"$ref": "#/$defs/n1:IssuerAndSerialNumber2"
+				},
+				"n1:SbjtKeyIdr": {
+					"$ref": "#/$defs/n1:Max140Binary"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Recipient15Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:KEK": {
+					"$ref": "#/$defs/n1:KEK9"
+				},
+				"n1:KeyIdr": {
+					"$ref": "#/$defs/n1:KEKIdentifier7"
+				},
+				"n1:KeyTrnsprt": {
+					"$ref": "#/$defs/n1:KeyTransport10"
+				}
+			},
+			"type": "object"
+		},
+		"n1:RecurringTransaction6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:GracePrd": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GracePeriod1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GracePeriod1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PlanId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PlanNtce": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:ActionMessage11"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:ActionMessage11"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:PrdUnit": {
+					"$ref": "#/$defs/n1:Frequency3Code"
+				},
+				"n1:SeqNb": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"type": "object"
+		},
+		"n1:RelativeDistinguishedName1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AttrTp": {
+					"$ref": "#/$defs/n1:AttributeType1Code"
+				},
+				"n1:AttrVal": {
+					"$ref": "#/$defs/n1:Max140Text"
+				}
+			},
+			"required": [
+				"n1:AttrTp",
+				"n1:AttrVal"
+			],
+			"type": "object"
+		},
+		"n1:Response9Code": {
+			"enum": [
+				"APPR",
+				"DECL",
+				"PART",
+				"SUSP",
+				"TECH"
+			],
+			"type": "string"
+		},
+		"n1:ResponseType10": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlRspnInf": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:Rspn": {
+					"$ref": "#/$defs/n1:Response9Code"
+				},
+				"n1:RspnRsn": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Rspn"
+			],
+			"type": "object"
+		},
+		"n1:RetailerMessage1Code": {
+			"enum": [
+				"SSAB",
+				"SAAQ",
+				"SAAP",
+				"SDDR",
+				"SDDP",
+				"SSEN",
+				"SSMQ",
+				"SSMR",
+				"SSRJ",
+				"SARQ",
+				"SARP",
+				"SFRP",
+				"SFRQ",
+				"SFSQ",
+				"SFSP",
+				"SASQ",
+				"SASP"
+			],
+			"type": "string"
+		},
+		"n1:RetailerSaleEnvironment2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:DbtPrefrdFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:LltyHdlg": {
+					"$ref": "#/$defs/n1:LoyaltyHandling1Code"
+				},
+				"n1:MaxCshBckAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:MinAmtToDlvr": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:MinSpltAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:SaleCpblties": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:SaleCapabilities1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:SaleCapabilities1Code"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"n1:RetailerService2Code": {
+			"enum": [
+				"FSPQ",
+				"FSRQ",
+				"FSIQ",
+				"FSBQ",
+				"FSLQ",
+				"FSVQ",
+				"FSEQ",
+				"FSAQ",
+				"FSCQ"
+			],
+			"type": "string"
+		},
+		"n1:ReversalReason1Code": {
+			"enum": [
+				"CUSC",
+				"MALF",
+				"MERC",
+				"UNAB"
+			],
+			"type": "string"
+		},
+		"n1:ReversalRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:CstmrOrdr": {
+					"$ref": "#/$defs/n1:CustomerOrder1"
+				},
+				"n1:LltyData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:LoyaltyRequestData3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:LoyaltyRequestData3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:RvsdAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:RvslRsn": {
+					"$ref": "#/$defs/n1:ReversalReason1Code"
+				},
+				"n1:RvslTx": {
+					"$ref": "#/$defs/n1:CardPaymentTransaction136"
+				}
+			},
+			"required": [
+				"n1:RvslRsn"
+			],
+			"type": "object"
+		},
+		"n1:SaleCapabilities1Code": {
+			"enum": [
+				"CHDI",
+				"CHER",
+				"CHIN",
+				"CHST",
+				"CUDI",
+				"CUAS",
+				"CUER",
+				"CUIN",
+				"POIR",
+				"PRDC",
+				"PRRP",
+				"PRVC"
+			],
+			"type": "string"
+		},
+		"n1:SaleContext4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlSaleData": {
+					"$ref": "#/$defs/n1:Max70Text"
+				},
+				"n1:AllwdNtryMd": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:CardDataReading8Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:CardDataReading8Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CshrId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:CshrLang": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:LanguageCode"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:LanguageCode"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:CstmrOrdrReqFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:DlvryNoteNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:ForceOnlnFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:InvcNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PurchsOrdrNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:ReuseCardDataFlg": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:RmngAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:SaleId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SaleRcncltnId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SaleRefNb": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:SaleTknScp": {
+					"$ref": "#/$defs/n1:SaleTokenScope1Code"
+				},
+				"n1:ShftNb": {
+					"$ref": "#/$defs/n1:Max2NumericText"
+				},
+				"n1:SpltPmt": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:SpnsrdMrchnt": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Organisation26"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Organisation26"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"n1:SaleToPOIServiceRequestV06": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Hdr": {
+					"$ref": "#/$defs/n1:Header41"
+				},
+				"n1:SctyTrlr": {
+					"$ref": "#/$defs/n1:ContentInformationType38"
+				},
+				"n1:SvcReq": {
+					"$ref": "#/$defs/n1:ServiceRequest7"
+				}
+			},
+			"required": [
+				"n1:Hdr",
+				"n1:SvcReq"
+			],
+			"type": "object"
+		},
+		"n1:SaleTokenScope1Code": {
+			"enum": [
+				"MULT",
+				"SNGL"
+			],
+			"type": "string"
+		},
+		"n1:SensitiveMobileData1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:IMEI": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:IMSI": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:MSISDN": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				}
+			},
+			"required": [
+				"n1:MSISDN"
+			],
+			"type": "object"
+		},
+		"n1:ServiceRequest7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:BalNqryReq": {
+					"$ref": "#/$defs/n1:BalanceInquiryRequest7"
+				},
+				"n1:BtchReq": {
+					"$ref": "#/$defs/n1:BatchRequest6"
+				},
+				"n1:CardAcqstnReq": {
+					"$ref": "#/$defs/n1:CardAcquisitionRequest3"
+				},
+				"n1:Cntxt": {
+					"$ref": "#/$defs/n1:CardPaymentContext30"
+				},
+				"n1:Envt": {
+					"$ref": "#/$defs/n1:CardPaymentEnvironment80"
+				},
+				"n1:LltyReq": {
+					"$ref": "#/$defs/n1:LoyaltyRequest6"
+				},
+				"n1:NblSvcReq": {
+					"$ref": "#/$defs/n1:EnableServiceRequest6"
+				},
+				"n1:PmtReq": {
+					"$ref": "#/$defs/n1:PaymentRequest6"
+				},
+				"n1:RvslReq": {
+					"$ref": "#/$defs/n1:ReversalRequest6"
+				},
+				"n1:SplmtryData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:SupplementaryData1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:SupplementaryData1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:StordValReq": {
+					"$ref": "#/$defs/n1:StoredValueRequest7"
+				},
+				"n1:SvcCntt": {
+					"$ref": "#/$defs/n1:RetailerService2Code"
+				}
+			},
+			"required": [
+				"n1:Cntxt",
+				"n1:Envt",
+				"n1:SvcCntt"
+			],
+			"type": "object"
+		},
+		"n1:SignedData9": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Cert": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Max5000Binary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Max5000Binary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:DgstAlgo": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:AlgorithmIdentification36"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:AlgorithmIdentification36"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:NcpsltdCntt": {
+					"$ref": "#/$defs/n1:EncapsulatedContent3"
+				},
+				"n1:Sgnr": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Signer8"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Signer8"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Signer8": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:DgstAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification36"
+				},
+				"n1:SgndAttrbts": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:GenericInformation1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:GenericInformation1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:SgnrId": {
+					"$ref": "#/$defs/n1:Recipient13Choice"
+				},
+				"n1:Sgntr": {
+					"$ref": "#/$defs/n1:Max3000Binary"
+				},
+				"n1:SgntrAlgo": {
+					"$ref": "#/$defs/n1:AlgorithmIdentification33"
+				},
+				"n1:Vrsn": {
+					"$ref": "#/$defs/n1:Number"
+				}
+			},
+			"required": [
+				"n1:DgstAlgo",
+				"n1:Sgntr",
+				"n1:SgntrAlgo"
+			],
+			"type": "object"
+		},
+		"n1:SimpleIdentificationInformation4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Id"
+			],
+			"type": "object"
+		},
+		"n1:StoredValueAccount2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AcctTp": {
+					"$ref": "#/$defs/n1:StoredValueAccountType1Code"
+				},
+				"n1:Bal": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:Brnd": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:Id": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:IdTp": {
+					"$ref": "#/$defs/n1:CardIdentificationType1Code"
+				},
+				"n1:NtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading8Code"
+				},
+				"n1:OwnrNm": {
+					"$ref": "#/$defs/n1:Max45Text"
+				},
+				"n1:Prvdr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:XpryDt": {
+					"$ref": "#/$defs/n1:Max10Text"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StoredValueAccountType1Code": {
+			"enum": [
+				"BNKA",
+				"CWVC",
+				"CPYA",
+				"ELMY",
+				"GIFT",
+				"GCER",
+				"MLVC",
+				"OLVC",
+				"MERC",
+				"OTHR",
+				"PHON",
+				"CARD",
+				"TRVL"
+			],
+			"type": "string"
+		},
+		"n1:StoredValueData7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AcctId": {
+					"$ref": "#/$defs/n1:StoredValueAccount2"
+				},
+				"n1:Ccy": {
+					"$ref": "#/$defs/n1:ActiveCurrencyCode"
+				},
+				"n1:EANUPC": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:HstTxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				},
+				"n1:ItmAmt": {
+					"$ref": "#/$defs/n1:ImpliedCurrencyAndAmount"
+				},
+				"n1:OrgnlPOITx": {
+					"$ref": "#/$defs/n1:CardPaymentTransaction136"
+				},
+				"n1:PdctCd": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Prvdr": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TxTp": {
+					"$ref": "#/$defs/n1:StoredValueTransactionType3Code"
+				}
+			},
+			"required": [
+				"n1:TxTp"
+			],
+			"type": "object"
+		},
+		"n1:StoredValueRequest7": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Data": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:StoredValueData7"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:StoredValueData7"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"n1:SaleTxId": {
+					"$ref": "#/$defs/n1:TransactionIdentifier1"
+				}
+			},
+			"required": [
+				"n1:Data"
+			],
+			"type": "object"
+		},
+		"n1:StoredValueTransactionType3Code": {
+			"enum": [
+				"ACTV",
+				"DUPL",
+				"LOAD",
+				"RESV",
+				"REVS",
+				"ULOA",
+				"CLOS",
+				"DCTV",
+				"OPEN",
+				"BALC"
+			],
+			"type": "string"
+		},
+		"n1:SupplementaryData1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Envlp": {
+					"$ref": "#/$defs/n1:SupplementaryDataEnvelope1"
+				},
+				"n1:PlcAndNm": {
+					"$ref": "#/$defs/n1:Max350Text"
+				}
+			},
+			"required": [
+				"n1:Envlp"
+			],
+			"type": "object"
+		},
+		"n1:SupplementaryDataEnvelope1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\w+$": {
+				}
+			},
+			"type": "object"
+		},
+		"n1:SupportedPaymentOption2Code": {
+			"enum": [
+				"PART",
+				"MSRV",
+				"INSI",
+				"PINQ"
+			],
+			"type": "string"
+		},
+		"n1:Token1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:PmtTkn": {
+					"$ref": "#/$defs/n1:Max19NumericText"
+				},
+				"n1:TknAssrncData": {
+					"$ref": "#/$defs/n1:Max140Text"
+				},
+				"n1:TknAssrncMtd": {
+					"$ref": "#/$defs/n1:Max2NumericText"
+				},
+				"n1:TknInittdInd": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:TknRqstrId": {
+					"$ref": "#/$defs/n1:Max11NumericText"
+				},
+				"n1:TknXpryDt": {
+					"$ref": "#/$defs/n1:Exact4NumericText"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Traceability8": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:PrtcolNm": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:PrtcolVrsn": {
+					"$ref": "#/$defs/n1:Max6Text"
+				},
+				"n1:RlayId": {
+					"$ref": "#/$defs/n1:GenericIdentification177"
+				},
+				"n1:TracDtTmIn": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:TracDtTmOut": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				}
+			},
+			"required": [
+				"n1:RlayId",
+				"n1:TracDtTmIn",
+				"n1:TracDtTmOut"
+			],
+			"type": "object"
+		},
+		"n1:TrackData2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:TrckFrmt": {
+					"$ref": "#/$defs/n1:TrackFormat1Code"
+				},
+				"n1:TrckNb": {
+					"$ref": "#/$defs/n1:Number"
+				},
+				"n1:TrckVal": {
+					"$ref": "#/$defs/n1:Max140Text"
+				}
+			},
+			"required": [
+				"n1:TrckVal"
+			],
+			"type": "object"
+		},
+		"n1:TrackFormat1Code": {
+			"enum": [
+				"AAMV",
+				"CMC7",
+				"E13B",
+				"ISOF",
+				"JIS1",
+				"JIS2"
+			],
+			"type": "string"
+		},
+		"n1:TransactionAction1Code": {
+			"enum": [
+				"STAR",
+				"STOP"
+			],
+			"type": "string"
+		},
+		"n1:TransactionChannel5Code": {
+			"enum": [
+				"MAIL",
+				"TLPH",
+				"ECOM",
+				"TVPY",
+				"SECM",
+				"MOBL",
+				"MPOS"
+			],
+			"type": "string"
+		},
+		"n1:TransactionEnvironment1Code": {
+			"enum": [
+				"MERC",
+				"PRIV",
+				"PUBL"
+			],
+			"type": "string"
+		},
+		"n1:TransactionIdentifier1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:TxDtTm": {
+					"$ref": "#/$defs/n1:ISODateTime"
+				},
+				"n1:TxRef": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:TxDtTm",
+				"n1:TxRef"
+			],
+			"type": "object"
+		},
+		"n1:TransactionToPerform6Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:LltyReq": {
+					"$ref": "#/$defs/n1:LoyaltyRequest6"
+				},
+				"n1:PmtReq": {
+					"$ref": "#/$defs/n1:PaymentRequest6"
+				},
+				"n1:RvslReq": {
+					"$ref": "#/$defs/n1:ReversalRequest6"
+				}
+			},
+			"type": "object"
+		},
+		"n1:TransactionVerificationResult4": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlRslt": {
+					"$ref": "#/$defs/n1:Max500Text"
+				},
+				"n1:Mtd": {
+					"$ref": "#/$defs/n1:AuthenticationMethod6Code"
+				},
+				"n1:Rslt": {
+					"$ref": "#/$defs/n1:Verification1Code"
+				},
+				"n1:VrfctnNtty": {
+					"$ref": "#/$defs/n1:AuthenticationEntity2Code"
+				}
+			},
+			"required": [
+				"n1:Mtd"
+			],
+			"type": "object"
+		},
+		"n1:TrueFalseIndicator": {
+			"type": "boolean"
+		},
+		"n1:TypeOfAmount8Code": {
+			"enum": [
+				"ACTL",
+				"ESTM",
+				"MAXI",
+				"DFLT",
+				"RPLT",
+				"INCR",
+				"DECR",
+				"RESD"
+			],
+			"type": "string"
+		},
+		"n1:UPICIdentifier": {
+			"pattern": "^([0-9]{8,17})$",
+			"type": "string"
+		},
+		"n1:UnitOfMeasure6Code": {
+			"enum": [
+				"PIEC",
+				"TONS",
+				"FOOT",
+				"GBGA",
+				"USGA",
+				"GRAM",
+				"INCH",
+				"KILO",
+				"PUND",
+				"METR",
+				"CMET",
+				"MMET",
+				"LITR",
+				"CELI",
+				"MILI",
+				"GBOU",
+				"USOU",
+				"GBQA",
+				"USQA",
+				"GBPI",
+				"USPI",
+				"MILE",
+				"KMET",
+				"YARD",
+				"SQKI",
+				"HECT",
+				"ARES",
+				"SMET",
+				"SCMT",
+				"SMIL",
+				"SQMI",
+				"SQYA",
+				"SQFO",
+				"SQIN",
+				"ACRE",
+				"KWHO",
+				"DGEU",
+				"GGEU"
+			],
+			"type": "string"
+		},
+		"n1:UserInterface4Code": {
+			"enum": [
+				"CDSP",
+				"CRCP",
+				"MDSP",
+				"MRCP",
+				"CRDO"
+			],
+			"type": "string"
+		},
+		"n1:Vehicle1": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:AddtlVhclData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/n1:Vehicle2"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/n1:Vehicle2"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"n1:DrvrOrVhclCard": {
+					"$ref": "#/$defs/n1:PlainCardData17"
+				},
+				"n1:Hbmtr": {
+					"$ref": "#/$defs/n1:DecimalNumber"
+				},
+				"n1:MntncId": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:Odmtr": {
+					"$ref": "#/$defs/n1:DecimalNumber"
+				},
+				"n1:RefrHrs": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:RplcmntCar": {
+					"$ref": "#/$defs/n1:TrueFalseIndicator"
+				},
+				"n1:TrlrHrs": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:TrlrNb": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:UnitNb": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:VhclNb": {
+					"$ref": "#/$defs/n1:Max35NumericText"
+				},
+				"n1:VhclTag": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:VhclTagNtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading5Code"
+				}
+			},
+			"type": "object"
+		},
+		"n1:Vehicle2": {
+			"additionalProperties": false,
+			"properties": {
+				"n1:Data": {
+					"$ref": "#/$defs/n1:Max35Text"
+				},
+				"n1:NtryMd": {
+					"$ref": "#/$defs/n1:CardDataReading5Code"
+				},
+				"n1:Tp": {
+					"$ref": "#/$defs/n1:Max35Text"
+				}
+			},
+			"required": [
+				"n1:Data"
+			],
+			"type": "object"
+		},
+		"n1:Verification1Code": {
+			"enum": [
+				"FAIL",
+				"MISS",
+				"NOVF",
+				"PART",
+				"SUCC",
+				"ERRR"
+			],
+			"type": "string"
+		}
+	},
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"additionalProperties": false,
+	"description": "JSON Schema generated by XMLSpy v2024 rel. 2 (x64) (https://www.altova.com)",
+	"properties": {
+		"@xmlns:n1": {
+			"default": "urn:iso:std:iso:20022:tech:xsd:casp.001.001.06"
+		},
+		"n1:Document": {
+			"$ref": "#/$defs/.n1:Document"
+		}
+	},
+	"type": "object"
+}

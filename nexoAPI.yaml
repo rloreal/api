@@ -1,0 +1,108 @@
+openAPI: 3.1.0
+content:
+  application/json:
+    schema:
+      $ref: 'casp_v6/json_fullname_xsd2json/casp.004.001.06.json'
+
+info:
+  title: nexo retailer API
+  version: 0.1.0
+  description: |
+    API defining resources for interactions between POI and POS, using underlying nexo messages
+
+    ### Check out its awesome features:
+
+    * simply declare POS and POI
+    # link POS and  POI
+    * monitor activity 😎
+    * Receive real-time information about transaction executions📈
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+    - url: http://localhost:8089
+      description: server for API link merchant and Acceptation system
+      tags:
+      - name: "env:test-nexoAPI"
+        description: "This environment is meant for running internal tests through nexo API"
+    - url : https://localhost:8099
+      description: Test api secured with X509
+      security:
+       - certs: []
+      tags:
+      - name: "env:secure-nexoAPI"
+        description: "This environment is meant for running internal tests with X509 certs"
+
+defaultContentType: application/json
+
+paths:
+  /poi/{poiId}/payment:
+    patch:
+      summary : payment request to a POI
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "iso_schemas/casp.001.001.06.json#/$defs/Document"
+      responses:
+        "200":
+          description: payment request received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Success"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  schemas:
+    POI:
+      type: object
+      properties:
+        lumens:
+          type: integer
+          minimum: 0
+          description: Light intensity measured in lumens.
+        printer:
+          $ref: "iso_schemas/casp.001.001.06.json#/$defs/PointOfInteraction14"
+
+  securitySchemes:
+    certs:
+      type: X509
+      description: Download the certificate files from service provider
+
+  parameters:
+    streetlightId:
+      description: The ID of the streetlight.
+      schema:
+        type: string
+
+  nexoHeader:
+    headers:
+      $ref: "iso_schemas/casp.001.001.06.json#/$defs/Header41"
+
+

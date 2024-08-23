@@ -1,0 +1,1 @@
+xsd2json C:\Users\romai\OneDrive\Documents\NEXO\api\casp_v6\casp.013.001.02.xsd > C:\Users\romai\OneDrive\Documents\NEXO\api\casp_v6\json_from_xsd2json\casp.013.001.02.xsd

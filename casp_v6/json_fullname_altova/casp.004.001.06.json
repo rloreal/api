@@ -1,0 +1,8723 @@
+{
+	"$defs": {
+		".Document": {
+			"$ref": "#/$defs/Document"
+		},
+		"Acquirer10": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"$ref": "#/$defs/GenericIdentification177"
+				},
+				"ParamsVrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"ActiveCurrencyCode": {
+			"pattern": "^([A-Z]{3,3})$",
+			"type": "string"
+		},
+		"AddressType2Code": {
+			"enum": [
+				"ADDR",
+				"PBOX",
+				"HOME",
+				"BIZZ",
+				"MLTO",
+				"DLVY"
+			],
+			"type": "string"
+		},
+		"AddressVerification1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AdrDgts": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max5NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"PstlCdDgts": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max5NumericText"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Algorithm26Code": {
+			"enum": [
+				"HS25",
+				"HS38",
+				"HS51",
+				"HS01",
+				"SH31",
+				"SH32",
+				"SH33",
+				"SH35",
+				"SHK1",
+				"SHK2",
+				"SMS3"
+			],
+			"type": "string"
+		},
+		"Algorithm27Code": {
+			"enum": [
+				"MACC",
+				"MCCS",
+				"CMA1",
+				"MCC1",
+				"CMA9",
+				"CMA5",
+				"CMA2",
+				"CM31",
+				"CM32",
+				"CM33",
+				"MCS3",
+				"CCA1",
+				"CCA2",
+				"CCA3",
+				"S34C",
+				"S34R"
+			],
+			"type": "string"
+		},
+		"Algorithm28Code": {
+			"enum": [
+				"EA2C",
+				"E3DC",
+				"DKP9",
+				"UKPT",
+				"UKA2",
+				"EA9C",
+				"EA5C",
+				"DA12",
+				"DA19",
+				"DA25",
+				"N108",
+				"EA5R",
+				"EA9R",
+				"EA2R",
+				"E3DR",
+				"E36C",
+				"E36R",
+				"SD5C",
+				"UKA1",
+				"UKA3",
+				"SM4C",
+				"SM4R"
+			],
+			"type": "string"
+		},
+		"Algorithm29Code": {
+			"enum": [
+				"ERS2",
+				"ERS1",
+				"RPSS",
+				"ERS3",
+				"ED32",
+				"ED33",
+				"ED35",
+				"ED23",
+				"ED25",
+				"ES22",
+				"ES32",
+				"ES33",
+				"ES35",
+				"ES23",
+				"ES25",
+				"ED22",
+				"EF32",
+				"EF22",
+				"EF33",
+				"EF35",
+				"EF23",
+				"EO33",
+				"EF25",
+				"EO32",
+				"EO22",
+				"EO35",
+				"EO23",
+				"EO25",
+				"DD22",
+				"DD32",
+				"DD33",
+				"DD35",
+				"DD23",
+				"DD25",
+				"SM22",
+				"SM33",
+				"SM32",
+				"SM35",
+				"SM23",
+				"SM25",
+				"S2S3"
+			],
+			"type": "string"
+		},
+		"Algorithm7Code": {
+			"enum": [
+				"ERSA",
+				"RSAO"
+			],
+			"type": "string"
+		},
+		"Algorithm8Code": {
+			"enum": [
+				"MGF1"
+			],
+			"type": "string"
+		},
+		"AlgorithmIdentification31": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Algo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm27Code"
+						}
+					},
+					"type": "object"
+				},
+				"Param": {
+					"$ref": "#/$defs/Parameter7"
+				}
+			},
+			"required": [
+				"Algo"
+			],
+			"type": "object"
+		},
+		"AlgorithmIdentification32": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Algo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm28Code"
+						}
+					},
+					"type": "object"
+				},
+				"Param": {
+					"$ref": "#/$defs/Parameter12"
+				}
+			},
+			"required": [
+				"Algo"
+			],
+			"type": "object"
+		},
+		"AlgorithmIdentification33": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Algo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm29Code"
+						}
+					},
+					"type": "object"
+				},
+				"Param": {
+					"$ref": "#/$defs/Parameter16"
+				}
+			},
+			"required": [
+				"Algo"
+			],
+			"type": "object"
+		},
+		"AlgorithmIdentification34": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Algo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm8Code"
+						}
+					},
+					"type": "object"
+				},
+				"Param": {
+					"$ref": "#/$defs/Parameter18"
+				}
+			},
+			"required": [
+				"Algo"
+			],
+			"type": "object"
+		},
+		"AlgorithmIdentification35": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Algo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm7Code"
+						}
+					},
+					"type": "object"
+				},
+				"Param": {
+					"$ref": "#/$defs/Parameter17"
+				}
+			},
+			"required": [
+				"Algo"
+			],
+			"type": "object"
+		},
+		"AlgorithmIdentification36": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Algo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm26Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Algo"
+			],
+			"type": "object"
+		},
+		"AmountUnit1Code": {
+			"enum": [
+				"MONE",
+				"POIN"
+			],
+			"type": "string"
+		},
+		"AnyBICDec2014Identifier": {
+			"pattern": "^([0-9A-Z]{4,4}[A-Z]{2,2}[0-9A-Z]{2,2}([0-9A-Z]{3,3})?)$",
+			"type": "string"
+		},
+		"AttendanceContext1Code": {
+			"enum": [
+				"ATTD",
+				"SATT",
+				"UATT"
+			],
+			"type": "string"
+		},
+		"AttributeType1Code": {
+			"enum": [
+				"CNAT",
+				"LATT",
+				"OATT",
+				"OUAT",
+				"CATT"
+			],
+			"type": "string"
+		},
+		"AuthenticatedData10": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"MAC": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Binary"
+						}
+					},
+					"type": "object"
+				},
+				"MACAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification31"
+				},
+				"NcpsltdCntt": {
+					"$ref": "#/$defs/EncapsulatedContent3"
+				},
+				"Rcpt": {
+					"items": {
+						"$ref": "#/$defs/Recipient15Choice"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"MAC",
+				"MACAlgo",
+				"NcpsltdCntt",
+				"Rcpt"
+			],
+			"type": "object"
+		},
+		"AuthenticationEntity2Code": {
+			"enum": [
+				"ICCD",
+				"AGNT",
+				"MERC",
+				"ACQR",
+				"ISSR",
+				"TRML"
+			],
+			"type": "string"
+		},
+		"AuthenticationMethod6Code": {
+			"enum": [
+				"NPIN",
+				"PPSG",
+				"PSWD",
+				"SCRT",
+				"SCNL",
+				"SNCT",
+				"CPSG",
+				"ADDB",
+				"BIOM",
+				"CDHI",
+				"CRYP",
+				"CSCV",
+				"PSVE",
+				"CSEC",
+				"ADDS",
+				"MANU",
+				"FPIN",
+				"TOKP"
+			],
+			"type": "string"
+		},
+		"AuthenticationMethod8Code": {
+			"enum": [
+				"TOKA",
+				"ADDB",
+				"BYPS",
+				"BIOM",
+				"CDHI",
+				"CRYP",
+				"CSCV",
+				"MANU",
+				"MERC",
+				"MOBL",
+				"FPIN",
+				"NPIN",
+				"OTHR",
+				"PPSG",
+				"PSVE",
+				"PSWD",
+				"TOKP",
+				"SCRT",
+				"SCNL",
+				"CSEC",
+				"SNCT",
+				"ADDS",
+				"CPSG",
+				"TOKN",
+				"UKNW"
+			],
+			"type": "string"
+		},
+		"AuthenticationResult1Code": {
+			"enum": [
+				"DENY",
+				"MRCH",
+				"CARD",
+				"AUTH",
+				"CRPT",
+				"UCRP"
+			],
+			"type": "string"
+		},
+		"BBANIdentifier": {
+			"pattern": "^([0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"BusinessArea2Code": {
+			"enum": [
+				"AIBD",
+				"PPAY",
+				"TKNF",
+				"EOPT",
+				"TOPT"
+			],
+			"type": "string"
+		},
+		"BytePadding1Code": {
+			"enum": [
+				"LNGT",
+				"NUL8",
+				"NULG",
+				"NULL",
+				"RAND"
+			],
+			"type": "string"
+		},
+		"CardDataReading5Code": {
+			"enum": [
+				"TAGC",
+				"PHYS",
+				"BRCD",
+				"MGST",
+				"CICC",
+				"DFLE",
+				"CTLS",
+				"ECTL",
+				"CDFL"
+			],
+			"type": "string"
+		},
+		"CardDataReading8Code": {
+			"enum": [
+				"TAGC",
+				"PHYS",
+				"BRCD",
+				"MGST",
+				"CICC",
+				"DFLE",
+				"CTLS",
+				"ECTL",
+				"CDFL",
+				"SICC",
+				"UNKW",
+				"QRCD",
+				"OPTC"
+			],
+			"type": "string"
+		},
+		"CardDirectDebit2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CdtrId": {
+					"$ref": "#/$defs/Creditor4"
+				},
+				"DbtrId": {
+					"$ref": "#/$defs/Debtor4"
+				},
+				"MndtRltdInf": {
+					"$ref": "#/$defs/MandateRelatedInformation13"
+				}
+			},
+			"required": [
+				"CdtrId",
+				"MndtRltdInf"
+			],
+			"type": "object"
+		},
+		"CardFallback1Code": {
+			"enum": [
+				"FFLB",
+				"SFLB",
+				"NFLB"
+			],
+			"type": "string"
+		},
+		"CardIdentificationType1Code": {
+			"enum": [
+				"ACCT",
+				"BARC",
+				"ISO2",
+				"PHON",
+				"CPAN",
+				"PRIV",
+				"Universally Unique IDentifier (UUID) version 4."
+			],
+			"type": "string"
+		},
+		"CardPaymentContext30": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DrctDbtCntxt": {
+					"$ref": "#/$defs/CardDirectDebit2"
+				},
+				"PmtCntxt": {
+					"$ref": "#/$defs/PaymentContext29"
+				},
+				"SaleCntxt": {
+					"$ref": "#/$defs/SaleContext4"
+				}
+			},
+			"type": "object"
+		},
+		"CardPaymentEnvironment80": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Acqrr": {
+					"$ref": "#/$defs/Acquirer10"
+				},
+				"Card": {
+					"$ref": "#/$defs/PaymentCard35"
+				},
+				"Chck": {
+					"$ref": "#/$defs/Check1"
+				},
+				"Crdhldr": {
+					"$ref": "#/$defs/Cardholder21"
+				},
+				"CstmrDvc": {
+					"$ref": "#/$defs/CustomerDevice3"
+				},
+				"LltyAcct": {
+					"items": {
+						"$ref": "#/$defs/LoyaltyAccount3"
+					},
+					"type": "array"
+				},
+				"Mrchnt": {
+					"$ref": "#/$defs/Organisation41"
+				},
+				"MrchntTkn": {
+					"$ref": "#/$defs/MerchantToken2"
+				},
+				"POI": {
+					"$ref": "#/$defs/PointOfInteraction14"
+				},
+				"PmtTkn": {
+					"$ref": "#/$defs/Token1"
+				},
+				"PrtctdCrdhldrData": {
+					"$ref": "#/$defs/ContentInformationType40"
+				},
+				"SaleEnvt": {
+					"$ref": "#/$defs/RetailerSaleEnvironment2"
+				},
+				"StordValAcct": {
+					"items": {
+						"$ref": "#/$defs/StoredValueAccount2"
+					},
+					"type": "array"
+				},
+				"SvcPrvdr": {
+					"$ref": "#/$defs/Acquirer10"
+				},
+				"Wllt": {
+					"$ref": "#/$defs/CustomerDevice3"
+				}
+			},
+			"type": "object"
+		},
+		"CardProductType1Code": {
+			"enum": [
+				"COMM",
+				"CONS"
+			],
+			"type": "string"
+		},
+		"Cardholder21": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Authntcn": {
+					"items": {
+						"$ref": "#/$defs/CardholderAuthentication17"
+					},
+					"type": "array"
+				},
+				"BllgAdr": {
+					"$ref": "#/$defs/PostalAddress22"
+				},
+				"Id": {
+					"$ref": "#/$defs/PersonIdentification15"
+				},
+				"Lang": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/LanguageCode"
+						}
+					},
+					"type": "object"
+				},
+				"MobData": {
+					"items": {
+						"$ref": "#/$defs/MobileData6"
+					},
+					"type": "array"
+				},
+				"Nm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max45Text"
+						}
+					},
+					"type": "object"
+				},
+				"PrsnlData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"ShppgAdr": {
+					"$ref": "#/$defs/PostalAddress22"
+				},
+				"TripNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"TxVrfctnRslt": {
+					"items": {
+						"$ref": "#/$defs/TransactionVerificationResult4"
+					},
+					"type": "array"
+				},
+				"Vhcl": {
+					"$ref": "#/$defs/Vehicle1"
+				}
+			},
+			"type": "object"
+		},
+		"CardholderAuthentication17": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AdrVrfctn": {
+					"$ref": "#/$defs/AddressVerification1"
+				},
+				"AuthntcnAddtlInf": {
+					"$ref": "#/$defs/ExternallyDefinedData5"
+				},
+				"AuthntcnLvl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"AuthntcnMtd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AuthenticationMethod8Code"
+						}
+					},
+					"type": "object"
+				},
+				"AuthntcnRslt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AuthenticationResult1Code"
+						}
+					},
+					"type": "object"
+				},
+				"AuthntcnTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"AuthntcnVal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max5000Binary"
+						}
+					},
+					"type": "object"
+				},
+				"AuthntcnXmptn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Exemption1Code"
+						}
+					},
+					"type": "object"
+				},
+				"CrdhldrId": {
+					"$ref": "#/$defs/PersonIdentification15"
+				},
+				"CrdhldrOnLinePIN": {
+					"$ref": "#/$defs/OnLinePIN11"
+				},
+				"PrtctdAuthntcnVal": {
+					"$ref": "#/$defs/ContentInformationType40"
+				}
+			},
+			"type": "object"
+		},
+		"CardholderVerificationCapability4Code": {
+			"enum": [
+				"APKI",
+				"CHDT",
+				"MNSG",
+				"MNVR",
+				"FBIG",
+				"FBIO",
+				"FDSG",
+				"FCPN",
+				"FEPN",
+				"NPIN",
+				"PKIS",
+				"SCEC",
+				"NBIO",
+				"NOVF",
+				"OTHR"
+			],
+			"type": "string"
+		},
+		"CashAccountIdentification7Choice": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"BBAN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/BBANIdentifier"
+						}
+					},
+					"type": "object"
+				},
+				"DmstAcct": {
+					"$ref": "#/$defs/SimpleIdentificationInformation4"
+				},
+				"IBAN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/IBAN2007Identifier"
+						}
+					},
+					"type": "object"
+				},
+				"UPIC": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/UPICIdentifier"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"CertificateIssuer1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"RltvDstngshdNm": {
+					"items": {
+						"$ref": "#/$defs/RelativeDistinguishedName1"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"RltvDstngshdNm"
+			],
+			"type": "object"
+		},
+		"Check1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AcctNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"BkId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"ChckCardNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"ChckNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"ChckTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CheckType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"ChckTrckData2": {
+					"$ref": "#/$defs/TrackData2"
+				},
+				"Ctry": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max3Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"CheckType1Code": {
+			"enum": [
+				"BANK",
+				"BUSI",
+				"GOVC",
+				"PAYR",
+				"PERS"
+			],
+			"type": "string"
+		},
+		"CommunicationAddress9": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlCtctInf": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"CstmrSvc": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PhoneNumber"
+						}
+					},
+					"type": "object"
+				},
+				"Email": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"Phne": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PhoneNumber"
+						}
+					},
+					"type": "object"
+				},
+				"PstlAdr": {
+					"$ref": "#/$defs/PostalAddress22"
+				},
+				"URLAdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"CommunicationCharacteristics5": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Actv": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"ComTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/POICommunicationType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"Params": {
+					"$ref": "#/$defs/NetworkParameters7"
+				},
+				"PhysIntrfc": {
+					"$ref": "#/$defs/PhysicalInterfaceParameter1"
+				},
+				"RmotPty": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/PartyType7Code"
+							}
+						},
+						"type": "object"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"Actv",
+				"ComTp",
+				"RmotPty"
+			],
+			"type": "object"
+		},
+		"ContentInformationType38": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AuthntcdData": {
+					"$ref": "#/$defs/AuthenticatedData10"
+				},
+				"CnttTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ContentType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"SgndData": {
+					"$ref": "#/$defs/SignedData9"
+				}
+			},
+			"required": [
+				"CnttTp"
+			],
+			"type": "object"
+		},
+		"ContentInformationType39": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AuthntcdData": {
+					"$ref": "#/$defs/AuthenticatedData10"
+				},
+				"CnttTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ContentType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"DgstdData": {
+					"$ref": "#/$defs/DigestedData6"
+				},
+				"EnvlpdData": {
+					"$ref": "#/$defs/EnvelopedData11"
+				},
+				"SgndData": {
+					"$ref": "#/$defs/SignedData9"
+				}
+			},
+			"required": [
+				"CnttTp"
+			],
+			"type": "object"
+		},
+		"ContentInformationType40": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CnttTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ContentType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"EnvlpdData": {
+					"$ref": "#/$defs/EnvelopedData11"
+				}
+			},
+			"required": [
+				"CnttTp",
+				"EnvlpdData"
+			],
+			"type": "object"
+		},
+		"ContentType2Code": {
+			"enum": [
+				"DATA",
+				"SIGN",
+				"EVLP",
+				"DGST",
+				"AUTH"
+			],
+			"type": "string"
+		},
+		"CountryCode": {
+			"pattern": "^([A-Z]{2,2})$",
+			"type": "string"
+		},
+		"Creditor4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Cdtr": {
+					"$ref": "#/$defs/PartyIdentification178Choice"
+				},
+				"RegnId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Cdtr"
+			],
+			"type": "object"
+		},
+		"CryptographicKey18": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"ActvtnDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				},
+				"AddtlId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Binary"
+						}
+					},
+					"type": "object"
+				},
+				"AddtlMgmtInf": {
+					"items": {
+						"$ref": "#/$defs/GenericInformation1"
+					},
+					"type": "array"
+				},
+				"CmpntWthAuthrsdAccs": {
+					"items": {
+						"$ref": "#/$defs/GenericIdentification186"
+					},
+					"type": "array"
+				},
+				"DeactvtnDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				},
+				"Fctn": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/KeyUsage1Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max350Text"
+						}
+					},
+					"type": "object"
+				},
+				"ItmNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"KeyChckVal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Binary"
+						}
+					},
+					"type": "object"
+				},
+				"KeyVal": {
+					"$ref": "#/$defs/ContentInformationType39"
+				},
+				"Nm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"PrtctdCmpntWthAuthrsdAccs": {
+					"items": {
+						"$ref": "#/$defs/ContentInformationType39"
+					},
+					"type": "array"
+				},
+				"SctyPrfl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CryptographicKeyType3Code"
+						}
+					},
+					"type": "object"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id",
+				"Vrsn"
+			],
+			"type": "object"
+		},
+		"CryptographicKeyType3Code": {
+			"enum": [
+				"AES2",
+				"EDE3",
+				"DKP9",
+				"AES9",
+				"AES5",
+				"EDE4"
+			],
+			"type": "string"
+		},
+		"CustomerDevice3": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Prvdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"DateAndPlaceOfBirth1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"BirthDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODate"
+						}
+					},
+					"type": "object"
+				},
+				"CityOfBirth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CtryOfBirth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CountryCode"
+						}
+					},
+					"type": "object"
+				},
+				"PrvcOfBirth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"BirthDt",
+				"CityOfBirth",
+				"CtryOfBirth"
+			],
+			"type": "object"
+		},
+		"Debtor4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AcctId": {
+					"$ref": "#/$defs/CashAccountIdentification7Choice"
+				},
+				"Dbtr": {
+					"$ref": "#/$defs/PartyIdentification178Choice"
+				}
+			},
+			"type": "object"
+		},
+		"DecimalNumber": {
+			"type": "number"
+		},
+		"DetailedAmount15": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AmtGoodsAndSvcs": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"CshBck": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"Fees": {
+					"items": {
+						"$ref": "#/$defs/DetailedAmount4"
+					},
+					"type": "array"
+				},
+				"Grtty": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"Rbt": {
+					"items": {
+						"$ref": "#/$defs/DetailedAmount4"
+					},
+					"type": "array"
+				},
+				"Srchrg": {
+					"items": {
+						"$ref": "#/$defs/DetailedAmount4"
+					},
+					"type": "array"
+				},
+				"ValAddedTax": {
+					"items": {
+						"$ref": "#/$defs/DetailedAmount4"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"DetailedAmount4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Amt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"Labl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Amt"
+			],
+			"type": "object"
+		},
+		"DigestedData6": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Dgst": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Binary"
+						}
+					},
+					"type": "object"
+				},
+				"DgstAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification36"
+				},
+				"NcpsltdCntt": {
+					"$ref": "#/$defs/EncapsulatedContent3"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Dgst",
+				"DgstAlgo",
+				"NcpsltdCntt"
+			],
+			"type": "object"
+		},
+		"DisplayCapabilities4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AvlblFrmt": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/OutputFormat1Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"AvlblLang": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/LanguageCode"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"Dstn": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/UserInterface4Code"
+							}
+						},
+						"type": "object"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"LineWidth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"NbOfLines": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Dstn"
+			],
+			"type": "object"
+		},
+		"Document": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"SaleToPOIRcncltnRspn": {
+					"$ref": "#/$defs/SaleToPOIReconciliationResponseV06"
+				}
+			},
+			"required": [
+				"SaleToPOIRcncltnRspn"
+			],
+			"type": "object"
+		},
+		"EncapsulatedContent3": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Cntt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max100KBinary"
+						}
+					},
+					"type": "object"
+				},
+				"CnttTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ContentType2Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"CnttTp"
+			],
+			"type": "object"
+		},
+		"EncryptedContent7": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CnttNcrptnAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification32"
+				},
+				"CnttTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ContentType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"NcrptdData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max100KBinary"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"CnttTp",
+				"NcrptdData"
+			],
+			"type": "object"
+		},
+		"EncryptionFormat2Code": {
+			"enum": [
+				"TR31",
+				"TR34",
+				"I238"
+			],
+			"type": "string"
+		},
+		"EnvelopedData11": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"NcrptdCntt": {
+					"$ref": "#/$defs/EncryptedContent7"
+				},
+				"OrgtrInf": {
+					"$ref": "#/$defs/OriginatorInformation1"
+				},
+				"Rcpt": {
+					"items": {
+						"$ref": "#/$defs/Recipient15Choice"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Rcpt"
+			],
+			"type": "object"
+		},
+		"Exact3AlphaNumericText": {
+			"pattern": "^([0-9A-Za-z]{3,3})$",
+			"type": "string"
+		},
+		"Exact3NumericText": {
+			"pattern": "^([0-9]{3,3})$",
+			"type": "string"
+		},
+		"Exact4NumericText": {
+			"pattern": "^([0-9]{4,4})$",
+			"type": "string"
+		},
+		"Exemption1Code": {
+			"enum": [
+				"LOWA",
+				"MINT",
+				"RECP",
+				"SCPE",
+				"SCAD",
+				"TRAE",
+				"PKGE",
+				"TMBE"
+			],
+			"type": "string"
+		},
+		"ExternallyDefinedData5": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max1025Text"
+						}
+					},
+					"type": "object"
+				},
+				"PrtctdVal": {
+					"$ref": "#/$defs/ContentInformationType39"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max1025Text"
+						}
+					},
+					"type": "object"
+				},
+				"Val": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max100KBinary"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id"
+			],
+			"type": "object"
+		},
+		"GenericIdentification176": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Ctry": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min2Max3AlphaText"
+						}
+					},
+					"type": "object"
+				},
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Issr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType33Code"
+						}
+					},
+					"type": "object"
+				},
+				"ShrtNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType33Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id"
+			],
+			"type": "object"
+		},
+		"GenericIdentification177": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Ctry": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min2Max3AlphaText"
+						}
+					},
+					"type": "object"
+				},
+				"Glctn": {
+					"$ref": "#/$defs/Geolocation1"
+				},
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Issr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType33Code"
+						}
+					},
+					"type": "object"
+				},
+				"RmotAccs": {
+					"$ref": "#/$defs/NetworkParameters7"
+				},
+				"ShrtNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType33Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id"
+			],
+			"type": "object"
+		},
+		"GenericIdentification186": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType7Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id",
+				"Tp"
+			],
+			"type": "object"
+		},
+		"GenericIdentification32": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Issr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType4Code"
+						}
+					},
+					"type": "object"
+				},
+				"ShrtNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PartyType3Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id"
+			],
+			"type": "object"
+		},
+		"GenericIdentification36": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Issr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SchmeNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id",
+				"Issr"
+			],
+			"type": "object"
+		},
+		"GenericIdentification4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"IdTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id",
+				"IdTp"
+			],
+			"type": "object"
+		},
+		"GenericIdentification48": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Issr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id",
+				"Issr",
+				"Vrsn"
+			],
+			"type": "object"
+		},
+		"GenericInformation1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Nm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"Val": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Nm"
+			],
+			"type": "object"
+		},
+		"Geolocation1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"GeogcCordints": {
+					"$ref": "#/$defs/GeolocationGeographicCoordinates1"
+				},
+				"UTMCordints": {
+					"$ref": "#/$defs/GeolocationUTMCoordinates1"
+				}
+			},
+			"type": "object"
+		},
+		"GeolocationGeographicCoordinates1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Lat": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Long": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Lat",
+				"Long"
+			],
+			"type": "object"
+		},
+		"GeolocationUTMCoordinates1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"UTMEstwrd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"UTMNrthwrd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"UTMZone": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"UTMEstwrd",
+				"UTMNrthwrd",
+				"UTMZone"
+			],
+			"type": "object"
+		},
+		"Header41": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CreDtTm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				},
+				"InitgPty": {
+					"$ref": "#/$defs/GenericIdentification177"
+				},
+				"MsgFctn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/RetailerMessage1Code"
+						}
+					},
+					"type": "object"
+				},
+				"PrtcolVrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max6Text"
+						}
+					},
+					"type": "object"
+				},
+				"RcptPty": {
+					"$ref": "#/$defs/GenericIdentification177"
+				},
+				"Tracblt": {
+					"items": {
+						"$ref": "#/$defs/Traceability8"
+					},
+					"type": "array"
+				},
+				"XchgId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"CreDtTm",
+				"InitgPty",
+				"MsgFctn",
+				"PrtcolVrsn",
+				"XchgId"
+			],
+			"type": "object"
+		},
+		"IBAN2007Identifier": {
+			"pattern": "^([A-Z]{2,2}[0-9]{2,2}[0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"ISO3NumericCountryCode": {
+			"pattern": "^([0-9]{3,3})$",
+			"type": "string"
+		},
+		"ISODate": {
+			"type": "string"
+		},
+		"ISODateTime": {
+			"type": "string"
+		},
+		"ImpliedCurrencyAndAmount": {
+			"minimum": 0,
+			"type": "number"
+		},
+		"IssuerAndSerialNumber2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Issr": {
+					"$ref": "#/$defs/CertificateIssuer1"
+				},
+				"SrlNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Binary"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Issr",
+				"SrlNb"
+			],
+			"type": "object"
+		},
+		"KEK9": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"KEKId": {
+					"$ref": "#/$defs/KEKIdentifier7"
+				},
+				"KeyNcrptnAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification32"
+				},
+				"NcrptdKey": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Binary"
+						}
+					},
+					"type": "object"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"KEKId",
+				"KeyNcrptnAlgo"
+			],
+			"type": "object"
+		},
+		"KEKIdentifier7": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DerivtnId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Binary"
+						}
+					},
+					"type": "object"
+				},
+				"KeyId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				},
+				"KeyVrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				},
+				"SeqNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"KeyId",
+				"KeyVrsn"
+			],
+			"type": "object"
+		},
+		"KeyTransport10": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"KeyNcrptnAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification35"
+				},
+				"NcrptdKey": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max5000Binary"
+						}
+					},
+					"type": "object"
+				},
+				"RcptId": {
+					"$ref": "#/$defs/Recipient13Choice"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"KeyNcrptnAlgo",
+				"NcrptdKey",
+				"RcptId"
+			],
+			"type": "object"
+		},
+		"KeyUsage1Code": {
+			"enum": [
+				"ENCR",
+				"DCPT",
+				"DENC",
+				"DDEC",
+				"TRNI",
+				"TRNX",
+				"MACG",
+				"MACV",
+				"SIGG",
+				"SUGV",
+				"PINE",
+				"PIND",
+				"PINV",
+				"KEYG",
+				"KEYI",
+				"KEYX",
+				"KEYD"
+			],
+			"type": "string"
+		},
+		"LanguageCode": {
+			"type": "string"
+		},
+		"LocationCategory3Code": {
+			"enum": [
+				"INDR",
+				"IPMP",
+				"MPOI",
+				"MPMP",
+				"MSLE",
+				"SSLE",
+				"VNDG"
+			],
+			"type": "string"
+		},
+		"LocationCategory4Code": {
+			"enum": [
+				"ABRD",
+				"NMDC",
+				"FIXD",
+				"VIRT"
+			],
+			"type": "string"
+		},
+		"LoyaltyAccount3": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Bal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"Brnd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Ccy": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ActiveCurrencyCode"
+						}
+					},
+					"type": "object"
+				},
+				"IdTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardIdentificationType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"LltyId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"NtryMd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardDataReading8Code"
+						}
+					},
+					"type": "object"
+				},
+				"OwnrNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max45Text"
+						}
+					},
+					"type": "object"
+				},
+				"Prvdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Unit": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AmountUnit1Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"LltyId"
+			],
+			"type": "object"
+		},
+		"LoyaltyHandling1Code": {
+			"enum": [
+				"ALLO",
+				"DENY",
+				"PRCS",
+				"PROP",
+				"REQU"
+			],
+			"type": "string"
+		},
+		"LoyaltyTransactionTotals1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CardPdctPrfl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Ccy": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ActiveCurrencyCode"
+						}
+					},
+					"type": "object"
+				},
+				"CmltvAmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"DtldAmt": {
+					"$ref": "#/$defs/DetailedAmount15"
+				},
+				"LltyUnit": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AmountUnit1Code"
+						}
+					},
+					"type": "object"
+				},
+				"POIGrpId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"TtlNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"TxTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/LoyaltyTypeTransactionTotals1Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"CmltvAmt",
+				"TtlNb",
+				"TxTp"
+			],
+			"type": "object"
+		},
+		"LoyaltyTypeTransactionTotals1Code": {
+			"enum": [
+				"AWRD",
+				"REBA",
+				"REDE",
+				"AWRR",
+				"REBR",
+				"REDR"
+			],
+			"type": "string"
+		},
+		"MandateRelatedInformation13": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DtOfSgntr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODate"
+						}
+					},
+					"type": "object"
+				},
+				"MndtId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"MndtImg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max2MBBinary"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"MndtId"
+			],
+			"type": "object"
+		},
+		"Max100KBinary": {
+			"maxLength": 102400,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max1025Text": {
+			"maxLength": 1025,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max104Text": {
+			"maxLength": 104,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max10KBinary": {
+			"maxLength": 10240,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max10Text": {
+			"maxLength": 10,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max11NumericText": {
+			"pattern": "^([0-9]{1,11})$",
+			"type": "string"
+		},
+		"Max140Binary": {
+			"maxLength": 140,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max140Text": {
+			"maxLength": 140,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max15NumericText": {
+			"pattern": "^([0-9]{1,15})$",
+			"type": "string"
+		},
+		"Max16Text": {
+			"maxLength": 16,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max19NumericText": {
+			"pattern": "^([0-9]{1,19})$",
+			"type": "string"
+		},
+		"Max256Text": {
+			"maxLength": 256,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max2KBinary": {
+			"maxLength": 2048,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max2MBBinary": {
+			"maxLength": 2097152,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max2NumericText": {
+			"pattern": "^([0-9]{1,2})$",
+			"type": "string"
+		},
+		"Max3000Binary": {
+			"maxLength": 3000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max30Text": {
+			"maxLength": 30,
+			"type": "string"
+		},
+		"Max350Text": {
+			"maxLength": 350,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max35Binary": {
+			"maxLength": 35,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max35NumericText": {
+			"pattern": "^([0-9]{1,35})$",
+			"type": "string"
+		},
+		"Max35Text": {
+			"maxLength": 35,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max37Text": {
+			"maxLength": 37,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max3Text": {
+			"maxLength": 3,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max45Text": {
+			"maxLength": 45,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max5000Binary": {
+			"maxLength": 5000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max500Binary": {
+			"maxLength": 500,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max500Text": {
+			"maxLength": 500,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max5NumericText": {
+			"pattern": "^([0-9]{1,5})$",
+			"type": "string"
+		},
+		"Max6Text": {
+			"maxLength": 6,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max70Text": {
+			"maxLength": 70,
+			"minLength": 1,
+			"type": "string"
+		},
+		"Max76Text": {
+			"maxLength": 76,
+			"minLength": 1,
+			"type": "string"
+		},
+		"MemoryCharacteristics1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"FreeSz": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/DecimalNumber"
+						}
+					},
+					"type": "object"
+				},
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"TtlSz": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/DecimalNumber"
+						}
+					},
+					"type": "object"
+				},
+				"Unit": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/MemoryUnit1Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"FreeSz",
+				"Id",
+				"TtlSz",
+				"Unit"
+			],
+			"type": "object"
+		},
+		"MemoryUnit1Code": {
+			"enum": [
+				"BYTE",
+				"EXAB",
+				"GIGA",
+				"KILO",
+				"MEGA",
+				"PETA",
+				"TERA"
+			],
+			"type": "string"
+		},
+		"MerchantToken2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Tkn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"TknAssrncData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Binary"
+						}
+					},
+					"type": "object"
+				},
+				"TknAssrncLvl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"TknAssrncMtd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max2NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"TknChrtc": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max35Text"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"TknInittdInd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"TknRqstr": {
+					"$ref": "#/$defs/PaymentTokenIdentifiers1"
+				},
+				"TknXpryDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max10Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Min2Max3AlphaText": {
+			"pattern": "^([A-Za-z]{2,3})$",
+			"type": "string"
+		},
+		"Min2Max3NumericText": {
+			"pattern": "^([0-9]{2,3})$",
+			"type": "string"
+		},
+		"Min3Max4Text": {
+			"maxLength": 4,
+			"minLength": 3,
+			"type": "string"
+		},
+		"Min8Max28NumericText": {
+			"pattern": "^([0-9]{8,28})$",
+			"type": "string"
+		},
+		"MobileData6": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Glctn": {
+					"$ref": "#/$defs/Geolocation1"
+				},
+				"MobCtryCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min2Max3AlphaText"
+						}
+					},
+					"type": "object"
+				},
+				"MobMskdMSISDN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"MobNtwkCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min2Max3NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"PrtctdMobData": {
+					"$ref": "#/$defs/ContentInformationType40"
+				},
+				"SnstvMobData": {
+					"$ref": "#/$defs/SensitiveMobileData1"
+				}
+			},
+			"type": "object"
+		},
+		"NameAndAddress6": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Adr": {
+					"$ref": "#/$defs/PostalAddress2"
+				},
+				"Nm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Adr",
+				"Nm"
+			],
+			"type": "object"
+		},
+		"NetworkParameters7": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AccsCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Binary"
+						}
+					},
+					"type": "object"
+				},
+				"Adr": {
+					"items": {
+						"$ref": "#/$defs/NetworkParameters9"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"ClntCert": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max10KBinary"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"SctyPrfl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SvrCert": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max10KBinary"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"SvrCertIdr": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max140Binary"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"UsrNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Adr"
+			],
+			"type": "object"
+		},
+		"NetworkParameters9": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AdrVal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Text"
+						}
+					},
+					"type": "object"
+				},
+				"NtwkTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/NetworkType1Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"AdrVal",
+				"NtwkTp"
+			],
+			"type": "object"
+		},
+		"NetworkType1Code": {
+			"enum": [
+				"IPNW",
+				"PSTN"
+			],
+			"type": "string"
+		},
+		"Number": {
+			"type": "number"
+		},
+		"OnLineCapability1Code": {
+			"enum": [
+				"OFLN",
+				"ONLN",
+				"SMON"
+			],
+			"type": "string"
+		},
+		"OnLinePIN11": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlInpt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"NcrptdPINBlck": {
+					"$ref": "#/$defs/ContentInformationType40"
+				},
+				"PINFrmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PINFormat3Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"NcrptdPINBlck",
+				"PINFrmt"
+			],
+			"type": "object"
+		},
+		"Organisation26": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Adr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				},
+				"CmonNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"CtryCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISO3NumericCountryCode"
+						}
+					},
+					"type": "object"
+				},
+				"MrchntCtgyCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min3Max4Text"
+						}
+					},
+					"type": "object"
+				},
+				"RegdIdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"CmonNm",
+				"CtryCd",
+				"MrchntCtgyCd",
+				"RegdIdr"
+			],
+			"type": "object"
+		},
+		"Organisation41": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CmonNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"Id": {
+					"$ref": "#/$defs/GenericIdentification32"
+				},
+				"LctnAndCtct": {
+					"$ref": "#/$defs/CommunicationAddress9"
+				},
+				"LctnCtgy": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/LocationCategory4Code"
+						}
+					},
+					"type": "object"
+				},
+				"SchmeData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"OriginatorInformation1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Cert": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max5000Binary"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"OutputFormat1Code": {
+			"enum": [
+				"MREF",
+				"TEXT",
+				"HTML"
+			],
+			"type": "string"
+		},
+		"PINFormat3Code": {
+			"enum": [
+				"ISO0",
+				"ISO1",
+				"ISO2",
+				"ISO3",
+				"ISO4",
+				"ISO5"
+			],
+			"type": "string"
+		},
+		"POICommunicationType2Code": {
+			"enum": [
+				"BLTH",
+				"ETHR",
+				"GPRS",
+				"GSMF",
+				"PSTN",
+				"RS23",
+				"USBD",
+				"USBH",
+				"WIFI",
+				"WT2G",
+				"WT3G",
+				"WT4G",
+				"WT5G"
+			],
+			"type": "string"
+		},
+		"POIComponentAssessment1Code": {
+			"enum": [
+				"APPL",
+				"CERT",
+				"EVAL"
+			],
+			"type": "string"
+		},
+		"POIComponentStatus1Code": {
+			"enum": [
+				"WAIT",
+				"OUTD",
+				"OPER",
+				"DACT"
+			],
+			"type": "string"
+		},
+		"POIComponentType6Code": {
+			"enum": [
+				"AQPP",
+				"APPR",
+				"TLPR",
+				"SCPR",
+				"SERV",
+				"TERM",
+				"DVCE",
+				"SECM",
+				"APLI",
+				"EMVK",
+				"EMVO",
+				"MDWR",
+				"DRVR",
+				"OPST",
+				"MRPR",
+				"CRTF",
+				"TMSP",
+				"SACP",
+				"SAPR",
+				"LOGF",
+				"MDFL",
+				"SOFT",
+				"CONF",
+				"RPFL"
+			],
+			"type": "string"
+		},
+		"PackageType5": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"OffsetEnd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PositiveNumber"
+						}
+					},
+					"type": "object"
+				},
+				"OffsetStart": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PositiveNumber"
+						}
+					},
+					"type": "object"
+				},
+				"PackgBlck": {
+					"items": {
+						"$ref": "#/$defs/ExternallyDefinedData5"
+					},
+					"type": "array"
+				},
+				"PackgId": {
+					"$ref": "#/$defs/GenericIdentification176"
+				},
+				"PackgLngth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PositiveNumber"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Parameter12": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"BPddg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/BytePadding1Code"
+						}
+					},
+					"type": "object"
+				},
+				"InitlstnVctr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Binary"
+						}
+					},
+					"type": "object"
+				},
+				"NcrptnFrmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/EncryptionFormat2Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Parameter16": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DgstAlgo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm26Code"
+						}
+					},
+					"type": "object"
+				},
+				"MskGnrtrAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification34"
+				},
+				"OIDCrvNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				},
+				"SaltLngth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"TrlrFld": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Parameter17": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DgstAlgo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm26Code"
+						}
+					},
+					"type": "object"
+				},
+				"MskGnrtrAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification34"
+				},
+				"NcrptnFrmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/EncryptionFormat2Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Parameter18": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DgstAlgo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Algorithm26Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Parameter7": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"BPddg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/BytePadding1Code"
+						}
+					},
+					"type": "object"
+				},
+				"InitlstnVctr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Binary"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PartyIdentification178Choice": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AnyBIC": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AnyBICDec2014Identifier"
+						}
+					},
+					"type": "object"
+				},
+				"NmAndAdr": {
+					"$ref": "#/$defs/NameAndAddress6"
+				},
+				"PrtryId": {
+					"$ref": "#/$defs/GenericIdentification36"
+				}
+			},
+			"type": "object"
+		},
+		"PartyType33Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS",
+				"MTMG",
+				"TAXH",
+				"TMGT"
+			],
+			"type": "string"
+		},
+		"PartyType3Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS"
+			],
+			"type": "string"
+		},
+		"PartyType4Code": {
+			"enum": [
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"TAXH"
+			],
+			"type": "string"
+		},
+		"PartyType7Code": {
+			"enum": [
+				"ACQR",
+				"ITAG",
+				"PCPT",
+				"TMGT",
+				"SALE"
+			],
+			"type": "string"
+		},
+		"PaymentCard35": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlCardData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"AllwdPdct": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max70Text"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"CardBrnd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CardCcyCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Exact3AlphaNumericText"
+						}
+					},
+					"type": "object"
+				},
+				"CardCtryCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max3Text"
+						}
+					},
+					"type": "object"
+				},
+				"CardPdctPrfl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CardPdctSubTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CardPdctTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardProductType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"IntrnlCard": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"IssrBIN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max15NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"MskdPAN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max30Text"
+						}
+					},
+					"type": "object"
+				},
+				"PlainCardData": {
+					"$ref": "#/$defs/PlainCardData22"
+				},
+				"PmtAcctRef": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"PrtctdCardData": {
+					"$ref": "#/$defs/ContentInformationType40"
+				},
+				"PrvtCardData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max100KBinary"
+						}
+					},
+					"type": "object"
+				},
+				"SvcOptn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PaymentContext29": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AttndncCntxt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AttendanceContext1Code"
+						}
+					},
+					"type": "object"
+				},
+				"AttndntLang": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/LanguageCode"
+						}
+					},
+					"type": "object"
+				},
+				"AttndntMsgCpbl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"BizArea": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/BusinessArea2Code"
+						}
+					},
+					"type": "object"
+				},
+				"CardDataNtryMd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardDataReading8Code"
+						}
+					},
+					"type": "object"
+				},
+				"CardPres": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"CrdhldrPres": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"FllbckInd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardFallback1Code"
+						}
+					},
+					"type": "object"
+				},
+				"OnLineCntxt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"SpprtdOptn": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/SupportedPaymentOption2Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"TxChanl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TransactionChannel5Code"
+						}
+					},
+					"type": "object"
+				},
+				"TxEnvt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TransactionEnvironment1Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PaymentInstrumentType1Code": {
+			"enum": [
+				"CARD",
+				"CASH",
+				"CHCK",
+				"LOYT",
+				"SVAC"
+			],
+			"type": "string"
+		},
+		"PaymentTokenIdentifiers1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"PrvdrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"RqstrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"PrvdrId",
+				"RqstrId"
+			],
+			"type": "object"
+		},
+		"PersonIdentification15": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AlnRegnNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CstmrNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Dept": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"DrvrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"DrvrLicLctn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"DrvrLicNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"DrvrLicNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"DtAndPlcOfBirth": {
+					"$ref": "#/$defs/DateAndPlaceOfBirth1"
+				},
+				"EmailAdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"IdntyCardNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"JobNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"MplyeeIdNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"MplyrIdNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Othr": {
+					"items": {
+						"$ref": "#/$defs/GenericIdentification4"
+					},
+					"type": "array"
+				},
+				"PsptNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SclSctyNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"TaxIdNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PhoneNumber": {
+			"pattern": "^(\\+[0-9]{1,3}\\-[\\(-\\)\\+\\-0-9]{1,30})$",
+			"type": "string"
+		},
+		"PhysicalInterfaceParameter1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AccsCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Binary"
+						}
+					},
+					"type": "object"
+				},
+				"AddtlParams": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max2KBinary"
+						}
+					},
+					"type": "object"
+				},
+				"IntrfcNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"IntrfcTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/POICommunicationType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"SctyPrfl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"UsrNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"IntrfcNm"
+			],
+			"type": "object"
+		},
+		"PlainCardData17": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlCardData": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max35Text"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"NtryMd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardDataReading5Code"
+						}
+					},
+					"type": "object"
+				},
+				"PAN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min8Max28NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"Trck1": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max76Text"
+						}
+					},
+					"type": "object"
+				},
+				"Trck2": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max37Text"
+						}
+					},
+					"type": "object"
+				},
+				"Trck3": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max104Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PlainCardData22": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CardSeqNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min2Max3NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"CrdhldrNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max45Text"
+						}
+					},
+					"type": "object"
+				},
+				"FctvDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max10Text"
+						}
+					},
+					"type": "object"
+				},
+				"PAN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min8Max28NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"SvcCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Exact3NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"Trck1": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max76Text"
+						}
+					},
+					"type": "object"
+				},
+				"Trck2": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max37Text"
+						}
+					},
+					"type": "object"
+				},
+				"Trck3": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max104Text"
+						}
+					},
+					"type": "object"
+				},
+				"XpryDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max10Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"PAN"
+			],
+			"type": "object"
+		},
+		"PointOfInteraction14": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Cmpnt": {
+					"items": {
+						"$ref": "#/$defs/PointOfInteractionComponent15"
+					},
+					"type": "array"
+				},
+				"Cpblties": {
+					"$ref": "#/$defs/PointOfInteractionCapabilities9"
+				},
+				"GrpId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Id": {
+					"$ref": "#/$defs/GenericIdentification177"
+				},
+				"SysNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"TermnlIntgtn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/LocationCategory3Code"
+						}
+					},
+					"type": "object"
+				},
+				"TmZone": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id"
+			],
+			"type": "object"
+		},
+		"PointOfInteractionCapabilities9": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"ApprvlCdLngth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PositiveNumber"
+						}
+					},
+					"type": "object"
+				},
+				"CardCaptrCpbl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"CardRdngCpblties": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/CardDataReading8Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"CrdhldrVrfctnCpblties": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/CardholderVerificationCapability4Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"MsgCpblties": {
+					"items": {
+						"$ref": "#/$defs/DisplayCapabilities4"
+					},
+					"type": "array"
+				},
+				"MxScrptLngth": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PositiveNumber"
+						}
+					},
+					"type": "object"
+				},
+				"OnLineCpblties": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/OnLineCapability1Code"
+						}
+					},
+					"type": "object"
+				},
+				"PINLngthCpblties": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PositiveNumber"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PointOfInteractionComponent15": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Assmnt": {
+					"items": {
+						"$ref": "#/$defs/PointOfInteractionComponentAssessment1"
+					},
+					"type": "array"
+				},
+				"Chrtcs": {
+					"$ref": "#/$defs/PointOfInteractionComponentCharacteristics10"
+				},
+				"Id": {
+					"$ref": "#/$defs/PointOfInteractionComponentIdentification2"
+				},
+				"Packg": {
+					"items": {
+						"$ref": "#/$defs/PackageType5"
+					},
+					"type": "array"
+				},
+				"StdCmplc": {
+					"items": {
+						"$ref": "#/$defs/GenericIdentification48"
+					},
+					"type": "array"
+				},
+				"Sts": {
+					"$ref": "#/$defs/PointOfInteractionComponentStatus3"
+				},
+				"SubTpInf": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/POIComponentType6Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id",
+				"Tp"
+			],
+			"type": "object"
+		},
+		"PointOfInteractionComponentAssessment1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Assgnr": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max35Text"
+							}
+						},
+						"type": "object"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"DlvryDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				},
+				"Nb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/POIComponentAssessment1Code"
+						}
+					},
+					"type": "object"
+				},
+				"XprtnDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Assgnr",
+				"Nb",
+				"Tp"
+			],
+			"type": "object"
+		},
+		"PointOfInteractionComponentCharacteristics10": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Com": {
+					"items": {
+						"$ref": "#/$defs/CommunicationCharacteristics5"
+					},
+					"type": "array"
+				},
+				"Mmry": {
+					"items": {
+						"$ref": "#/$defs/MemoryCharacteristics1"
+					},
+					"type": "array"
+				},
+				"SbcbrIdntyMdls": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"SctyAccsMdls": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"SctyElmt": {
+					"items": {
+						"$ref": "#/$defs/CryptographicKey18"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"PointOfInteractionComponentIdentification2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"ItmNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"PrvdrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SrlNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PointOfInteractionComponentStatus3": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Sts": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/POIComponentStatus1Code"
+						}
+					},
+					"type": "object"
+				},
+				"VrsnNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max256Text"
+						}
+					},
+					"type": "object"
+				},
+				"XpryDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODate"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"PositiveNumber": {
+			"minimum": 1,
+			"type": "number"
+		},
+		"PostalAddress2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Ctry": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CountryCode"
+						}
+					},
+					"type": "object"
+				},
+				"CtrySubDvsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"PstCdId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max16Text"
+						}
+					},
+					"type": "object"
+				},
+				"StrtNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"TwnNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Ctry",
+				"PstCdId",
+				"TwnNm"
+			],
+			"type": "object"
+		},
+		"PostalAddress22": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AdrLine": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max70Text"
+							}
+						},
+						"type": "object"
+					},
+					"maxItems": 2,
+					"type": "array"
+				},
+				"AdrTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AddressType2Code"
+						}
+					},
+					"type": "object"
+				},
+				"BldgNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max16Text"
+						}
+					},
+					"type": "object"
+				},
+				"CtryCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Min2Max3AlphaText"
+						}
+					},
+					"type": "object"
+				},
+				"CtrySubDvsn": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max35Text"
+							}
+						},
+						"type": "object"
+					},
+					"maxItems": 2,
+					"type": "array"
+				},
+				"Dept": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"PstCd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max16Text"
+						}
+					},
+					"type": "object"
+				},
+				"StrtNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"SubDept": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"TwnNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Recipient13Choice": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"IssrAndSrlNb": {
+					"$ref": "#/$defs/IssuerAndSerialNumber2"
+				},
+				"SbjtKeyIdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Binary"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Recipient15Choice": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"KEK": {
+					"$ref": "#/$defs/KEK9"
+				},
+				"KeyIdr": {
+					"$ref": "#/$defs/KEKIdentifier7"
+				},
+				"KeyTrnsprt": {
+					"$ref": "#/$defs/KeyTransport10"
+				}
+			},
+			"type": "object"
+		},
+		"ReconciliationResponse9": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Cntxt": {
+					"$ref": "#/$defs/CardPaymentContext30"
+				},
+				"Envt": {
+					"$ref": "#/$defs/CardPaymentEnvironment80"
+				},
+				"RcncltnRspnData": {
+					"$ref": "#/$defs/ReconciliationResponseData1"
+				},
+				"Rspn": {
+					"$ref": "#/$defs/ResponseType11"
+				},
+				"SplmtryData": {
+					"items": {
+						"$ref": "#/$defs/SupplementaryData1"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"Cntxt",
+				"Envt",
+				"RcncltnRspnData",
+				"Rspn"
+			],
+			"type": "object"
+		},
+		"ReconciliationResponseData1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"POIRcncltnId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"RcncltnTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ReconciliationType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"TxTtls": {
+					"items": {
+						"$ref": "#/$defs/TransactionTotalsSet1"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"RcncltnTp"
+			],
+			"type": "object"
+		},
+		"ReconciliationType1Code": {
+			"enum": [
+				"AREC",
+				"ASYN",
+				"PREC",
+				"SREC"
+			],
+			"type": "string"
+		},
+		"RelativeDistinguishedName1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AttrTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AttributeType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"AttrVal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"AttrTp",
+				"AttrVal"
+			],
+			"type": "object"
+		},
+		"Response11Code": {
+			"enum": [
+				"WARN",
+				"FAIL",
+				"SUCC"
+			],
+			"type": "string"
+		},
+		"ResponseType11": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlRspnInf": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				},
+				"Rspn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Response11Code"
+						}
+					},
+					"type": "object"
+				},
+				"RspnRsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/RetailerResultDetail1Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Rspn"
+			],
+			"type": "object"
+		},
+		"RetailerMessage1Code": {
+			"enum": [
+				"SSAB",
+				"SAAQ",
+				"SAAP",
+				"SDDR",
+				"SDDP",
+				"SSEN",
+				"SSMQ",
+				"SSMR",
+				"SSRJ",
+				"SARQ",
+				"SARP",
+				"SFRP",
+				"SFRQ",
+				"SFSQ",
+				"SFSP",
+				"SASQ",
+				"SASP"
+			],
+			"type": "string"
+		},
+		"RetailerResultDetail1Code": {
+			"enum": [
+				"ABRT",
+				"BUSY",
+				"CANC",
+				"DEVO",
+				"WPIN",
+				"NHOS",
+				"UNVS",
+				"UNVD",
+				"REFU",
+				"PAYR",
+				"TNFD",
+				"NALW",
+				"LOUT",
+				"IVCA",
+				"ICAR",
+				"WIPG"
+			],
+			"type": "string"
+		},
+		"RetailerSaleEnvironment2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Ccy": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ActiveCurrencyCode"
+						}
+					},
+					"type": "object"
+				},
+				"DbtPrefrdFlg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"LltyHdlg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/LoyaltyHandling1Code"
+						}
+					},
+					"type": "object"
+				},
+				"MaxCshBckAmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"MinAmtToDlvr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"MinSpltAmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"SaleCpblties": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/SaleCapabilities1Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"SaleCapabilities1Code": {
+			"enum": [
+				"CHDI",
+				"CHER",
+				"CHIN",
+				"CHST",
+				"CUDI",
+				"CUAS",
+				"CUER",
+				"CUIN",
+				"POIR",
+				"PRDC",
+				"PRRP",
+				"PRVC"
+			],
+			"type": "string"
+		},
+		"SaleContext4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlSaleData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max70Text"
+						}
+					},
+					"type": "object"
+				},
+				"AllwdNtryMd": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/CardDataReading8Code"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"CshrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CshrLang": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/LanguageCode"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"CstmrOrdrReqFlg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"DlvryNoteNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"ForceOnlnFlg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"InvcNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"PurchsOrdrNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"ReuseCardDataFlg": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"RmngAmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"SaleId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SaleRcncltnId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SaleRefNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SaleTknScp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/SaleTokenScope1Code"
+						}
+					},
+					"type": "object"
+				},
+				"ShftNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max2NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"SpltPmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"SpnsrdMrchnt": {
+					"items": {
+						"$ref": "#/$defs/Organisation26"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"SaleToPOIReconciliationResponseV06": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Hdr": {
+					"$ref": "#/$defs/Header41"
+				},
+				"RcncltnRspn": {
+					"$ref": "#/$defs/ReconciliationResponse9"
+				},
+				"SctyTrlr": {
+					"$ref": "#/$defs/ContentInformationType38"
+				}
+			},
+			"required": [
+				"Hdr",
+				"RcncltnRspn"
+			],
+			"type": "object"
+		},
+		"SaleTokenScope1Code": {
+			"enum": [
+				"MULT",
+				"SNGL"
+			],
+			"type": "string"
+		},
+		"SensitiveMobileData1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"IMEI": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"IMSI": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"MSISDN": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35NumericText"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"MSISDN"
+			],
+			"type": "object"
+		},
+		"SignedData9": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Cert": {
+					"items": {
+						"additionalProperties": false,
+						"patternProperties": {
+							"^\\?\\w+$": {
+								"type": "string"
+							}
+						},
+						"properties": {
+							"$": {
+								"$ref": "#/$defs/Max5000Binary"
+							}
+						},
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"DgstAlgo": {
+					"items": {
+						"$ref": "#/$defs/AlgorithmIdentification36"
+					},
+					"type": "array"
+				},
+				"NcpsltdCntt": {
+					"$ref": "#/$defs/EncapsulatedContent3"
+				},
+				"Sgnr": {
+					"items": {
+						"$ref": "#/$defs/Signer8"
+					},
+					"type": "array"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Signer8": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"DgstAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification36"
+				},
+				"SgndAttrbts": {
+					"items": {
+						"$ref": "#/$defs/GenericInformation1"
+					},
+					"type": "array"
+				},
+				"SgnrId": {
+					"$ref": "#/$defs/Recipient13Choice"
+				},
+				"Sgntr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max3000Binary"
+						}
+					},
+					"type": "object"
+				},
+				"SgntrAlgo": {
+					"$ref": "#/$defs/AlgorithmIdentification33"
+				},
+				"Vrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"DgstAlgo",
+				"Sgntr",
+				"SgntrAlgo"
+			],
+			"type": "object"
+		},
+		"SimpleIdentificationInformation4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Id"
+			],
+			"type": "object"
+		},
+		"StoredValueAccount2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AcctTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/StoredValueAccountType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"Bal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"Brnd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Ccy": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ActiveCurrencyCode"
+						}
+					},
+					"type": "object"
+				},
+				"Id": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"IdTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardIdentificationType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"NtryMd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardDataReading8Code"
+						}
+					},
+					"type": "object"
+				},
+				"OwnrNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max45Text"
+						}
+					},
+					"type": "object"
+				},
+				"Prvdr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"XpryDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max10Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"StoredValueAccountType1Code": {
+			"enum": [
+				"BNKA",
+				"CWVC",
+				"CPYA",
+				"ELMY",
+				"GIFT",
+				"GCER",
+				"MLVC",
+				"OLVC",
+				"MERC",
+				"OTHR",
+				"PHON",
+				"CARD",
+				"TRVL"
+			],
+			"type": "string"
+		},
+		"SupplementaryData1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Envlp": {
+					"$ref": "#/$defs/SupplementaryDataEnvelope1"
+				},
+				"PlcAndNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max350Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Envlp"
+			],
+			"type": "object"
+		},
+		"SupplementaryDataEnvelope1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				},
+				"^\\w+$": {
+				}
+			},
+			"type": "object"
+		},
+		"SupportedPaymentOption2Code": {
+			"enum": [
+				"PART",
+				"MSRV",
+				"INSI",
+				"PINQ"
+			],
+			"type": "string"
+		},
+		"Token1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"PmtTkn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max19NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"TknAssrncData": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				},
+				"TknAssrncMtd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max2NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"TknInittdInd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"TknRqstrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max11NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"TknXpryDt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Exact4NumericText"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Traceability8": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"PrtcolNm": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"PrtcolVrsn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max6Text"
+						}
+					},
+					"type": "object"
+				},
+				"RlayId": {
+					"$ref": "#/$defs/GenericIdentification177"
+				},
+				"TracDtTmIn": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				},
+				"TracDtTmOut": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ISODateTime"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"RlayId",
+				"TracDtTmIn",
+				"TracDtTmOut"
+			],
+			"type": "object"
+		},
+		"TrackData2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"TrckFrmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrackFormat1Code"
+						}
+					},
+					"type": "object"
+				},
+				"TrckNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				},
+				"TrckVal": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max140Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"TrckVal"
+			],
+			"type": "object"
+		},
+		"TrackFormat1Code": {
+			"enum": [
+				"AAMV",
+				"CMC7",
+				"E13B",
+				"ISOF",
+				"JIS1",
+				"JIS2"
+			],
+			"type": "string"
+		},
+		"TransactionChannel5Code": {
+			"enum": [
+				"MAIL",
+				"TLPH",
+				"ECOM",
+				"TVPY",
+				"SECM",
+				"MOBL",
+				"MPOS"
+			],
+			"type": "string"
+		},
+		"TransactionEnvironment1Code": {
+			"enum": [
+				"MERC",
+				"PRIV",
+				"PUBL"
+			],
+			"type": "string"
+		},
+		"TransactionTotals8": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"CardPdctPrfl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Ccy": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ActiveCurrencyCode"
+						}
+					},
+					"type": "object"
+				},
+				"CmltvAmt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/ImpliedCurrencyAndAmount"
+						}
+					},
+					"type": "object"
+				},
+				"DtldAmt": {
+					"$ref": "#/$defs/DetailedAmount15"
+				},
+				"POIGrpId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TypeTransactionTotals3Code"
+						}
+					},
+					"type": "object"
+				},
+				"TtlNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Number"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"CmltvAmt",
+				"Tp",
+				"TtlNb"
+			],
+			"type": "object"
+		},
+		"TransactionTotalsSet1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AcqrrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Brnd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"CshrId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"LltyTxTtl": {
+					"items": {
+						"$ref": "#/$defs/LoyaltyTransactionTotals1"
+					},
+					"type": "array"
+				},
+				"POIId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"PmtInstrmTp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/PaymentInstrumentType1Code"
+						}
+					},
+					"type": "object"
+				},
+				"RcncltnId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SaleId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"SaleRcncltnId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"ShftNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max2NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"SpnsrdMrchnt": {
+					"items": {
+						"$ref": "#/$defs/Organisation26"
+					},
+					"type": "array"
+				},
+				"TxTtl": {
+					"$ref": "#/$defs/TransactionTotals8"
+				}
+			},
+			"required": [
+				"PmtInstrmTp",
+				"TxTtl"
+			],
+			"type": "object"
+		},
+		"TransactionVerificationResult4": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlRslt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max500Text"
+						}
+					},
+					"type": "object"
+				},
+				"Mtd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AuthenticationMethod6Code"
+						}
+					},
+					"type": "object"
+				},
+				"Rslt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Verification1Code"
+						}
+					},
+					"type": "object"
+				},
+				"VrfctnNtty": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/AuthenticationEntity2Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Mtd"
+			],
+			"type": "object"
+		},
+		"TrueFalseIndicator": {
+			"type": "boolean"
+		},
+		"TypeTransactionTotals3Code": {
+			"enum": [
+				"CRDT",
+				"CRDR",
+				"DEBT",
+				"DBTR",
+				"DECL",
+				"FAIL",
+				"RESV"
+			],
+			"type": "string"
+		},
+		"UPICIdentifier": {
+			"pattern": "^([0-9]{8,17})$",
+			"type": "string"
+		},
+		"UserInterface4Code": {
+			"enum": [
+				"CDSP",
+				"CRCP",
+				"MDSP",
+				"MRCP",
+				"CRDO"
+			],
+			"type": "string"
+		},
+		"Vehicle1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"AddtlVhclData": {
+					"items": {
+						"$ref": "#/$defs/Vehicle2"
+					},
+					"type": "array"
+				},
+				"DrvrOrVhclCard": {
+					"$ref": "#/$defs/PlainCardData17"
+				},
+				"Hbmtr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/DecimalNumber"
+						}
+					},
+					"type": "object"
+				},
+				"MntncId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"Odmtr": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/DecimalNumber"
+						}
+					},
+					"type": "object"
+				},
+				"RefrHrs": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"RplcmntCar": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/TrueFalseIndicator"
+						}
+					},
+					"type": "object"
+				},
+				"TrlrHrs": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"TrlrNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"UnitNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"VhclNb": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35NumericText"
+						}
+					},
+					"type": "object"
+				},
+				"VhclTag": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"VhclTagNtryMd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardDataReading5Code"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"Vehicle2": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"Data": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				},
+				"NtryMd": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/CardDataReading5Code"
+						}
+					},
+					"type": "object"
+				},
+				"Tp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"$": {
+							"$ref": "#/$defs/Max35Text"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"Data"
+			],
+			"type": "object"
+		},
+		"Verification1Code": {
+			"enum": [
+				"FAIL",
+				"MISS",
+				"NOVF",
+				"PART",
+				"SUCC",
+				"ERRR"
+			],
+			"type": "string"
+		}
+	},
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"additionalProperties": false,
+	"description": "JSON Schema generated by XMLSpy v2024 rel. 2 (x64) (https://www.altova.com)",
+	"patternProperties": {
+		"^\\?\\w+$": {
+			"type": "string"
+		}
+	},
+	"properties": {
+		"@xmlns:n1": {
+			"default": "urn:iso:std:iso:20022:tech:xsd:casp.004.001.06"
+		},
+		"Document": {
+			"$ref": "#/$defs/.Document"
+		}
+	},
+	"type": "object"
+}

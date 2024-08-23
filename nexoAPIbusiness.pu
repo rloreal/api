@@ -1,0 +1,37 @@
+@startuml
+:merchant:
+:acquirer:
+:mainteneur:
+:customer:
+(install POI)
+(connect POS)
+(link POS POI)
+
+
+(declare POI)
+mainteneur --> (declare POI)
+(link POI) --> acquirer
+mainteneur --> (install POI)
+merchant --> (install POI)
+merchant --> (order POI)
+(order POI) --> acquirer
+acquirer --> (deliver POI)
+(deliver POI) --> mainteneur
+merchant --> (connect POS)
+(connect POS) --> (link POI)
+acquirer  -> (inject keys)
+(inject keys) --> (initiate POI)
+acquirer --> (authenticates POI)
+merchant --> (link POS POI)
+merchant --> (use POS) 
+(use POS) --> (use POI)
+(use POI) --> customer
+(use POI) --> acquirer
+acquirer --> (remove POI)
+mainteneur --> (remove POI)
+acquirer -> (Parameter POI)
+merchant --> (reconciliation)
+(reconciliation) --> acquirer
+acquirer --> (credit funds)
+(credit funds) --> merchant
+@enduml

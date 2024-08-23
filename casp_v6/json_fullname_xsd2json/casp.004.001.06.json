@@ -1,0 +1,4049 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+        {
+            "$ref": "#/$defs/Document"
+        }
+    ],
+    "definitions": {
+        "Acquirer10": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/GenericIdentification177"
+                },
+                "ParamsVrsn": {
+                    "$ref": "#/$defs/Max256Text"
+                }
+            },
+            "type": "object"
+        },
+        "ActiveCurrencyCode": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[A-Z]{3,3}"
+                }
+            ]
+        },
+        "AddressType2Code": {
+            "type": "string",
+            "enum": [
+                "ADDR",
+                "PBOX",
+                "HOME",
+                "BIZZ",
+                "MLTO",
+                "DLVY"
+            ]
+        },
+        "AddressVerification1": {
+            "properties": {
+                "AdrDgts": {
+                    "$ref": "#/$defs/Max5NumericText"
+                },
+                "PstlCdDgts": {
+                    "$ref": "#/$defs/Max5NumericText"
+                }
+            },
+            "type": "object"
+        },
+        "Algorithm26Code": {
+            "type": "string",
+            "enum": [
+                "HS25",
+                "HS38",
+                "HS51",
+                "HS01",
+                "SH31",
+                "SH32",
+                "SH33",
+                "SH35",
+                "SHK1",
+                "SHK2",
+                "SMS3"
+            ]
+        },
+        "Algorithm27Code": {
+            "type": "string",
+            "enum": [
+                "MACC",
+                "MCCS",
+                "CMA1",
+                "MCC1",
+                "CMA9",
+                "CMA5",
+                "CMA2",
+                "CM31",
+                "CM32",
+                "CM33",
+                "MCS3",
+                "CCA1",
+                "CCA2",
+                "CCA3",
+                "S34C",
+                "S34R"
+            ]
+        },
+        "Algorithm28Code": {
+            "type": "string",
+            "enum": [
+                "EA2C",
+                "E3DC",
+                "DKP9",
+                "UKPT",
+                "UKA2",
+                "EA9C",
+                "EA5C",
+                "DA12",
+                "DA19",
+                "DA25",
+                "N108",
+                "EA5R",
+                "EA9R",
+                "EA2R",
+                "E3DR",
+                "E36C",
+                "E36R",
+                "SD5C",
+                "UKA1",
+                "UKA3",
+                "SM4C",
+                "SM4R"
+            ]
+        },
+        "Algorithm29Code": {
+            "type": "string",
+            "enum": [
+                "ERS2",
+                "ERS1",
+                "RPSS",
+                "ERS3",
+                "ED32",
+                "ED33",
+                "ED35",
+                "ED23",
+                "ED25",
+                "ES22",
+                "ES32",
+                "ES33",
+                "ES35",
+                "ES23",
+                "ES25",
+                "ED22",
+                "EF32",
+                "EF22",
+                "EF33",
+                "EF35",
+                "EF23",
+                "EO33",
+                "EF25",
+                "EO32",
+                "EO22",
+                "EO35",
+                "EO23",
+                "EO25",
+                "DD22",
+                "DD32",
+                "DD33",
+                "DD35",
+                "DD23",
+                "DD25",
+                "SM22",
+                "SM33",
+                "SM32",
+                "SM35",
+                "SM23",
+                "SM25",
+                "S2S3"
+            ]
+        },
+        "Algorithm7Code": {
+            "type": "string",
+            "enum": [
+                "ERSA",
+                "RSAO"
+            ]
+        },
+        "Algorithm8Code": {
+            "type": "string",
+            "enum": [
+                "MGF1"
+            ]
+        },
+        "AlgorithmIdentification31": {
+            "properties": {
+                "Algo": {
+                    "$ref": "#/$defs/Algorithm27Code"
+                },
+                "Param": {
+                    "$ref": "#/$defs/Parameter7"
+                }
+            },
+            "required": [
+                "Algo"
+            ],
+            "type": "object"
+        },
+        "AlgorithmIdentification32": {
+            "properties": {
+                "Algo": {
+                    "$ref": "#/$defs/Algorithm28Code"
+                },
+                "Param": {
+                    "$ref": "#/$defs/Parameter12"
+                }
+            },
+            "required": [
+                "Algo"
+            ],
+            "type": "object"
+        },
+        "AlgorithmIdentification33": {
+            "properties": {
+                "Algo": {
+                    "$ref": "#/$defs/Algorithm29Code"
+                },
+                "Param": {
+                    "$ref": "#/$defs/Parameter16"
+                }
+            },
+            "required": [
+                "Algo"
+            ],
+            "type": "object"
+        },
+        "AlgorithmIdentification34": {
+            "properties": {
+                "Algo": {
+                    "$ref": "#/$defs/Algorithm8Code"
+                },
+                "Param": {
+                    "$ref": "#/$defs/Parameter18"
+                }
+            },
+            "required": [
+                "Algo"
+            ],
+            "type": "object"
+        },
+        "AlgorithmIdentification35": {
+            "properties": {
+                "Algo": {
+                    "$ref": "#/$defs/Algorithm7Code"
+                },
+                "Param": {
+                    "$ref": "#/$defs/Parameter17"
+                }
+            },
+            "required": [
+                "Algo"
+            ],
+            "type": "object"
+        },
+        "AlgorithmIdentification36": {
+            "properties": {
+                "Algo": {
+                    "$ref": "#/$defs/Algorithm26Code"
+                }
+            },
+            "required": [
+                "Algo"
+            ],
+            "type": "object"
+        },
+        "AmountUnit1Code": {
+            "type": "string",
+            "enum": [
+                "MONE",
+                "POIN"
+            ]
+        },
+        "AnyBICDec2014Identifier": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[A-Z0-9]{4,4}[A-Z]{2,2}[A-Z0-9]{2,2}([A-Z0-9]{3,3}){0,1}"
+                }
+            ]
+        },
+        "AttendanceContext1Code": {
+            "type": "string",
+            "enum": [
+                "ATTD",
+                "SATT",
+                "UATT"
+            ]
+        },
+        "AttributeType1Code": {
+            "type": "string",
+            "enum": [
+                "CNAT",
+                "LATT",
+                "OATT",
+                "OUAT",
+                "CATT"
+            ]
+        },
+        "AuthenticatedData10": {
+            "properties": {
+                "MAC": {
+                    "$ref": "#/$defs/Max140Binary"
+                },
+                "MACAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification31"
+                },
+                "NcpsltdCntt": {
+                    "$ref": "#/$defs/EncapsulatedContent3"
+                },
+                "Rcpt": {
+                    "items": {
+                        "$ref": "#/$defs/Recipient15Choice"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "Rcpt",
+                "MACAlgo",
+                "NcpsltdCntt",
+                "MAC"
+            ],
+            "type": "object"
+        },
+        "AuthenticationEntity2Code": {
+            "type": "string",
+            "enum": [
+                "ICCD",
+                "AGNT",
+                "MERC",
+                "ACQR",
+                "ISSR",
+                "TRML"
+            ]
+        },
+        "AuthenticationMethod6Code": {
+            "type": "string",
+            "enum": [
+                "NPIN",
+                "PPSG",
+                "PSWD",
+                "SCRT",
+                "SCNL",
+                "SNCT",
+                "CPSG",
+                "ADDB",
+                "BIOM",
+                "CDHI",
+                "CRYP",
+                "CSCV",
+                "PSVE",
+                "CSEC",
+                "ADDS",
+                "MANU",
+                "FPIN",
+                "TOKP"
+            ]
+        },
+        "AuthenticationMethod8Code": {
+            "type": "string",
+            "enum": [
+                "TOKA",
+                "ADDB",
+                "BYPS",
+                "BIOM",
+                "CDHI",
+                "CRYP",
+                "CSCV",
+                "MANU",
+                "MERC",
+                "MOBL",
+                "FPIN",
+                "NPIN",
+                "OTHR",
+                "PPSG",
+                "PSVE",
+                "PSWD",
+                "TOKP",
+                "SCRT",
+                "SCNL",
+                "CSEC",
+                "SNCT",
+                "ADDS",
+                "CPSG",
+                "TOKN",
+                "UKNW"
+            ]
+        },
+        "AuthenticationResult1Code": {
+            "type": "string",
+            "enum": [
+                "DENY",
+                "MRCH",
+                "CARD",
+                "AUTH",
+                "CRPT",
+                "UCRP"
+            ]
+        },
+        "BBANIdentifier": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[a-zA-Z0-9]{1,30}"
+                }
+            ]
+        },
+        "BusinessArea2Code": {
+            "type": "string",
+            "enum": [
+                "AIBD",
+                "PPAY",
+                "TKNF",
+                "EOPT",
+                "TOPT"
+            ]
+        },
+        "BytePadding1Code": {
+            "type": "string",
+            "enum": [
+                "LNGT",
+                "NUL8",
+                "NULG",
+                "NULL",
+                "RAND"
+            ]
+        },
+        "CardDataReading5Code": {
+            "type": "string",
+            "enum": [
+                "TAGC",
+                "PHYS",
+                "BRCD",
+                "MGST",
+                "CICC",
+                "DFLE",
+                "CTLS",
+                "ECTL",
+                "CDFL"
+            ]
+        },
+        "CardDataReading8Code": {
+            "type": "string",
+            "enum": [
+                "TAGC",
+                "PHYS",
+                "BRCD",
+                "MGST",
+                "CICC",
+                "DFLE",
+                "CTLS",
+                "ECTL",
+                "CDFL",
+                "SICC",
+                "UNKW",
+                "QRCD",
+                "OPTC"
+            ]
+        },
+        "CardDirectDebit2": {
+            "properties": {
+                "CdtrId": {
+                    "$ref": "#/$defs/Creditor4"
+                },
+                "DbtrId": {
+                    "$ref": "#/$defs/Debtor4"
+                },
+                "MndtRltdInf": {
+                    "$ref": "#/$defs/MandateRelatedInformation13"
+                }
+            },
+            "required": [
+                "CdtrId",
+                "MndtRltdInf"
+            ],
+            "type": "object"
+        },
+        "CardFallback1Code": {
+            "type": "string",
+            "enum": [
+                "FFLB",
+                "SFLB",
+                "NFLB"
+            ]
+        },
+        "Cardholder21": {
+            "properties": {
+                "Authntcn": {
+                    "items": {
+                        "$ref": "#/$defs/CardholderAuthentication17"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "BllgAdr": {
+                    "$ref": "#/$defs/PostalAddress22"
+                },
+                "Id": {
+                    "$ref": "#/$defs/PersonIdentification15"
+                },
+                "Lang": {
+                    "$ref": "#/$defs/LanguageCode"
+                },
+                "MobData": {
+                    "items": {
+                        "$ref": "#/$defs/MobileData6"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Nm": {
+                    "$ref": "#/$defs/Max45Text"
+                },
+                "PrsnlData": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "ShppgAdr": {
+                    "$ref": "#/$defs/PostalAddress22"
+                },
+                "TripNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "TxVrfctnRslt": {
+                    "items": {
+                        "$ref": "#/$defs/TransactionVerificationResult4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Vhcl": {
+                    "$ref": "#/$defs/Vehicle1"
+                }
+            },
+            "type": "object"
+        },
+        "CardholderAuthentication17": {
+            "properties": {
+                "AdrVrfctn": {
+                    "$ref": "#/$defs/AddressVerification1"
+                },
+                "AuthntcnAddtlInf": {
+                    "$ref": "#/$defs/ExternallyDefinedData5"
+                },
+                "AuthntcnLvl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "AuthntcnMtd": {
+                    "$ref": "#/$defs/AuthenticationMethod8Code"
+                },
+                "AuthntcnRslt": {
+                    "$ref": "#/$defs/AuthenticationResult1Code"
+                },
+                "AuthntcnTp": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "AuthntcnVal": {
+                    "$ref": "#/$defs/Max5000Binary"
+                },
+                "AuthntcnXmptn": {
+                    "$ref": "#/$defs/Exemption1Code"
+                },
+                "CrdhldrId": {
+                    "$ref": "#/$defs/PersonIdentification15"
+                },
+                "CrdhldrOnLinePIN": {
+                    "$ref": "#/$defs/OnLinePIN11"
+                },
+                "PrtctdAuthntcnVal": {
+                    "$ref": "#/$defs/ContentInformationType40"
+                }
+            },
+            "type": "object"
+        },
+        "CardholderVerificationCapability4Code": {
+            "type": "string",
+            "enum": [
+                "APKI",
+                "CHDT",
+                "MNSG",
+                "MNVR",
+                "FBIG",
+                "FBIO",
+                "FDSG",
+                "FCPN",
+                "FEPN",
+                "NPIN",
+                "PKIS",
+                "SCEC",
+                "NBIO",
+                "NOVF",
+                "OTHR"
+            ]
+        },
+        "CardIdentificationType1Code": {
+            "type": "string",
+            "enum": [
+                "ACCT",
+                "BARC",
+                "ISO2",
+                "PHON",
+                "CPAN",
+                "PRIV",
+                "Universally Unique IDentifier (UUID) version 4."
+            ]
+        },
+        "CardPaymentContext30": {
+            "properties": {
+                "DrctDbtCntxt": {
+                    "$ref": "#/$defs/CardDirectDebit2"
+                },
+                "PmtCntxt": {
+                    "$ref": "#/$defs/PaymentContext29"
+                },
+                "SaleCntxt": {
+                    "$ref": "#/$defs/SaleContext4"
+                }
+            },
+            "type": "object"
+        },
+        "CardPaymentEnvironment80": {
+            "properties": {
+                "Acqrr": {
+                    "$ref": "#/$defs/Acquirer10"
+                },
+                "Card or payment token performing the transaction.": {
+                    "$ref": "#/$defs/PaymentCard35"
+                },
+                "Chck": {
+                    "$ref": "#/$defs/Check1"
+                },
+                "Crdhldr": {
+                    "$ref": "#/$defs/Cardholder21"
+                },
+                "CstmrDvc": {
+                    "$ref": "#/$defs/CustomerDevice3"
+                },
+                "LltyAcct": {
+                    "items": {
+                        "$ref": "#/$defs/LoyaltyAccount3"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Mrchnt": {
+                    "$ref": "#/$defs/Organisation41"
+                },
+                "MrchntTkn": {
+                    "$ref": "#/$defs/MerchantToken2"
+                },
+                "Physical or logical card payment terminal containing software and hardware components.": {
+                    "$ref": "#/$defs/PointOfInteraction14"
+                },
+                "PmtTkn": {
+                    "$ref": "#/$defs/Token1"
+                },
+                "PrtctdCrdhldrData": {
+                    "$ref": "#/$defs/ContentInformationType40"
+                },
+                "SaleEnvt": {
+                    "$ref": "#/$defs/RetailerSaleEnvironment2"
+                },
+                "StordValAcct": {
+                    "items": {
+                        "$ref": "#/$defs/StoredValueAccount2"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SvcPrvdr": {
+                    "$ref": "#/$defs/Acquirer10"
+                },
+                "Wllt": {
+                    "$ref": "#/$defs/CustomerDevice3"
+                }
+            },
+            "type": "object"
+        },
+        "CardProductType1Code": {
+            "type": "string",
+            "enum": [
+                "COMM",
+                "CONS"
+            ]
+        },
+        "CashAccountIdentification7Choice": {
+            "properties": {
+                "BBAN": {
+                    "$ref": "#/$defs/BBANIdentifier"
+                },
+                "DmstAcct": {
+                    "$ref": "#/$defs/SimpleIdentificationInformation4"
+                },
+                "IBAN": {
+                    "$ref": "#/$defs/IBAN2007Identifier"
+                },
+                "UPIC": {
+                    "$ref": "#/$defs/UPICIdentifier"
+                }
+            },
+            "required": [
+                "IBAN",
+                "BBAN",
+                "UPIC",
+                "DmstAcct"
+            ],
+            "type": "object"
+        },
+        "CertificateIssuer1": {
+            "properties": {
+                "RltvDstngshdNm": {
+                    "items": {
+                        "$ref": "#/$defs/RelativeDistinguishedName1"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "RltvDstngshdNm"
+            ],
+            "type": "object"
+        },
+        "Check1": {
+            "properties": {
+                "AcctNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "BkId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "ChckCardNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "ChckNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "ChckTp": {
+                    "$ref": "#/$defs/CheckType1Code"
+                },
+                "ChckTrckData2": {
+                    "$ref": "#/$defs/TrackData2"
+                },
+                "Ctry": {
+                    "$ref": "#/$defs/Max3Text"
+                }
+            },
+            "type": "object"
+        },
+        "CheckType1Code": {
+            "type": "string",
+            "enum": [
+                "BANK",
+                "BUSI",
+                "GOVC",
+                "PAYR",
+                "PERS"
+            ]
+        },
+        "CommunicationAddress9": {
+            "properties": {
+                "AddtlCtctInf": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "CstmrSvc": {
+                    "$ref": "#/$defs/PhoneNumber"
+                },
+                "Electronic mail address.\r\r\n\r\r\nISO 8583:2003 bit 43-71 (when used for Acceptor email address)": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "Phne": {
+                    "$ref": "#/$defs/PhoneNumber"
+                },
+                "PstlAdr": {
+                    "$ref": "#/$defs/PostalAddress22"
+                },
+                "URLAdr": {
+                    "$ref": "#/$defs/Max256Text"
+                }
+            },
+            "type": "object"
+        },
+        "CommunicationCharacteristics5": {
+            "properties": {
+                "Actv": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "ComTp": {
+                    "$ref": "#/$defs/POICommunicationType2Code"
+                },
+                "Params": {
+                    "$ref": "#/$defs/NetworkParameters7"
+                },
+                "PhysIntrfc": {
+                    "$ref": "#/$defs/PhysicalInterfaceParameter1"
+                },
+                "RmotPty": {
+                    "items": {
+                        "$ref": "#/$defs/PartyType7Code"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ComTp",
+                "RmotPty",
+                "Actv"
+            ],
+            "type": "object"
+        },
+        "ContentInformationType38": {
+            "properties": {
+                "AuthntcdData": {
+                    "$ref": "#/$defs/AuthenticatedData10"
+                },
+                "CnttTp": {
+                    "$ref": "#/$defs/ContentType2Code"
+                },
+                "SgndData": {
+                    "$ref": "#/$defs/SignedData9"
+                }
+            },
+            "required": [
+                "CnttTp"
+            ],
+            "type": "object"
+        },
+        "ContentInformationType39": {
+            "properties": {
+                "AuthntcdData": {
+                    "$ref": "#/$defs/AuthenticatedData10"
+                },
+                "CnttTp": {
+                    "$ref": "#/$defs/ContentType2Code"
+                },
+                "DgstdData": {
+                    "$ref": "#/$defs/DigestedData6"
+                },
+                "EnvlpdData": {
+                    "$ref": "#/$defs/EnvelopedData11"
+                },
+                "SgndData": {
+                    "$ref": "#/$defs/SignedData9"
+                }
+            },
+            "required": [
+                "CnttTp"
+            ],
+            "type": "object"
+        },
+        "ContentInformationType40": {
+            "properties": {
+                "CnttTp": {
+                    "$ref": "#/$defs/ContentType2Code"
+                },
+                "EnvlpdData": {
+                    "$ref": "#/$defs/EnvelopedData11"
+                }
+            },
+            "required": [
+                "CnttTp",
+                "EnvlpdData"
+            ],
+            "type": "object"
+        },
+        "ContentType2Code": {
+            "type": "string",
+            "enum": [
+                "DATA",
+                "SIGN",
+                "EVLP",
+                "DGST",
+                "AUTH"
+            ]
+        },
+        "Country where the registered office of the counterparty is located or country of residence in case that the counterparty is a natural person.": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[A-Z]{2,2}"
+                }
+            ]
+        },
+        "Creditor4": {
+            "properties": {
+                "Cdtr": {
+                    "$ref": "#/$defs/PartyIdentification178Choice"
+                },
+                "RegnId": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Cdtr"
+            ],
+            "type": "object"
+        },
+        "CryptographicKey18": {
+            "properties": {
+                "ActvtnDt": {
+                    "$ref": "#/$defs/ISODateTime"
+                },
+                "AddtlId": {
+                    "$ref": "#/$defs/Max35Binary"
+                },
+                "AddtlMgmtInf": {
+                    "items": {
+                        "$ref": "#/$defs/GenericInformation1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CmpntWthAuthrsdAccs": {
+                    "items": {
+                        "$ref": "#/$defs/GenericIdentification186"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DeactvtnDt": {
+                    "$ref": "#/$defs/ISODateTime"
+                },
+                "Fctn": {
+                    "items": {
+                        "$ref": "#/$defs/KeyUsage1Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Id": {
+                    "$ref": "#/$defs/Max350Text"
+                },
+                "ItmNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "KeyChckVal": {
+                    "$ref": "#/$defs/Max35Binary"
+                },
+                "KeyVal": {
+                    "$ref": "#/$defs/ContentInformationType39"
+                },
+                "Nm": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "PrtctdCmpntWthAuthrsdAccs": {
+                    "items": {
+                        "$ref": "#/$defs/ContentInformationType39"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SctyPrfl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/CryptographicKeyType3Code"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Max256Text"
+                }
+            },
+            "required": [
+                "Id",
+                "Vrsn"
+            ],
+            "type": "object"
+        },
+        "CryptographicKeyType3Code": {
+            "type": "string",
+            "enum": [
+                "AES2",
+                "EDE3",
+                "DKP9",
+                "AES9",
+                "AES5",
+                "EDE4"
+            ]
+        },
+        "CustomerDevice3": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Prvdr": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/Max70Text"
+                }
+            },
+            "type": "object"
+        },
+        "DateAndPlaceOfBirth1": {
+            "properties": {
+                "BirthDt": {
+                    "$ref": "#/$defs/ISODate"
+                },
+                "City where a person was born.": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CtryOfBirth": {
+                    "$ref": "#/$defs/CountryCode"
+                },
+                "PrvcOfBirth": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "BirthDt",
+                "City where a person was born.",
+                "CtryOfBirth"
+            ],
+            "type": "object"
+        },
+        "Debtor4": {
+            "properties": {
+                "AcctId": {
+                    "$ref": "#/$defs/CashAccountIdentification7Choice"
+                },
+                "Dbtr": {
+                    "$ref": "#/$defs/PartyIdentification178Choice"
+                }
+            },
+            "type": "object"
+        },
+        "DecimalNumber": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:decimal"
+                }
+            ]
+        },
+        "DetailedAmount15": {
+            "properties": {
+                "Amount of money related to the fees for the securities compensation.": {
+                    "items": {
+                        "$ref": "#/$defs/DetailedAmount4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "AmtGoodsAndSvcs": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "CshBck": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "Grtty": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "Rbt": {
+                    "items": {
+                        "$ref": "#/$defs/DetailedAmount4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Srchrg": {
+                    "items": {
+                        "$ref": "#/$defs/DetailedAmount4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ValAddedTax": {
+                    "items": {
+                        "$ref": "#/$defs/DetailedAmount4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DetailedAmount4": {
+            "properties": {
+                "Amt": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "Labl": {
+                    "$ref": "#/$defs/Max140Text"
+                }
+            },
+            "required": [
+                "Amt"
+            ],
+            "type": "object"
+        },
+        "DigestedData6": {
+            "properties": {
+                "Dgst": {
+                    "$ref": "#/$defs/Max140Binary"
+                },
+                "DgstAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification36"
+                },
+                "NcpsltdCntt": {
+                    "$ref": "#/$defs/EncapsulatedContent3"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "DgstAlgo",
+                "NcpsltdCntt",
+                "Dgst"
+            ],
+            "type": "object"
+        },
+        "DisplayCapabilities4": {
+            "properties": {
+                "AvlblFrmt": {
+                    "items": {
+                        "$ref": "#/$defs/OutputFormat1Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "AvlblLang": {
+                    "items": {
+                        "$ref": "#/$defs/LanguageCode"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Dstn": {
+                    "items": {
+                        "$ref": "#/$defs/UserInterface4Code"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "NbOfLines": {
+                    "$ref": "#/$defs/Number"
+                },
+                "Number of columns of the display or printer.": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "Dstn"
+            ],
+            "type": "object"
+        },
+        "EncapsulatedContent3": {
+            "properties": {
+                "Cntt": {
+                    "$ref": "#/$defs/Max100KBinary"
+                },
+                "CnttTp": {
+                    "$ref": "#/$defs/ContentType2Code"
+                }
+            },
+            "required": [
+                "CnttTp"
+            ],
+            "type": "object"
+        },
+        "EncryptedContent7": {
+            "properties": {
+                "CnttNcrptnAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification32"
+                },
+                "CnttTp": {
+                    "$ref": "#/$defs/ContentType2Code"
+                },
+                "NcrptdData": {
+                    "$ref": "#/$defs/Max100KBinary"
+                }
+            },
+            "required": [
+                "CnttTp",
+                "NcrptdData"
+            ],
+            "type": "object"
+        },
+        "EncryptionFormat2Code": {
+            "type": "string",
+            "enum": [
+                "TR31",
+                "TR34",
+                "I238"
+            ]
+        },
+        "EnvelopedData11": {
+            "properties": {
+                "NcrptdCntt": {
+                    "$ref": "#/$defs/EncryptedContent7"
+                },
+                "OrgtrInf": {
+                    "$ref": "#/$defs/OriginatorInformation1"
+                },
+                "Rcpt": {
+                    "items": {
+                        "$ref": "#/$defs/Recipient15Choice"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "Rcpt"
+            ],
+            "type": "object"
+        },
+        "Exact3AlphaNumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[a-zA-Z0-9]{3}"
+                }
+            ]
+        },
+        "Exact3NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{3}"
+                }
+            ]
+        },
+        "Exact4NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{4}"
+                }
+            ]
+        },
+        "Exemption1Code": {
+            "type": "string",
+            "enum": [
+                "LOWA",
+                "MINT",
+                "RECP",
+                "SCPE",
+                "SCAD",
+                "TRAE",
+                "PKGE",
+                "TMBE"
+            ]
+        },
+        "ExternallyDefinedData5": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max1025Text"
+                },
+                "PrtctdVal": {
+                    "$ref": "#/$defs/ContentInformationType39"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/Max1025Text"
+                },
+                "Val": {
+                    "$ref": "#/$defs/Max100KBinary"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification176": {
+            "properties": {
+                "Ctry": {
+                    "$ref": "#/$defs/Min2Max3AlphaText"
+                },
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Issr": {
+                    "$ref": "#/$defs/PartyType33Code"
+                },
+                "ShrtNm": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/PartyType33Code"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification177": {
+            "properties": {
+                "Ctry": {
+                    "$ref": "#/$defs/Min2Max3AlphaText"
+                },
+                "Glctn": {
+                    "$ref": "#/$defs/Geolocation1"
+                },
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Issr": {
+                    "$ref": "#/$defs/PartyType33Code"
+                },
+                "RmotAccs": {
+                    "$ref": "#/$defs/NetworkParameters7"
+                },
+                "ShrtNm": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/PartyType33Code"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification186": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/PartyType7Code"
+                }
+            },
+            "required": [
+                "Id",
+                "Tp"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification32": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Issr": {
+                    "$ref": "#/$defs/PartyType4Code"
+                },
+                "ShrtNm": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/PartyType3Code"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification36": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Issr": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SchmeNm": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Id",
+                "Issr"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification4": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "IdTp": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Id",
+                "IdTp"
+            ],
+            "type": "object"
+        },
+        "GenericIdentification48": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Issr": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Id",
+                "Vrsn",
+                "Issr"
+            ],
+            "type": "object"
+        },
+        "GenericInformation1": {
+            "properties": {
+                "Nm": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "Val": {
+                    "$ref": "#/$defs/Max140Text"
+                }
+            },
+            "required": [
+                "Nm"
+            ],
+            "type": "object"
+        },
+        "Geolocation1": {
+            "properties": {
+                "GeogcCordints": {
+                    "$ref": "#/$defs/GeolocationGeographicCoordinates1"
+                },
+                "UTMCordints": {
+                    "$ref": "#/$defs/GeolocationUTMCoordinates1"
+                }
+            },
+            "type": "object"
+        },
+        "GeolocationGeographicCoordinates1": {
+            "properties": {
+                "Lat": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Number of maximum 5 numeric text. Is only to be used in a delta statement.": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Lat",
+                "Number of maximum 5 numeric text. Is only to be used in a delta statement."
+            ],
+            "type": "object"
+        },
+        "GeolocationUTMCoordinates1": {
+            "properties": {
+                "UTM grid zone combination of the longitude zone (1 to 60) and the latitude band, C to X, excluding I and O (for example Eiffel tower UTM zone is 31U).": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "UTMEstwrd": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "UTMNrthwrd": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "UTM grid zone combination of the longitude zone (1 to 60) and the latitude band, C to X, excluding I and O (for example Eiffel tower UTM zone is 31U).",
+                "UTMEstwrd",
+                "UTMNrthwrd"
+            ],
+            "type": "object"
+        },
+        "Header41": {
+            "properties": {
+                "CreDtTm": {
+                    "$ref": "#/$defs/ISODateTime"
+                },
+                "InitgPty": {
+                    "$ref": "#/$defs/GenericIdentification177"
+                },
+                "MsgFctn": {
+                    "$ref": "#/$defs/RetailerMessage1Code"
+                },
+                "PrtcolVrsn": {
+                    "$ref": "#/$defs/Max6Text"
+                },
+                "RcptPty": {
+                    "$ref": "#/$defs/GenericIdentification177"
+                },
+                "Tracblt": {
+                    "items": {
+                        "$ref": "#/$defs/Traceability8"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "XchgId": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "MsgFctn",
+                "PrtcolVrsn",
+                "XchgId",
+                "CreDtTm",
+                "InitgPty"
+            ],
+            "type": "object"
+        },
+        "IBAN2007Identifier": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}"
+                }
+            ]
+        },
+        "ImpliedCurrencyAndAmount": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:decimal"
+                },
+                {
+                    "exclusiveMinimum": false,
+                    "minimum": 0
+                }
+            ]
+        },
+        "ISO3NumericCountryCode": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{3,3}"
+                }
+            ]
+        },
+        "ISODate": {
+            "$ref": "#/$defs/xs:date"
+        },
+        "ISODateTime": {
+            "$ref": "#/$defs/xs:dateTime"
+        },
+        "IssuerAndSerialNumber2": {
+            "properties": {
+                "Issr": {
+                    "$ref": "#/$defs/CertificateIssuer1"
+                },
+                "SrlNb": {
+                    "$ref": "#/$defs/Max500Binary"
+                }
+            },
+            "required": [
+                "Issr",
+                "SrlNb"
+            ],
+            "type": "object"
+        },
+        "KEK9": {
+            "properties": {
+                "KEKId": {
+                    "$ref": "#/$defs/KEKIdentifier7"
+                },
+                "KeyNcrptnAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification32"
+                },
+                "NcrptdKey": {
+                    "$ref": "#/$defs/Max500Binary"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "KEKId",
+                "KeyNcrptnAlgo"
+            ],
+            "type": "object"
+        },
+        "KEKIdentifier7": {
+            "properties": {
+                "DerivtnId": {
+                    "$ref": "#/$defs/Max500Binary"
+                },
+                "KeyId": {
+                    "$ref": "#/$defs/Max140Text"
+                },
+                "KeyVrsn": {
+                    "$ref": "#/$defs/Max140Text"
+                },
+                "SeqNb": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "KeyId",
+                "KeyVrsn"
+            ],
+            "type": "object"
+        },
+        "KeyTransport10": {
+            "properties": {
+                "KeyNcrptnAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification35"
+                },
+                "NcrptdKey": {
+                    "$ref": "#/$defs/Max5000Binary"
+                },
+                "RcptId": {
+                    "$ref": "#/$defs/Recipient13Choice"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "RcptId",
+                "KeyNcrptnAlgo",
+                "NcrptdKey"
+            ],
+            "type": "object"
+        },
+        "KeyUsage1Code": {
+            "type": "string",
+            "enum": [
+                "ENCR",
+                "DCPT",
+                "DENC",
+                "DDEC",
+                "TRNI",
+                "TRNX",
+                "MACG",
+                "MACV",
+                "SIGG",
+                "SUGV",
+                "PINE",
+                "PIND",
+                "PINV",
+                "KEYG",
+                "KEYI",
+                "KEYX",
+                "KEYD"
+            ]
+        },
+        "LocationCategory3Code": {
+            "type": "string",
+            "enum": [
+                "INDR",
+                "IPMP",
+                "MPOI",
+                "MPMP",
+                "MSLE",
+                "SSLE",
+                "VNDG"
+            ]
+        },
+        "LocationCategory4Code": {
+            "type": "string",
+            "enum": [
+                "ABRD",
+                "NMDC",
+                "FIXD",
+                "VIRT"
+            ]
+        },
+        "LoyaltyAccount3": {
+            "properties": {
+                "Bal": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "Brnd": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Ccy": {
+                    "$ref": "#/$defs/ActiveCurrencyCode"
+                },
+                "IdTp": {
+                    "$ref": "#/$defs/CardIdentificationType1Code"
+                },
+                "LltyId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "NtryMd": {
+                    "$ref": "#/$defs/CardDataReading8Code"
+                },
+                "Number of units.": {
+                    "$ref": "#/$defs/AmountUnit1Code"
+                },
+                "OwnrNm": {
+                    "$ref": "#/$defs/Max45Text"
+                },
+                "Prvdr": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "LltyId"
+            ],
+            "type": "object"
+        },
+        "LoyaltyHandling1Code": {
+            "type": "string",
+            "enum": [
+                "ALLO",
+                "DENY",
+                "PRCS",
+                "PROP",
+                "REQU"
+            ]
+        },
+        "LoyaltyTransactionTotals1": {
+            "properties": {
+                "CardPdctPrfl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Ccy": {
+                    "$ref": "#/$defs/ActiveCurrencyCode"
+                },
+                "CmltvAmt": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "DtldAmt": {
+                    "$ref": "#/$defs/DetailedAmount15"
+                },
+                "LltyUnit": {
+                    "$ref": "#/$defs/AmountUnit1Code"
+                },
+                "POIGrpId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "TtlNb": {
+                    "$ref": "#/$defs/Number"
+                },
+                "TxTp": {
+                    "$ref": "#/$defs/LoyaltyTypeTransactionTotals1Code"
+                }
+            },
+            "required": [
+                "TxTp",
+                "TtlNb",
+                "CmltvAmt"
+            ],
+            "type": "object"
+        },
+        "LoyaltyTypeTransactionTotals1Code": {
+            "type": "string",
+            "enum": [
+                "AWRD",
+                "REBA",
+                "REDE",
+                "AWRR",
+                "REBR",
+                "REDR"
+            ]
+        },
+        "MandateRelatedInformation13": {
+            "properties": {
+                "DtOfSgntr": {
+                    "$ref": "#/$defs/ISODate"
+                },
+                "MndtId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "MndtImg": {
+                    "$ref": "#/$defs/Max2MBBinary"
+                }
+            },
+            "required": [
+                "MndtId"
+            ],
+            "type": "object"
+        },
+        "Max100KBinary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 102400,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max1025Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 1025,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max104Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 104,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max10KBinary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 10240,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max10Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 10,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max11NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{1,11}"
+                }
+            ]
+        },
+        "Max140Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 140,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max140Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 140,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max15NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{1,15}"
+                }
+            ]
+        },
+        "Max16Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 16,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max19NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{1,19}"
+                }
+            ]
+        },
+        "Max256Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 256,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max2KBinary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 2048,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max2MBBinary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 2097152,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max2NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{1,2}"
+                }
+            ]
+        },
+        "Max3000Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 3000,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max30Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 30
+                }
+            ]
+        },
+        "Max350Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 350,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max35Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 35,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max35NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{1,35}"
+                }
+            ]
+        },
+        "Max35Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 35,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max37Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 37,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max3Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 3,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max45Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 45,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max5000Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 5000,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max500Binary": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:base64Binary"
+                },
+                {
+                    "maxLength": 500,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max500Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 500,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max5NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{1,5}"
+                }
+            ]
+        },
+        "Max6Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 6,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max70Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 70,
+                    "minLength": 1
+                }
+            ]
+        },
+        "Max76Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 76,
+                    "minLength": 1
+                }
+            ]
+        },
+        "MemoryCharacteristics1": {
+            "properties": {
+                "FreeSz": {
+                    "$ref": "#/$defs/DecimalNumber"
+                },
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Number of units.": {
+                    "$ref": "#/$defs/MemoryUnit1Code"
+                },
+                "TtlSz": {
+                    "$ref": "#/$defs/DecimalNumber"
+                }
+            },
+            "required": [
+                "Id",
+                "TtlSz",
+                "FreeSz",
+                "Number of units."
+            ],
+            "type": "object"
+        },
+        "MemoryUnit1Code": {
+            "type": "string",
+            "enum": [
+                "BYTE",
+                "EXAB",
+                "GIGA",
+                "KILO",
+                "MEGA",
+                "PETA",
+                "TERA"
+            ]
+        },
+        "MerchantToken2": {
+            "properties": {
+                "Tkn": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "TknAssrncData": {
+                    "$ref": "#/$defs/Max500Binary"
+                },
+                "TknAssrncLvl": {
+                    "$ref": "#/$defs/Number"
+                },
+                "TknAssrncMtd": {
+                    "$ref": "#/$defs/Max2NumericText"
+                },
+                "TknChrtc": {
+                    "items": {
+                        "$ref": "#/$defs/Max35Text"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TknInittdInd": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "TknRqstr": {
+                    "$ref": "#/$defs/PaymentTokenIdentifiers1"
+                },
+                "TknXpryDt": {
+                    "$ref": "#/$defs/Max10Text"
+                }
+            },
+            "type": "object"
+        },
+        "Min2Max3AlphaText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[a-zA-Z]{2,3}"
+                }
+            ]
+        },
+        "Min2Max3NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{2,3}"
+                }
+            ]
+        },
+        "Min3Max4Text": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "maxLength": 4,
+                    "minLength": 3
+                }
+            ]
+        },
+        "Min8Max28NumericText": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{8,28}"
+                }
+            ]
+        },
+        "MobileData6": {
+            "properties": {
+                "Glctn": {
+                    "$ref": "#/$defs/Geolocation1"
+                },
+                "MobCtryCd": {
+                    "$ref": "#/$defs/Min2Max3AlphaText"
+                },
+                "MobMskdMSISDN": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "MobNtwkCd": {
+                    "$ref": "#/$defs/Min2Max3NumericText"
+                },
+                "PrtctdMobData": {
+                    "$ref": "#/$defs/ContentInformationType40"
+                },
+                "SnstvMobData": {
+                    "$ref": "#/$defs/SensitiveMobileData1"
+                }
+            },
+            "type": "object"
+        },
+        "NameAndAddress6": {
+            "properties": {
+                "Adr": {
+                    "$ref": "#/$defs/PostalAddress2"
+                },
+                "Nm": {
+                    "$ref": "#/$defs/Max70Text"
+                }
+            },
+            "required": [
+                "Nm",
+                "Adr"
+            ],
+            "type": "object"
+        },
+        "NetworkParameters7": {
+            "properties": {
+                "AccsCd": {
+                    "$ref": "#/$defs/Max35Binary"
+                },
+                "Adr": {
+                    "items": {
+                        "$ref": "#/$defs/NetworkParameters9"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "ClntCert": {
+                    "items": {
+                        "$ref": "#/$defs/Max10KBinary"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SctyPrfl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SvrCert": {
+                    "items": {
+                        "$ref": "#/$defs/Max10KBinary"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SvrCertIdr": {
+                    "items": {
+                        "$ref": "#/$defs/Max140Binary"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "UsrNm": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Adr"
+            ],
+            "type": "object"
+        },
+        "NetworkParameters9": {
+            "properties": {
+                "AdrVal": {
+                    "$ref": "#/$defs/Max500Text"
+                },
+                "NtwkTp": {
+                    "$ref": "#/$defs/NetworkType1Code"
+                }
+            },
+            "required": [
+                "NtwkTp",
+                "AdrVal"
+            ],
+            "type": "object"
+        },
+        "NetworkType1Code": {
+            "type": "string",
+            "enum": [
+                "IPNW",
+                "PSTN"
+            ]
+        },
+        "Number of all financial transactions.": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:decimal"
+                }
+            ]
+        },
+        "OnLineCapability1Code": {
+            "type": "string",
+            "enum": [
+                "OFLN",
+                "ONLN",
+                "SMON"
+            ]
+        },
+        "OnLinePIN11": {
+            "properties": {
+                "AddtlInpt": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "NcrptdPINBlck": {
+                    "$ref": "#/$defs/ContentInformationType40"
+                },
+                "PINFrmt": {
+                    "$ref": "#/$defs/PINFormat3Code"
+                }
+            },
+            "required": [
+                "NcrptdPINBlck",
+                "PINFrmt"
+            ],
+            "type": "object"
+        },
+        "Organisation26": {
+            "properties": {
+                "Adr": {
+                    "$ref": "#/$defs/Max140Text"
+                },
+                "CmonNm": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "CtryCd": {
+                    "$ref": "#/$defs/ISO3NumericCountryCode"
+                },
+                "MrchntCtgyCd": {
+                    "$ref": "#/$defs/Min3Max4Text"
+                },
+                "RegdIdr": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "CmonNm",
+                "CtryCd",
+                "MrchntCtgyCd",
+                "RegdIdr"
+            ],
+            "type": "object"
+        },
+        "Organisation41": {
+            "properties": {
+                "CmonNm": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "Id": {
+                    "$ref": "#/$defs/GenericIdentification32"
+                },
+                "LctnAndCtct": {
+                    "$ref": "#/$defs/CommunicationAddress9"
+                },
+                "LctnCtgy": {
+                    "$ref": "#/$defs/LocationCategory4Code"
+                },
+                "SchmeData": {
+                    "$ref": "#/$defs/Max140Text"
+                }
+            },
+            "type": "object"
+        },
+        "Origination or destination phone number.": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "\\+[0-9]{1,3}-[0-9()+\\-]{1,30}"
+                }
+            ]
+        },
+        "OriginatorInformation1": {
+            "properties": {
+                "Cert": {
+                    "items": {
+                        "$ref": "#/$defs/Max5000Binary"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OutputFormat1Code": {
+            "type": "string",
+            "enum": [
+                "MREF",
+                "TEXT",
+                "HTML"
+            ]
+        },
+        "PackageType5": {
+            "properties": {
+                "Following place of this Block in the full other parameters.": {
+                    "$ref": "#/$defs/PositiveNumber"
+                },
+                "PackgBlck": {
+                    "items": {
+                        "$ref": "#/$defs/ExternallyDefinedData5"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "PackgId": {
+                    "$ref": "#/$defs/GenericIdentification176"
+                },
+                "PackgLngth": {
+                    "$ref": "#/$defs/PositiveNumber"
+                },
+                "Place of this  Block, beginning with 0, in the full other parameters.": {
+                    "$ref": "#/$defs/PositiveNumber"
+                }
+            },
+            "type": "object"
+        },
+        "Parameter12": {
+            "properties": {
+                "BPddg": {
+                    "$ref": "#/$defs/BytePadding1Code"
+                },
+                "InitlstnVctr": {
+                    "$ref": "#/$defs/Max500Binary"
+                },
+                "NcrptnFrmt": {
+                    "$ref": "#/$defs/EncryptionFormat2Code"
+                }
+            },
+            "type": "object"
+        },
+        "Parameter16": {
+            "properties": {
+                "DgstAlgo": {
+                    "$ref": "#/$defs/Algorithm26Code"
+                },
+                "MskGnrtrAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification34"
+                },
+                "OIDCrvNm": {
+                    "$ref": "#/$defs/Max140Text"
+                },
+                "SaltLngth": {
+                    "$ref": "#/$defs/Number"
+                },
+                "TrlrFld": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "type": "object"
+        },
+        "Parameter17": {
+            "properties": {
+                "DgstAlgo": {
+                    "$ref": "#/$defs/Algorithm26Code"
+                },
+                "MskGnrtrAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification34"
+                },
+                "NcrptnFrmt": {
+                    "$ref": "#/$defs/EncryptionFormat2Code"
+                }
+            },
+            "type": "object"
+        },
+        "Parameter18": {
+            "properties": {
+                "DgstAlgo": {
+                    "$ref": "#/$defs/Algorithm26Code"
+                }
+            },
+            "type": "object"
+        },
+        "Parameter7": {
+            "properties": {
+                "BPddg": {
+                    "$ref": "#/$defs/BytePadding1Code"
+                },
+                "InitlstnVctr": {
+                    "$ref": "#/$defs/Max500Binary"
+                }
+            },
+            "type": "object"
+        },
+        "PartyIdentification178Choice": {
+            "properties": {
+                "NmAndAdr": {
+                    "$ref": "#/$defs/NameAndAddress6"
+                },
+                "PrtryId": {
+                    "$ref": "#/$defs/GenericIdentification36"
+                },
+                "Specifies details on a business identifier code that was requested.": {
+                    "$ref": "#/$defs/AnyBICDec2014Identifier"
+                }
+            },
+            "required": [
+                "Specifies details on a business identifier code that was requested.",
+                "PrtryId",
+                "NmAndAdr"
+            ],
+            "type": "object"
+        },
+        "PartyType33Code": {
+            "type": "string",
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS",
+                "MTMG",
+                "TAXH",
+                "TMGT"
+            ]
+        },
+        "PartyType3Code": {
+            "type": "string",
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS"
+            ]
+        },
+        "PartyType4Code": {
+            "type": "string",
+            "enum": [
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "TAXH"
+            ]
+        },
+        "PartyType7Code": {
+            "type": "string",
+            "enum": [
+                "ACQR",
+                "ITAG",
+                "PCPT",
+                "TMGT",
+                "SALE"
+            ]
+        },
+        "PaymentCard35": {
+            "properties": {
+                "AddtlCardData": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "AllwdPdct": {
+                    "items": {
+                        "$ref": "#/$defs/Max70Text"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CardBrnd": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CardCcyCd": {
+                    "$ref": "#/$defs/Exact3AlphaNumericText"
+                },
+                "CardCtryCd": {
+                    "$ref": "#/$defs/Max3Text"
+                },
+                "CardPdctPrfl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CardPdctSubTp": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CardPdctTp": {
+                    "$ref": "#/$defs/CardProductType1Code"
+                },
+                "IntrnlCard": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "IssrBIN": {
+                    "$ref": "#/$defs/Max15NumericText"
+                },
+                "MskdPAN": {
+                    "$ref": "#/$defs/Max30Text"
+                },
+                "PmtAcctRef": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "PrtctdCardData": {
+                    "$ref": "#/$defs/ContentInformationType40"
+                },
+                "PrvtCardData": {
+                    "$ref": "#/$defs/Max100KBinary"
+                },
+                "Sensitive data associated with the card performing the transaction.": {
+                    "$ref": "#/$defs/PlainCardData22"
+                },
+                "SvcOptn": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "type": "object"
+        },
+        "PaymentContext29": {
+            "properties": {
+                "AttndncCntxt": {
+                    "$ref": "#/$defs/AttendanceContext1Code"
+                },
+                "AttndntLang": {
+                    "$ref": "#/$defs/LanguageCode"
+                },
+                "AttndntMsgCpbl": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "BizArea": {
+                    "$ref": "#/$defs/BusinessArea2Code"
+                },
+                "CardDataNtryMd": {
+                    "$ref": "#/$defs/CardDataReading8Code"
+                },
+                "CardPres": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "CrdhldrPres": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "FllbckInd": {
+                    "$ref": "#/$defs/CardFallback1Code"
+                },
+                "OnLineCntxt": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "SpprtdOptn": {
+                    "items": {
+                        "$ref": "#/$defs/SupportedPaymentOption2Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TxChanl": {
+                    "$ref": "#/$defs/TransactionChannel5Code"
+                },
+                "TxEnvt": {
+                    "$ref": "#/$defs/TransactionEnvironment1Code"
+                }
+            },
+            "type": "object"
+        },
+        "PaymentInstrumentType1Code": {
+            "type": "string",
+            "enum": [
+                "CARD",
+                "CASH",
+                "CHCK",
+                "LOYT",
+                "SVAC"
+            ]
+        },
+        "PaymentTokenIdentifiers1": {
+            "properties": {
+                "PrvdrId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "RqstrId": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "PrvdrId",
+                "RqstrId"
+            ],
+            "type": "object"
+        },
+        "PersonIdentification15": {
+            "properties": {
+                "AlnRegnNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CstmrNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Dept": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "DrvrId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "DrvrLicLctn": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "DrvrLicNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "DrvrLicNm": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "DtAndPlcOfBirth": {
+                    "$ref": "#/$defs/DateAndPlaceOfBirth1"
+                },
+                "EmailAdr": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "IdntyCardNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "JobNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "MplyeeIdNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "MplyrIdNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Othr": {
+                    "items": {
+                        "$ref": "#/$defs/GenericIdentification4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "PsptNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SclSctyNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "TaxIdNb": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "type": "object"
+        },
+        "PhysicalInterfaceParameter1": {
+            "properties": {
+                "AccsCd": {
+                    "$ref": "#/$defs/Max35Binary"
+                },
+                "AddtlParams": {
+                    "$ref": "#/$defs/Max2KBinary"
+                },
+                "IntrfcNm": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "IntrfcTp": {
+                    "$ref": "#/$defs/POICommunicationType2Code"
+                },
+                "SctyPrfl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "UsrNm": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "IntrfcNm"
+            ],
+            "type": "object"
+        },
+        "PINFormat3Code": {
+            "type": "string",
+            "enum": [
+                "ISO0",
+                "ISO1",
+                "ISO2",
+                "ISO3",
+                "ISO4",
+                "ISO5"
+            ]
+        },
+        "PlainCardData17": {
+            "properties": {
+                "AddtlCardData": {
+                    "items": {
+                        "$ref": "#/$defs/Max35Text"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "NtryMd": {
+                    "$ref": "#/$defs/CardDataReading5Code"
+                },
+                "Primary Account Number (PAN) of the card, or surrogate of the PAN by a payment token.": {
+                    "$ref": "#/$defs/Min8Max28NumericText"
+                },
+                "Trck1": {
+                    "$ref": "#/$defs/Max76Text"
+                },
+                "Trck2": {
+                    "$ref": "#/$defs/Max37Text"
+                },
+                "Trck3": {
+                    "$ref": "#/$defs/Max104Text"
+                }
+            },
+            "type": "object"
+        },
+        "PlainCardData22": {
+            "properties": {
+                "CardSeqNb": {
+                    "$ref": "#/$defs/Min2Max3NumericText"
+                },
+                "CrdhldrNm": {
+                    "$ref": "#/$defs/Max45Text"
+                },
+                "FctvDt": {
+                    "$ref": "#/$defs/Max10Text"
+                },
+                "Primary Account Number (PAN) of the card, or surrogate of the PAN by a payment token.": {
+                    "$ref": "#/$defs/Min8Max28NumericText"
+                },
+                "SvcCd": {
+                    "$ref": "#/$defs/Exact3NumericText"
+                },
+                "Trck1": {
+                    "$ref": "#/$defs/Max76Text"
+                },
+                "Trck2": {
+                    "$ref": "#/$defs/Max37Text"
+                },
+                "Trck3": {
+                    "$ref": "#/$defs/Max104Text"
+                },
+                "XpryDt": {
+                    "$ref": "#/$defs/Max10Text"
+                }
+            },
+            "required": [
+                "Primary Account Number (PAN) of the card, or surrogate of the PAN by a payment token."
+            ],
+            "type": "object"
+        },
+        "POICommunicationType2Code": {
+            "type": "string",
+            "enum": [
+                "BLTH",
+                "ETHR",
+                "GPRS",
+                "GSMF",
+                "PSTN",
+                "RS23",
+                "USBD",
+                "USBH",
+                "WIFI",
+                "WT2G",
+                "WT3G",
+                "WT4G",
+                "WT5G"
+            ]
+        },
+        "POIComponentAssessment1Code": {
+            "type": "string",
+            "enum": [
+                "APPL",
+                "CERT",
+                "EVAL"
+            ]
+        },
+        "POIComponentStatus1Code": {
+            "type": "string",
+            "enum": [
+                "WAIT",
+                "OUTD",
+                "OPER",
+                "DACT"
+            ]
+        },
+        "POIComponentType6Code": {
+            "type": "string",
+            "enum": [
+                "AQPP",
+                "APPR",
+                "TLPR",
+                "SCPR",
+                "SERV",
+                "TERM",
+                "DVCE",
+                "SECM",
+                "APLI",
+                "EMVK",
+                "EMVO",
+                "MDWR",
+                "DRVR",
+                "OPST",
+                "MRPR",
+                "CRTF",
+                "TMSP",
+                "SACP",
+                "SAPR",
+                "LOGF",
+                "MDFL",
+                "SOFT",
+                "CONF",
+                "RPFL"
+            ]
+        },
+        "PointOfInteraction14": {
+            "properties": {
+                "Cmpnt": {
+                    "items": {
+                        "$ref": "#/$defs/PointOfInteractionComponent15"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Cpblties": {
+                    "$ref": "#/$defs/PointOfInteractionCapabilities9"
+                },
+                "GrpId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Id": {
+                    "$ref": "#/$defs/GenericIdentification177"
+                },
+                "SysNm": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "TermnlIntgtn": {
+                    "$ref": "#/$defs/LocationCategory3Code"
+                },
+                "TmZone": {
+                    "$ref": "#/$defs/Max70Text"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "PointOfInteractionCapabilities9": {
+            "properties": {
+                "ApprvlCdLngth": {
+                    "$ref": "#/$defs/PositiveNumber"
+                },
+                "CardCaptrCpbl": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "CardRdngCpblties": {
+                    "items": {
+                        "$ref": "#/$defs/CardDataReading8Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CrdhldrVrfctnCpblties": {
+                    "items": {
+                        "$ref": "#/$defs/CardholderVerificationCapability4Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MsgCpblties": {
+                    "items": {
+                        "$ref": "#/$defs/DisplayCapabilities4"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MxScrptLngth": {
+                    "$ref": "#/$defs/PositiveNumber"
+                },
+                "OnLineCpblties": {
+                    "$ref": "#/$defs/OnLineCapability1Code"
+                },
+                "PINLngthCpblties": {
+                    "$ref": "#/$defs/PositiveNumber"
+                }
+            },
+            "type": "object"
+        },
+        "PointOfInteractionComponent15": {
+            "properties": {
+                "Assmnt": {
+                    "items": {
+                        "$ref": "#/$defs/PointOfInteractionComponentAssessment1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Chrtcs": {
+                    "$ref": "#/$defs/PointOfInteractionComponentCharacteristics10"
+                },
+                "Id": {
+                    "$ref": "#/$defs/PointOfInteractionComponentIdentification2"
+                },
+                "Packg": {
+                    "items": {
+                        "$ref": "#/$defs/PackageType5"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "StdCmplc": {
+                    "items": {
+                        "$ref": "#/$defs/GenericIdentification48"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Sts": {
+                    "$ref": "#/$defs/PointOfInteractionComponentStatus3"
+                },
+                "SubTpInf": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/POIComponentType6Code"
+                }
+            },
+            "required": [
+                "Tp",
+                "Id"
+            ],
+            "type": "object"
+        },
+        "PointOfInteractionComponentAssessment1": {
+            "properties": {
+                "Assgnr": {
+                    "items": {
+                        "$ref": "#/$defs/Max35Text"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "DlvryDt": {
+                    "$ref": "#/$defs/ISODateTime"
+                },
+                "Nb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/POIComponentAssessment1Code"
+                },
+                "XprtnDt": {
+                    "$ref": "#/$defs/ISODateTime"
+                }
+            },
+            "required": [
+                "Tp",
+                "Assgnr",
+                "Nb"
+            ],
+            "type": "object"
+        },
+        "PointOfInteractionComponentCharacteristics10": {
+            "properties": {
+                "Com": {
+                    "items": {
+                        "$ref": "#/$defs/CommunicationCharacteristics5"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Mmry": {
+                    "items": {
+                        "$ref": "#/$defs/MemoryCharacteristics1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SbcbrIdntyMdls": {
+                    "$ref": "#/$defs/Number"
+                },
+                "SctyAccsMdls": {
+                    "$ref": "#/$defs/Number"
+                },
+                "SctyElmt": {
+                    "items": {
+                        "$ref": "#/$defs/CryptographicKey18"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PointOfInteractionComponentIdentification2": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "ItmNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "PrvdrId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SrlNb": {
+                    "$ref": "#/$defs/Max256Text"
+                }
+            },
+            "type": "object"
+        },
+        "PointOfInteractionComponentStatus3": {
+            "properties": {
+                "Sts": {
+                    "$ref": "#/$defs/POIComponentStatus1Code"
+                },
+                "VrsnNb": {
+                    "$ref": "#/$defs/Max256Text"
+                },
+                "XpryDt": {
+                    "$ref": "#/$defs/ISODate"
+                }
+            },
+            "type": "object"
+        },
+        "PositiveNumber": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:decimal"
+                },
+                {
+                    "exclusiveMinimum": false,
+                    "minimum": 1
+                }
+            ]
+        },
+        "PostalAddress2": {
+            "properties": {
+                "Ctry": {
+                    "$ref": "#/$defs/CountryCode"
+                },
+                "CtrySubDvsn": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "PstCdId": {
+                    "$ref": "#/$defs/Max16Text"
+                },
+                "StrtNm": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "TwnNm": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "PstCdId",
+                "TwnNm",
+                "Ctry"
+            ],
+            "type": "object"
+        },
+        "PostalAddress22": {
+            "properties": {
+                "AdrLine": {
+                    "items": {
+                        "$ref": "#/$defs/Max70Text"
+                    },
+                    "maxItems": 2,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "AdrTp": {
+                    "$ref": "#/$defs/AddressType2Code"
+                },
+                "BldgNb": {
+                    "$ref": "#/$defs/Max16Text"
+                },
+                "CtryCd": {
+                    "$ref": "#/$defs/Min2Max3AlphaText"
+                },
+                "CtrySubDvsn": {
+                    "items": {
+                        "$ref": "#/$defs/Max35Text"
+                    },
+                    "maxItems": 2,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Dept": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "PstCd": {
+                    "$ref": "#/$defs/Max16Text"
+                },
+                "StrtNm": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "SubDept": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "TwnNm": {
+                    "$ref": "#/$defs/Max70Text"
+                }
+            },
+            "type": "object"
+        },
+        "Provides the document type and reference information.": {
+            "properties": {
+                "SaleToPOIReconciliationResponseV06": {
+                    "$ref": "#/$defs/SaleToPOIReconciliationResponseV06"
+                }
+            },
+            "required": [
+                "SaleToPOIReconciliationResponseV06"
+            ],
+            "type": "object"
+        },
+        "Recipient13Choice": {
+            "properties": {
+                "IssrAndSrlNb": {
+                    "$ref": "#/$defs/IssuerAndSerialNumber2"
+                },
+                "SbjtKeyIdr": {
+                    "$ref": "#/$defs/Max140Binary"
+                }
+            },
+            "required": [
+                "IssrAndSrlNb",
+                "SbjtKeyIdr"
+            ],
+            "type": "object"
+        },
+        "Recipient15Choice": {
+            "properties": {
+                "Key encryption key using previously distributed symmetric key.": {
+                    "$ref": "#/$defs/KEK9"
+                },
+                "KeyIdr": {
+                    "$ref": "#/$defs/KEKIdentifier7"
+                },
+                "KeyTrnsprt": {
+                    "$ref": "#/$defs/KeyTransport10"
+                }
+            },
+            "required": [
+                "KeyTrnsprt",
+                "Key encryption key using previously distributed symmetric key.",
+                "KeyIdr"
+            ],
+            "type": "object"
+        },
+        "ReconciliationResponse9": {
+            "properties": {
+                "Cntxt": {
+                    "$ref": "#/$defs/CardPaymentContext30"
+                },
+                "Envt": {
+                    "$ref": "#/$defs/CardPaymentEnvironment80"
+                },
+                "RcncltnRspnData": {
+                    "$ref": "#/$defs/ReconciliationResponseData1"
+                },
+                "Rspn": {
+                    "$ref": "#/$defs/ResponseType11"
+                },
+                "SplmtryData": {
+                    "items": {
+                        "$ref": "#/$defs/SupplementaryData1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Envt",
+                "Cntxt",
+                "RcncltnRspnData",
+                "Rspn"
+            ],
+            "type": "object"
+        },
+        "ReconciliationResponseData1": {
+            "properties": {
+                "POIRcncltnId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "RcncltnTp": {
+                    "$ref": "#/$defs/ReconciliationType1Code"
+                },
+                "TxTtls": {
+                    "items": {
+                        "$ref": "#/$defs/TransactionTotalsSet1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "RcncltnTp"
+            ],
+            "type": "object"
+        },
+        "ReconciliationType1Code": {
+            "type": "string",
+            "enum": [
+                "AREC",
+                "ASYN",
+                "PREC",
+                "SREC"
+            ]
+        },
+        "RelativeDistinguishedName1": {
+            "properties": {
+                "AttrTp": {
+                    "$ref": "#/$defs/AttributeType1Code"
+                },
+                "AttrVal": {
+                    "$ref": "#/$defs/Max140Text"
+                }
+            },
+            "required": [
+                "AttrTp",
+                "AttrVal"
+            ],
+            "type": "object"
+        },
+        "Response11Code": {
+            "type": "string",
+            "enum": [
+                "WARN",
+                "FAIL",
+                "SUCC"
+            ]
+        },
+        "ResponseType11": {
+            "properties": {
+                "AddtlRspnInf": {
+                    "$ref": "#/$defs/Max140Text"
+                },
+                "Rspn": {
+                    "$ref": "#/$defs/Response11Code"
+                },
+                "RspnRsn": {
+                    "$ref": "#/$defs/RetailerResultDetail1Code"
+                }
+            },
+            "required": [
+                "Rspn"
+            ],
+            "type": "object"
+        },
+        "RetailerMessage1Code": {
+            "type": "string",
+            "enum": [
+                "SSAB",
+                "SAAQ",
+                "SAAP",
+                "SDDR",
+                "SDDP",
+                "SSEN",
+                "SSMQ",
+                "SSMR",
+                "SSRJ",
+                "SARQ",
+                "SARP",
+                "SFRP",
+                "SFRQ",
+                "SFSQ",
+                "SFSP",
+                "SASQ",
+                "SASP"
+            ]
+        },
+        "RetailerResultDetail1Code": {
+            "type": "string",
+            "enum": [
+                "ABRT",
+                "BUSY",
+                "CANC",
+                "DEVO",
+                "WPIN",
+                "NHOS",
+                "UNVS",
+                "UNVD",
+                "REFU",
+                "PAYR",
+                "TNFD",
+                "NALW",
+                "LOUT",
+                "IVCA",
+                "ICAR",
+                "WIPG"
+            ]
+        },
+        "RetailerSaleEnvironment2": {
+            "properties": {
+                "Ccy": {
+                    "$ref": "#/$defs/ActiveCurrencyCode"
+                },
+                "DbtPrefrdFlg": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "LltyHdlg": {
+                    "$ref": "#/$defs/LoyaltyHandling1Code"
+                },
+                "MaxCshBckAmt": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "MinAmtToDlvr": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "MinSpltAmt": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "SaleCpblties": {
+                    "items": {
+                        "$ref": "#/$defs/SaleCapabilities1Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SaleCapabilities1Code": {
+            "type": "string",
+            "enum": [
+                "CHDI",
+                "CHER",
+                "CHIN",
+                "CHST",
+                "CUDI",
+                "CUAS",
+                "CUER",
+                "CUIN",
+                "POIR",
+                "PRDC",
+                "PRRP",
+                "PRVC"
+            ]
+        },
+        "SaleContext4": {
+            "properties": {
+                "AddtlSaleData": {
+                    "$ref": "#/$defs/Max70Text"
+                },
+                "AllwdNtryMd": {
+                    "items": {
+                        "$ref": "#/$defs/CardDataReading8Code"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CshrId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CshrLang": {
+                    "items": {
+                        "$ref": "#/$defs/LanguageCode"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CstmrOrdrReqFlg": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "DlvryNoteNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "ForceOnlnFlg": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "InvcNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "PurchsOrdrNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "ReuseCardDataFlg": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "RmngAmt": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "SaleId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SaleRcncltnId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SaleRefNb": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SaleTknScp": {
+                    "$ref": "#/$defs/SaleTokenScope1Code"
+                },
+                "ShftNb": {
+                    "$ref": "#/$defs/Max2NumericText"
+                },
+                "SpltPmt": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "SpnsrdMrchnt": {
+                    "items": {
+                        "$ref": "#/$defs/Organisation26"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SaleTokenScope1Code": {
+            "type": "string",
+            "enum": [
+                "MULT",
+                "SNGL"
+            ]
+        },
+        "SaleToPOIReconciliationResponseV06": {
+            "properties": {
+                "Hdr": {
+                    "$ref": "#/$defs/Header41"
+                },
+                "ReconciliationResponseV03": {
+                    "$ref": "#/$defs/ReconciliationResponse9"
+                },
+                "SctyTrlr": {
+                    "$ref": "#/$defs/ContentInformationType38"
+                }
+            },
+            "required": [
+                "Hdr",
+                "ReconciliationResponseV03"
+            ],
+            "type": "object"
+        },
+        "SensitiveMobileData1": {
+            "properties": {
+                "identifies the mobile - Mobile Subscriber Integrated Service Digital Network (The SIM identifier).": {
+                    "$ref": "#/$defs/Max35NumericText"
+                },
+                "International Mobile Equipment Identity is a number usually unique to identify a mobile phone.": {
+                    "$ref": "#/$defs/Max35NumericText"
+                },
+                "International Mobile Subscriber Identity is a unique number associated with the mobile phone user, containing the Mobile Country Code (MCC), the Mobile Network Code (MNC), and the Mobile Identification Number (MSIN).": {
+                    "$ref": "#/$defs/Max35NumericText"
+                }
+            },
+            "required": [
+                "identifies the mobile - Mobile Subscriber Integrated Service Digital Network (The SIM identifier)."
+            ],
+            "type": "object"
+        },
+        "SignedData9": {
+            "properties": {
+                "Cert": {
+                    "items": {
+                        "$ref": "#/$defs/Max5000Binary"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DgstAlgo": {
+                    "items": {
+                        "$ref": "#/$defs/AlgorithmIdentification36"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "NcpsltdCntt": {
+                    "$ref": "#/$defs/EncapsulatedContent3"
+                },
+                "Sgnr": {
+                    "items": {
+                        "$ref": "#/$defs/Signer8"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "type": "object"
+        },
+        "Signer8": {
+            "properties": {
+                "DgstAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification36"
+                },
+                "SgndAttrbts": {
+                    "items": {
+                        "$ref": "#/$defs/GenericInformation1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SgnrId": {
+                    "$ref": "#/$defs/Recipient13Choice"
+                },
+                "Sgntr": {
+                    "$ref": "#/$defs/Max3000Binary"
+                },
+                "SgntrAlgo": {
+                    "$ref": "#/$defs/AlgorithmIdentification33"
+                },
+                "Vrsn": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "DgstAlgo",
+                "SgntrAlgo",
+                "Sgntr"
+            ],
+            "type": "object"
+        },
+        "SimpleIdentificationInformation4": {
+            "properties": {
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Id"
+            ],
+            "type": "object"
+        },
+        "StoredValueAccount2": {
+            "properties": {
+                "AcctTp": {
+                    "$ref": "#/$defs/StoredValueAccountType1Code"
+                },
+                "Bal": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "Brnd": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Ccy": {
+                    "$ref": "#/$defs/ActiveCurrencyCode"
+                },
+                "Id": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "IdTp": {
+                    "$ref": "#/$defs/CardIdentificationType1Code"
+                },
+                "NtryMd": {
+                    "$ref": "#/$defs/CardDataReading8Code"
+                },
+                "OwnrNm": {
+                    "$ref": "#/$defs/Max45Text"
+                },
+                "Prvdr": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "XpryDt": {
+                    "$ref": "#/$defs/Max10Text"
+                }
+            },
+            "type": "object"
+        },
+        "StoredValueAccountType1Code": {
+            "type": "string",
+            "enum": [
+                "BNKA",
+                "CWVC",
+                "CPYA",
+                "ELMY",
+                "GIFT",
+                "GCER",
+                "MLVC",
+                "OLVC",
+                "MERC",
+                "OTHR",
+                "PHON",
+                "CARD",
+                "TRVL"
+            ]
+        },
+        "SupplementaryData1": {
+            "properties": {
+                "Envlp": {
+                    "$ref": "#/$defs/SupplementaryDataEnvelope1"
+                },
+                "PlcAndNm": {
+                    "$ref": "#/$defs/Max350Text"
+                }
+            },
+            "required": [
+                "Envlp"
+            ],
+            "type": "object"
+        },
+        "SupportedPaymentOption2Code": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                }
+            ],
+            "enum": [
+                "PART",
+                "MSRV",
+                "INSI",
+                "PINQ"
+            ]
+        },
+        "Token1": {
+            "properties": {
+                "PmtTkn": {
+                    "$ref": "#/$defs/Max19NumericText"
+                },
+                "TknAssrncData": {
+                    "$ref": "#/$defs/Max140Text"
+                },
+                "TknAssrncMtd": {
+                    "$ref": "#/$defs/Max2NumericText"
+                },
+                "TknInittdInd": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "TknRqstrId": {
+                    "$ref": "#/$defs/Max11NumericText"
+                },
+                "TknXpryDt": {
+                    "$ref": "#/$defs/Exact4NumericText"
+                }
+            },
+            "type": "object"
+        },
+        "Traceability8": {
+            "properties": {
+                "PrtcolNm": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "PrtcolVrsn": {
+                    "$ref": "#/$defs/Max6Text"
+                },
+                "RlayId": {
+                    "$ref": "#/$defs/GenericIdentification177"
+                },
+                "TracDtTmIn": {
+                    "$ref": "#/$defs/ISODateTime"
+                },
+                "TracDtTmOut": {
+                    "$ref": "#/$defs/ISODateTime"
+                }
+            },
+            "required": [
+                "RlayId",
+                "TracDtTmIn",
+                "TracDtTmOut"
+            ],
+            "type": "object"
+        },
+        "TrackData2": {
+            "properties": {
+                "TrckFrmt": {
+                    "$ref": "#/$defs/TrackFormat1Code"
+                },
+                "TrckNb": {
+                    "$ref": "#/$defs/Number"
+                },
+                "TrckVal": {
+                    "$ref": "#/$defs/Max140Text"
+                }
+            },
+            "required": [
+                "TrckVal"
+            ],
+            "type": "object"
+        },
+        "TrackFormat1Code": {
+            "type": "string",
+            "enum": [
+                "AAMV",
+                "CMC7",
+                "E13B",
+                "ISOF",
+                "JIS1",
+                "JIS2"
+            ]
+        },
+        "TransactionChannel5Code": {
+            "type": "string",
+            "enum": [
+                "MAIL",
+                "TLPH",
+                "ECOM",
+                "TVPY",
+                "SECM",
+                "MOBL",
+                "MPOS"
+            ]
+        },
+        "TransactionEnvironment1Code": {
+            "type": "string",
+            "enum": [
+                "MERC",
+                "PRIV",
+                "PUBL"
+            ]
+        },
+        "TransactionTotals8": {
+            "properties": {
+                "CardPdctPrfl": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Ccy": {
+                    "$ref": "#/$defs/ActiveCurrencyCode"
+                },
+                "CmltvAmt": {
+                    "$ref": "#/$defs/ImpliedCurrencyAndAmount"
+                },
+                "DtldAmt": {
+                    "$ref": "#/$defs/DetailedAmount15"
+                },
+                "POIGrpId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/TypeTransactionTotals3Code"
+                },
+                "TtlNb": {
+                    "$ref": "#/$defs/Number"
+                }
+            },
+            "required": [
+                "Tp",
+                "TtlNb",
+                "CmltvAmt"
+            ],
+            "type": "object"
+        },
+        "TransactionTotalsSet1": {
+            "properties": {
+                "AcqrrId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Brnd": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "CshrId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "LltyTxTtl": {
+                    "items": {
+                        "$ref": "#/$defs/LoyaltyTransactionTotals1"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "PmtInstrmTp": {
+                    "$ref": "#/$defs/PaymentInstrumentType1Code"
+                },
+                "POIId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "RcncltnId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SaleId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "SaleRcncltnId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "ShftNb": {
+                    "$ref": "#/$defs/Max2NumericText"
+                },
+                "SpnsrdMrchnt": {
+                    "items": {
+                        "$ref": "#/$defs/Organisation26"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TxTtl": {
+                    "$ref": "#/$defs/TransactionTotals8"
+                }
+            },
+            "required": [
+                "PmtInstrmTp",
+                "TxTtl"
+            ],
+            "type": "object"
+        },
+        "TransactionVerificationResult4": {
+            "properties": {
+                "AddtlRslt": {
+                    "$ref": "#/$defs/Max500Text"
+                },
+                "Mtd": {
+                    "$ref": "#/$defs/AuthenticationMethod6Code"
+                },
+                "Rslt": {
+                    "$ref": "#/$defs/Verification1Code"
+                },
+                "VrfctnNtty": {
+                    "$ref": "#/$defs/AuthenticationEntity2Code"
+                }
+            },
+            "required": [
+                "Mtd"
+            ],
+            "type": "object"
+        },
+        "TrueFalseIndicator": {
+            "$ref": "#/$defs/xs:boolean"
+        },
+        "TypeTransactionTotals3Code": {
+            "type": "string",
+            "enum": [
+                "CRDT",
+                "CRDR",
+                "DEBT",
+                "DBTR",
+                "DECL",
+                "FAIL",
+                "RESV"
+            ]
+        },
+        "Unique identifier for a language used in this invoice document.": {
+            "$ref": "#/$defs/xs:string"
+        },
+        "UPICIdentifier": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/xs:string"
+                },
+                {
+                    "pattern": "[0-9]{8,17}"
+                }
+            ]
+        },
+        "UserInterface4Code": {
+            "type": "string",
+            "enum": [
+                "CDSP",
+                "CRCP",
+                "MDSP",
+                "MRCP",
+                "CRDO"
+            ]
+        },
+        "Vehicle1": {
+            "properties": {
+                "AddtlVhclData": {
+                    "items": {
+                        "$ref": "#/$defs/Vehicle2"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DrvrOrVhclCard": {
+                    "$ref": "#/$defs/PlainCardData17"
+                },
+                "Hbmtr": {
+                    "$ref": "#/$defs/DecimalNumber"
+                },
+                "MntncId": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "Odmtr": {
+                    "$ref": "#/$defs/DecimalNumber"
+                },
+                "RefrHrs": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "RplcmntCar": {
+                    "$ref": "#/$defs/TrueFalseIndicator"
+                },
+                "TrlrHrs": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "TrlrNb": {
+                    "$ref": "#/$defs/Max35NumericText"
+                },
+                "UnitNb": {
+                    "$ref": "#/$defs/Max35NumericText"
+                },
+                "VhclNb": {
+                    "$ref": "#/$defs/Max35NumericText"
+                },
+                "VhclTag": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "VhclTagNtryMd": {
+                    "$ref": "#/$defs/CardDataReading5Code"
+                }
+            },
+            "type": "object"
+        },
+        "Vehicle2": {
+            "properties": {
+                "Information related to the vehicle.": {
+                    "$ref": "#/$defs/Max35Text"
+                },
+                "NtryMd": {
+                    "$ref": "#/$defs/CardDataReading5Code"
+                },
+                "Tp": {
+                    "$ref": "#/$defs/Max35Text"
+                }
+            },
+            "required": [
+                "Information related to the vehicle."
+            ],
+            "type": "object"
+        },
+        "Verification1Code": {
+            "type": "string",
+            "enum": [
+                "FAIL",
+                "MISS",
+                "NOVF",
+                "PART",
+                "SUCC",
+                "ERRR"
+            ]
+        }
+    }
+}

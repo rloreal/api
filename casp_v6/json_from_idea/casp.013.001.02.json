@@ -1,0 +1,240 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:iso:std:iso:20022:tech:xsd:casp.013.001.02#",
+    "properties": {
+        "Document": {"$ref": "#/$defs/Document"}
+    },
+    "$defs": {
+        "NetworkParameters9": {
+            "type": "object",
+            "required": [
+                "NtwkTp",
+                "AdrVal"
+            ],
+            "properties": {
+                "NtwkTp": {"$ref": "#/$defs/NetworkType1Code"},
+                "AdrVal": {"type": "string"}
+            }
+        },
+        "NetworkParameters7": {
+            "type": "object",
+            "required": ["Adr"],
+            "properties": {
+                "Adr": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/NetworkParameters9"},
+                    "minItems": 1
+                },
+                "UsrNm": {"type": "string"},
+                "AccsCd": {
+                    "type": "array",
+                    "items": {"type": "integer"}
+                },
+                "SvrCert": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "SvrCertIdr": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "ClntCert": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "SctyPrfl": {"type": "string"}
+            }
+        },
+        "GeolocationGeographicCoordinates1": {
+            "type": "object",
+            "required": [
+                "Lat",
+                "Long"
+            ],
+            "properties": {
+                "Lat": {"type": "string"},
+                "Long": {"type": "string"}
+            }
+        },
+        "GeolocationUTMCoordinates1": {
+            "type": "object",
+            "required": [
+                "UTMZone",
+                "UTMEstwrd",
+                "UTMNrthwrd"
+            ],
+            "properties": {
+                "UTMZone": {"type": "string"},
+                "UTMEstwrd": {"type": "string"},
+                "UTMNrthwrd": {"type": "string"}
+            }
+        },
+        "Geolocation1": {
+            "type": "object",
+            "properties": {
+                "GeogcCordints": {"$ref": "#/$defs/GeolocationGeographicCoordinates1"},
+                "UTMCordints": {"$ref": "#/$defs/GeolocationUTMCoordinates1"}
+            }
+        },
+        "GenericIdentification177": {
+            "type": "object",
+            "required": ["Id"],
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/PartyType33Code"},
+                "Issr": {"$ref": "#/$defs/PartyType33Code"},
+                "Ctry": {"type": "string"},
+                "ShrtNm": {"type": "string"},
+                "RmotAccs": {"$ref": "#/$defs/NetworkParameters7"},
+                "Glctn": {"$ref": "#/$defs/Geolocation1"}
+            }
+        },
+        "Traceability8": {
+            "type": "object",
+            "required": [
+                "RlayId",
+                "TracDtTmIn",
+                "TracDtTmOut"
+            ],
+            "properties": {
+                "RlayId": {"$ref": "#/$defs/GenericIdentification177"},
+                "PrtcolNm": {"type": "string"},
+                "PrtcolVrsn": {"type": "string"},
+                "TracDtTmIn": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "TracDtTmOut": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Header41": {
+            "type": "object",
+            "required": [
+                "MsgFctn",
+                "PrtcolVrsn",
+                "XchgId",
+                "CreDtTm",
+                "InitgPty"
+            ],
+            "properties": {
+                "MsgFctn": {"$ref": "#/$defs/RetailerMessage1Code"},
+                "PrtcolVrsn": {"type": "string"},
+                "XchgId": {"type": "string"},
+                "CreDtTm": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "InitgPty": {"$ref": "#/$defs/GenericIdentification177"},
+                "RcptPty": {"$ref": "#/$defs/GenericIdentification177"},
+                "Tracblt": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/Traceability8"},
+                    "minItems": 0
+                }
+            }
+        },
+        "AcceptorRejection2": {
+            "type": "object",
+            "required": ["RjctRsn"],
+            "properties": {
+                "RjctRsn": {"$ref": "#/$defs/RejectReason1Code"},
+                "AddtlInf": {"type": "string"},
+                "MsgInErr": {
+                    "type": "array",
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "SaleToPOIMessageRejectionV02": {
+            "type": "object",
+            "required": [
+                "Hdr",
+                "Rjct"
+            ],
+            "properties": {
+                "Hdr": {"$ref": "#/$defs/Header41"},
+                "Rjct": {"$ref": "#/$defs/AcceptorRejection2"}
+            }
+        },
+        "Document": {
+            "type": "object",
+            "required": ["SaleToPOIMsgRjctn"],
+            "properties": {
+                "SaleToPOIMsgRjctn": {"$ref": "#/$defs/SaleToPOIMessageRejectionV02"}
+            }
+        },
+        "RetailerMessage1Code": {
+            "type": "string",
+            "enum": [
+                "SSAB",
+                "SAAQ",
+                "SAAP",
+                "SDDR",
+                "SDDP",
+                "SSEN",
+                "SSMQ",
+                "SSMR",
+                "SSRJ",
+                "SARQ",
+                "SARP",
+                "SFRP",
+                "SFRQ",
+                "SFSQ",
+                "SFSP",
+                "SASQ",
+                "SASP"
+            ]
+        },
+        "PartyType33Code": {
+            "type": "string",
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS",
+                "MTMG",
+                "TAXH",
+                "TMGT"
+            ]
+        },
+        "NetworkType1Code": {
+            "type": "string",
+            "enum": [
+                "IPNW",
+                "PSTN"
+            ]
+        },
+        "RejectReason1Code": {
+            "type": "string",
+            "enum": [
+                "UNPR",
+                "IMSG",
+                "PARS",
+                "SECU",
+                "INTP",
+                "RCPP",
+                "DPMG",
+                "VERS",
+                "MSGT"
+            ]
+        }
+    }
+}
