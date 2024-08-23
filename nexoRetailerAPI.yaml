@@ -31,8 +31,13 @@ servers:
       security:
        - certs: []
       tags:
-      - name: "env:secure-nexoAPI"
-        description: "This environment is meant for running internal tests with X509 certs"
+      - name: "financial"
+        description: "financial services such as payment"
+      - name: "admin"
+        description: "admin services such as login"
+      - name: "device"
+        description: "device services such as display"
+        
 
 defaultContentType: application/json
 
@@ -44,10 +49,7 @@ paths:
         - in: path
           name: poiId
           required: true
-          schema:
-            type: integer
-            format: int64
-            minimum: 1
+          $ref: "iso_schemas/casp.001.001.06.json#/$defs/GenericIdentification32"
       requestBody:
         required: true
         content:
