@@ -1,0 +1,4 @@
+{
+"basePackage":"com.lorealconsulting.nexoRetailerAPI.client",
+"configPackage":"com.lorealconsulting.nexoRetailerAPI.client.config"
+}

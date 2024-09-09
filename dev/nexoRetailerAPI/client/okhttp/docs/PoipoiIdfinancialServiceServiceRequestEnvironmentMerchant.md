@@ -1,0 +1,10 @@
+# PoipoiIdfinancialServiceServiceRequestEnvironmentMerchant
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**commonName** | **Object** | Specifies a character string with a maximum length of 70characters.&lt;br/&gt; |  [optional]
+**identification** | [**PoipoiIdfinancialServiceServiceRequestEnvironmentMerchantIdentification**](PoipoiIdfinancialServiceServiceRequestEnvironmentMerchantIdentification.md) |  |  [optional]
+**locationAndContact** | [**PoipoiIdfinancialServiceServiceRequestEnvironmentMerchantLocationAndContact**](PoipoiIdfinancialServiceServiceRequestEnvironmentMerchantLocationAndContact.md) |  |  [optional]
+**locationCategory** | **Object** | Indicates the type of integration of the POI terminal in the sale environment.&lt;br/&gt;- **ABRD: Aboard**  : *Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,  taxi, etc).*&lt;br/&gt;- **NMDC: Nomadic**  : *Nomadic is used when the merchant is traveling to different locations (e.g fair or  sport events, home delivery, food truck).*&lt;br/&gt;- **FIXD: PhysicalShop**  : *Fixed location, for example in a shop.*&lt;br/&gt;- **VIRT: VirtualShop**  : *Virtual Shop is used for any ecommerce solution.*&lt;br/&gt; |  [optional]
+**schemeData** | **Object** | Specifies a character string with a maximum length of 140 characters.&lt;br/&gt; |  [optional]

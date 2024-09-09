@@ -5,6 +5,16 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Swagger2SpringBoot<swagger-spring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.lorealconsulting.nexoRetailerAPI.server.Swagger2SpringBoot",
+            "projectName": "swagger-spring",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

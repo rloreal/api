@@ -8,6 +8,8 @@
 		"redoclyOpenAPI.api.key": "sk_+GcASvZPHoY9oCcBBCY81jf86XI=_Z0MvQ3CCs8k/CJtkwxgOvrdbOcbB3urBt3h0feSMNNo=",
 		"redoclyOpenAPI.api.region": "eu",
 		"redoclyOpenAPI.trace.server": "messages",
-		"austin.mode": "CPU time"
+		"austin.mode": "CPU time",
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "interactive"
 	}
 }

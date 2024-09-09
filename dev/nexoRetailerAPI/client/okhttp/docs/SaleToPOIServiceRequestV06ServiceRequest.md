@@ -1,0 +1,17 @@
+# SaleToPOIServiceRequestV06ServiceRequest
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**balanceInquiryRequest** | [**PoipoiIdfinancialServiceServiceRequestBalanceInquiryRequest**](PoipoiIdfinancialServiceServiceRequestBalanceInquiryRequest.md) |  |  [optional]
+**batchRequest** | [**PoipoiIdfinancialServiceServiceRequestBatchRequest**](PoipoiIdfinancialServiceServiceRequestBatchRequest.md) |  |  [optional]
+**cardAcquisitionRequest** | [**PoipoiIdfinancialServiceServiceRequestCardAcquisitionRequest**](PoipoiIdfinancialServiceServiceRequestCardAcquisitionRequest.md) |  |  [optional]
+**context** | [**PoipoiIdfinancialServiceServiceRequestContext**](PoipoiIdfinancialServiceServiceRequestContext.md) |  | 
+**environment** | [**PoipoiIdfinancialServiceServiceRequestEnvironment**](PoipoiIdfinancialServiceServiceRequestEnvironment.md) |  | 
+**loyaltyRequest** | [**PoipoiIdfinancialServiceServiceRequestLoyaltyRequest**](PoipoiIdfinancialServiceServiceRequestLoyaltyRequest.md) |  |  [optional]
+**enableServiceRequest** | [**PoipoiIdfinancialServiceServiceRequestEnableServiceRequest**](PoipoiIdfinancialServiceServiceRequestEnableServiceRequest.md) |  |  [optional]
+**paymentRequest** | [**PoipoiIdfinancialServiceServiceRequestPaymentRequest**](PoipoiIdfinancialServiceServiceRequestPaymentRequest.md) |  |  [optional]
+**reversalRequest** | [**PoipoiIdfinancialServiceServiceRequestReversalRequest**](PoipoiIdfinancialServiceServiceRequestReversalRequest.md) |  |  [optional]
+**supplementaryData** | **Object** | Additional information incorporated as an extension to the message. |  [optional]
+**storedValueRequest** | [**PoipoiIdfinancialServiceServiceRequestBalanceInquiryRequestStoredValueAccountRequest**](PoipoiIdfinancialServiceServiceRequestBalanceInquiryRequestStoredValueAccountRequest.md) |  |  [optional]
+**serviceContent** | **Object** | List of specific services for ServiceRequest&lt;br/&gt;- **FSPQ: FinancialPaymentRequest**  : *The Sale System requests to the POI System to perform a payment(Purchase/Refund/PWCB/MOTO Payment/...).*&lt;br/&gt;- **FSRQ: FinancialReversalRequest**  : *The Sale System requests to the POI System to perform a reversal partial or complete to cancel a former payment service.*&lt;br/&gt;- **FSIQ: FinancialBalanceInquiryRequest**  : *The Sale System requests to the POI System to perform balance inquiry on the main account.*&lt;br/&gt;- **FSBQ: FinancialBatchRequest**  : *The Batch message pair is used to request or get the result of transactions (payment, loyalty and reversal) performed without connection to the Sale system (Payment delivery).*&lt;br/&gt;- **FSLQ: FinancialLoyaltyRequest**  : *The Sale System requests to the POI System a loyalty service like loading or redeem.*&lt;br/&gt;- **FSVQ: FinancialStoredValueRequest**  : *The Sale System requests to the POI System to manage a stored value card or account (eg. Load, Payment, Reimbursement).*&lt;br/&gt;- **FSEQ: FinancialEnableServiceRequest**  : *The Sale System requests to the POI System to enable a service on its side.*&lt;br/&gt;- **FSAQ: FinancialCardAcquisitionRequest**  : *The Sale System requests to the POI System to handle a card data acquisition on the card reader.*&lt;br/&gt;- **FSCQ: FinancialReconciliationRequest**  : *The Sale System request to the POI System different kinds of transaction reconciliation. *&lt;br/&gt; | 
