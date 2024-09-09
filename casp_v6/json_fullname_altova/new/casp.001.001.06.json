@@ -1,0 +1,5871 @@
+{
+	"$defs": {
+		"iso20022:Acquirer10": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification177"
+				},
+				"iso20022:ParametersVersion": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:ActionMessage11": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Format": {
+					"$ref": "#/$defs/iso20022:OutputFormat3Code"
+				},
+				"iso20022:InformationQualifier": {
+					"$ref": "#/$defs/iso20022:InformationQualify1Code"
+				},
+				"iso20022:MinimumDisplayTime": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:MessageContent": {
+					"$ref": "#/$defs/iso20022:Max20000Text"
+				},
+				"iso20022:MessageContentSignature": {
+					"$ref": "#/$defs/iso20022:ContentInformationType38"
+				},
+				"iso20022:MessageDestination": {
+					"$ref": "#/$defs/iso20022:UserInterface4Code"
+				},
+				"iso20022:OutputBarcode": {
+					"$ref": "#/$defs/iso20022:OutputBarcode2"
+				},
+				"iso20022:ResponseRequiredFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				}
+			},
+			"required": [
+				"iso20022:MessageDestination"
+			],
+			"type": "object"
+		},
+		"iso20022:ActiveCurrencyAndAmount": {
+			"additionalProperties": false,
+			"properties": {
+				"$": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyAndAmount_SimpleType"
+				},
+				"@Ccy": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				}
+			},
+			"required": [
+				"@Ccy"
+			],
+			"type": [
+				"object",
+				"string",
+				"number",
+				"boolean"
+			]
+		},
+		"iso20022:ActiveCurrencyAndAmount_SimpleType": {
+			"minimum": 0,
+			"type": "number"
+		},
+		"iso20022:ActiveCurrencyCode": {
+			"pattern": "^([A-Z]{3,3})$",
+			"type": "string"
+		},
+		"iso20022:AddressType2Code": {
+			"enum": [
+				"ADDR",
+				"PBOX",
+				"HOME",
+				"BIZZ",
+				"MLTO",
+				"DLVY"
+			],
+			"type": "string"
+		},
+		"iso20022:AddressVerification1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AddressDigits": {
+					"$ref": "#/$defs/iso20022:Max5NumericText"
+				},
+				"iso20022:PostalCodeDigits": {
+					"$ref": "#/$defs/iso20022:Max5NumericText"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:AggregationTransaction3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:FirstPaymentDateTime": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:IndividualPayment": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:DetailedAmount21"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:DetailedAmount21"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:LastPaymentDateTime": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:NumberOfPayments": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Algorithm26Code": {
+			"enum": [
+				"HS25",
+				"HS38",
+				"HS51",
+				"HS01",
+				"SH31",
+				"SH32",
+				"SH33",
+				"SH35",
+				"SHK1",
+				"SHK2",
+				"SMS3"
+			],
+			"type": "string"
+		},
+		"iso20022:Algorithm27Code": {
+			"enum": [
+				"MACC",
+				"MCCS",
+				"CMA1",
+				"MCC1",
+				"CMA9",
+				"CMA5",
+				"CMA2",
+				"CM31",
+				"CM32",
+				"CM33",
+				"MCS3",
+				"CCA1",
+				"CCA2",
+				"CCA3",
+				"S34C",
+				"S34R"
+			],
+			"type": "string"
+		},
+		"iso20022:Algorithm28Code": {
+			"enum": [
+				"EA2C",
+				"E3DC",
+				"DKP9",
+				"UKPT",
+				"UKA2",
+				"EA9C",
+				"EA5C",
+				"DA12",
+				"DA19",
+				"DA25",
+				"N108",
+				"EA5R",
+				"EA9R",
+				"EA2R",
+				"E3DR",
+				"E36C",
+				"E36R",
+				"SD5C",
+				"UKA1",
+				"UKA3",
+				"SM4C",
+				"SM4R"
+			],
+			"type": "string"
+		},
+		"iso20022:Algorithm29Code": {
+			"enum": [
+				"ERS2",
+				"ERS1",
+				"RPSS",
+				"ERS3",
+				"ED32",
+				"ED33",
+				"ED35",
+				"ED23",
+				"ED25",
+				"ES22",
+				"ES32",
+				"ES33",
+				"ES35",
+				"ES23",
+				"ES25",
+				"ED22",
+				"EF32",
+				"EF22",
+				"EF33",
+				"EF35",
+				"EF23",
+				"EO33",
+				"EF25",
+				"EO32",
+				"EO22",
+				"EO35",
+				"EO23",
+				"EO25",
+				"DD22",
+				"DD32",
+				"DD33",
+				"DD35",
+				"DD23",
+				"DD25",
+				"SM22",
+				"SM33",
+				"SM32",
+				"SM35",
+				"SM23",
+				"SM25",
+				"S2S3"
+			],
+			"type": "string"
+		},
+		"iso20022:Algorithm7Code": {
+			"enum": [
+				"ERSA",
+				"RSAO"
+			],
+			"type": "string"
+		},
+		"iso20022:Algorithm8Code": {
+			"enum": [
+				"MGF1"
+			],
+			"type": "string"
+		},
+		"iso20022:AlgorithmIdentification31": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Algorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm27Code"
+				},
+				"iso20022:Parameter": {
+					"$ref": "#/$defs/iso20022:Parameter7"
+				}
+			},
+			"required": [
+				"iso20022:Algorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:AlgorithmIdentification32": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Algorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm28Code"
+				},
+				"iso20022:Parameter": {
+					"$ref": "#/$defs/iso20022:Parameter12"
+				}
+			},
+			"required": [
+				"iso20022:Algorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:AlgorithmIdentification33": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Algorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm29Code"
+				},
+				"iso20022:Parameter": {
+					"$ref": "#/$defs/iso20022:Parameter16"
+				}
+			},
+			"required": [
+				"iso20022:Algorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:AlgorithmIdentification34": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Algorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm8Code"
+				},
+				"iso20022:Parameter": {
+					"$ref": "#/$defs/iso20022:Parameter18"
+				}
+			},
+			"required": [
+				"iso20022:Algorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:AlgorithmIdentification35": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Algorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm7Code"
+				},
+				"iso20022:Parameter": {
+					"$ref": "#/$defs/iso20022:Parameter17"
+				}
+			},
+			"required": [
+				"iso20022:Algorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:AlgorithmIdentification36": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Algorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm26Code"
+				}
+			},
+			"required": [
+				"iso20022:Algorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:Amount5": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Sign": {
+					"$ref": "#/$defs/iso20022:PlusOrMinusIndicator"
+				}
+			},
+			"required": [
+				"iso20022:Amount"
+			],
+			"type": "object"
+		},
+		"iso20022:AmountUnit1Code": {
+			"enum": [
+				"MONE",
+				"POIN"
+			],
+			"type": "string"
+		},
+		"iso20022:AnyBICDec2014Identifier": {
+			"pattern": "^([0-9A-Z]{4,4}[A-Z]{2,2}[0-9A-Z]{2,2}([0-9A-Z]{3,3})?)$",
+			"type": "string"
+		},
+		"iso20022:AttendanceContext1Code": {
+			"enum": [
+				"ATTD",
+				"SATT",
+				"UATT"
+			],
+			"type": "string"
+		},
+		"iso20022:AttendanceContext2Code": {
+			"enum": [
+				"ATTL",
+				"CARR",
+				"CUST",
+				"FULL",
+				"SELF"
+			],
+			"type": "string"
+		},
+		"iso20022:AttributeType1Code": {
+			"enum": [
+				"CNAT",
+				"LATT",
+				"OATT",
+				"OUAT",
+				"CATT"
+			],
+			"type": "string"
+		},
+		"iso20022:AuthenticatedData10": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:MAC": {
+					"$ref": "#/$defs/iso20022:Max140Binary"
+				},
+				"iso20022:MACAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification31"
+				},
+				"iso20022:EncapsulatedContent": {
+					"$ref": "#/$defs/iso20022:EncapsulatedContent3"
+				},
+				"iso20022:Recipient": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Recipient15Choice"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Recipient15Choice"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:MAC",
+				"iso20022:MACAlgorithm",
+				"iso20022:EncapsulatedContent",
+				"iso20022:Recipient"
+			],
+			"type": "object"
+		},
+		"iso20022:AuthenticationEntity2Code": {
+			"enum": [
+				"ICCD",
+				"AGNT",
+				"MERC",
+				"ACQR",
+				"ISSR",
+				"TRML"
+			],
+			"type": "string"
+		},
+		"iso20022:AuthenticationMethod6Code": {
+			"enum": [
+				"NPIN",
+				"PPSG",
+				"PSWD",
+				"SCRT",
+				"SCNL",
+				"SNCT",
+				"CPSG",
+				"ADDB",
+				"BIOM",
+				"CDHI",
+				"CRYP",
+				"CSCV",
+				"PSVE",
+				"CSEC",
+				"ADDS",
+				"MANU",
+				"FPIN",
+				"TOKP"
+			],
+			"type": "string"
+		},
+		"iso20022:AuthenticationMethod8Code": {
+			"enum": [
+				"TOKA",
+				"ADDB",
+				"BYPS",
+				"BIOM",
+				"CDHI",
+				"CRYP",
+				"CSCV",
+				"MANU",
+				"MERC",
+				"MOBL",
+				"FPIN",
+				"NPIN",
+				"OTHR",
+				"PPSG",
+				"PSVE",
+				"PSWD",
+				"TOKP",
+				"SCRT",
+				"SCNL",
+				"CSEC",
+				"SNCT",
+				"ADDS",
+				"CPSG",
+				"TOKN",
+				"UKNW"
+			],
+			"type": "string"
+		},
+		"iso20022:AuthenticationResult1Code": {
+			"enum": [
+				"DENY",
+				"MRCH",
+				"CARD",
+				"AUTH",
+				"CRPT",
+				"UCRP"
+			],
+			"type": "string"
+		},
+		"iso20022:AuthorisationResult18": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AuthorisationCode": {
+					"$ref": "#/$defs/iso20022:Max8Text"
+				},
+				"iso20022:AuthorisationEntity": {
+					"$ref": "#/$defs/iso20022:GenericIdentification90"
+				},
+				"iso20022:ResponseToAuthorisation": {
+					"$ref": "#/$defs/iso20022:ResponseType10"
+				}
+			},
+			"required": [
+				"iso20022:ResponseToAuthorisation"
+			],
+			"type": "object"
+		},
+		"iso20022:BBANIdentifier": {
+			"pattern": "^([0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"iso20022:BalanceInquiryRequest7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:LoyaltyAccountRequest": {
+					"$ref": "#/$defs/iso20022:LoyaltyAccountRequest3"
+				},
+				"iso20022:PaymentAccountRequest": {
+					"$ref": "#/$defs/iso20022:PaymentAccountRequest1"
+				},
+				"iso20022:SaleTransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				},
+				"iso20022:StoredValueAccountRequest": {
+					"$ref": "#/$defs/iso20022:StoredValueRequest7"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:BarcodeType1Code": {
+			"enum": [
+				"COQR",
+				"C128",
+				"C025",
+				"C039",
+				"EA13",
+				"EAN8",
+				"P417",
+				"UPCA"
+			],
+			"type": "string"
+		},
+		"iso20022:BaseOneRate": {
+			"type": "number"
+		},
+		"iso20022:BatchRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:RemoveAllFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:SaleBatchIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				},
+				"iso20022:TransactionToPerform": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:TransactionToPerform6Choice"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:TransactionToPerform6Choice"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:BinRange1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:HigherBin": {
+					"$ref": "#/$defs/iso20022:Max15NumericText"
+				},
+				"iso20022:LowerBin": {
+					"$ref": "#/$defs/iso20022:Max15NumericText"
+				}
+			},
+			"required": [
+				"iso20022:HigherBin",
+				"iso20022:LowerBin"
+			],
+			"type": "object"
+		},
+		"iso20022:BusinessArea2Code": {
+			"enum": [
+				"AIBD",
+				"PPAY",
+				"TKNF",
+				"EOPT",
+				"TOPT"
+			],
+			"type": "string"
+		},
+		"iso20022:BytePadding1Code": {
+			"enum": [
+				"LNGT",
+				"NUL8",
+				"NULG",
+				"NULL",
+				"RAND"
+			],
+			"type": "string"
+		},
+		"iso20022:CardAccountType3Code": {
+			"enum": [
+				"CTDP",
+				"CHCK",
+				"CRDT",
+				"CURR",
+				"CDBT",
+				"DFLT",
+				"EPRS",
+				"HEQL",
+				"ISTL",
+				"INVS",
+				"LCDT",
+				"MBNW",
+				"MNMK",
+				"MNMC",
+				"MTGL",
+				"RTRM",
+				"RVLV",
+				"SVNG",
+				"STBD",
+				"UVRL",
+				"PRPD",
+				"FLTC"
+			],
+			"type": "string"
+		},
+		"iso20022:CardAcquisitionRequest3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AllowedLoyaltyBrand": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:AllowedPaymentBrand": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CashBackFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:ForceCustomerSelectionFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:PaymentType": {
+					"$ref": "#/$defs/iso20022:CardPaymentServiceType13Code"
+				},
+				"iso20022:SaleToAcquirerData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:SaleToIssuerData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:SaleToPOIData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:SaleTransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				},
+				"iso20022:TotalAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CardDataReading5Code": {
+			"enum": [
+				"TAGC",
+				"PHYS",
+				"BRCD",
+				"MGST",
+				"CICC",
+				"DFLE",
+				"CTLS",
+				"ECTL",
+				"CDFL"
+			],
+			"type": "string"
+		},
+		"iso20022:CardDataReading8Code": {
+			"enum": [
+				"TAGC",
+				"PHYS",
+				"BRCD",
+				"MGST",
+				"CICC",
+				"DFLE",
+				"CTLS",
+				"ECTL",
+				"CDFL",
+				"SICC",
+				"UNKW",
+				"QRCD",
+				"OPTC"
+			],
+			"type": "string"
+		},
+		"iso20022:CardDirectDebit2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CreditorIdentification": {
+					"$ref": "#/$defs/iso20022:Creditor4"
+				},
+				"iso20022:DebtorIdentification": {
+					"$ref": "#/$defs/iso20022:Debtor4"
+				},
+				"iso20022:MandateRelatedInformation": {
+					"$ref": "#/$defs/iso20022:MandateRelatedInformation13"
+				}
+			},
+			"required": [
+				"iso20022:CreditorIdentification",
+				"iso20022:MandateRelatedInformation"
+			],
+			"type": "object"
+		},
+		"iso20022:CardFallback1Code": {
+			"enum": [
+				"FFLB",
+				"SFLB",
+				"NFLB"
+			],
+			"type": "string"
+		},
+		"iso20022:CardIdentificationType1Code": {
+			"enum": [
+				"ACCT",
+				"BARC",
+				"ISO2",
+				"PHON",
+				"CPAN",
+				"PRIV",
+				"UUID"
+			],
+			"type": "string"
+		},
+		"iso20022:CardPaymentContext30": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DirectDebitContext": {
+					"$ref": "#/$defs/iso20022:CardDirectDebit2"
+				},
+				"iso20022:PaymentContext": {
+					"$ref": "#/$defs/iso20022:PaymentContext29"
+				},
+				"iso20022:SaleContext": {
+					"$ref": "#/$defs/iso20022:SaleContext4"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CardPaymentEnvironment80": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Acquirer": {
+					"$ref": "#/$defs/iso20022:Acquirer10"
+				},
+				"iso20022:Card": {
+					"$ref": "#/$defs/iso20022:PaymentCard35"
+				},
+				"iso20022:Check": {
+					"$ref": "#/$defs/iso20022:Check1"
+				},
+				"iso20022:Cardholder": {
+					"$ref": "#/$defs/iso20022:Cardholder21"
+				},
+				"iso20022:CustomerDevice": {
+					"$ref": "#/$defs/iso20022:CustomerDevice3"
+				},
+				"iso20022:LoyaltyAccount": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:LoyaltyAccount3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:LoyaltyAccount3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Merchant": {
+					"$ref": "#/$defs/iso20022:Organisation41"
+				},
+				"iso20022:MerchantToken": {
+					"$ref": "#/$defs/iso20022:MerchantToken2"
+				},
+				"iso20022:POI": {
+					"$ref": "#/$defs/iso20022:PointOfInteraction14"
+				},
+				"iso20022:PaymentToken": {
+					"$ref": "#/$defs/iso20022:Token1"
+				},
+				"iso20022:ProtectedCardholderData": {
+					"$ref": "#/$defs/iso20022:ContentInformationType40"
+				},
+				"iso20022:SaleEnvironment": {
+					"$ref": "#/$defs/iso20022:RetailerSaleEnvironment2"
+				},
+				"iso20022:StoredValueAccount": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:StoredValueAccount2"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:StoredValueAccount2"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ServiceProvider": {
+					"$ref": "#/$defs/iso20022:Acquirer10"
+				},
+				"iso20022:Wallet": {
+					"$ref": "#/$defs/iso20022:CustomerDevice3"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CardPaymentServiceType13Code": {
+			"enum": [
+				"CRDP",
+				"CSHW",
+				"CSHD",
+				"IRES",
+				"DEFR",
+				"URES",
+				"PRES",
+				"RECP",
+				"INSP",
+				"INSI",
+				"RFND",
+				"VCAU"
+			],
+			"type": "string"
+		},
+		"iso20022:CardPaymentServiceType14Code": {
+			"enum": [
+				"IRES",
+				"URES",
+				"PRES",
+				"ARES",
+				"FREC",
+				"RREC",
+				"GOPT"
+			],
+			"type": "string"
+		},
+		"iso20022:CardPaymentServiceType5Code": {
+			"enum": [
+				"BALC",
+				"CACT",
+				"CRDP",
+				"CAFH",
+				"CAVR",
+				"CSHW",
+				"CSHD",
+				"DEFR",
+				"LOAD",
+				"ORCR",
+				"PINC",
+				"QUCH",
+				"RFND",
+				"RESA",
+				"VALC",
+				"UNLD",
+				"CAFT",
+				"CAFL"
+			],
+			"type": "string"
+		},
+		"iso20022:CardPaymentServiceType9Code": {
+			"enum": [
+				"AGGR",
+				"DCCV",
+				"GRTT",
+				"LOYT",
+				"NRES",
+				"PUCO",
+				"RECP",
+				"SOAF",
+				"VCAU",
+				"INSI",
+				"INSA",
+				"CSHB",
+				"INST",
+				"NRFD"
+			],
+			"type": "string"
+		},
+		"iso20022:CardPaymentToken5": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CardSequenceNumber": {
+					"$ref": "#/$defs/iso20022:Min2Max3NumericText"
+				},
+				"iso20022:Token": {
+					"$ref": "#/$defs/iso20022:Min8Max28NumericText"
+				},
+				"iso20022:TokenAssuranceData": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				},
+				"iso20022:TokenAssuranceLevel": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:TokenAssuranceMethod": {
+					"$ref": "#/$defs/iso20022:Max2NumericText"
+				},
+				"iso20022:TokenCharacteristic": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:TokenInitiatedIndicator": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:TokenRequestor": {
+					"$ref": "#/$defs/iso20022:PaymentTokenIdentifiers1"
+				},
+				"iso20022:TokenExpiryDate": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CardPaymentTransaction131": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CurrencyConversion": {
+					"$ref": "#/$defs/iso20022:CurrencyConversion31"
+				},
+				"iso20022:POIIdentification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification32"
+				},
+				"iso20022:SaleReferenceIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				}
+			},
+			"required": [
+				"iso20022:POIIdentification",
+				"iso20022:TransactionIdentification"
+			],
+			"type": "object"
+		},
+		"iso20022:CardPaymentTransaction136": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalService": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CardPaymentServiceType9Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CardPaymentServiceType9Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:AdditionalTransactionData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max70Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max70Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:AuthorisationResult": {
+					"$ref": "#/$defs/iso20022:AuthorisationResult18"
+				},
+				"iso20022:CardProgrammeApplied": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CardProgrammeProposed": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CustomerConsent": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:CustomerOrder": {
+					"$ref": "#/$defs/iso20022:CustomerOrder1"
+				},
+				"iso20022:CustomerToken": {
+					"$ref": "#/$defs/iso20022:CardPaymentToken5"
+				},
+				"iso20022:IssuerCITIdentification": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:IssuerReferenceData": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:LastTransactionFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:MerchantCITIdentification": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:MerchantCategoryCode": {
+					"$ref": "#/$defs/iso20022:Min3Max4Text"
+				},
+				"iso20022:MerchantReferenceData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:OriginalTransaction": {
+					"$ref": "#/$defs/iso20022:CardPaymentTransaction131"
+				},
+				"iso20022:ReconciliationIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SaleReferenceIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SaleToAcquirerData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:SaleToIssuerData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:SaleToPOIData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:ServiceAttribute": {
+					"$ref": "#/$defs/iso20022:CardPaymentServiceType14Code"
+				},
+				"iso20022:TransactionCapture": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:TransactionDetails": {
+					"$ref": "#/$defs/iso20022:CardPaymentTransactionDetails53"
+				},
+				"iso20022:TransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				},
+				"iso20022:TransactionType": {
+					"$ref": "#/$defs/iso20022:CardPaymentServiceType5Code"
+				}
+			},
+			"required": [
+				"iso20022:TransactionDetails",
+				"iso20022:TransactionIdentification",
+				"iso20022:TransactionType"
+			],
+			"type": "object"
+		},
+		"iso20022:CardPaymentTransactionDetails53": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccountType": {
+					"$ref": "#/$defs/iso20022:CardAccountType3Code"
+				},
+				"iso20022:AdditionalInformation": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:ExternallyDefinedData5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:ExternallyDefinedData5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:AggregationTransaction": {
+					"$ref": "#/$defs/iso20022:AggregationTransaction3"
+				},
+				"iso20022:AmountQualifier": {
+					"$ref": "#/$defs/iso20022:TypeOfAmount8Code"
+				},
+				"iso20022:AuthorisedAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:CurrencyConversionResult": {
+					"$ref": "#/$defs/iso20022:CurrencyConversion30"
+				},
+				"iso20022:CumulativeAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:CompletionSequenceCounter": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:CompletionSequenceNumber": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:DeliveryLocation": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:DetailedAmount": {
+					"$ref": "#/$defs/iso20022:DetailedAmount15"
+				},
+				"iso20022:ICCRelatedData": {
+					"$ref": "#/$defs/iso20022:Max10000Binary"
+				},
+				"iso20022:Instalment": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Instalment5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Instalment5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:InvoiceAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:OnLineReason": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:OnLineReason2Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:OnLineReason2Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ProductCodeSetIdentification": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				},
+				"iso20022:Recurring": {
+					"$ref": "#/$defs/iso20022:RecurringTransaction6"
+				},
+				"iso20022:ReSubmissionCounter": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:RequestedAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:SaleItem": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Product6"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Product6"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:TotalAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:TotalAuthorisedAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:UnattendedLevelCategory": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:ValidityDate": {
+					"$ref": "#/$defs/iso20022:ISODate"
+				}
+			},
+			"required": [
+				"iso20022:TotalAmount"
+			],
+			"type": "object"
+		},
+		"iso20022:CardProductType1Code": {
+			"enum": [
+				"COMM",
+				"CONS"
+			],
+			"type": "string"
+		},
+		"iso20022:Cardholder21": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Authentication": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CardholderAuthentication17"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CardholderAuthentication17"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:BillingAddress": {
+					"$ref": "#/$defs/iso20022:PostalAddress22"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:PersonIdentification15"
+				},
+				"iso20022:Language": {
+					"$ref": "#/$defs/iso20022:LanguageCode"
+				},
+				"iso20022:MobileData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:MobileData6"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:MobileData6"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Name": {
+					"$ref": "#/$defs/iso20022:Max45Text"
+				},
+				"iso20022:PersonalData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:ShippingAddress": {
+					"$ref": "#/$defs/iso20022:PostalAddress22"
+				},
+				"iso20022:TripNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TransactionVerificationResult": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:TransactionVerificationResult4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:TransactionVerificationResult4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Vehicle": {
+					"$ref": "#/$defs/iso20022:Vehicle1"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CardholderAuthentication17": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AddressVerification": {
+					"$ref": "#/$defs/iso20022:AddressVerification1"
+				},
+				"iso20022:AuthenticationAdditionalInformation": {
+					"$ref": "#/$defs/iso20022:ExternallyDefinedData5"
+				},
+				"iso20022:AuthenticationLevel": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:AuthenticationMethod": {
+					"$ref": "#/$defs/iso20022:AuthenticationMethod8Code"
+				},
+				"iso20022:AuthenticationResult": {
+					"$ref": "#/$defs/iso20022:AuthenticationResult1Code"
+				},
+				"iso20022:AuthenticationType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:AuthenticationValue": {
+					"$ref": "#/$defs/iso20022:Max5000Binary"
+				},
+				"iso20022:AuthenticationExemption": {
+					"$ref": "#/$defs/iso20022:Exemption1Code"
+				},
+				"iso20022:CardholderIdentification": {
+					"$ref": "#/$defs/iso20022:PersonIdentification15"
+				},
+				"iso20022:CardholderOnLinePIN": {
+					"$ref": "#/$defs/iso20022:OnLinePIN11"
+				},
+				"iso20022:ProtectedAuthenticationValue": {
+					"$ref": "#/$defs/iso20022:ContentInformationType40"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CardholderVerificationCapability4Code": {
+			"enum": [
+				"APKI",
+				"CHDT",
+				"MNSG",
+				"MNVR",
+				"FBIG",
+				"FBIO",
+				"FDSG",
+				"FCPN",
+				"FEPN",
+				"NPIN",
+				"PKIS",
+				"SCEC",
+				"NBIO",
+				"NOVF",
+				"OTHR"
+			],
+			"type": "string"
+		},
+		"iso20022:CashAccountIdentification7Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:BBAN": {
+					"$ref": "#/$defs/iso20022:BBANIdentifier"
+				},
+				"iso20022:DomesticAccount": {
+					"$ref": "#/$defs/iso20022:SimpleIdentificationInformation4"
+				},
+				"iso20022:IBAN": {
+					"$ref": "#/$defs/iso20022:IBAN2007Identifier"
+				},
+				"iso20022:UPIC": {
+					"$ref": "#/$defs/iso20022:UPICIdentifier"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CertificateIssuer1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:RelativeDistinguishedName": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:RelativeDistinguishedName1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:RelativeDistinguishedName1"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				}
+			},
+			"required": [
+				"iso20022:RelativeDistinguishedName"
+			],
+			"type": "object"
+		},
+		"iso20022:Check1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccountNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:BankIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CheckCardNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CheckNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CheckType": {
+					"$ref": "#/$defs/iso20022:CheckType1Code"
+				},
+				"iso20022:CheckTrackData2": {
+					"$ref": "#/$defs/iso20022:TrackData2"
+				},
+				"iso20022:Country": {
+					"$ref": "#/$defs/iso20022:Max3Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CheckType1Code": {
+			"enum": [
+				"BANK",
+				"BUSI",
+				"GOVC",
+				"PAYR",
+				"PERS"
+			],
+			"type": "string"
+		},
+		"iso20022:Commission18": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalInformation": {
+					"$ref": "#/$defs/iso20022:Max350Text"
+				},
+				"iso20022:Rate": {
+					"$ref": "#/$defs/iso20022:PercentageRate"
+				}
+			},
+			"required": [
+				"iso20022:Rate"
+			],
+			"type": "object"
+		},
+		"iso20022:Commission19": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalInformation": {
+					"$ref": "#/$defs/iso20022:Max350Text"
+				},
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				}
+			},
+			"required": [
+				"iso20022:Amount"
+			],
+			"type": "object"
+		},
+		"iso20022:CommunicationAddress9": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalContactInformation": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:CustomerService": {
+					"$ref": "#/$defs/iso20022:PhoneNumber"
+				},
+				"iso20022:Email": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:Phone": {
+					"$ref": "#/$defs/iso20022:PhoneNumber"
+				},
+				"iso20022:PostalAddress": {
+					"$ref": "#/$defs/iso20022:PostalAddress22"
+				},
+				"iso20022:URLAddress": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CommunicationCharacteristics5": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Active": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:CommunicationType": {
+					"$ref": "#/$defs/iso20022:POICommunicationType2Code"
+				},
+				"iso20022:Parameters": {
+					"$ref": "#/$defs/iso20022:NetworkParameters7"
+				},
+				"iso20022:PhysicalInterface": {
+					"$ref": "#/$defs/iso20022:PhysicalInterfaceParameter1"
+				},
+				"iso20022:RemoteParty": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:PartyType7Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:PartyType7Code"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				}
+			},
+			"required": [
+				"iso20022:Active",
+				"iso20022:CommunicationType",
+				"iso20022:RemoteParty"
+			],
+			"type": "object"
+		},
+		"iso20022:ContentInformationType38": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AuthenticatedData": {
+					"$ref": "#/$defs/iso20022:AuthenticatedData10"
+				},
+				"iso20022:ContentType": {
+					"$ref": "#/$defs/iso20022:ContentType2Code"
+				},
+				"iso20022:SignedData": {
+					"$ref": "#/$defs/iso20022:SignedData9"
+				}
+			},
+			"required": [
+				"iso20022:ContentType"
+			],
+			"type": "object"
+		},
+		"iso20022:ContentInformationType39": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AuthenticatedData": {
+					"$ref": "#/$defs/iso20022:AuthenticatedData10"
+				},
+				"iso20022:ContentType": {
+					"$ref": "#/$defs/iso20022:ContentType2Code"
+				},
+				"iso20022:DigestedData": {
+					"$ref": "#/$defs/iso20022:DigestedData6"
+				},
+				"iso20022:EnvelopedData": {
+					"$ref": "#/$defs/iso20022:EnvelopedData11"
+				},
+				"iso20022:SignedData": {
+					"$ref": "#/$defs/iso20022:SignedData9"
+				}
+			},
+			"required": [
+				"iso20022:ContentType"
+			],
+			"type": "object"
+		},
+		"iso20022:ContentInformationType40": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ContentType": {
+					"$ref": "#/$defs/iso20022:ContentType2Code"
+				},
+				"iso20022:EnvelopedData": {
+					"$ref": "#/$defs/iso20022:EnvelopedData11"
+				}
+			},
+			"required": [
+				"iso20022:ContentType",
+				"iso20022:EnvelopedData"
+			],
+			"type": "object"
+		},
+		"iso20022:ContentType2Code": {
+			"enum": [
+				"DATA",
+				"SIGN",
+				"EVLP",
+				"DGST",
+				"AUTH"
+			],
+			"type": "string"
+		},
+		"iso20022:CountryCode": {
+			"pattern": "^([A-Z]{2,2})$",
+			"type": "string"
+		},
+		"iso20022:Creditor4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Creditor": {
+					"$ref": "#/$defs/iso20022:PartyIdentification178Choice"
+				},
+				"iso20022:RegistrationIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Creditor"
+			],
+			"type": "object"
+		},
+		"iso20022:CryptographicKey18": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ActivationDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:AdditionalIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Binary"
+				},
+				"iso20022:AdditionalManagementInformation": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GenericInformation1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GenericInformation1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ComponentWithAuthorisedAccess": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GenericIdentification186"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GenericIdentification186"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:DeactivationDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:Function": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:KeyUsage1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:KeyUsage1Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max350Text"
+				},
+				"iso20022:ItemNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:KeyCheckValue": {
+					"$ref": "#/$defs/iso20022:Max35Binary"
+				},
+				"iso20022:KeyValue": {
+					"$ref": "#/$defs/iso20022:ContentInformationType39"
+				},
+				"iso20022:Name": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:ProtectedComponentWithAuthorisedAccess": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:ContentInformationType39"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:ContentInformationType39"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:SecurityProfile": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:CryptographicKeyType3Code"
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				}
+			},
+			"required": [
+				"iso20022:Identification",
+				"iso20022:Version"
+			],
+			"type": "object"
+		},
+		"iso20022:CryptographicKeyType3Code": {
+			"enum": [
+				"AES2",
+				"EDE3",
+				"DKP9",
+				"AES9",
+				"AES5",
+				"EDE4"
+			],
+			"type": "string"
+		},
+		"iso20022:CurrencyConversion29": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ApplicableBinRange": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:BinRange1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:BinRange1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CurrencyConversionIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CommissionDetails": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Commission19"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Commission19"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:DeclarationDetails": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:ActionMessage11"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:ActionMessage11"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:MarkUpDetails": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Commission18"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Commission18"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:InvertedExchangeRate": {
+					"$ref": "#/$defs/iso20022:PercentageRate"
+				},
+				"iso20022:OriginalAmount": {
+					"$ref": "#/$defs/iso20022:OriginalAmountDetails1"
+				},
+				"iso20022:QuotationDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:ResultingAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:SourceCurrency": {
+					"$ref": "#/$defs/iso20022:CurrencyDetails2"
+				},
+				"iso20022:TargetCurrency": {
+					"$ref": "#/$defs/iso20022:CurrencyDetails3"
+				},
+				"iso20022:ValidFrom": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:ValidUntil": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:ExchangeRate": {
+					"$ref": "#/$defs/iso20022:PercentageRate"
+				}
+			},
+			"required": [
+				"iso20022:SourceCurrency",
+				"iso20022:TargetCurrency",
+				"iso20022:ExchangeRate"
+			],
+			"type": "object"
+		},
+		"iso20022:CurrencyConversion30": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AcceptedByCardholder": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:Conversion": {
+					"$ref": "#/$defs/iso20022:CurrencyConversion29"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CurrencyConversion31": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ConversionDetails": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CurrencyConversion29"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CurrencyConversion29"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Result": {
+					"$ref": "#/$defs/iso20022:CurrencyConversionResponse3Code"
+				},
+				"iso20022:ResultReason": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Result"
+			],
+			"type": "object"
+		},
+		"iso20022:CurrencyConversionResponse3Code": {
+			"enum": [
+				"ODCC",
+				"DCCA",
+				"ICRD",
+				"IMER",
+				"IPRD",
+				"IRAT",
+				"NDCC",
+				"REST",
+				"CATG"
+			],
+			"type": "string"
+		},
+		"iso20022:CurrencyDetails2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AlphaCode": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:Decimal": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:Name": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:NumericCode": {
+					"$ref": "#/$defs/iso20022:Exact3NumericText"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CurrencyDetails3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AlphaCode": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:Decimal": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:Name": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:NumericCode": {
+					"$ref": "#/$defs/iso20022:Exact3NumericText"
+				}
+			},
+			"required": [
+				"iso20022:AlphaCode",
+				"iso20022:Decimal",
+				"iso20022:NumericCode"
+			],
+			"type": "object"
+		},
+		"iso20022:CustomerDevice3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Provider": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:CustomerOrder1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccessedBy": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:AdditionalInformation": {
+					"$ref": "#/$defs/iso20022:Max1025Text"
+				},
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:CustomerOrderIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CurrentAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:EndDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:ForecastedAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:OpenOrderState": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:SaleReferenceIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:StartDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:Unit": {
+					"$ref": "#/$defs/iso20022:AmountUnit1Code"
+				}
+			},
+			"required": [
+				"iso20022:CustomerOrderIdentification",
+				"iso20022:ForecastedAmount",
+				"iso20022:SaleReferenceIdentification",
+				"iso20022:StartDate"
+			],
+			"type": "object"
+		},
+		"iso20022:DateAndPlaceOfBirth1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:BirthDate": {
+					"$ref": "#/$defs/iso20022:ISODate"
+				},
+				"iso20022:CityOfBirth": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CountryOfBirth": {
+					"$ref": "#/$defs/iso20022:CountryCode"
+				},
+				"iso20022:ProvinceOfBirth": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:BirthDate",
+				"iso20022:CityOfBirth",
+				"iso20022:CountryOfBirth"
+			],
+			"type": "object"
+		},
+		"iso20022:Debtor4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccountIdentification": {
+					"$ref": "#/$defs/iso20022:CashAccountIdentification7Choice"
+				},
+				"iso20022:Debtor": {
+					"$ref": "#/$defs/iso20022:PartyIdentification178Choice"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:DecimalNumber": {
+			"type": "number"
+		},
+		"iso20022:DetailedAmount15": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AmountGoodsAndServices": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:CashBack": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Fees": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Gratuity": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Rebate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Surcharge": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ValueAddedTax": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:DetailedAmount4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:DetailedAmount4"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:DetailedAmount21": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:CardDataEntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading8Code"
+				},
+				"iso20022:DateTime": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:ICCRelatedData": {
+					"$ref": "#/$defs/iso20022:Max10000Binary"
+				},
+				"iso20022:Label": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				}
+			},
+			"required": [
+				"iso20022:Amount",
+				"iso20022:DateTime"
+			],
+			"type": "object"
+		},
+		"iso20022:DetailedAmount4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Label": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				}
+			},
+			"required": [
+				"iso20022:Amount"
+			],
+			"type": "object"
+		},
+		"iso20022:DigestedData6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Digest": {
+					"$ref": "#/$defs/iso20022:Max140Binary"
+				},
+				"iso20022:DigestAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification36"
+				},
+				"iso20022:EncapsulatedContent": {
+					"$ref": "#/$defs/iso20022:EncapsulatedContent3"
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:Digest",
+				"iso20022:DigestAlgorithm",
+				"iso20022:EncapsulatedContent"
+			],
+			"type": "object"
+		},
+		"iso20022:DisplayCapabilities4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AvailableFormat": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:OutputFormat1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:OutputFormat1Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:AvailableLanguage": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:LanguageCode"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:LanguageCode"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Destination": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:UserInterface4Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:UserInterface4Code"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:LineWidth": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:NumberOfLines": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:Destination"
+			],
+			"type": "object"
+		},
+		"iso20022:Document": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:SaleToPOIServiceRequestV06": {
+					"$ref": "#/$defs/iso20022:SaleToPOIServiceRequestV06"
+				}
+			},
+			"required": [
+				"iso20022:SaleToPOIServiceRequestV06"
+			],
+			"type": "object"
+		},
+		"iso20022:EnableServiceRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DisplayOutput": {
+					"$ref": "#/$defs/iso20022:ActionMessage11"
+				},
+				"iso20022:ServicesEnabled": {
+					"$ref": "#/$defs/iso20022:RetailerService2Code"
+				},
+				"iso20022:TransactionAction": {
+					"$ref": "#/$defs/iso20022:TransactionAction1Code"
+				}
+			},
+			"required": [
+				"iso20022:TransactionAction"
+			],
+			"type": "object"
+		},
+		"iso20022:EncapsulatedContent3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Content": {
+					"$ref": "#/$defs/iso20022:Max100KBinary"
+				},
+				"iso20022:ContentType": {
+					"$ref": "#/$defs/iso20022:ContentType2Code"
+				}
+			},
+			"required": [
+				"iso20022:ContentType"
+			],
+			"type": "object"
+		},
+		"iso20022:EncryptedContent7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ContentEncryptionAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification32"
+				},
+				"iso20022:ContentType": {
+					"$ref": "#/$defs/iso20022:ContentType2Code"
+				},
+				"iso20022:EncryptedData": {
+					"$ref": "#/$defs/iso20022:Max100KBinary"
+				}
+			},
+			"required": [
+				"iso20022:ContentType",
+				"iso20022:EncryptedData"
+			],
+			"type": "object"
+		},
+		"iso20022:EncryptionFormat2Code": {
+			"enum": [
+				"TR31",
+				"TR34",
+				"I238"
+			],
+			"type": "string"
+		},
+		"iso20022:EnvelopedData11": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:EncryptedContent": {
+					"$ref": "#/$defs/iso20022:EncryptedContent7"
+				},
+				"iso20022:OriginatorInformation": {
+					"$ref": "#/$defs/iso20022:OriginatorInformation1"
+				},
+				"iso20022:Recipient": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Recipient15Choice"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Recipient15Choice"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:Recipient"
+			],
+			"type": "object"
+		},
+		"iso20022:Exact3AlphaNumericText": {
+			"pattern": "^([0-9A-Za-z]{3,3})$",
+			"type": "string"
+		},
+		"iso20022:Exact3NumericText": {
+			"pattern": "^([0-9]{3,3})$",
+			"type": "string"
+		},
+		"iso20022:Exact4NumericText": {
+			"pattern": "^([0-9]{4,4})$",
+			"type": "string"
+		},
+		"iso20022:Exemption1Code": {
+			"enum": [
+				"LOWA",
+				"MINT",
+				"RECP",
+				"SCPE",
+				"SCAD",
+				"TRAE",
+				"PKGE",
+				"TMBE"
+			],
+			"type": "string"
+		},
+		"iso20022:ExternallyDefinedData5": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max1025Text"
+				},
+				"iso20022:ProtectedValue": {
+					"$ref": "#/$defs/iso20022:ContentInformationType39"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:Max1025Text"
+				},
+				"iso20022:Value": {
+					"$ref": "#/$defs/iso20022:Max100KBinary"
+				}
+			},
+			"required": [
+				"iso20022:Identification"
+			],
+			"type": "object"
+		},
+		"iso20022:Frequency3Code": {
+			"enum": [
+				"YEAR",
+				"MNTH",
+				"QURT",
+				"MIAN",
+				"WEEK",
+				"DAIL",
+				"TEND"
+			],
+			"type": "string"
+		},
+		"iso20022:GenericIdentification176": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Country": {
+					"$ref": "#/$defs/iso20022:Min2Max3AlphaText"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:PartyType33Code"
+				},
+				"iso20022:ShortName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:PartyType33Code"
+				}
+			},
+			"required": [
+				"iso20022:Identification"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification177": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Country": {
+					"$ref": "#/$defs/iso20022:Min2Max3AlphaText"
+				},
+				"iso20022:Geolocation": {
+					"$ref": "#/$defs/iso20022:Geolocation1"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:PartyType33Code"
+				},
+				"iso20022:RemoteAccess": {
+					"$ref": "#/$defs/iso20022:NetworkParameters7"
+				},
+				"iso20022:ShortName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:PartyType33Code"
+				}
+			},
+			"required": [
+				"iso20022:Identification"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification186": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:PartyType7Code"
+				}
+			},
+			"required": [
+				"iso20022:Identification",
+				"iso20022:Type"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification32": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:PartyType4Code"
+				},
+				"iso20022:ShortName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:PartyType3Code"
+				}
+			},
+			"required": [
+				"iso20022:Identification"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification36": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SchemeName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Identification",
+				"iso20022:Issuer"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:IdentificationType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Identification",
+				"iso20022:IdentificationType"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification48": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Identification",
+				"iso20022:Issuer",
+				"iso20022:Version"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericIdentification90": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Country": {
+					"$ref": "#/$defs/iso20022:Min2Max3AlphaText"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:PartyType4Code"
+				},
+				"iso20022:ShortName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:PartyType14Code"
+				}
+			},
+			"required": [
+				"iso20022:Type"
+			],
+			"type": "object"
+		},
+		"iso20022:GenericInformation1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Name": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:Value": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				}
+			},
+			"required": [
+				"iso20022:Name"
+			],
+			"type": "object"
+		},
+		"iso20022:Geolocation1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:GeographicCoordinates": {
+					"$ref": "#/$defs/iso20022:GeolocationGeographicCoordinates1"
+				},
+				"iso20022:UTMCoordinates": {
+					"$ref": "#/$defs/iso20022:GeolocationUTMCoordinates1"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:GeolocationGeographicCoordinates1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Latitude": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Longitude": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Latitude",
+				"iso20022:Longitude"
+			],
+			"type": "object"
+		},
+		"iso20022:GeolocationUTMCoordinates1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:UTMEastward": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:UTMNorthward": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:UTMZone": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:UTMEastward",
+				"iso20022:UTMNorthward",
+				"iso20022:UTMZone"
+			],
+			"type": "object"
+		},
+		"iso20022:GracePeriod1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:OtherUnitType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Time": {
+					"$ref": "#/$defs/iso20022:Max3NumericText"
+				},
+				"iso20022:UnitType": {
+					"$ref": "#/$defs/iso20022:GracePeriodUnitType1Code"
+				}
+			},
+			"required": [
+				"iso20022:Time",
+				"iso20022:UnitType"
+			],
+			"type": "object"
+		},
+		"iso20022:GracePeriodUnitType1Code": {
+			"enum": [
+				"WEKS",
+				"PMTS",
+				"OTHP",
+				"OTHN",
+				"MNTH",
+				"DAYS"
+			],
+			"type": "string"
+		},
+		"iso20022:Header41": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CreationDateTime": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:InitiatingParty": {
+					"$ref": "#/$defs/iso20022:GenericIdentification177"
+				},
+				"iso20022:MessageFunction": {
+					"$ref": "#/$defs/iso20022:RetailerMessage1Code"
+				},
+				"iso20022:ProtocolVersion": {
+					"$ref": "#/$defs/iso20022:Max6Text"
+				},
+				"iso20022:RecipientParty": {
+					"$ref": "#/$defs/iso20022:GenericIdentification177"
+				},
+				"iso20022:Traceability": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Traceability8"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Traceability8"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ExchangeIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:CreationDateTime",
+				"iso20022:InitiatingParty",
+				"iso20022:MessageFunction",
+				"iso20022:ProtocolVersion",
+				"iso20022:ExchangeIdentification"
+			],
+			"type": "object"
+		},
+		"iso20022:IBAN2007Identifier": {
+			"pattern": "^([A-Z]{2,2}[0-9]{2,2}[0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"iso20022:ISO3NumericCountryCode": {
+			"pattern": "^([0-9]{3,3})$",
+			"type": "string"
+		},
+		"iso20022:ISODate": {
+			"type": "string"
+		},
+		"iso20022:ISODateTime": {
+			"type": "string"
+		},
+		"iso20022:ImpliedCurrencyAndAmount": {
+			"minimum": 0,
+			"type": "number"
+		},
+		"iso20022:InformationQualify1Code": {
+			"enum": [
+				"CUSA",
+				"DISP",
+				"DOCT",
+				"ERRO",
+				"INPT",
+				"POIR",
+				"RCPT",
+				"SOND",
+				"STAT",
+				"VCHR"
+			],
+			"type": "string"
+		},
+		"iso20022:Instalment5": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Charges": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:DetailedCharges": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:InstalmentAmountDetails1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:InstalmentAmountDetails1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:FirstAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:FirstPaymentDate": {
+					"$ref": "#/$defs/iso20022:ISODate"
+				},
+				"iso20022:GracePeriod": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GracePeriod1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GracePeriod1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:InstalmentPlan": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:InstalmentPlan1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:InstalmentPlan1Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:InstalmentPeriod": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:InterestRate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:InterestRateDetails1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:InterestRateDetails1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:LastAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:PlanIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:PlanNotice": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:ActionMessage11"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:ActionMessage11"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:PlanOwner": {
+					"$ref": "#/$defs/iso20022:PlanOwner1Code"
+				},
+				"iso20022:PeriodUnit": {
+					"$ref": "#/$defs/iso20022:Frequency3Code"
+				},
+				"iso20022:SubsequentAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:SequenceNumber": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:TotalAmount": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyAndAmount"
+				},
+				"iso20022:TotalNumberOfPayments": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:InstalmentAmountDetails1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:Amount5"
+				},
+				"iso20022:OtherType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Percentage": {
+					"$ref": "#/$defs/iso20022:PercentageRate"
+				},
+				"iso20022:SubType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:InstalmentAmountDetailsType1Code"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:InstalmentAmountDetailsType1Code": {
+			"enum": [
+				"TAXX",
+				"RQST",
+				"OTHP",
+				"OTHN",
+				"OTHC",
+				"INSU",
+				"FUNA",
+				"FEES",
+				"EXPN",
+				"AFCO"
+			],
+			"type": "string"
+		},
+		"iso20022:InstalmentPeriod1Code": {
+			"enum": [
+				"MNTH",
+				"ANNU"
+			],
+			"type": "string"
+		},
+		"iso20022:InstalmentPlan1Code": {
+			"enum": [
+				"EQPM",
+				"NQPM",
+				"DFRI"
+			],
+			"type": "string"
+		},
+		"iso20022:InterestRate1Code": {
+			"enum": [
+				"GSRT",
+				"NTRT",
+				"OTHN",
+				"OTHP"
+			],
+			"type": "string"
+		},
+		"iso20022:InterestRateDetails1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:OtherType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Period": {
+					"$ref": "#/$defs/iso20022:InstalmentPeriod1Code"
+				},
+				"iso20022:Rate": {
+					"$ref": "#/$defs/iso20022:BaseOneRate"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:InterestRate1Code"
+				}
+			},
+			"required": [
+				"iso20022:Period",
+				"iso20022:Rate"
+			],
+			"type": "object"
+		},
+		"iso20022:IssuerAndSerialNumber2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Issuer": {
+					"$ref": "#/$defs/iso20022:CertificateIssuer1"
+				},
+				"iso20022:SerialNumber": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				}
+			},
+			"required": [
+				"iso20022:Issuer",
+				"iso20022:SerialNumber"
+			],
+			"type": "object"
+		},
+		"iso20022:KEK9": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:KEKIdentification": {
+					"$ref": "#/$defs/iso20022:KEKIdentifier7"
+				},
+				"iso20022:KeyEncryptionAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification32"
+				},
+				"iso20022:EncryptedKey": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:KEKIdentification",
+				"iso20022:KeyEncryptionAlgorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:KEKIdentifier7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DerivationIdentification": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				},
+				"iso20022:KeyIdentification": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:KeyVersion": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:SequenceNumber": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:KeyIdentification",
+				"iso20022:KeyVersion"
+			],
+			"type": "object"
+		},
+		"iso20022:KeyTransport10": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:KeyEncryptionAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification35"
+				},
+				"iso20022:EncryptedKey": {
+					"$ref": "#/$defs/iso20022:Max5000Binary"
+				},
+				"iso20022:RecipientIdentification": {
+					"$ref": "#/$defs/iso20022:Recipient13Choice"
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:KeyEncryptionAlgorithm",
+				"iso20022:EncryptedKey",
+				"iso20022:RecipientIdentification"
+			],
+			"type": "object"
+		},
+		"iso20022:KeyUsage1Code": {
+			"enum": [
+				"ENCR",
+				"DCPT",
+				"DENC",
+				"DDEC",
+				"TRNI",
+				"TRNX",
+				"MACG",
+				"MACV",
+				"SIGG",
+				"SUGV",
+				"PINE",
+				"PIND",
+				"PINV",
+				"KEYG",
+				"KEYI",
+				"KEYX",
+				"KEYD"
+			],
+			"type": "string"
+		},
+		"iso20022:LanguageCode": {
+			"type": "string"
+		},
+		"iso20022:LocationCategory3Code": {
+			"enum": [
+				"INDR",
+				"IPMP",
+				"MPOI",
+				"MPMP",
+				"MSLE",
+				"SSLE",
+				"VNDG"
+			],
+			"type": "string"
+		},
+		"iso20022:LocationCategory4Code": {
+			"enum": [
+				"ABRD",
+				"NMDC",
+				"FIXD",
+				"VIRT"
+			],
+			"type": "string"
+		},
+		"iso20022:LoyaltyAccount3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Balance": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Brand": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:IdentificationType": {
+					"$ref": "#/$defs/iso20022:CardIdentificationType1Code"
+				},
+				"iso20022:LoyaltyIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:EntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading8Code"
+				},
+				"iso20022:OwnerName": {
+					"$ref": "#/$defs/iso20022:Max45Text"
+				},
+				"iso20022:Provider": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Unit": {
+					"$ref": "#/$defs/iso20022:AmountUnit1Code"
+				}
+			},
+			"required": [
+				"iso20022:LoyaltyIdentification"
+			],
+			"type": "object"
+		},
+		"iso20022:LoyaltyAccountRequest3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Account": {
+					"$ref": "#/$defs/iso20022:LoyaltyAccount3"
+				},
+				"iso20022:CustomerOrder": {
+					"$ref": "#/$defs/iso20022:CustomerOrder1"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:LoyaltyAmount1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:Unit": {
+					"$ref": "#/$defs/iso20022:AmountUnit1Code"
+				}
+			},
+			"required": [
+				"iso20022:Amount"
+			],
+			"type": "object"
+		},
+		"iso20022:LoyaltyHandling1Code": {
+			"enum": [
+				"ALLO",
+				"DENY",
+				"PRCS",
+				"PROP",
+				"REQU"
+			],
+			"type": "string"
+		},
+		"iso20022:LoyaltyRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CustomerOrder": {
+					"$ref": "#/$defs/iso20022:CustomerOrder1"
+				},
+				"iso20022:Data": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:LoyaltyRequestData3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:LoyaltyRequestData3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Transaction": {
+					"$ref": "#/$defs/iso20022:LoyaltyTransaction6"
+				}
+			},
+			"required": [
+				"iso20022:Transaction"
+			],
+			"type": "object"
+		},
+		"iso20022:LoyaltyRequestData3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Account": {
+					"$ref": "#/$defs/iso20022:LoyaltyAccount3"
+				},
+				"iso20022:Amount": {
+					"$ref": "#/$defs/iso20022:LoyaltyAmount1"
+				},
+				"iso20022:CustomerOrder": {
+					"$ref": "#/$defs/iso20022:CustomerOrder1"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:LoyaltyTransaction6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:LoyaltyTransactionType": {
+					"$ref": "#/$defs/iso20022:LoyaltyTransactionType1Code"
+				},
+				"iso20022:OriginalPOITransaction": {
+					"$ref": "#/$defs/iso20022:CardPaymentTransaction136"
+				},
+				"iso20022:SaleItem": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Product6"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Product6"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:SaleTransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				},
+				"iso20022:TotalAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				}
+			},
+			"required": [
+				"iso20022:LoyaltyTransactionType"
+			],
+			"type": "object"
+		},
+		"iso20022:LoyaltyTransactionType1Code": {
+			"enum": [
+				"AWRD",
+				"AWRR",
+				"REBR",
+				"REBA",
+				"REDE",
+				"REDR"
+			],
+			"type": "string"
+		},
+		"iso20022:MandateRelatedInformation13": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DateOfSignature": {
+					"$ref": "#/$defs/iso20022:ISODate"
+				},
+				"iso20022:MandateIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:MandateImage": {
+					"$ref": "#/$defs/iso20022:Max2MBBinary"
+				}
+			},
+			"required": [
+				"iso20022:MandateIdentification"
+			],
+			"type": "object"
+		},
+		"iso20022:Max10000Binary": {
+			"maxLength": 10000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max100KBinary": {
+			"maxLength": 102400,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max1025Text": {
+			"maxLength": 1025,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max104Text": {
+			"maxLength": 104,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max10KBinary": {
+			"maxLength": 10240,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max10Text": {
+			"maxLength": 10,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max11NumericText": {
+			"pattern": "^([0-9]{1,11})$",
+			"type": "string"
+		},
+		"iso20022:Max140Binary": {
+			"maxLength": 140,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max140Text": {
+			"maxLength": 140,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max15NumericText": {
+			"pattern": "^([0-9]{1,15})$",
+			"type": "string"
+		},
+		"iso20022:Max16Text": {
+			"maxLength": 16,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max19NumericText": {
+			"pattern": "^([0-9]{1,19})$",
+			"type": "string"
+		},
+		"iso20022:Max20000Text": {
+			"maxLength": 20000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max256Text": {
+			"maxLength": 256,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max2KBinary": {
+			"maxLength": 2048,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max2MBBinary": {
+			"maxLength": 2097152,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max2NumericText": {
+			"pattern": "^([0-9]{1,2})$",
+			"type": "string"
+		},
+		"iso20022:Max3000Binary": {
+			"maxLength": 3000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max30Text": {
+			"maxLength": 30,
+			"type": "string"
+		},
+		"iso20022:Max350Text": {
+			"maxLength": 350,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max35Binary": {
+			"maxLength": 35,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max35NumericText": {
+			"pattern": "^([0-9]{1,35})$",
+			"type": "string"
+		},
+		"iso20022:Max35Text": {
+			"maxLength": 35,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max37Text": {
+			"maxLength": 37,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max3NumericText": {
+			"pattern": "^([0-9]{1,3})$",
+			"type": "string"
+		},
+		"iso20022:Max3Text": {
+			"maxLength": 3,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max45Text": {
+			"maxLength": 45,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max5000Binary": {
+			"maxLength": 5000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max500Binary": {
+			"maxLength": 500,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max500Text": {
+			"maxLength": 500,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max5NumericText": {
+			"pattern": "^([0-9]{1,5})$",
+			"type": "string"
+		},
+		"iso20022:Max6Text": {
+			"maxLength": 6,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max70Text": {
+			"maxLength": 70,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max76Text": {
+			"maxLength": 76,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max8000Text": {
+			"maxLength": 8000,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:Max8Text": {
+			"maxLength": 8,
+			"minLength": 1,
+			"type": "string"
+		},
+		"iso20022:MemoryCharacteristics1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:FreeSize": {
+					"$ref": "#/$defs/iso20022:DecimalNumber"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TotalSize": {
+					"$ref": "#/$defs/iso20022:DecimalNumber"
+				},
+				"iso20022:Unit": {
+					"$ref": "#/$defs/iso20022:MemoryUnit1Code"
+				}
+			},
+			"required": [
+				"iso20022:FreeSize",
+				"iso20022:Identification",
+				"iso20022:TotalSize",
+				"iso20022:Unit"
+			],
+			"type": "object"
+		},
+		"iso20022:MemoryUnit1Code": {
+			"enum": [
+				"BYTE",
+				"EXAB",
+				"GIGA",
+				"KILO",
+				"MEGA",
+				"PETA",
+				"TERA"
+			],
+			"type": "string"
+		},
+		"iso20022:MerchantToken2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Token": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TokenAssuranceData": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				},
+				"iso20022:TokenAssuranceLevel": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:TokenAssuranceMethod": {
+					"$ref": "#/$defs/iso20022:Max2NumericText"
+				},
+				"iso20022:TokenCharacteristic": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:TokenInitiatedIndicator": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:TokenRequestor": {
+					"$ref": "#/$defs/iso20022:PaymentTokenIdentifiers1"
+				},
+				"iso20022:TokenExpiryDate": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Min2Max3AlphaText": {
+			"pattern": "^([A-Za-z]{2,3})$",
+			"type": "string"
+		},
+		"iso20022:Min2Max3NumericText": {
+			"pattern": "^([0-9]{2,3})$",
+			"type": "string"
+		},
+		"iso20022:Min3Max4Text": {
+			"maxLength": 4,
+			"minLength": 3,
+			"type": "string"
+		},
+		"iso20022:Min8Max28NumericText": {
+			"pattern": "^([0-9]{8,28})$",
+			"type": "string"
+		},
+		"iso20022:MobileData6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Geolocation": {
+					"$ref": "#/$defs/iso20022:Geolocation1"
+				},
+				"iso20022:MobileCountryCode": {
+					"$ref": "#/$defs/iso20022:Min2Max3AlphaText"
+				},
+				"iso20022:MobileMaskedMSISDN": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:MobileNetworkCode": {
+					"$ref": "#/$defs/iso20022:Min2Max3NumericText"
+				},
+				"iso20022:ProtectedMobileData": {
+					"$ref": "#/$defs/iso20022:ContentInformationType40"
+				},
+				"iso20022:SensitiveMobileData": {
+					"$ref": "#/$defs/iso20022:SensitiveMobileData1"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:NameAndAddress6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Address": {
+					"$ref": "#/$defs/iso20022:PostalAddress2"
+				},
+				"iso20022:Name": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				}
+			},
+			"required": [
+				"iso20022:Address",
+				"iso20022:Name"
+			],
+			"type": "object"
+		},
+		"iso20022:NetworkParameters7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccessCode": {
+					"$ref": "#/$defs/iso20022:Max35Binary"
+				},
+				"iso20022:Address": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:NetworkParameters9"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:NetworkParameters9"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ClientCertificate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max10KBinary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max10KBinary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:SecurityProfile": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ServerCertificate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max10KBinary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max10KBinary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ServerCertificateIdentifier": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max140Binary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max140Binary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:UserName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Address"
+			],
+			"type": "object"
+		},
+		"iso20022:NetworkParameters9": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AddressValue": {
+					"$ref": "#/$defs/iso20022:Max500Text"
+				},
+				"iso20022:NetworkType": {
+					"$ref": "#/$defs/iso20022:NetworkType1Code"
+				}
+			},
+			"required": [
+				"iso20022:AddressValue",
+				"iso20022:NetworkType"
+			],
+			"type": "object"
+		},
+		"iso20022:NetworkType1Code": {
+			"enum": [
+				"IPNW",
+				"PSTN"
+			],
+			"type": "string"
+		},
+		"iso20022:Number": {
+			"type": "number"
+		},
+		"iso20022:OnLineCapability1Code": {
+			"enum": [
+				"OFLN",
+				"ONLN",
+				"SMON"
+			],
+			"type": "string"
+		},
+		"iso20022:OnLinePIN11": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalInput": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:EncryptedPINBlock": {
+					"$ref": "#/$defs/iso20022:ContentInformationType40"
+				},
+				"iso20022:PINFormat": {
+					"$ref": "#/$defs/iso20022:PINFormat3Code"
+				}
+			},
+			"required": [
+				"iso20022:EncryptedPINBlock",
+				"iso20022:PINFormat"
+			],
+			"type": "object"
+		},
+		"iso20022:OnLineReason2Code": {
+			"enum": [
+				"RNDM",
+				"ICCF",
+				"MERF",
+				"TRMF",
+				"ISSF",
+				"FRLT",
+				"EXFL",
+				"TAMT",
+				"CBIN",
+				"UBIN",
+				"CPAN",
+				"FLOW",
+				"CRCY",
+				"IFPR"
+			],
+			"type": "string"
+		},
+		"iso20022:Organisation26": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Address": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:CommonName": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:CountryCode": {
+					"$ref": "#/$defs/iso20022:ISO3NumericCountryCode"
+				},
+				"iso20022:MerchantCategoryCode": {
+					"$ref": "#/$defs/iso20022:Min3Max4Text"
+				},
+				"iso20022:RegisteredIdentifier": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:CommonName",
+				"iso20022:CountryCode",
+				"iso20022:MerchantCategoryCode",
+				"iso20022:RegisteredIdentifier"
+			],
+			"type": "object"
+		},
+		"iso20022:Organisation41": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CommonName": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification32"
+				},
+				"iso20022:LocationAndContact": {
+					"$ref": "#/$defs/iso20022:CommunicationAddress9"
+				},
+				"iso20022:LocationCategory": {
+					"$ref": "#/$defs/iso20022:LocationCategory4Code"
+				},
+				"iso20022:SchemeData": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:OriginalAmountDetails1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ActualAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:MaximumAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:MinimumAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:OriginatorInformation1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Certificate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max5000Binary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max5000Binary"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:OutputBarcode2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:BarcodeType": {
+					"$ref": "#/$defs/iso20022:BarcodeType1Code"
+				},
+				"iso20022:BarcodeValue": {
+					"$ref": "#/$defs/iso20022:Max8000Text"
+				},
+				"iso20022:QRCodeBinaryValue": {
+					"$ref": "#/$defs/iso20022:Max3000Binary"
+				},
+				"iso20022:QRCodeErrorCorrection": {
+					"$ref": "#/$defs/iso20022:QRCodeErrorCorrection1Code"
+				},
+				"iso20022:QRCodeEncodingMode": {
+					"$ref": "#/$defs/iso20022:QRCodeEncodingMode1Code"
+				},
+				"iso20022:QRCodeVersion": {
+					"$ref": "#/$defs/iso20022:Max16Text"
+				}
+			},
+			"required": [
+				"iso20022:BarcodeType"
+			],
+			"type": "object"
+		},
+		"iso20022:OutputFormat1Code": {
+			"enum": [
+				"MREF",
+				"TEXT",
+				"HTML"
+			],
+			"type": "string"
+		},
+		"iso20022:OutputFormat3Code": {
+			"enum": [
+				"BARC",
+				"MENT",
+				"MREF",
+				"SREF",
+				"TEXT",
+				"HTML"
+			],
+			"type": "string"
+		},
+		"iso20022:PINFormat3Code": {
+			"enum": [
+				"ISO0",
+				"ISO1",
+				"ISO2",
+				"ISO3",
+				"ISO4",
+				"ISO5"
+			],
+			"type": "string"
+		},
+		"iso20022:POICommunicationType2Code": {
+			"enum": [
+				"BLTH",
+				"ETHR",
+				"GPRS",
+				"GSMF",
+				"PSTN",
+				"RS23",
+				"USBD",
+				"USBH",
+				"WIFI",
+				"WT2G",
+				"WT3G",
+				"WT4G",
+				"WT5G"
+			],
+			"type": "string"
+		},
+		"iso20022:POIComponentAssessment1Code": {
+			"enum": [
+				"APPL",
+				"CERT",
+				"EVAL"
+			],
+			"type": "string"
+		},
+		"iso20022:POIComponentStatus1Code": {
+			"enum": [
+				"WAIT",
+				"OUTD",
+				"OPER",
+				"DACT"
+			],
+			"type": "string"
+		},
+		"iso20022:POIComponentType6Code": {
+			"enum": [
+				"AQPP",
+				"APPR",
+				"TLPR",
+				"SCPR",
+				"SERV",
+				"TERM",
+				"DVCE",
+				"SECM",
+				"APLI",
+				"EMVK",
+				"EMVO",
+				"MDWR",
+				"DRVR",
+				"OPST",
+				"MRPR",
+				"CRTF",
+				"TMSP",
+				"SACP",
+				"SAPR",
+				"LOGF",
+				"MDFL",
+				"SOFT",
+				"CONF",
+				"RPFL"
+			],
+			"type": "string"
+		},
+		"iso20022:PackageType5": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:OffsetEnd": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:OffsetStart": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:PackageBlock": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:ExternallyDefinedData5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:ExternallyDefinedData5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:PackageIdentification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification176"
+				},
+				"iso20022:PackageLength": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Parameter12": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:BytePadding": {
+					"$ref": "#/$defs/iso20022:BytePadding1Code"
+				},
+				"iso20022:InitialisationVector": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				},
+				"iso20022:EncryptionFormat": {
+					"$ref": "#/$defs/iso20022:EncryptionFormat2Code"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Parameter16": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DigestAlgorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm26Code"
+				},
+				"iso20022:MaskGeneratorAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification34"
+				},
+				"iso20022:OIDCurveName": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:SaltLength": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:TrailerField": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Parameter17": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DigestAlgorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm26Code"
+				},
+				"iso20022:MaskGeneratorAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification34"
+				},
+				"iso20022:EncryptionFormat": {
+					"$ref": "#/$defs/iso20022:EncryptionFormat2Code"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Parameter18": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DigestAlgorithm": {
+					"$ref": "#/$defs/iso20022:Algorithm26Code"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Parameter7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:BytePadding": {
+					"$ref": "#/$defs/iso20022:BytePadding1Code"
+				},
+				"iso20022:InitialisationVector": {
+					"$ref": "#/$defs/iso20022:Max500Binary"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PartyIdentification178Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AnyBIC": {
+					"$ref": "#/$defs/iso20022:AnyBICDec2014Identifier"
+				},
+				"iso20022:NameAndAddress": {
+					"$ref": "#/$defs/iso20022:NameAndAddress6"
+				},
+				"iso20022:ProprietaryIdentification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification36"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PartyType14Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS",
+				"ICCA"
+			],
+			"type": "string"
+		},
+		"iso20022:PartyType33Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS",
+				"MTMG",
+				"TAXH",
+				"TMGT"
+			],
+			"type": "string"
+		},
+		"iso20022:PartyType3Code": {
+			"enum": [
+				"OPOI",
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"DLIS"
+			],
+			"type": "string"
+		},
+		"iso20022:PartyType4Code": {
+			"enum": [
+				"MERC",
+				"ACCP",
+				"ITAG",
+				"ACQR",
+				"CISS",
+				"TAXH"
+			],
+			"type": "string"
+		},
+		"iso20022:PartyType7Code": {
+			"enum": [
+				"ACQR",
+				"ITAG",
+				"PCPT",
+				"TMGT",
+				"SALE"
+			],
+			"type": "string"
+		},
+		"iso20022:PaymentAccountRequest1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccountReference": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:AccountType": {
+					"$ref": "#/$defs/iso20022:CardAccountType3Code"
+				},
+				"iso20022:CustomerOrder": {
+					"$ref": "#/$defs/iso20022:CustomerOrder1"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PaymentCard35": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalCardData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:AllowedProduct": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max70Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max70Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CardBrand": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CardCurrencyCode": {
+					"$ref": "#/$defs/iso20022:Exact3AlphaNumericText"
+				},
+				"iso20022:CardCountryCode": {
+					"$ref": "#/$defs/iso20022:Max3Text"
+				},
+				"iso20022:CardProductProfile": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CardProductSubType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CardProductType": {
+					"$ref": "#/$defs/iso20022:CardProductType1Code"
+				},
+				"iso20022:InternationalCard": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:IssuerBIN": {
+					"$ref": "#/$defs/iso20022:Max15NumericText"
+				},
+				"iso20022:MaskedPAN": {
+					"$ref": "#/$defs/iso20022:Max30Text"
+				},
+				"iso20022:PlainCardData": {
+					"$ref": "#/$defs/iso20022:PlainCardData22"
+				},
+				"iso20022:PaymentAccountReference": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:ProtectedCardData": {
+					"$ref": "#/$defs/iso20022:ContentInformationType40"
+				},
+				"iso20022:PrivateCardData": {
+					"$ref": "#/$defs/iso20022:Max100KBinary"
+				},
+				"iso20022:ServiceOption": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PaymentContext29": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AttendanceContext": {
+					"$ref": "#/$defs/iso20022:AttendanceContext1Code"
+				},
+				"iso20022:AttendantLanguage": {
+					"$ref": "#/$defs/iso20022:LanguageCode"
+				},
+				"iso20022:AttendantMessageCapable": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:BusinessArea": {
+					"$ref": "#/$defs/iso20022:BusinessArea2Code"
+				},
+				"iso20022:CardDataEntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading8Code"
+				},
+				"iso20022:CardPresent": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:CardholderPresent": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:FallbackIndicator": {
+					"$ref": "#/$defs/iso20022:CardFallback1Code"
+				},
+				"iso20022:OnLineContext": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:SupportedOption": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:SupportedPaymentOption2Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:SupportedPaymentOption2Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:TransactionChannel": {
+					"$ref": "#/$defs/iso20022:TransactionChannel5Code"
+				},
+				"iso20022:TransactionEnvironment": {
+					"$ref": "#/$defs/iso20022:TransactionEnvironment1Code"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PaymentRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:LoyaltyData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:LoyaltyRequestData3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:LoyaltyRequestData3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:PaymentTransaction": {
+					"$ref": "#/$defs/iso20022:CardPaymentTransaction136"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PaymentTokenIdentifiers1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ProviderIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:RequestorIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:ProviderIdentification",
+				"iso20022:RequestorIdentification"
+			],
+			"type": "object"
+		},
+		"iso20022:PercentageRate": {
+			"type": "number"
+		},
+		"iso20022:PersonIdentification15": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AlienRegistrationNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CustomerNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Department": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:DriverIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:DriverLicenseLocation": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:DriverLicenseNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:DriverLicenseName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:DateAndPlaceOfBirth": {
+					"$ref": "#/$defs/iso20022:DateAndPlaceOfBirth1"
+				},
+				"iso20022:EmailAddress": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:IdentityCardNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:JobNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:EmployeeIdentificationNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:EmployerIdentificationNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Other": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GenericIdentification4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GenericIdentification4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:PassportNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SocialSecurityNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TaxIdentificationNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PhoneNumber": {
+			"pattern": "^(\\+[0-9]{1,3}\\-[\\(-\\)\\+\\-0-9]{1,30})$",
+			"type": "string"
+		},
+		"iso20022:PhysicalInterfaceParameter1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccessCode": {
+					"$ref": "#/$defs/iso20022:Max35Binary"
+				},
+				"iso20022:AdditionalParameters": {
+					"$ref": "#/$defs/iso20022:Max2KBinary"
+				},
+				"iso20022:InterfaceName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:InterfaceType": {
+					"$ref": "#/$defs/iso20022:POICommunicationType2Code"
+				},
+				"iso20022:SecurityProfile": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:UserName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:InterfaceName"
+			],
+			"type": "object"
+		},
+		"iso20022:PlainCardData17": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalCardData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:EntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading5Code"
+				},
+				"iso20022:PAN": {
+					"$ref": "#/$defs/iso20022:Min8Max28NumericText"
+				},
+				"iso20022:Track1": {
+					"$ref": "#/$defs/iso20022:Max76Text"
+				},
+				"iso20022:Track2": {
+					"$ref": "#/$defs/iso20022:Max37Text"
+				},
+				"iso20022:Track3": {
+					"$ref": "#/$defs/iso20022:Max104Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PlainCardData22": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CardSequenceNumber": {
+					"$ref": "#/$defs/iso20022:Min2Max3NumericText"
+				},
+				"iso20022:CardholderName": {
+					"$ref": "#/$defs/iso20022:Max45Text"
+				},
+				"iso20022:EffectiveDate": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				},
+				"iso20022:PAN": {
+					"$ref": "#/$defs/iso20022:Min8Max28NumericText"
+				},
+				"iso20022:ServiceCode": {
+					"$ref": "#/$defs/iso20022:Exact3NumericText"
+				},
+				"iso20022:Track1": {
+					"$ref": "#/$defs/iso20022:Max76Text"
+				},
+				"iso20022:Track2": {
+					"$ref": "#/$defs/iso20022:Max37Text"
+				},
+				"iso20022:Track3": {
+					"$ref": "#/$defs/iso20022:Max104Text"
+				},
+				"iso20022:ExpiryDate": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				}
+			},
+			"required": [
+				"iso20022:PAN"
+			],
+			"type": "object"
+		},
+		"iso20022:PlanOwner1Code": {
+			"enum": [
+				"ACCP",
+				"ACQR",
+				"ISSR",
+				"OTHN",
+				"OTHP"
+			],
+			"type": "string"
+		},
+		"iso20022:PlusOrMinusIndicator": {
+			"type": "boolean"
+		},
+		"iso20022:PointOfInteraction14": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Component": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:PointOfInteractionComponent15"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:PointOfInteractionComponent15"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Capabilities": {
+					"$ref": "#/$defs/iso20022:PointOfInteractionCapabilities9"
+				},
+				"iso20022:GroupIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification177"
+				},
+				"iso20022:SystemName": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:TerminalIntegration": {
+					"$ref": "#/$defs/iso20022:LocationCategory3Code"
+				},
+				"iso20022:TimeZone": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				}
+			},
+			"required": [
+				"iso20022:Identification"
+			],
+			"type": "object"
+		},
+		"iso20022:PointOfInteractionCapabilities9": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ApprovalCodeLength": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:CardCaptureCapable": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:CardReadingCapabilities": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CardDataReading8Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CardDataReading8Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CardholderVerificationCapabilities": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CardholderVerificationCapability4Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CardholderVerificationCapability4Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:MessageCapabilities": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:DisplayCapabilities4"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:DisplayCapabilities4"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:MaxScriptLength": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				},
+				"iso20022:OnLineCapabilities": {
+					"$ref": "#/$defs/iso20022:OnLineCapability1Code"
+				},
+				"iso20022:PINLengthCapabilities": {
+					"$ref": "#/$defs/iso20022:PositiveNumber"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PointOfInteractionComponent15": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Assessment": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:PointOfInteractionComponentAssessment1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:PointOfInteractionComponentAssessment1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Characteristics": {
+					"$ref": "#/$defs/iso20022:PointOfInteractionComponentCharacteristics10"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:PointOfInteractionComponentIdentification2"
+				},
+				"iso20022:Package": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:PackageType5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:PackageType5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:StandardCompliance": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GenericIdentification48"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GenericIdentification48"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Status": {
+					"$ref": "#/$defs/iso20022:PointOfInteractionComponentStatus3"
+				},
+				"iso20022:SubTypeInformation": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:POIComponentType6Code"
+				}
+			},
+			"required": [
+				"iso20022:Identification",
+				"iso20022:Type"
+			],
+			"type": "object"
+		},
+		"iso20022:PointOfInteractionComponentAssessment1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Assigner": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:DeliveryDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:Number": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:POIComponentAssessment1Code"
+				},
+				"iso20022:ExpirationDate": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				}
+			},
+			"required": [
+				"iso20022:Assigner",
+				"iso20022:Number",
+				"iso20022:Type"
+			],
+			"type": "object"
+		},
+		"iso20022:PointOfInteractionComponentCharacteristics10": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Communication": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CommunicationCharacteristics5"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CommunicationCharacteristics5"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Memory": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:MemoryCharacteristics1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:MemoryCharacteristics1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:SubscriberIdentityModules": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:SecurityAccessModules": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:SecurityElement": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CryptographicKey18"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CryptographicKey18"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PointOfInteractionComponentIdentification2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:ItemNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ProviderIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SerialNumber": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PointOfInteractionComponentStatus3": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Status": {
+					"$ref": "#/$defs/iso20022:POIComponentStatus1Code"
+				},
+				"iso20022:VersionNumber": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:ExpiryDate": {
+					"$ref": "#/$defs/iso20022:ISODate"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:PositiveNumber": {
+			"minimum": 1,
+			"type": "number"
+		},
+		"iso20022:PostalAddress2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Country": {
+					"$ref": "#/$defs/iso20022:CountryCode"
+				},
+				"iso20022:CountrySubDivision": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:PostCodeIdentification": {
+					"$ref": "#/$defs/iso20022:Max16Text"
+				},
+				"iso20022:StreetName": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:TownName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Country",
+				"iso20022:PostCodeIdentification",
+				"iso20022:TownName"
+			],
+			"type": "object"
+		},
+		"iso20022:PostalAddress22": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AddressLine": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max70Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max70Text"
+							},
+							"maxItems": 2,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:AddressType": {
+					"$ref": "#/$defs/iso20022:AddressType2Code"
+				},
+				"iso20022:BuildingNumber": {
+					"$ref": "#/$defs/iso20022:Max16Text"
+				},
+				"iso20022:CountryCode": {
+					"$ref": "#/$defs/iso20022:Min2Max3AlphaText"
+				},
+				"iso20022:CountrySubDivision": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max35Text"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max35Text"
+							},
+							"maxItems": 2,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Department": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:PostCode": {
+					"$ref": "#/$defs/iso20022:Max16Text"
+				},
+				"iso20022:StreetName": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:SubDepartment": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:TownName": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Product6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalProductCode": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:AdditionalProductDescription": {
+					"$ref": "#/$defs/iso20022:Max256Text"
+				},
+				"iso20022:DeliveryLocation": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				},
+				"iso20022:DeliveryService": {
+					"$ref": "#/$defs/iso20022:AttendanceContext2Code"
+				},
+				"iso20022:ItemIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ProductAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:ProductAmountSign": {
+					"$ref": "#/$defs/iso20022:PlusOrMinusIndicator"
+				},
+				"iso20022:ProductCode": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:ProductDescription": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:ProductQuantity": {
+					"$ref": "#/$defs/iso20022:DecimalNumber"
+				},
+				"iso20022:SaleChannel": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:TaxType": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:UnitOfMeasure": {
+					"$ref": "#/$defs/iso20022:UnitOfMeasure6Code"
+				},
+				"iso20022:UnitPrice": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:UnitPriceSign": {
+					"$ref": "#/$defs/iso20022:PlusOrMinusIndicator"
+				},
+				"iso20022:ValueAddedTax": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				}
+			},
+			"required": [
+				"iso20022:ProductAmount",
+				"iso20022:ProductCode"
+			],
+			"type": "object"
+		},
+		"iso20022:QRCodeEncodingMode1Code": {
+			"enum": [
+				"ALFA",
+				"BINA",
+				"KANJ",
+				"NUME"
+			],
+			"type": "string"
+		},
+		"iso20022:QRCodeErrorCorrection1Code": {
+			"enum": [
+				"M015",
+				"Q025",
+				"H030",
+				"L007"
+			],
+			"type": "string"
+		},
+		"iso20022:Recipient13Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:IssuerAndSerialNumber": {
+					"$ref": "#/$defs/iso20022:IssuerAndSerialNumber2"
+				},
+				"iso20022:SubjectKeyIdentifier": {
+					"$ref": "#/$defs/iso20022:Max140Binary"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Recipient15Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:KEK": {
+					"$ref": "#/$defs/iso20022:KEK9"
+				},
+				"iso20022:KeyIdentifier": {
+					"$ref": "#/$defs/iso20022:KEKIdentifier7"
+				},
+				"iso20022:KeyTransport": {
+					"$ref": "#/$defs/iso20022:KeyTransport10"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:RecurringTransaction6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:GracePeriod": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GracePeriod1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GracePeriod1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:PlanIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:PlanNotice": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:ActionMessage11"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:ActionMessage11"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:PeriodUnit": {
+					"$ref": "#/$defs/iso20022:Frequency3Code"
+				},
+				"iso20022:SequenceNumber": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:RelativeDistinguishedName1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AttributeType": {
+					"$ref": "#/$defs/iso20022:AttributeType1Code"
+				},
+				"iso20022:AttributeValue": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				}
+			},
+			"required": [
+				"iso20022:AttributeType",
+				"iso20022:AttributeValue"
+			],
+			"type": "object"
+		},
+		"iso20022:Response9Code": {
+			"enum": [
+				"APPR",
+				"DECL",
+				"PART",
+				"SUSP",
+				"TECH"
+			],
+			"type": "string"
+		},
+		"iso20022:ResponseType10": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalResponseInformation": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:Response": {
+					"$ref": "#/$defs/iso20022:Response9Code"
+				},
+				"iso20022:ResponseReason": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Response"
+			],
+			"type": "object"
+		},
+		"iso20022:RetailerMessage1Code": {
+			"enum": [
+				"SSAB",
+				"SAAQ",
+				"SAAP",
+				"SDDR",
+				"SDDP",
+				"SSEN",
+				"SSMQ",
+				"SSMR",
+				"SSRJ",
+				"SARQ",
+				"SARP",
+				"SFRP",
+				"SFRQ",
+				"SFSQ",
+				"SFSP",
+				"SASQ",
+				"SASP"
+			],
+			"type": "string"
+		},
+		"iso20022:RetailerSaleEnvironment2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:DebitPreferredFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:LoyaltyHandling": {
+					"$ref": "#/$defs/iso20022:LoyaltyHandling1Code"
+				},
+				"iso20022:MaximumCashBackAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:MinimumAmountToDeliver": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:MinimumSplitAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:SaleCapabilities": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:SaleCapabilities1Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:SaleCapabilities1Code"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:RetailerService2Code": {
+			"enum": [
+				"FSPQ",
+				"FSRQ",
+				"FSIQ",
+				"FSBQ",
+				"FSLQ",
+				"FSVQ",
+				"FSEQ",
+				"FSAQ",
+				"FSCQ"
+			],
+			"type": "string"
+		},
+		"iso20022:ReversalReason1Code": {
+			"enum": [
+				"CUSC",
+				"MALF",
+				"MERC",
+				"UNAB"
+			],
+			"type": "string"
+		},
+		"iso20022:ReversalRequest6": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:CustomerOrder": {
+					"$ref": "#/$defs/iso20022:CustomerOrder1"
+				},
+				"iso20022:LoyaltyData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:LoyaltyRequestData3"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:LoyaltyRequestData3"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:ReversedAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:ReversalReason": {
+					"$ref": "#/$defs/iso20022:ReversalReason1Code"
+				},
+				"iso20022:ReversalTransaction": {
+					"$ref": "#/$defs/iso20022:CardPaymentTransaction136"
+				}
+			},
+			"required": [
+				"iso20022:ReversalReason"
+			],
+			"type": "object"
+		},
+		"iso20022:SaleCapabilities1Code": {
+			"enum": [
+				"CHDI",
+				"CHER",
+				"CHIN",
+				"CHST",
+				"CUDI",
+				"CUAS",
+				"CUER",
+				"CUIN",
+				"POIR",
+				"PRDC",
+				"PRRP",
+				"PRVC"
+			],
+			"type": "string"
+		},
+		"iso20022:SaleContext4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalSaleData": {
+					"$ref": "#/$defs/iso20022:Max70Text"
+				},
+				"iso20022:AllowedEntryMode": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:CardDataReading8Code"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:CardDataReading8Code"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CashierIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:CashierLanguage": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:LanguageCode"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:LanguageCode"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:CustomerOrderRequestFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:DeliveryNoteNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ForceOnlineFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:InvoiceNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:PurchaseOrderNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ReuseCardDataFlag": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:RemainingAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:SaleIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SaleReconciliationIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SaleReferenceNumber": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:SaleTokenScope": {
+					"$ref": "#/$defs/iso20022:SaleTokenScope1Code"
+				},
+				"iso20022:ShiftNumber": {
+					"$ref": "#/$defs/iso20022:Max2NumericText"
+				},
+				"iso20022:SplitPayment": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:SponsoredMerchant": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Organisation26"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Organisation26"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:SaleToPOIServiceRequestV06": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Header": {
+					"$ref": "#/$defs/iso20022:Header41"
+				},
+				"iso20022:SecurityTrailer": {
+					"$ref": "#/$defs/iso20022:ContentInformationType38"
+				},
+				"iso20022:ServiceRequest": {
+					"$ref": "#/$defs/iso20022:ServiceRequest7"
+				}
+			},
+			"required": [
+				"iso20022:Header",
+				"iso20022:ServiceRequest"
+			],
+			"type": "object"
+		},
+		"iso20022:SaleTokenScope1Code": {
+			"enum": [
+				"MULT",
+				"SNGL"
+			],
+			"type": "string"
+		},
+		"iso20022:SensitiveMobileData1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:IMEI": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:IMSI": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:MSISDN": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				}
+			},
+			"required": [
+				"iso20022:MSISDN"
+			],
+			"type": "object"
+		},
+		"iso20022:ServiceRequest7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:BalanceInquiryRequest": {
+					"$ref": "#/$defs/iso20022:BalanceInquiryRequest7"
+				},
+				"iso20022:BatchRequest": {
+					"$ref": "#/$defs/iso20022:BatchRequest6"
+				},
+				"iso20022:CardAcquisitionRequest": {
+					"$ref": "#/$defs/iso20022:CardAcquisitionRequest3"
+				},
+				"iso20022:Context": {
+					"$ref": "#/$defs/iso20022:CardPaymentContext30"
+				},
+				"iso20022:Environment": {
+					"$ref": "#/$defs/iso20022:CardPaymentEnvironment80"
+				},
+				"iso20022:LoyaltyRequest": {
+					"$ref": "#/$defs/iso20022:LoyaltyRequest6"
+				},
+				"iso20022:EnableServiceRequest": {
+					"$ref": "#/$defs/iso20022:EnableServiceRequest6"
+				},
+				"iso20022:PaymentRequest": {
+					"$ref": "#/$defs/iso20022:PaymentRequest6"
+				},
+				"iso20022:ReversalRequest": {
+					"$ref": "#/$defs/iso20022:ReversalRequest6"
+				},
+				"iso20022:SupplementaryData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:SupplementaryData1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:SupplementaryData1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:StoredValueRequest": {
+					"$ref": "#/$defs/iso20022:StoredValueRequest7"
+				},
+				"iso20022:ServiceContent": {
+					"$ref": "#/$defs/iso20022:RetailerService2Code"
+				}
+			},
+			"required": [
+				"iso20022:Context",
+				"iso20022:Environment",
+				"iso20022:ServiceContent"
+			],
+			"type": "object"
+		},
+		"iso20022:SignedData9": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Certificate": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Max5000Binary"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Max5000Binary"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:DigestAlgorithm": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:AlgorithmIdentification36"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:AlgorithmIdentification36"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:EncapsulatedContent": {
+					"$ref": "#/$defs/iso20022:EncapsulatedContent3"
+				},
+				"iso20022:Signer": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Signer8"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Signer8"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Signer8": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:DigestAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification36"
+				},
+				"iso20022:SignedAttributes": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:GenericInformation1"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:GenericInformation1"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:SignerIdentification": {
+					"$ref": "#/$defs/iso20022:Recipient13Choice"
+				},
+				"iso20022:Signature": {
+					"$ref": "#/$defs/iso20022:Max3000Binary"
+				},
+				"iso20022:SignatureAlgorithm": {
+					"$ref": "#/$defs/iso20022:AlgorithmIdentification33"
+				},
+				"iso20022:Version": {
+					"$ref": "#/$defs/iso20022:Number"
+				}
+			},
+			"required": [
+				"iso20022:DigestAlgorithm",
+				"iso20022:Signature",
+				"iso20022:SignatureAlgorithm"
+			],
+			"type": "object"
+		},
+		"iso20022:SimpleIdentificationInformation4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Identification"
+			],
+			"type": "object"
+		},
+		"iso20022:StoredValueAccount2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccountType": {
+					"$ref": "#/$defs/iso20022:StoredValueAccountType1Code"
+				},
+				"iso20022:Balance": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:Brand": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:Identification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:IdentificationType": {
+					"$ref": "#/$defs/iso20022:CardIdentificationType1Code"
+				},
+				"iso20022:EntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading8Code"
+				},
+				"iso20022:OwnerName": {
+					"$ref": "#/$defs/iso20022:Max45Text"
+				},
+				"iso20022:Provider": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ExpiryDate": {
+					"$ref": "#/$defs/iso20022:Max10Text"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:StoredValueAccountType1Code": {
+			"enum": [
+				"BNKA",
+				"CWVC",
+				"CPYA",
+				"ELMY",
+				"GIFT",
+				"GCER",
+				"MLVC",
+				"OLVC",
+				"MERC",
+				"OTHR",
+				"PHON",
+				"CARD",
+				"TRVL"
+			],
+			"type": "string"
+		},
+		"iso20022:StoredValueData7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AccountIdentification": {
+					"$ref": "#/$defs/iso20022:StoredValueAccount2"
+				},
+				"iso20022:Currency": {
+					"$ref": "#/$defs/iso20022:ActiveCurrencyCode"
+				},
+				"iso20022:EANUPC": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:HostTransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				},
+				"iso20022:ItemAmount": {
+					"$ref": "#/$defs/iso20022:ImpliedCurrencyAndAmount"
+				},
+				"iso20022:OriginalPOITransaction": {
+					"$ref": "#/$defs/iso20022:CardPaymentTransaction136"
+				},
+				"iso20022:ProductCode": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Provider": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TransactionType": {
+					"$ref": "#/$defs/iso20022:StoredValueTransactionType3Code"
+				}
+			},
+			"required": [
+				"iso20022:TransactionType"
+			],
+			"type": "object"
+		},
+		"iso20022:StoredValueRequest7": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Data": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:StoredValueData7"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:StoredValueData7"
+							},
+							"minItems": 1,
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:SaleTransactionIdentification": {
+					"$ref": "#/$defs/iso20022:TransactionIdentifier1"
+				}
+			},
+			"required": [
+				"iso20022:Data"
+			],
+			"type": "object"
+		},
+		"iso20022:StoredValueTransactionType3Code": {
+			"enum": [
+				"ACTV",
+				"DUPL",
+				"LOAD",
+				"RESV",
+				"REVS",
+				"ULOA",
+				"CLOS",
+				"DCTV",
+				"OPEN",
+				"BALC"
+			],
+			"type": "string"
+		},
+		"iso20022:SupplementaryData1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Envelope": {
+					"$ref": "#/$defs/iso20022:SupplementaryDataEnvelope1"
+				},
+				"iso20022:PlaceAndName": {
+					"$ref": "#/$defs/iso20022:Max350Text"
+				}
+			},
+			"required": [
+				"iso20022:Envelope"
+			],
+			"type": "object"
+		},
+		"iso20022:SupplementaryDataEnvelope1": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^\\w+$": {
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:SupportedPaymentOption2Code": {
+			"enum": [
+				"PART",
+				"MSRV",
+				"INSI",
+				"PINQ"
+			],
+			"type": "string"
+		},
+		"iso20022:Token1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:PaymentToken": {
+					"$ref": "#/$defs/iso20022:Max19NumericText"
+				},
+				"iso20022:TokenAssuranceData": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				},
+				"iso20022:TokenAssuranceMethod": {
+					"$ref": "#/$defs/iso20022:Max2NumericText"
+				},
+				"iso20022:TokenInitiatedIndicator": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:TokenRequestorIdentification": {
+					"$ref": "#/$defs/iso20022:Max11NumericText"
+				},
+				"iso20022:TokenExpiryDate": {
+					"$ref": "#/$defs/iso20022:Exact4NumericText"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Traceability8": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:ProtocolName": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ProtocolVersion": {
+					"$ref": "#/$defs/iso20022:Max6Text"
+				},
+				"iso20022:RelayIdentification": {
+					"$ref": "#/$defs/iso20022:GenericIdentification177"
+				},
+				"iso20022:TraceDateTimeIn": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:TraceDateTimeOut": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				}
+			},
+			"required": [
+				"iso20022:RelayIdentification",
+				"iso20022:TraceDateTimeIn",
+				"iso20022:TraceDateTimeOut"
+			],
+			"type": "object"
+		},
+		"iso20022:TrackData2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:TrackFormat": {
+					"$ref": "#/$defs/iso20022:TrackFormat1Code"
+				},
+				"iso20022:TrackNumber": {
+					"$ref": "#/$defs/iso20022:Number"
+				},
+				"iso20022:TrackValue": {
+					"$ref": "#/$defs/iso20022:Max140Text"
+				}
+			},
+			"required": [
+				"iso20022:TrackValue"
+			],
+			"type": "object"
+		},
+		"iso20022:TrackFormat1Code": {
+			"enum": [
+				"AAMV",
+				"CMC7",
+				"E13B",
+				"ISOF",
+				"JIS1",
+				"JIS2"
+			],
+			"type": "string"
+		},
+		"iso20022:TransactionAction1Code": {
+			"enum": [
+				"STAR",
+				"STOP"
+			],
+			"type": "string"
+		},
+		"iso20022:TransactionChannel5Code": {
+			"enum": [
+				"MAIL",
+				"TLPH",
+				"ECOM",
+				"TVPY",
+				"SECM",
+				"MOBL",
+				"MPOS"
+			],
+			"type": "string"
+		},
+		"iso20022:TransactionEnvironment1Code": {
+			"enum": [
+				"MERC",
+				"PRIV",
+				"PUBL"
+			],
+			"type": "string"
+		},
+		"iso20022:TransactionIdentifier1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:TransactionDateTime": {
+					"$ref": "#/$defs/iso20022:ISODateTime"
+				},
+				"iso20022:TransactionReference": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:TransactionDateTime",
+				"iso20022:TransactionReference"
+			],
+			"type": "object"
+		},
+		"iso20022:TransactionToPerform6Choice": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:LoyaltyRequest": {
+					"$ref": "#/$defs/iso20022:LoyaltyRequest6"
+				},
+				"iso20022:PaymentRequest": {
+					"$ref": "#/$defs/iso20022:PaymentRequest6"
+				},
+				"iso20022:ReversalRequest": {
+					"$ref": "#/$defs/iso20022:ReversalRequest6"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:TransactionVerificationResult4": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalResult": {
+					"$ref": "#/$defs/iso20022:Max500Text"
+				},
+				"iso20022:Method": {
+					"$ref": "#/$defs/iso20022:AuthenticationMethod6Code"
+				},
+				"iso20022:Result": {
+					"$ref": "#/$defs/iso20022:Verification1Code"
+				},
+				"iso20022:VerificationEntity": {
+					"$ref": "#/$defs/iso20022:AuthenticationEntity2Code"
+				}
+			},
+			"required": [
+				"iso20022:Method"
+			],
+			"type": "object"
+		},
+		"iso20022:TrueFalseIndicator": {
+			"type": "boolean"
+		},
+		"iso20022:TypeOfAmount8Code": {
+			"enum": [
+				"ACTL",
+				"ESTM",
+				"MAXI",
+				"DFLT",
+				"RPLT",
+				"INCR",
+				"DECR",
+				"RESD"
+			],
+			"type": "string"
+		},
+		"iso20022:UPICIdentifier": {
+			"pattern": "^([0-9]{8,17})$",
+			"type": "string"
+		},
+		"iso20022:UnitOfMeasure6Code": {
+			"enum": [
+				"PIEC",
+				"TONS",
+				"FOOT",
+				"GBGA",
+				"USGA",
+				"GRAM",
+				"INCH",
+				"KILO",
+				"PUND",
+				"METR",
+				"CMET",
+				"MMET",
+				"LITR",
+				"CELI",
+				"MILI",
+				"GBOU",
+				"USOU",
+				"GBQA",
+				"USQA",
+				"GBPI",
+				"USPI",
+				"MILE",
+				"KMET",
+				"YARD",
+				"SQKI",
+				"HECT",
+				"ARES",
+				"SMET",
+				"SCMT",
+				"SMIL",
+				"SQMI",
+				"SQYA",
+				"SQFO",
+				"SQIN",
+				"ACRE",
+				"KWHO",
+				"DGEU",
+				"GGEU"
+			],
+			"type": "string"
+		},
+		"iso20022:UserInterface4Code": {
+			"enum": [
+				"CDSP",
+				"CRCP",
+				"MDSP",
+				"MRCP",
+				"CRDO"
+			],
+			"type": "string"
+		},
+		"iso20022:Vehicle1": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:AdditionalVehicleData": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/iso20022:Vehicle2"
+						},
+						{
+							"items": {
+								"$ref": "#/$defs/iso20022:Vehicle2"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"iso20022:DriverOrVehicleCard": {
+					"$ref": "#/$defs/iso20022:PlainCardData17"
+				},
+				"iso20022:Hubometer": {
+					"$ref": "#/$defs/iso20022:DecimalNumber"
+				},
+				"iso20022:MaintenanceIdentification": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:Odometer": {
+					"$ref": "#/$defs/iso20022:DecimalNumber"
+				},
+				"iso20022:ReferHours": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:ReplacementCar": {
+					"$ref": "#/$defs/iso20022:TrueFalseIndicator"
+				},
+				"iso20022:TrailerHours": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:TrailerNumber": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:UnitNumber": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:VehicleNumber": {
+					"$ref": "#/$defs/iso20022:Max35NumericText"
+				},
+				"iso20022:VehicleTag": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:VehicleTagEntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading5Code"
+				}
+			},
+			"type": "object"
+		},
+		"iso20022:Vehicle2": {
+			"additionalProperties": false,
+			"properties": {
+				"iso20022:Data": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				},
+				"iso20022:EntryMode": {
+					"$ref": "#/$defs/iso20022:CardDataReading5Code"
+				},
+				"iso20022:Type": {
+					"$ref": "#/$defs/iso20022:Max35Text"
+				}
+			},
+			"required": [
+				"iso20022:Data"
+			],
+			"type": "object"
+		},
+		"iso20022:Verification1Code": {
+			"enum": [
+				"FAIL",
+				"MISS",
+				"NOVF",
+				"PART",
+				"SUCC",
+				"ERRR"
+			],
+			"type": "string"
+		}
+	},
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"additionalProperties": false,
+	"description": "JSON Schema generated by XMLSpy v2024 (x64) (http://www.altova.com)",
+	"properties": {
+		"@xmlns:iso20022": {
+			"default": "urn:iso:std:iso:20022:tech:xsd:casp.001.001.06"
+		},
+		"iso20022:Document": {
+			"$ref": "#/$defs/.iso20022:Document"
+		}
+	},
+	"type": "object"
+}

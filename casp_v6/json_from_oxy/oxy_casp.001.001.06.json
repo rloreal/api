@@ -1,0 +1,3705 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:iso:std:iso:20022:tech:xsd:casp.001.001.06#",
+    "additionalProperties": false,
+    "properties": {
+        "Document": {"$ref": "#/$defs/Document"}
+    },
+    "$defs": {
+        "NetworkParameters9": {
+            "type": "object",
+            "required": [
+                "NtwkTp",
+                "AdrVal"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "NtwkTp": {"$ref": "#/$defs/NetworkType1Code"},
+                "AdrVal": {"type": "string"}
+            }
+        },
+        "NetworkParameters7": {
+            "type": "object",
+            "required": ["Adr"],
+            "additionalProperties": false,
+            "properties": {
+                "Adr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/NetworkParameters9"},
+                    "minItems": 1
+                },
+                "UsrNm": {"type": "string"},
+                "AccsCd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "SvrCert": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "SvrCertIdr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "ClntCert": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "SctyPrfl": {"type": "string"}
+            }
+        },
+        "GeolocationGeographicCoordinates1": {
+            "type": "object",
+            "required": [
+                "Lat",
+                "Long"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Lat": {"type": "string"},
+                "Long": {"type": "string"}
+            }
+        },
+        "GeolocationUTMCoordinates1": {
+            "type": "object",
+            "required": [
+                "UTMZone",
+                "UTMEstwrd",
+                "UTMNrthwrd"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "UTMZone": {"type": "string"},
+                "UTMEstwrd": {"type": "string"},
+                "UTMNrthwrd": {"type": "string"}
+            }
+        },
+        "Geolocation1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "GeogcCordints": {"$ref": "#/$defs/GeolocationGeographicCoordinates1"},
+                "UTMCordints": {"$ref": "#/$defs/GeolocationUTMCoordinates1"}
+            }
+        },
+        "GenericIdentification177": {
+            "type": "object",
+            "required": ["Id"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/PartyType33Code"},
+                "Issr": {"$ref": "#/$defs/PartyType33Code"},
+                "Ctry": {"type": "string"},
+                "ShrtNm": {"type": "string"},
+                "RmotAccs": {"$ref": "#/$defs/NetworkParameters7"},
+                "Glctn": {"$ref": "#/$defs/Geolocation1"}
+            }
+        },
+        "Traceability8": {
+            "type": "object",
+            "required": [
+                "RlayId",
+                "TracDtTmIn",
+                "TracDtTmOut"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "RlayId": {"$ref": "#/$defs/GenericIdentification177"},
+                "PrtcolNm": {"type": "string"},
+                "PrtcolVrsn": {"type": "string"},
+                "TracDtTmIn": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "TracDtTmOut": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Header41": {
+            "type": "object",
+            "required": [
+                "MsgFctn",
+                "PrtcolVrsn",
+                "XchgId",
+                "CreDtTm",
+                "InitgPty"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "MsgFctn": {"$ref": "#/$defs/RetailerMessage1Code"},
+                "PrtcolVrsn": {"type": "string"},
+                "XchgId": {"type": "string"},
+                "CreDtTm": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "InitgPty": {"$ref": "#/$defs/GenericIdentification177"},
+                "RcptPty": {"$ref": "#/$defs/GenericIdentification177"},
+                "Tracblt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Traceability8"},
+                    "minItems": 0
+                }
+            }
+        },
+        "Acquirer10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"$ref": "#/$defs/GenericIdentification177"},
+                "ParamsVrsn": {"type": "string"}
+            }
+        },
+        "GenericIdentification32": {
+            "type": "object",
+            "required": ["Id"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/PartyType3Code"},
+                "Issr": {"$ref": "#/$defs/PartyType4Code"},
+                "ShrtNm": {"type": "string"}
+            }
+        },
+        "PostalAddress22": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AdrTp": {"$ref": "#/$defs/AddressType2Code"},
+                "Dept": {"type": "string"},
+                "SubDept": {"type": "string"},
+                "AdrLine": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "maxItems": 2,
+                    "minItems": 0
+                },
+                "StrtNm": {"type": "string"},
+                "BldgNb": {"type": "string"},
+                "PstCd": {"type": "string"},
+                "TwnNm": {"type": "string"},
+                "CtrySubDvsn": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "maxItems": 2,
+                    "minItems": 0
+                },
+                "CtryCd": {"type": "string"}
+            }
+        },
+        "CommunicationAddress9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PstlAdr": {"$ref": "#/$defs/PostalAddress22"},
+                "Email": {"type": "string"},
+                "URLAdr": {"type": "string"},
+                "Phne": {"type": "string"},
+                "CstmrSvc": {"type": "string"},
+                "AddtlCtctInf": {"type": "string"}
+            }
+        },
+        "Organisation41": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"$ref": "#/$defs/GenericIdentification32"},
+                "CmonNm": {"type": "string"},
+                "LctnCtgy": {"$ref": "#/$defs/LocationCategory4Code"},
+                "LctnAndCtct": {"$ref": "#/$defs/CommunicationAddress9"},
+                "SchmeData": {"type": "string"}
+            }
+        },
+        "DisplayCapabilities4": {
+            "type": "object",
+            "required": ["Dstn"],
+            "additionalProperties": false,
+            "properties": {
+                "Dstn": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/UserInterface4Code"},
+                    "minItems": 1
+                },
+                "AvlblFrmt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/OutputFormat1Code"},
+                    "minItems": 0
+                },
+                "NbOfLines": {"type": "number"},
+                "LineWidth": {"type": "number"},
+                "AvlblLang": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PointOfInteractionCapabilities9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CardRdngCpblties": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CardDataReading8Code"},
+                    "minItems": 0
+                },
+                "CrdhldrVrfctnCpblties": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CardholderVerificationCapability4Code"},
+                    "minItems": 0
+                },
+                "PINLngthCpblties": {"type": "number"},
+                "ApprvlCdLngth": {"type": "number"},
+                "MxScrptLngth": {"type": "number"},
+                "CardCaptrCpbl": {"type": "boolean"},
+                "OnLineCpblties": {"$ref": "#/$defs/OnLineCapability1Code"},
+                "MsgCpblties": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/DisplayCapabilities4"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PointOfInteractionComponentIdentification2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ItmNb": {"type": "string"},
+                "PrvdrId": {"type": "string"},
+                "Id": {"type": "string"},
+                "SrlNb": {"type": "string"}
+            }
+        },
+        "PointOfInteractionComponentStatus3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "VrsnNb": {"type": "string"},
+                "Sts": {"$ref": "#/$defs/POIComponentStatus1Code"},
+                "XpryDt": {
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "GenericIdentification48": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Vrsn",
+                "Issr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Vrsn": {"type": "string"},
+                "Issr": {"type": "string"}
+            }
+        },
+        "MemoryCharacteristics1": {
+            "type": "object",
+            "required": [
+                "Id",
+                "TtlSz",
+                "FreeSz",
+                "Unit"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "TtlSz": {"type": "number"},
+                "FreeSz": {"type": "number"},
+                "Unit": {"$ref": "#/$defs/MemoryUnit1Code"}
+            }
+        },
+        "PhysicalInterfaceParameter1": {
+            "type": "object",
+            "required": ["IntrfcNm"],
+            "additionalProperties": false,
+            "properties": {
+                "IntrfcNm": {"type": "string"},
+                "IntrfcTp": {"$ref": "#/$defs/POICommunicationType2Code"},
+                "UsrNm": {"type": "string"},
+                "AccsCd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "SctyPrfl": {"type": "string"},
+                "AddtlParams": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "CommunicationCharacteristics5": {
+            "type": "object",
+            "required": [
+                "ComTp",
+                "RmotPty",
+                "Actv"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "ComTp": {"$ref": "#/$defs/POICommunicationType2Code"},
+                "RmotPty": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/PartyType7Code"},
+                    "minItems": 1
+                },
+                "Actv": {"type": "boolean"},
+                "Params": {"$ref": "#/$defs/NetworkParameters7"},
+                "PhysIntrfc": {"$ref": "#/$defs/PhysicalInterfaceParameter1"}
+            }
+        },
+        "OriginatorInformation1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Cert": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                }
+            }
+        },
+        "RelativeDistinguishedName1": {
+            "type": "object",
+            "required": [
+                "AttrTp",
+                "AttrVal"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "AttrTp": {"$ref": "#/$defs/AttributeType1Code"},
+                "AttrVal": {"type": "string"}
+            }
+        },
+        "CertificateIssuer1": {
+            "type": "object",
+            "required": ["RltvDstngshdNm"],
+            "additionalProperties": false,
+            "properties": {
+                "RltvDstngshdNm": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/RelativeDistinguishedName1"},
+                    "minItems": 1
+                }
+            }
+        },
+        "IssuerAndSerialNumber2": {
+            "type": "object",
+            "required": [
+                "Issr",
+                "SrlNb"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Issr": {"$ref": "#/$defs/CertificateIssuer1"},
+                "SrlNb": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "Recipient13Choice": {
+            "type": "object",
+            "required": [
+                "IssrAndSrlNb",
+                "SbjtKeyIdr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "IssrAndSrlNb": {"$ref": "#/$defs/IssuerAndSerialNumber2"},
+                "SbjtKeyIdr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "Parameter18": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "DgstAlgo": {"$ref": "#/$defs/Algorithm26Code"}
+            }
+        },
+        "AlgorithmIdentification34": {
+            "type": "object",
+            "required": ["Algo"],
+            "additionalProperties": false,
+            "properties": {
+                "Algo": {"$ref": "#/$defs/Algorithm8Code"},
+                "Param": {"$ref": "#/$defs/Parameter18"}
+            }
+        },
+        "Parameter17": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "NcrptnFrmt": {"$ref": "#/$defs/EncryptionFormat2Code"},
+                "DgstAlgo": {"$ref": "#/$defs/Algorithm26Code"},
+                "MskGnrtrAlgo": {"$ref": "#/$defs/AlgorithmIdentification34"}
+            }
+        },
+        "AlgorithmIdentification35": {
+            "type": "object",
+            "required": ["Algo"],
+            "additionalProperties": false,
+            "properties": {
+                "Algo": {"$ref": "#/$defs/Algorithm7Code"},
+                "Param": {"$ref": "#/$defs/Parameter17"}
+            }
+        },
+        "KeyTransport10": {
+            "type": "object",
+            "required": [
+                "RcptId",
+                "KeyNcrptnAlgo",
+                "NcrptdKey"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "RcptId": {"$ref": "#/$defs/Recipient13Choice"},
+                "KeyNcrptnAlgo": {"$ref": "#/$defs/AlgorithmIdentification35"},
+                "NcrptdKey": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "KEKIdentifier7": {
+            "type": "object",
+            "required": [
+                "KeyId",
+                "KeyVrsn"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "KeyId": {"type": "string"},
+                "KeyVrsn": {"type": "string"},
+                "SeqNb": {"type": "number"},
+                "DerivtnId": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "Parameter12": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "NcrptnFrmt": {"$ref": "#/$defs/EncryptionFormat2Code"},
+                "InitlstnVctr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "BPddg": {"$ref": "#/$defs/BytePadding1Code"}
+            }
+        },
+        "AlgorithmIdentification32": {
+            "type": "object",
+            "required": ["Algo"],
+            "additionalProperties": false,
+            "properties": {
+                "Algo": {"$ref": "#/$defs/Algorithm28Code"},
+                "Param": {"$ref": "#/$defs/Parameter12"}
+            }
+        },
+        "KEK9": {
+            "type": "object",
+            "required": [
+                "KEKId",
+                "KeyNcrptnAlgo"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "KEKId": {"$ref": "#/$defs/KEKIdentifier7"},
+                "KeyNcrptnAlgo": {"$ref": "#/$defs/AlgorithmIdentification32"},
+                "NcrptdKey": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "Recipient15Choice": {
+            "type": "object",
+            "required": [
+                "KeyTrnsprt",
+                "KEK",
+                "KeyIdr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "KeyTrnsprt": {"$ref": "#/$defs/KeyTransport10"},
+                "KEK": {"$ref": "#/$defs/KEK9"},
+                "KeyIdr": {"$ref": "#/$defs/KEKIdentifier7"}
+            }
+        },
+        "EncryptedContent7": {
+            "type": "object",
+            "required": [
+                "CnttTp",
+                "NcrptdData"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "CnttTp": {"$ref": "#/$defs/ContentType2Code"},
+                "CnttNcrptnAlgo": {"$ref": "#/$defs/AlgorithmIdentification32"},
+                "NcrptdData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "EnvelopedData11": {
+            "type": "object",
+            "required": ["Rcpt"],
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "OrgtrInf": {"$ref": "#/$defs/OriginatorInformation1"},
+                "Rcpt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Recipient15Choice"},
+                    "minItems": 1
+                },
+                "NcrptdCntt": {"$ref": "#/$defs/EncryptedContent7"}
+            }
+        },
+        "Parameter7": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "InitlstnVctr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "BPddg": {"$ref": "#/$defs/BytePadding1Code"}
+            }
+        },
+        "AlgorithmIdentification31": {
+            "type": "object",
+            "required": ["Algo"],
+            "additionalProperties": false,
+            "properties": {
+                "Algo": {"$ref": "#/$defs/Algorithm27Code"},
+                "Param": {"$ref": "#/$defs/Parameter7"}
+            }
+        },
+        "EncapsulatedContent3": {
+            "type": "object",
+            "required": ["CnttTp"],
+            "additionalProperties": false,
+            "properties": {
+                "CnttTp": {"$ref": "#/$defs/ContentType2Code"},
+                "Cntt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "AuthenticatedData10": {
+            "type": "object",
+            "required": [
+                "Rcpt",
+                "MACAlgo",
+                "NcpsltdCntt",
+                "MAC"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "Rcpt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Recipient15Choice"},
+                    "minItems": 1
+                },
+                "MACAlgo": {"$ref": "#/$defs/AlgorithmIdentification31"},
+                "NcpsltdCntt": {"$ref": "#/$defs/EncapsulatedContent3"},
+                "MAC": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "AlgorithmIdentification36": {
+            "type": "object",
+            "required": ["Algo"],
+            "additionalProperties": false,
+            "properties": {
+                "Algo": {"$ref": "#/$defs/Algorithm26Code"}
+            }
+        },
+        "GenericInformation1": {
+            "type": "object",
+            "required": ["Nm"],
+            "additionalProperties": false,
+            "properties": {
+                "Nm": {"type": "string"},
+                "Val": {"type": "string"}
+            }
+        },
+        "Parameter16": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "DgstAlgo": {"$ref": "#/$defs/Algorithm26Code"},
+                "MskGnrtrAlgo": {"$ref": "#/$defs/AlgorithmIdentification34"},
+                "SaltLngth": {"type": "number"},
+                "TrlrFld": {"type": "number"},
+                "OIDCrvNm": {"type": "string"}
+            }
+        },
+        "AlgorithmIdentification33": {
+            "type": "object",
+            "required": ["Algo"],
+            "additionalProperties": false,
+            "properties": {
+                "Algo": {"$ref": "#/$defs/Algorithm29Code"},
+                "Param": {"$ref": "#/$defs/Parameter16"}
+            }
+        },
+        "Signer8": {
+            "type": "object",
+            "required": [
+                "DgstAlgo",
+                "SgntrAlgo",
+                "Sgntr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "SgnrId": {"$ref": "#/$defs/Recipient13Choice"},
+                "DgstAlgo": {"$ref": "#/$defs/AlgorithmIdentification36"},
+                "SgndAttrbts": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GenericInformation1"},
+                    "minItems": 0
+                },
+                "SgntrAlgo": {"$ref": "#/$defs/AlgorithmIdentification33"},
+                "Sgntr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "SignedData9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "DgstAlgo": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/AlgorithmIdentification36"},
+                    "minItems": 0
+                },
+                "NcpsltdCntt": {"$ref": "#/$defs/EncapsulatedContent3"},
+                "Cert": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {
+                        "type": "array",
+                        "items": {"type": "integer"}
+                    },
+                    "minItems": 0
+                },
+                "Sgnr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Signer8"},
+                    "minItems": 0
+                }
+            }
+        },
+        "DigestedData6": {
+            "type": "object",
+            "required": [
+                "DgstAlgo",
+                "NcpsltdCntt",
+                "Dgst"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Vrsn": {"type": "number"},
+                "DgstAlgo": {"$ref": "#/$defs/AlgorithmIdentification36"},
+                "NcpsltdCntt": {"$ref": "#/$defs/EncapsulatedContent3"},
+                "Dgst": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "ContentInformationType39": {
+            "type": "object",
+            "required": ["CnttTp"],
+            "additionalProperties": false,
+            "properties": {
+                "CnttTp": {"$ref": "#/$defs/ContentType2Code"},
+                "EnvlpdData": {"$ref": "#/$defs/EnvelopedData11"},
+                "AuthntcdData": {"$ref": "#/$defs/AuthenticatedData10"},
+                "SgndData": {"$ref": "#/$defs/SignedData9"},
+                "DgstdData": {"$ref": "#/$defs/DigestedData6"}
+            }
+        },
+        "GenericIdentification186": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Tp"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/PartyType7Code"}
+            }
+        },
+        "CryptographicKey18": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Vrsn"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "AddtlId": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "Nm": {"type": "string"},
+                "SctyPrfl": {"type": "string"},
+                "ItmNb": {"type": "string"},
+                "Vrsn": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/CryptographicKeyType3Code"},
+                "Fctn": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/KeyUsage1Code"},
+                    "minItems": 0
+                },
+                "ActvtnDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeactvtnDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "KeyVal": {"$ref": "#/$defs/ContentInformationType39"},
+                "CmpntWthAuthrsdAccs": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GenericIdentification186"},
+                    "minItems": 0
+                },
+                "PrtctdCmpntWthAuthrsdAccs": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/ContentInformationType39"},
+                    "minItems": 0
+                },
+                "KeyChckVal": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "AddtlMgmtInf": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GenericInformation1"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PointOfInteractionComponentCharacteristics10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Mmry": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/MemoryCharacteristics1"},
+                    "minItems": 0
+                },
+                "Com": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CommunicationCharacteristics5"},
+                    "minItems": 0
+                },
+                "SctyAccsMdls": {"type": "number"},
+                "SbcbrIdntyMdls": {"type": "number"},
+                "SctyElmt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CryptographicKey18"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PointOfInteractionComponentAssessment1": {
+            "type": "object",
+            "required": [
+                "Tp",
+                "Assgnr",
+                "Nb"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Tp": {"$ref": "#/$defs/POIComponentAssessment1Code"},
+                "Assgnr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 1
+                },
+                "DlvryDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "XprtnDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Nb": {"type": "string"}
+            }
+        },
+        "GenericIdentification176": {
+            "type": "object",
+            "required": ["Id"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/PartyType33Code"},
+                "Issr": {"$ref": "#/$defs/PartyType33Code"},
+                "Ctry": {"type": "string"},
+                "ShrtNm": {"type": "string"}
+            }
+        },
+        "ExternallyDefinedData5": {
+            "type": "object",
+            "required": ["Id"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Val": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "PrtctdVal": {"$ref": "#/$defs/ContentInformationType39"},
+                "Tp": {"type": "string"}
+            }
+        },
+        "PackageType5": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PackgId": {"$ref": "#/$defs/GenericIdentification176"},
+                "PackgLngth": {"type": "number"},
+                "OffsetStart": {"type": "number"},
+                "OffsetEnd": {"type": "number"},
+                "PackgBlck": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/ExternallyDefinedData5"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PointOfInteractionComponent15": {
+            "type": "object",
+            "required": [
+                "Tp",
+                "Id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Tp": {"$ref": "#/$defs/POIComponentType6Code"},
+                "SubTpInf": {"type": "string"},
+                "Id": {"$ref": "#/$defs/PointOfInteractionComponentIdentification2"},
+                "Sts": {"$ref": "#/$defs/PointOfInteractionComponentStatus3"},
+                "StdCmplc": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GenericIdentification48"},
+                    "minItems": 0
+                },
+                "Chrtcs": {"$ref": "#/$defs/PointOfInteractionComponentCharacteristics10"},
+                "Assmnt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/PointOfInteractionComponentAssessment1"},
+                    "minItems": 0
+                },
+                "Packg": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/PackageType5"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PointOfInteraction14": {
+            "type": "object",
+            "required": ["Id"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"$ref": "#/$defs/GenericIdentification177"},
+                "SysNm": {"type": "string"},
+                "GrpId": {"type": "string"},
+                "Cpblties": {"$ref": "#/$defs/PointOfInteractionCapabilities9"},
+                "TmZone": {"type": "string"},
+                "TermnlIntgtn": {"$ref": "#/$defs/LocationCategory3Code"},
+                "Cmpnt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/PointOfInteractionComponent15"},
+                    "minItems": 0
+                }
+            }
+        },
+        "ContentInformationType40": {
+            "type": "object",
+            "required": [
+                "CnttTp",
+                "EnvlpdData"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "CnttTp": {"$ref": "#/$defs/ContentType2Code"},
+                "EnvlpdData": {"$ref": "#/$defs/EnvelopedData11"}
+            }
+        },
+        "PlainCardData22": {
+            "type": "object",
+            "required": ["PAN"],
+            "additionalProperties": false,
+            "properties": {
+                "PAN": {"type": "string"},
+                "CardSeqNb": {"type": "string"},
+                "FctvDt": {"type": "string"},
+                "XpryDt": {"type": "string"},
+                "SvcCd": {"type": "string"},
+                "Trck1": {"type": "string"},
+                "Trck2": {"type": "string"},
+                "Trck3": {"type": "string"},
+                "CrdhldrNm": {"type": "string"}
+            }
+        },
+        "PaymentCard35": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PrtctdCardData": {"$ref": "#/$defs/ContentInformationType40"},
+                "PrvtCardData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "PlainCardData": {"$ref": "#/$defs/PlainCardData22"},
+                "PmtAcctRef": {"type": "string"},
+                "MskdPAN": {"type": "string"},
+                "IssrBIN": {"type": "string"},
+                "CardCtryCd": {"type": "string"},
+                "CardCcyCd": {"type": "string"},
+                "CardPdctPrfl": {"type": "string"},
+                "CardBrnd": {"type": "string"},
+                "CardPdctTp": {"$ref": "#/$defs/CardProductType1Code"},
+                "CardPdctSubTp": {"type": "string"},
+                "IntrnlCard": {"type": "boolean"},
+                "AllwdPdct": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "SvcOptn": {"type": "string"},
+                "AddtlCardData": {"type": "string"}
+            }
+        },
+        "TrackData2": {
+            "type": "object",
+            "required": ["TrckVal"],
+            "additionalProperties": false,
+            "properties": {
+                "TrckNb": {"type": "number"},
+                "TrckFrmt": {"$ref": "#/$defs/TrackFormat1Code"},
+                "TrckVal": {"type": "string"}
+            }
+        },
+        "Check1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "BkId": {"type": "string"},
+                "AcctNb": {"type": "string"},
+                "ChckNb": {"type": "string"},
+                "ChckCardNb": {"type": "string"},
+                "ChckTrckData2": {"$ref": "#/$defs/TrackData2"},
+                "ChckTp": {"$ref": "#/$defs/CheckType1Code"},
+                "Ctry": {"type": "string"}
+            }
+        },
+        "StoredValueAccount2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AcctTp": {"$ref": "#/$defs/StoredValueAccountType1Code"},
+                "IdTp": {"$ref": "#/$defs/CardIdentificationType1Code"},
+                "Id": {"type": "string"},
+                "Brnd": {"type": "string"},
+                "Prvdr": {"type": "string"},
+                "OwnrNm": {"type": "string"},
+                "XpryDt": {"type": "string"},
+                "NtryMd": {"$ref": "#/$defs/CardDataReading8Code"},
+                "Ccy": {"type": "string"},
+                "Bal": {"type": "number"}
+            }
+        },
+        "LoyaltyAccount3": {
+            "type": "object",
+            "required": ["LltyId"],
+            "additionalProperties": false,
+            "properties": {
+                "LltyId": {"type": "string"},
+                "NtryMd": {"$ref": "#/$defs/CardDataReading8Code"},
+                "IdTp": {"$ref": "#/$defs/CardIdentificationType1Code"},
+                "Brnd": {"type": "string"},
+                "Prvdr": {"type": "string"},
+                "OwnrNm": {"type": "string"},
+                "Unit": {"$ref": "#/$defs/AmountUnit1Code"},
+                "Ccy": {"type": "string"},
+                "Bal": {"type": "number"}
+            }
+        },
+        "CustomerDevice3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"type": "string"},
+                "Prvdr": {"type": "string"}
+            }
+        },
+        "Token1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PmtTkn": {"type": "string"},
+                "TknXpryDt": {"type": "string"},
+                "TknRqstrId": {"type": "string"},
+                "TknAssrncData": {"type": "string"},
+                "TknAssrncMtd": {"type": "string"},
+                "TknInittdInd": {"type": "boolean"}
+            }
+        },
+        "PaymentTokenIdentifiers1": {
+            "type": "object",
+            "required": [
+                "PrvdrId",
+                "RqstrId"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "PrvdrId": {"type": "string"},
+                "RqstrId": {"type": "string"}
+            }
+        },
+        "MerchantToken2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Tkn": {"type": "string"},
+                "TknXpryDt": {"type": "string"},
+                "TknChrtc": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "TknRqstr": {"$ref": "#/$defs/PaymentTokenIdentifiers1"},
+                "TknAssrncLvl": {"type": "number"},
+                "TknAssrncData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "TknAssrncMtd": {"type": "string"},
+                "TknInittdInd": {"type": "boolean"}
+            }
+        },
+        "DateAndPlaceOfBirth1": {
+            "type": "object",
+            "required": [
+                "BirthDt",
+                "CityOfBirth",
+                "CtryOfBirth"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "BirthDt": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "PrvcOfBirth": {"type": "string"},
+                "CityOfBirth": {"type": "string"},
+                "CtryOfBirth": {"type": "string"}
+            }
+        },
+        "GenericIdentification4": {
+            "type": "object",
+            "required": [
+                "Id",
+                "IdTp"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "IdTp": {"type": "string"}
+            }
+        },
+        "PersonIdentification15": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "DrvrLicNb": {"type": "string"},
+                "DrvrLicLctn": {"type": "string"},
+                "DrvrLicNm": {"type": "string"},
+                "DrvrId": {"type": "string"},
+                "CstmrNb": {"type": "string"},
+                "SclSctyNb": {"type": "string"},
+                "AlnRegnNb": {"type": "string"},
+                "PsptNb": {"type": "string"},
+                "TaxIdNb": {"type": "string"},
+                "IdntyCardNb": {"type": "string"},
+                "MplyrIdNb": {"type": "string"},
+                "MplyeeIdNb": {"type": "string"},
+                "JobNb": {"type": "string"},
+                "Dept": {"type": "string"},
+                "EmailAdr": {"type": "string"},
+                "DtAndPlcOfBirth": {"$ref": "#/$defs/DateAndPlaceOfBirth1"},
+                "Othr": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GenericIdentification4"},
+                    "minItems": 0
+                }
+            }
+        },
+        "PlainCardData17": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PAN": {"type": "string"},
+                "Trck1": {"type": "string"},
+                "Trck2": {"type": "string"},
+                "Trck3": {"type": "string"},
+                "AddtlCardData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "NtryMd": {"$ref": "#/$defs/CardDataReading5Code"}
+            }
+        },
+        "Vehicle2": {
+            "type": "object",
+            "required": ["Data"],
+            "additionalProperties": false,
+            "properties": {
+                "Tp": {"type": "string"},
+                "NtryMd": {"$ref": "#/$defs/CardDataReading5Code"},
+                "Data": {"type": "string"}
+            }
+        },
+        "Vehicle1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "VhclNb": {"type": "string"},
+                "TrlrNb": {"type": "string"},
+                "VhclTag": {"type": "string"},
+                "VhclTagNtryMd": {"$ref": "#/$defs/CardDataReading5Code"},
+                "UnitNb": {"type": "string"},
+                "RplcmntCar": {"type": "boolean"},
+                "Odmtr": {"type": "number"},
+                "Hbmtr": {"type": "number"},
+                "TrlrHrs": {"type": "string"},
+                "RefrHrs": {"type": "string"},
+                "MntncId": {"type": "string"},
+                "DrvrOrVhclCard": {"$ref": "#/$defs/PlainCardData17"},
+                "AddtlVhclData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Vehicle2"},
+                    "minItems": 0
+                }
+            }
+        },
+        "OnLinePIN11": {
+            "type": "object",
+            "required": [
+                "NcrptdPINBlck",
+                "PINFrmt"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "NcrptdPINBlck": {"$ref": "#/$defs/ContentInformationType40"},
+                "PINFrmt": {"$ref": "#/$defs/PINFormat3Code"},
+                "AddtlInpt": {"type": "string"}
+            }
+        },
+        "AddressVerification1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AdrDgts": {"type": "string"},
+                "PstlCdDgts": {"type": "string"}
+            }
+        },
+        "CardholderAuthentication17": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AuthntcnMtd": {"$ref": "#/$defs/AuthenticationMethod8Code"},
+                "AuthntcnXmptn": {"$ref": "#/$defs/Exemption1Code"},
+                "AuthntcnVal": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "PrtctdAuthntcnVal": {"$ref": "#/$defs/ContentInformationType40"},
+                "CrdhldrOnLinePIN": {"$ref": "#/$defs/OnLinePIN11"},
+                "CrdhldrId": {"$ref": "#/$defs/PersonIdentification15"},
+                "AdrVrfctn": {"$ref": "#/$defs/AddressVerification1"},
+                "AuthntcnTp": {"type": "string"},
+                "AuthntcnLvl": {"type": "string"},
+                "AuthntcnRslt": {"$ref": "#/$defs/AuthenticationResult1Code"},
+                "AuthntcnAddtlInf": {"$ref": "#/$defs/ExternallyDefinedData5"}
+            }
+        },
+        "TransactionVerificationResult4": {
+            "type": "object",
+            "required": ["Mtd"],
+            "additionalProperties": false,
+            "properties": {
+                "Mtd": {"$ref": "#/$defs/AuthenticationMethod6Code"},
+                "VrfctnNtty": {"$ref": "#/$defs/AuthenticationEntity2Code"},
+                "Rslt": {"$ref": "#/$defs/Verification1Code"},
+                "AddtlRslt": {"type": "string"}
+            }
+        },
+        "SensitiveMobileData1": {
+            "type": "object",
+            "required": ["MSISDN"],
+            "additionalProperties": false,
+            "properties": {
+                "MSISDN": {"type": "string"},
+                "IMSI": {"type": "string"},
+                "IMEI": {"type": "string"}
+            }
+        },
+        "MobileData6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "MobCtryCd": {"type": "string"},
+                "MobNtwkCd": {"type": "string"},
+                "MobMskdMSISDN": {"type": "string"},
+                "Glctn": {"$ref": "#/$defs/Geolocation1"},
+                "SnstvMobData": {"$ref": "#/$defs/SensitiveMobileData1"},
+                "PrtctdMobData": {"$ref": "#/$defs/ContentInformationType40"}
+            }
+        },
+        "Cardholder21": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"$ref": "#/$defs/PersonIdentification15"},
+                "Nm": {"type": "string"},
+                "Lang": {"type": "string"},
+                "BllgAdr": {"$ref": "#/$defs/PostalAddress22"},
+                "ShppgAdr": {"$ref": "#/$defs/PostalAddress22"},
+                "TripNb": {"type": "string"},
+                "Vhcl": {"$ref": "#/$defs/Vehicle1"},
+                "Authntcn": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CardholderAuthentication17"},
+                    "minItems": 0
+                },
+                "TxVrfctnRslt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/TransactionVerificationResult4"},
+                    "minItems": 0
+                },
+                "PrsnlData": {"type": "string"},
+                "MobData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/MobileData6"},
+                    "minItems": 0
+                }
+            }
+        },
+        "RetailerSaleEnvironment2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "SaleCpblties": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/SaleCapabilities1Code"},
+                    "minItems": 0
+                },
+                "Ccy": {"type": "string"},
+                "MinAmtToDlvr": {"type": "number"},
+                "MaxCshBckAmt": {"type": "number"},
+                "MinSpltAmt": {"type": "number"},
+                "DbtPrefrdFlg": {"type": "boolean"},
+                "LltyHdlg": {"$ref": "#/$defs/LoyaltyHandling1Code"}
+            }
+        },
+        "CardPaymentEnvironment80": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Acqrr": {"$ref": "#/$defs/Acquirer10"},
+                "SvcPrvdr": {"$ref": "#/$defs/Acquirer10"},
+                "Mrchnt": {"$ref": "#/$defs/Organisation41"},
+                "POI": {"$ref": "#/$defs/PointOfInteraction14"},
+                "Card": {"$ref": "#/$defs/PaymentCard35"},
+                "Chck": {"$ref": "#/$defs/Check1"},
+                "StordValAcct": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/StoredValueAccount2"},
+                    "minItems": 0
+                },
+                "LltyAcct": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/LoyaltyAccount3"},
+                    "minItems": 0
+                },
+                "CstmrDvc": {"$ref": "#/$defs/CustomerDevice3"},
+                "Wllt": {"$ref": "#/$defs/CustomerDevice3"},
+                "PmtTkn": {"$ref": "#/$defs/Token1"},
+                "MrchntTkn": {"$ref": "#/$defs/MerchantToken2"},
+                "Crdhldr": {"$ref": "#/$defs/Cardholder21"},
+                "PrtctdCrdhldrData": {"$ref": "#/$defs/ContentInformationType40"},
+                "SaleEnvt": {"$ref": "#/$defs/RetailerSaleEnvironment2"}
+            }
+        },
+        "PaymentContext29": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CardPres": {"type": "boolean"},
+                "CrdhldrPres": {"type": "boolean"},
+                "OnLineCntxt": {"type": "boolean"},
+                "AttndncCntxt": {"$ref": "#/$defs/AttendanceContext1Code"},
+                "TxEnvt": {"$ref": "#/$defs/TransactionEnvironment1Code"},
+                "TxChanl": {"$ref": "#/$defs/TransactionChannel5Code"},
+                "BizArea": {"$ref": "#/$defs/BusinessArea2Code"},
+                "AttndntMsgCpbl": {"type": "boolean"},
+                "AttndntLang": {"type": "string"},
+                "CardDataNtryMd": {"$ref": "#/$defs/CardDataReading8Code"},
+                "FllbckInd": {"$ref": "#/$defs/CardFallback1Code"},
+                "SpprtdOptn": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/SupportedPaymentOption2Code"},
+                    "minItems": 0
+                }
+            }
+        },
+        "Organisation26": {
+            "type": "object",
+            "required": [
+                "CmonNm",
+                "CtryCd",
+                "MrchntCtgyCd",
+                "RegdIdr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "CmonNm": {"type": "string"},
+                "Adr": {"type": "string"},
+                "CtryCd": {"type": "string"},
+                "MrchntCtgyCd": {"type": "string"},
+                "RegdIdr": {"type": "string"}
+            }
+        },
+        "SaleContext4": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "SaleId": {"type": "string"},
+                "SaleRefNb": {"type": "string"},
+                "SaleRcncltnId": {"type": "string"},
+                "CshrId": {"type": "string"},
+                "CshrLang": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "ShftNb": {"type": "string"},
+                "CstmrOrdrReqFlg": {"type": "boolean"},
+                "PurchsOrdrNb": {"type": "string"},
+                "InvcNb": {"type": "string"},
+                "DlvryNoteNb": {"type": "string"},
+                "SpnsrdMrchnt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Organisation26"},
+                    "minItems": 0
+                },
+                "SpltPmt": {"type": "boolean"},
+                "RmngAmt": {"type": "number"},
+                "ForceOnlnFlg": {"type": "boolean"},
+                "ReuseCardDataFlg": {"type": "boolean"},
+                "AllwdNtryMd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CardDataReading8Code"},
+                    "minItems": 0
+                },
+                "SaleTknScp": {"$ref": "#/$defs/SaleTokenScope1Code"},
+                "AddtlSaleData": {"type": "string"}
+            }
+        },
+        "GenericIdentification36": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Issr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Issr": {"type": "string"},
+                "SchmeNm": {"type": "string"}
+            }
+        },
+        "PostalAddress2": {
+            "type": "object",
+            "required": [
+                "PstCdId",
+                "TwnNm",
+                "Ctry"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "StrtNm": {"type": "string"},
+                "PstCdId": {"type": "string"},
+                "TwnNm": {"type": "string"},
+                "CtrySubDvsn": {"type": "string"},
+                "Ctry": {"type": "string"}
+            }
+        },
+        "NameAndAddress6": {
+            "type": "object",
+            "required": [
+                "Nm",
+                "Adr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Nm": {"type": "string"},
+                "Adr": {"$ref": "#/$defs/PostalAddress2"}
+            }
+        },
+        "PartyIdentification178Choice": {
+            "type": "object",
+            "required": [
+                "AnyBIC",
+                "PrtryId",
+                "NmAndAdr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "AnyBIC": {"type": "string"},
+                "PrtryId": {"$ref": "#/$defs/GenericIdentification36"},
+                "NmAndAdr": {"$ref": "#/$defs/NameAndAddress6"}
+            }
+        },
+        "SimpleIdentificationInformation4": {
+            "type": "object",
+            "required": ["Id"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"}
+            }
+        },
+        "CashAccountIdentification7Choice": {
+            "type": "object",
+            "required": [
+                "IBAN",
+                "BBAN",
+                "UPIC",
+                "DmstAcct"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "IBAN": {"type": "string"},
+                "BBAN": {"type": "string"},
+                "UPIC": {"type": "string"},
+                "DmstAcct": {"$ref": "#/$defs/SimpleIdentificationInformation4"}
+            }
+        },
+        "Debtor4": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Dbtr": {"$ref": "#/$defs/PartyIdentification178Choice"},
+                "AcctId": {"$ref": "#/$defs/CashAccountIdentification7Choice"}
+            }
+        },
+        "Creditor4": {
+            "type": "object",
+            "required": ["Cdtr"],
+            "additionalProperties": false,
+            "properties": {
+                "Cdtr": {"$ref": "#/$defs/PartyIdentification178Choice"},
+                "RegnId": {"type": "string"}
+            }
+        },
+        "MandateRelatedInformation13": {
+            "type": "object",
+            "required": ["MndtId"],
+            "additionalProperties": false,
+            "properties": {
+                "MndtId": {"type": "string"},
+                "DtOfSgntr": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "MndtImg": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "CardDirectDebit2": {
+            "type": "object",
+            "required": [
+                "CdtrId",
+                "MndtRltdInf"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "DbtrId": {"$ref": "#/$defs/Debtor4"},
+                "CdtrId": {"$ref": "#/$defs/Creditor4"},
+                "MndtRltdInf": {"$ref": "#/$defs/MandateRelatedInformation13"}
+            }
+        },
+        "CardPaymentContext30": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PmtCntxt": {"$ref": "#/$defs/PaymentContext29"},
+                "SaleCntxt": {"$ref": "#/$defs/SaleContext4"},
+                "DrctDbtCntxt": {"$ref": "#/$defs/CardDirectDebit2"}
+            }
+        },
+        "TransactionIdentifier1": {
+            "type": "object",
+            "required": [
+                "TxDtTm",
+                "TxRef"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "TxDtTm": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "TxRef": {"type": "string"}
+            }
+        },
+        "CurrencyDetails3": {
+            "type": "object",
+            "required": [
+                "AlphaCd",
+                "NmrcCd",
+                "Dcml"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "AlphaCd": {"type": "string"},
+                "NmrcCd": {"type": "string"},
+                "Dcml": {"type": "number"},
+                "Nm": {"type": "string"}
+            }
+        },
+        "CurrencyDetails2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AlphaCd": {"type": "string"},
+                "NmrcCd": {"type": "string"},
+                "Dcml": {"type": "number"},
+                "Nm": {"type": "string"}
+            }
+        },
+        "BinRange1": {
+            "type": "object",
+            "required": [
+                "LwrBin",
+                "HghrBin"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "LwrBin": {"type": "string"},
+                "HghrBin": {"type": "string"}
+            }
+        },
+        "OriginalAmountDetails1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ActlAmt": {"type": "number"},
+                "MinAmt": {"type": "number"},
+                "MaxAmt": {"type": "number"}
+            }
+        },
+        "Commission19": {
+            "type": "object",
+            "required": ["Amt"],
+            "additionalProperties": false,
+            "properties": {
+                "Amt": {"type": "number"},
+                "AddtlInf": {"type": "string"}
+            }
+        },
+        "Commission18": {
+            "type": "object",
+            "required": ["Rate"],
+            "additionalProperties": false,
+            "properties": {
+                "Rate": {"type": "number"},
+                "AddtlInf": {"type": "string"}
+            }
+        },
+        "ContentInformationType38": {
+            "type": "object",
+            "required": ["CnttTp"],
+            "additionalProperties": false,
+            "properties": {
+                "CnttTp": {"$ref": "#/$defs/ContentType2Code"},
+                "AuthntcdData": {"$ref": "#/$defs/AuthenticatedData10"},
+                "SgndData": {"$ref": "#/$defs/SignedData9"}
+            }
+        },
+        "OutputBarcode2": {
+            "type": "object",
+            "required": ["BrcdTp"],
+            "additionalProperties": false,
+            "properties": {
+                "BrcdTp": {"$ref": "#/$defs/BarcodeType1Code"},
+                "BrcdVal": {"type": "string"},
+                "QRCdBinryVal": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "QRCdVrsn": {"type": "string"},
+                "QRCdNcodgMd": {"$ref": "#/$defs/QRCodeEncodingMode1Code"},
+                "QRCdErrCrrctn": {"$ref": "#/$defs/QRCodeErrorCorrection1Code"}
+            }
+        },
+        "ActionMessage11": {
+            "type": "object",
+            "required": ["MsgDstn"],
+            "additionalProperties": false,
+            "properties": {
+                "MsgDstn": {"$ref": "#/$defs/UserInterface4Code"},
+                "InfQlfr": {"$ref": "#/$defs/InformationQualify1Code"},
+                "Frmt": {"$ref": "#/$defs/OutputFormat3Code"},
+                "MsgCntt": {"type": "string"},
+                "MsgCnttSgntr": {"$ref": "#/$defs/ContentInformationType38"},
+                "OutptBrcd": {"$ref": "#/$defs/OutputBarcode2"},
+                "RspnReqrdFlg": {"type": "boolean"},
+                "MinDispTm": {"type": "number"}
+            }
+        },
+        "CurrencyConversion29": {
+            "type": "object",
+            "required": [
+                "TrgtCcy",
+                "XchgRate",
+                "SrcCcy"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "CcyConvsId": {"type": "string"},
+                "TrgtCcy": {"$ref": "#/$defs/CurrencyDetails3"},
+                "RsltgAmt": {"type": "number"},
+                "XchgRate": {"type": "number"},
+                "NvrtdXchgRate": {"type": "number"},
+                "QtnDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "VldFr": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "VldUntil": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SrcCcy": {"$ref": "#/$defs/CurrencyDetails2"},
+                "AplblBinRg": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/BinRange1"},
+                    "minItems": 0
+                },
+                "OrgnlAmt": {"$ref": "#/$defs/OriginalAmountDetails1"},
+                "ComssnDtls": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Commission19"},
+                    "minItems": 0
+                },
+                "MrkUpDtls": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Commission18"},
+                    "minItems": 0
+                },
+                "DclrtnDtls": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/ActionMessage11"},
+                    "minItems": 0
+                }
+            }
+        },
+        "CurrencyConversion31": {
+            "type": "object",
+            "required": ["Rslt"],
+            "additionalProperties": false,
+            "properties": {
+                "Rslt": {"$ref": "#/$defs/CurrencyConversionResponse3Code"},
+                "RsltRsn": {"type": "string"},
+                "ConvsDtls": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CurrencyConversion29"},
+                    "minItems": 0
+                }
+            }
+        },
+        "CardPaymentTransaction131": {
+            "type": "object",
+            "required": [
+                "TxId",
+                "POIId"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "SaleRefId": {"type": "string"},
+                "TxId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "POIId": {"$ref": "#/$defs/GenericIdentification32"},
+                "CcyConvs": {"$ref": "#/$defs/CurrencyConversion31"}
+            }
+        },
+        "DetailedAmount4": {
+            "type": "object",
+            "required": ["Amt"],
+            "additionalProperties": false,
+            "properties": {
+                "Amt": {"type": "number"},
+                "Labl": {"type": "string"}
+            }
+        },
+        "DetailedAmount15": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AmtGoodsAndSvcs": {"type": "number"},
+                "CshBck": {"type": "number"},
+                "Grtty": {"type": "number"},
+                "Fees": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/DetailedAmount4"},
+                    "minItems": 0
+                },
+                "Rbt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/DetailedAmount4"},
+                    "minItems": 0
+                },
+                "ValAddedTax": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/DetailedAmount4"},
+                    "minItems": 0
+                },
+                "Srchrg": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/DetailedAmount4"},
+                    "minItems": 0
+                }
+            }
+        },
+        "CurrencyConversion30": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AccptdByCrdhldr": {"type": "boolean"},
+                "Convs": {"$ref": "#/$defs/CurrencyConversion29"}
+            }
+        },
+        "ActiveCurrencyAndAmount": {
+            "type": "object",
+            "required": ["Ccy"],
+            "additionalProperties": false,
+            "properties": {
+                "Value": {"type": "number"},
+                "Ccy": {"type": "string"}
+            }
+        },
+        "Amount5": {
+            "type": "object",
+            "required": ["Amt"],
+            "additionalProperties": false,
+            "properties": {
+                "Amt": {"type": "number"},
+                "Sgn": {"type": "boolean"}
+            }
+        },
+        "InstalmentAmountDetails1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Tp": {"$ref": "#/$defs/InstalmentAmountDetailsType1Code"},
+                "OthrTp": {"type": "string"},
+                "SubTp": {"type": "string"},
+                "Amt": {"$ref": "#/$defs/Amount5"},
+                "Pctg": {"type": "number"}
+            }
+        },
+        "InterestRateDetails1": {
+            "type": "object",
+            "required": [
+                "Prd",
+                "Rate"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Tp": {"$ref": "#/$defs/InterestRate1Code"},
+                "OthrTp": {"type": "string"},
+                "Prd": {"$ref": "#/$defs/InstalmentPeriod1Code"},
+                "Rate": {"type": "number"}
+            }
+        },
+        "GracePeriod1": {
+            "type": "object",
+            "required": [
+                "Tm",
+                "UnitTp"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Tm": {"type": "string"},
+                "UnitTp": {"$ref": "#/$defs/GracePeriodUnitType1Code"},
+                "OthrUnitTp": {"type": "string"}
+            }
+        },
+        "Instalment5": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "InstlmtPlan": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/InstalmentPlan1Code"},
+                    "minItems": 0
+                },
+                "PlanId": {"type": "string"},
+                "PlanOwnr": {"$ref": "#/$defs/PlanOwner1Code"},
+                "SeqNb": {"type": "number"},
+                "PrdUnit": {"$ref": "#/$defs/Frequency3Code"},
+                "InstlmtPrd": {"type": "number"},
+                "TtlNbOfPmts": {"type": "number"},
+                "FrstPmtDt": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "TtlAmt": {"$ref": "#/$defs/ActiveCurrencyAndAmount"},
+                "FrstAmt": {"type": "number"},
+                "SbsqntAmt": {"type": "number"},
+                "LastAmt": {"type": "number"},
+                "Chrgs": {"type": "number"},
+                "DtldChrgs": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/InstalmentAmountDetails1"},
+                    "minItems": 0
+                },
+                "IntrstRate": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/InterestRateDetails1"},
+                    "minItems": 0
+                },
+                "GracePrd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GracePeriod1"},
+                    "minItems": 0
+                },
+                "PlanNtce": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/ActionMessage11"},
+                    "minItems": 0
+                }
+            }
+        },
+        "RecurringTransaction6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PlanId": {"type": "string"},
+                "SeqNb": {"type": "number"},
+                "PrdUnit": {"$ref": "#/$defs/Frequency3Code"},
+                "GracePrd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/GracePeriod1"},
+                    "minItems": 0
+                },
+                "PlanNtce": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/ActionMessage11"},
+                    "minItems": 0
+                }
+            }
+        },
+        "DetailedAmount21": {
+            "type": "object",
+            "required": [
+                "Amt",
+                "DtTm"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Amt": {"type": "number"},
+                "DtTm": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CardDataNtryMd": {"$ref": "#/$defs/CardDataReading8Code"},
+                "ICCRltdData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "Labl": {"type": "string"}
+            }
+        },
+        "AggregationTransaction3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "FrstPmtDtTm": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastPmtDtTm": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "NbOfPmts": {"type": "number"},
+                "IndvPmt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/DetailedAmount21"},
+                    "minItems": 0
+                }
+            }
+        },
+        "Product6": {
+            "type": "object",
+            "required": [
+                "PdctCd",
+                "PdctAmt"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "ItmId": {"type": "string"},
+                "PdctCd": {"type": "string"},
+                "AddtlPdctCd": {"type": "string"},
+                "UnitOfMeasr": {"$ref": "#/$defs/UnitOfMeasure6Code"},
+                "PdctQty": {"type": "number"},
+                "UnitPric": {"type": "number"},
+                "UnitPricSgn": {"type": "boolean"},
+                "PdctAmt": {"type": "number"},
+                "PdctAmtSgn": {"type": "boolean"},
+                "ValAddedTax": {"type": "number"},
+                "TaxTp": {"type": "string"},
+                "PdctDesc": {"type": "string"},
+                "DlvryLctn": {"type": "string"},
+                "DlvrySvc": {"$ref": "#/$defs/AttendanceContext2Code"},
+                "SaleChanl": {"type": "string"},
+                "AddtlPdctDesc": {"type": "string"}
+            }
+        },
+        "CardPaymentTransactionDetails53": {
+            "type": "object",
+            "required": ["TtlAmt"],
+            "additionalProperties": false,
+            "properties": {
+                "Ccy": {"type": "string"},
+                "TtlAmt": {"type": "number"},
+                "CmltvAmt": {"type": "number"},
+                "AmtQlfr": {"$ref": "#/$defs/TypeOfAmount8Code"},
+                "DtldAmt": {"$ref": "#/$defs/DetailedAmount15"},
+                "ReqdAmt": {"type": "number"},
+                "AuthrsdAmt": {"type": "number"},
+                "InvcAmt": {"type": "number"},
+                "VldtyDt": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "OnLineRsn": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/OnLineReason2Code"},
+                    "minItems": 0
+                },
+                "UattnddLvlCtgy": {"type": "string"},
+                "AcctTp": {"$ref": "#/$defs/CardAccountType3Code"},
+                "CcyConvsRslt": {"$ref": "#/$defs/CurrencyConversion30"},
+                "Instlmt": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Instalment5"},
+                    "minItems": 0
+                },
+                "Rcrng": {"$ref": "#/$defs/RecurringTransaction6"},
+                "AggtnTx": {"$ref": "#/$defs/AggregationTransaction3"},
+                "PdctCdSetId": {"type": "string"},
+                "SaleItm": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Product6"},
+                    "minItems": 0
+                },
+                "DlvryLctn": {"type": "string"},
+                "ReSubmissnCntr": {"type": "number"},
+                "CmpltnSeqNb": {"type": "number"},
+                "CmpltnSeqCntr": {"type": "number"},
+                "TtlAuthrsdAmt": {"type": "number"},
+                "AddtlInf": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/ExternallyDefinedData5"},
+                    "minItems": 0
+                },
+                "ICCRltdData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                }
+            }
+        },
+        "GenericIdentification90": {
+            "type": "object",
+            "required": ["Tp"],
+            "additionalProperties": false,
+            "properties": {
+                "Id": {"type": "string"},
+                "Tp": {"$ref": "#/$defs/PartyType14Code"},
+                "Issr": {"$ref": "#/$defs/PartyType4Code"},
+                "Ctry": {"type": "string"},
+                "ShrtNm": {"type": "string"}
+            }
+        },
+        "ResponseType10": {
+            "type": "object",
+            "required": ["Rspn"],
+            "additionalProperties": false,
+            "properties": {
+                "Rspn": {"$ref": "#/$defs/Response9Code"},
+                "RspnRsn": {"type": "string"},
+                "AddtlRspnInf": {"type": "string"}
+            }
+        },
+        "AuthorisationResult18": {
+            "type": "object",
+            "required": ["RspnToAuthstn"],
+            "additionalProperties": false,
+            "properties": {
+                "AuthstnNtty": {"$ref": "#/$defs/GenericIdentification90"},
+                "RspnToAuthstn": {"$ref": "#/$defs/ResponseType10"},
+                "AuthstnCd": {"type": "string"}
+            }
+        },
+        "CustomerOrder1": {
+            "type": "object",
+            "required": [
+                "CstmrOrdrId",
+                "SaleRefId",
+                "StartDt",
+                "FrcstdAmt"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "CstmrOrdrId": {"type": "string"},
+                "SaleRefId": {"type": "string"},
+                "OpnOrdrStat": {"type": "boolean"},
+                "StartDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "EndDt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Unit": {"$ref": "#/$defs/AmountUnit1Code"},
+                "FrcstdAmt": {"type": "number"},
+                "CurAmt": {"type": "number"},
+                "Ccy": {"type": "string"},
+                "AccsdBy": {"type": "string"},
+                "AddtlInf": {"type": "string"}
+            }
+        },
+        "CardPaymentToken5": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Tkn": {"type": "string"},
+                "CardSeqNb": {"type": "string"},
+                "TknXpryDt": {"type": "string"},
+                "TknChrtc": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "TknRqstr": {"$ref": "#/$defs/PaymentTokenIdentifiers1"},
+                "TknAssrncLvl": {"type": "number"},
+                "TknAssrncData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "integer"}
+                },
+                "TknAssrncMtd": {"type": "string"},
+                "TknInittdInd": {"type": "boolean"}
+            }
+        },
+        "CardPaymentTransaction136": {
+            "type": "object",
+            "required": [
+                "TxTp",
+                "TxId",
+                "TxDtls"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "TxCaptr": {"type": "boolean"},
+                "TxTp": {"$ref": "#/$defs/CardPaymentServiceType5Code"},
+                "AddtlSvc": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/CardPaymentServiceType9Code"},
+                    "minItems": 0
+                },
+                "SvcAttr": {"$ref": "#/$defs/CardPaymentServiceType14Code"},
+                "LastTxFlg": {"type": "boolean"},
+                "MrchntCtgyCd": {"type": "string"},
+                "SaleRefId": {"type": "string"},
+                "TxId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "OrgnlTx": {"$ref": "#/$defs/CardPaymentTransaction131"},
+                "RcncltnId": {"type": "string"},
+                "IssrRefData": {"type": "string"},
+                "IssrCITId": {"type": "string"},
+                "MrchntCITId": {"type": "string"},
+                "TxDtls": {"$ref": "#/$defs/CardPaymentTransactionDetails53"},
+                "AuthstnRslt": {"$ref": "#/$defs/AuthorisationResult18"},
+                "MrchntRefData": {"type": "string"},
+                "CstmrOrdr": {"$ref": "#/$defs/CustomerOrder1"},
+                "CstmrTkn": {"$ref": "#/$defs/CardPaymentToken5"},
+                "CstmrCnsnt": {"type": "boolean"},
+                "CardPrgrmmPropsd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "CardPrgrmmApld": {"type": "string"},
+                "SaleToPOIData": {"type": "string"},
+                "SaleToAcqrrData": {"type": "string"},
+                "SaleToIssrData": {"type": "string"},
+                "AddtlTxData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                }
+            }
+        },
+        "LoyaltyAmount1": {
+            "type": "object",
+            "required": ["Amt"],
+            "additionalProperties": false,
+            "properties": {
+                "Unit": {"$ref": "#/$defs/AmountUnit1Code"},
+                "Ccy": {"type": "string"},
+                "Amt": {"type": "number"}
+            }
+        },
+        "LoyaltyRequestData3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CstmrOrdr": {"$ref": "#/$defs/CustomerOrder1"},
+                "Acct": {"$ref": "#/$defs/LoyaltyAccount3"},
+                "Amt": {"$ref": "#/$defs/LoyaltyAmount1"}
+            }
+        },
+        "PaymentRequest6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PmtTx": {"$ref": "#/$defs/CardPaymentTransaction136"},
+                "LltyData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/LoyaltyRequestData3"},
+                    "minItems": 0
+                }
+            }
+        },
+        "ReversalRequest6": {
+            "type": "object",
+            "required": ["RvslRsn"],
+            "additionalProperties": false,
+            "properties": {
+                "RvslTx": {"$ref": "#/$defs/CardPaymentTransaction136"},
+                "LltyData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/LoyaltyRequestData3"},
+                    "minItems": 0
+                },
+                "RvslRsn": {"$ref": "#/$defs/ReversalReason1Code"},
+                "RvsdAmt": {"type": "number"},
+                "CstmrOrdr": {"$ref": "#/$defs/CustomerOrder1"}
+            }
+        },
+        "PaymentAccountRequest1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AcctTp": {"$ref": "#/$defs/CardAccountType3Code"},
+                "CstmrOrdr": {"$ref": "#/$defs/CustomerOrder1"},
+                "AcctRef": {"type": "string"}
+            }
+        },
+        "LoyaltyAccountRequest3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CstmrOrdr": {"$ref": "#/$defs/CustomerOrder1"},
+                "Acct": {"$ref": "#/$defs/LoyaltyAccount3"}
+            }
+        },
+        "StoredValueData7": {
+            "type": "object",
+            "required": ["TxTp"],
+            "additionalProperties": false,
+            "properties": {
+                "Prvdr": {"type": "string"},
+                "TxTp": {"$ref": "#/$defs/StoredValueTransactionType3Code"},
+                "AcctId": {"$ref": "#/$defs/StoredValueAccount2"},
+                "OrgnlPOITx": {"$ref": "#/$defs/CardPaymentTransaction136"},
+                "PdctCd": {"type": "string"},
+                "EANUPC": {"type": "string"},
+                "ItmAmt": {"type": "number"},
+                "Ccy": {"type": "string"},
+                "HstTxId": {"$ref": "#/$defs/TransactionIdentifier1"}
+            }
+        },
+        "StoredValueRequest7": {
+            "type": "object",
+            "required": ["Data"],
+            "additionalProperties": false,
+            "properties": {
+                "SaleTxId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "Data": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/StoredValueData7"},
+                    "minItems": 1
+                }
+            }
+        },
+        "BalanceInquiryRequest7": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "SaleTxId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "PmtAcctReq": {"$ref": "#/$defs/PaymentAccountRequest1"},
+                "LltyAcctReq": {"$ref": "#/$defs/LoyaltyAccountRequest3"},
+                "StordValAcctReq": {"$ref": "#/$defs/StoredValueRequest7"}
+            }
+        },
+        "LoyaltyTransaction6": {
+            "type": "object",
+            "required": ["LltyTxTp"],
+            "additionalProperties": false,
+            "properties": {
+                "SaleTxId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "LltyTxTp": {"$ref": "#/$defs/LoyaltyTransactionType1Code"},
+                "Ccy": {"type": "string"},
+                "TtlAmt": {"type": "number"},
+                "OrgnlPOITx": {"$ref": "#/$defs/CardPaymentTransaction136"},
+                "SaleItm": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/Product6"},
+                    "minItems": 0
+                }
+            }
+        },
+        "LoyaltyRequest6": {
+            "type": "object",
+            "required": ["Tx"],
+            "additionalProperties": false,
+            "properties": {
+                "CstmrOrdr": {"$ref": "#/$defs/CustomerOrder1"},
+                "Tx": {"$ref": "#/$defs/LoyaltyTransaction6"},
+                "Data": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/LoyaltyRequestData3"},
+                    "minItems": 0
+                }
+            }
+        },
+        "TransactionToPerform6Choice": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PmtReq": {"$ref": "#/$defs/PaymentRequest6"},
+                "LltyReq": {"$ref": "#/$defs/LoyaltyRequest6"},
+                "RvslReq": {"$ref": "#/$defs/ReversalRequest6"}
+            }
+        },
+        "BatchRequest6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "SaleBtchId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "RmvAllFlg": {"type": "boolean"},
+                "TxToPrfrm": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/TransactionToPerform6Choice"},
+                    "minItems": 0
+                }
+            }
+        },
+        "EnableServiceRequest6": {
+            "type": "object",
+            "required": ["TxActn"],
+            "additionalProperties": false,
+            "properties": {
+                "TxActn": {"$ref": "#/$defs/TransactionAction1Code"},
+                "SvcsNbld": {"$ref": "#/$defs/RetailerService2Code"},
+                "DispOutpt": {"$ref": "#/$defs/ActionMessage11"}
+            }
+        },
+        "CardAcquisitionRequest3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "SaleTxId": {"$ref": "#/$defs/TransactionIdentifier1"},
+                "AllwdPmtBrnd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "AllwdLltyBrnd": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"type": "string"},
+                    "minItems": 0
+                },
+                "ForceCstmrSelctnFlg": {"type": "boolean"},
+                "TtlAmt": {"type": "number"},
+                "PmtTp": {"$ref": "#/$defs/CardPaymentServiceType13Code"},
+                "CshBckFlg": {"type": "boolean"},
+                "SaleToPOIData": {"type": "string"},
+                "SaleToAcqrrData": {"type": "string"},
+                "SaleToIssrData": {"type": "string"}
+            }
+        },
+        "SupplementaryDataEnvelope1": {
+            "type": "object",
+            "required": ["Any"],
+            "additionalProperties": false,
+            "properties": {
+                "Any": {
+                    "type": "object",
+                    "additionalProperties": false
+                }
+            }
+        },
+        "SupplementaryData1": {
+            "type": "object",
+            "required": ["Envlp"],
+            "additionalProperties": false,
+            "properties": {
+                "PlcAndNm": {"type": "string"},
+                "Envlp": {"$ref": "#/$defs/SupplementaryDataEnvelope1"}
+            }
+        },
+        "ServiceRequest7": {
+            "type": "object",
+            "required": [
+                "Envt",
+                "Cntxt",
+                "SvcCntt"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Envt": {"$ref": "#/$defs/CardPaymentEnvironment80"},
+                "Cntxt": {"$ref": "#/$defs/CardPaymentContext30"},
+                "SvcCntt": {"$ref": "#/$defs/RetailerService2Code"},
+                "PmtReq": {"$ref": "#/$defs/PaymentRequest6"},
+                "RvslReq": {"$ref": "#/$defs/ReversalRequest6"},
+                "BalNqryReq": {"$ref": "#/$defs/BalanceInquiryRequest7"},
+                "LltyReq": {"$ref": "#/$defs/LoyaltyRequest6"},
+                "StordValReq": {"$ref": "#/$defs/StoredValueRequest7"},
+                "BtchReq": {"$ref": "#/$defs/BatchRequest6"},
+                "NblSvcReq": {"$ref": "#/$defs/EnableServiceRequest6"},
+                "CardAcqstnReq": {"$ref": "#/$defs/CardAcquisitionRequest3"},
+                "SplmtryData": {
+                    "type": "array",
+                    "additionalItems": false,
+                    "items": {"$ref": "#/$defs/SupplementaryData1"},
+                    "minItems": 0
+                }
+            }
+        },
+        "SaleToPOIServiceRequestV06": {
+            "type": "object",
+            "required": [
+                "Hdr",
+                "SvcReq"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "Hdr": {"$ref": "#/$defs/Header41"},
+                "SvcReq": {"$ref": "#/$defs/ServiceRequest7"},
+                "SctyTrlr": {"$ref": "#/$defs/ContentInformationType38"}
+            }
+        },
+        "Document": {
+            "type": "object",
+            "required": ["SaleToPOISvcReq"],
+            "additionalProperties": false,
+            "properties": {
+                "SaleToPOISvcReq": {"$ref": "#/$defs/SaleToPOIServiceRequestV06"}
+            }
+        },
+        "RetailerMessage1Code": {
+            "type": "string",
+            "enum": [
+                "SSAB",
+                "SAAQ",
+                "SAAP",
+                "SDDR",
+                "SDDP",
+                "SSEN",
+                "SSMQ",
+                "SSMR",
+                "SSRJ",
+                "SARQ",
+                "SARP",
+                "SFRP",
+                "SFRQ",
+                "SFSQ",
+                "SFSP",
+                "SASQ",
+                "SASP"
+            ]
+        },
+        "PartyType33Code": {
+            "type": "string",
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS",
+                "MTMG",
+                "TAXH",
+                "TMGT"
+            ]
+        },
+        "NetworkType1Code": {
+            "type": "string",
+            "enum": [
+                "IPNW",
+                "PSTN"
+            ]
+        },
+        "PartyType3Code": {
+            "type": "string",
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS"
+            ]
+        },
+        "PartyType4Code": {
+            "type": "string",
+            "enum": [
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "TAXH"
+            ]
+        },
+        "LocationCategory4Code": {
+            "type": "string",
+            "enum": [
+                "ABRD",
+                "NMDC",
+                "FIXD",
+                "VIRT"
+            ]
+        },
+        "AddressType2Code": {
+            "type": "string",
+            "enum": [
+                "ADDR",
+                "PBOX",
+                "HOME",
+                "BIZZ",
+                "MLTO",
+                "DLVY"
+            ]
+        },
+        "CardDataReading8Code": {
+            "type": "string",
+            "enum": [
+                "TAGC",
+                "PHYS",
+                "BRCD",
+                "MGST",
+                "CICC",
+                "DFLE",
+                "CTLS",
+                "ECTL",
+                "CDFL",
+                "SICC",
+                "UNKW",
+                "QRCD",
+                "OPTC"
+            ]
+        },
+        "CardholderVerificationCapability4Code": {
+            "type": "string",
+            "enum": [
+                "APKI",
+                "CHDT",
+                "MNSG",
+                "MNVR",
+                "FBIG",
+                "FBIO",
+                "FDSG",
+                "FCPN",
+                "FEPN",
+                "NPIN",
+                "PKIS",
+                "SCEC",
+                "NBIO",
+                "NOVF",
+                "OTHR"
+            ]
+        },
+        "OnLineCapability1Code": {
+            "type": "string",
+            "enum": [
+                "OFLN",
+                "ONLN",
+                "SMON"
+            ]
+        },
+        "UserInterface4Code": {
+            "type": "string",
+            "enum": [
+                "CDSP",
+                "CRCP",
+                "MDSP",
+                "MRCP",
+                "CRDO"
+            ]
+        },
+        "OutputFormat1Code": {
+            "type": "string",
+            "enum": [
+                "MREF",
+                "TEXT",
+                "HTML"
+            ]
+        },
+        "LocationCategory3Code": {
+            "type": "string",
+            "enum": [
+                "INDR",
+                "IPMP",
+                "MPOI",
+                "MPMP",
+                "MSLE",
+                "SSLE",
+                "VNDG"
+            ]
+        },
+        "POIComponentType6Code": {
+            "type": "string",
+            "enum": [
+                "AQPP",
+                "APPR",
+                "TLPR",
+                "SCPR",
+                "SERV",
+                "TERM",
+                "DVCE",
+                "SECM",
+                "APLI",
+                "EMVK",
+                "EMVO",
+                "MDWR",
+                "DRVR",
+                "OPST",
+                "MRPR",
+                "CRTF",
+                "TMSP",
+                "SACP",
+                "SAPR",
+                "LOGF",
+                "MDFL",
+                "SOFT",
+                "CONF",
+                "RPFL"
+            ]
+        },
+        "POIComponentStatus1Code": {
+            "type": "string",
+            "enum": [
+                "WAIT",
+                "OUTD",
+                "OPER",
+                "DACT"
+            ]
+        },
+        "MemoryUnit1Code": {
+            "type": "string",
+            "enum": [
+                "BYTE",
+                "EXAB",
+                "GIGA",
+                "KILO",
+                "MEGA",
+                "PETA",
+                "TERA"
+            ]
+        },
+        "POICommunicationType2Code": {
+            "type": "string",
+            "enum": [
+                "BLTH",
+                "ETHR",
+                "GPRS",
+                "GSMF",
+                "PSTN",
+                "RS23",
+                "USBD",
+                "USBH",
+                "WIFI",
+                "WT2G",
+                "WT3G",
+                "WT4G",
+                "WT5G"
+            ]
+        },
+        "PartyType7Code": {
+            "type": "string",
+            "enum": [
+                "ACQR",
+                "ITAG",
+                "PCPT",
+                "TMGT",
+                "SALE"
+            ]
+        },
+        "CryptographicKeyType3Code": {
+            "type": "string",
+            "enum": [
+                "AES2",
+                "EDE3",
+                "DKP9",
+                "AES9",
+                "AES5",
+                "EDE4"
+            ]
+        },
+        "KeyUsage1Code": {
+            "type": "string",
+            "enum": [
+                "ENCR",
+                "DCPT",
+                "DENC",
+                "DDEC",
+                "TRNI",
+                "TRNX",
+                "MACG",
+                "MACV",
+                "SIGG",
+                "SUGV",
+                "PINE",
+                "PIND",
+                "PINV",
+                "KEYG",
+                "KEYI",
+                "KEYX",
+                "KEYD"
+            ]
+        },
+        "ContentType2Code": {
+            "type": "string",
+            "enum": [
+                "DATA",
+                "SIGN",
+                "EVLP",
+                "DGST",
+                "AUTH"
+            ]
+        },
+        "AttributeType1Code": {
+            "type": "string",
+            "enum": [
+                "CNAT",
+                "LATT",
+                "OATT",
+                "OUAT",
+                "CATT"
+            ]
+        },
+        "Algorithm7Code": {
+            "type": "string",
+            "enum": [
+                "ERSA",
+                "RSAO"
+            ]
+        },
+        "EncryptionFormat2Code": {
+            "type": "string",
+            "enum": [
+                "TR31",
+                "TR34",
+                "I238"
+            ]
+        },
+        "Algorithm26Code": {
+            "type": "string",
+            "enum": [
+                "HS25",
+                "HS38",
+                "HS51",
+                "HS01",
+                "SH31",
+                "SH32",
+                "SH33",
+                "SH35",
+                "SHK1",
+                "SHK2",
+                "SMS3"
+            ]
+        },
+        "Algorithm8Code": {
+            "type": "string",
+            "enum": ["MGF1"]
+        },
+        "Algorithm28Code": {
+            "type": "string",
+            "enum": [
+                "EA2C",
+                "E3DC",
+                "DKP9",
+                "UKPT",
+                "UKA2",
+                "EA9C",
+                "EA5C",
+                "DA12",
+                "DA19",
+                "DA25",
+                "N108",
+                "EA5R",
+                "EA9R",
+                "EA2R",
+                "E3DR",
+                "E36C",
+                "E36R",
+                "SD5C",
+                "UKA1",
+                "UKA3",
+                "SM4C",
+                "SM4R"
+            ]
+        },
+        "BytePadding1Code": {
+            "type": "string",
+            "enum": [
+                "LNGT",
+                "NUL8",
+                "NULG",
+                "NULL",
+                "RAND"
+            ]
+        },
+        "Algorithm27Code": {
+            "type": "string",
+            "enum": [
+                "MACC",
+                "MCCS",
+                "CMA1",
+                "MCC1",
+                "CMA9",
+                "CMA5",
+                "CMA2",
+                "CM31",
+                "CM32",
+                "CM33",
+                "MCS3",
+                "CCA1",
+                "CCA2",
+                "CCA3",
+                "S34C",
+                "S34R"
+            ]
+        },
+        "Algorithm29Code": {
+            "type": "string",
+            "enum": [
+                "ERS2",
+                "ERS1",
+                "RPSS",
+                "ERS3",
+                "ED32",
+                "ED33",
+                "ED35",
+                "ED23",
+                "ED25",
+                "ES22",
+                "ES32",
+                "ES33",
+                "ES35",
+                "ES23",
+                "ES25",
+                "ED22",
+                "EF32",
+                "EF22",
+                "EF33",
+                "EF35",
+                "EF23",
+                "EO33",
+                "EF25",
+                "EO32",
+                "EO22",
+                "EO35",
+                "EO23",
+                "EO25",
+                "DD22",
+                "DD32",
+                "DD33",
+                "DD35",
+                "DD23",
+                "DD25",
+                "SM22",
+                "SM33",
+                "SM32",
+                "SM35",
+                "SM23",
+                "SM25",
+                "S2S3"
+            ]
+        },
+        "POIComponentAssessment1Code": {
+            "type": "string",
+            "enum": [
+                "APPL",
+                "CERT",
+                "EVAL"
+            ]
+        },
+        "CardProductType1Code": {
+            "type": "string",
+            "enum": [
+                "COMM",
+                "CONS"
+            ]
+        },
+        "TrackFormat1Code": {
+            "type": "string",
+            "enum": [
+                "AAMV",
+                "CMC7",
+                "E13B",
+                "ISOF",
+                "JIS1",
+                "JIS2"
+            ]
+        },
+        "CheckType1Code": {
+            "type": "string",
+            "enum": [
+                "BANK",
+                "BUSI",
+                "GOVC",
+                "PAYR",
+                "PERS"
+            ]
+        },
+        "StoredValueAccountType1Code": {
+            "type": "string",
+            "enum": [
+                "BNKA",
+                "CWVC",
+                "CPYA",
+                "ELMY",
+                "GIFT",
+                "GCER",
+                "MLVC",
+                "OLVC",
+                "MERC",
+                "OTHR",
+                "PHON",
+                "CARD",
+                "TRVL"
+            ]
+        },
+        "CardIdentificationType1Code": {
+            "type": "string",
+            "enum": [
+                "ACCT",
+                "BARC",
+                "ISO2",
+                "PHON",
+                "CPAN",
+                "PRIV",
+                "UUID"
+            ]
+        },
+        "AmountUnit1Code": {
+            "type": "string",
+            "enum": [
+                "MONE",
+                "POIN"
+            ]
+        },
+        "CardDataReading5Code": {
+            "type": "string",
+            "enum": [
+                "TAGC",
+                "PHYS",
+                "BRCD",
+                "MGST",
+                "CICC",
+                "DFLE",
+                "CTLS",
+                "ECTL",
+                "CDFL"
+            ]
+        },
+        "AuthenticationMethod8Code": {
+            "type": "string",
+            "enum": [
+                "TOKA",
+                "ADDB",
+                "BYPS",
+                "BIOM",
+                "CDHI",
+                "CRYP",
+                "CSCV",
+                "MANU",
+                "MERC",
+                "MOBL",
+                "FPIN",
+                "NPIN",
+                "OTHR",
+                "PPSG",
+                "PSVE",
+                "PSWD",
+                "TOKP",
+                "SCRT",
+                "SCNL",
+                "CSEC",
+                "SNCT",
+                "ADDS",
+                "CPSG",
+                "TOKN",
+                "UKNW"
+            ]
+        },
+        "Exemption1Code": {
+            "type": "string",
+            "enum": [
+                "LOWA",
+                "MINT",
+                "RECP",
+                "SCPE",
+                "SCAD",
+                "TRAE",
+                "PKGE",
+                "TMBE"
+            ]
+        },
+        "PINFormat3Code": {
+            "type": "string",
+            "enum": [
+                "ISO0",
+                "ISO1",
+                "ISO2",
+                "ISO3",
+                "ISO4",
+                "ISO5"
+            ]
+        },
+        "AuthenticationResult1Code": {
+            "type": "string",
+            "enum": [
+                "DENY",
+                "MRCH",
+                "CARD",
+                "AUTH",
+                "CRPT",
+                "UCRP"
+            ]
+        },
+        "AuthenticationMethod6Code": {
+            "type": "string",
+            "enum": [
+                "NPIN",
+                "PPSG",
+                "PSWD",
+                "SCRT",
+                "SCNL",
+                "SNCT",
+                "CPSG",
+                "ADDB",
+                "BIOM",
+                "CDHI",
+                "CRYP",
+                "CSCV",
+                "PSVE",
+                "CSEC",
+                "ADDS",
+                "MANU",
+                "FPIN",
+                "TOKP"
+            ]
+        },
+        "AuthenticationEntity2Code": {
+            "type": "string",
+            "enum": [
+                "ICCD",
+                "AGNT",
+                "MERC",
+                "ACQR",
+                "ISSR",
+                "TRML"
+            ]
+        },
+        "Verification1Code": {
+            "type": "string",
+            "enum": [
+                "FAIL",
+                "MISS",
+                "NOVF",
+                "PART",
+                "SUCC",
+                "ERRR"
+            ]
+        },
+        "SaleCapabilities1Code": {
+            "type": "string",
+            "enum": [
+                "CHDI",
+                "CHER",
+                "CHIN",
+                "CHST",
+                "CUDI",
+                "CUAS",
+                "CUER",
+                "CUIN",
+                "POIR",
+                "PRDC",
+                "PRRP",
+                "PRVC"
+            ]
+        },
+        "LoyaltyHandling1Code": {
+            "type": "string",
+            "enum": [
+                "ALLO",
+                "DENY",
+                "PRCS",
+                "PROP",
+                "REQU"
+            ]
+        },
+        "AttendanceContext1Code": {
+            "type": "string",
+            "enum": [
+                "ATTD",
+                "SATT",
+                "UATT"
+            ]
+        },
+        "TransactionEnvironment1Code": {
+            "type": "string",
+            "enum": [
+                "MERC",
+                "PRIV",
+                "PUBL"
+            ]
+        },
+        "TransactionChannel5Code": {
+            "type": "string",
+            "enum": [
+                "MAIL",
+                "TLPH",
+                "ECOM",
+                "TVPY",
+                "SECM",
+                "MOBL",
+                "MPOS"
+            ]
+        },
+        "BusinessArea2Code": {
+            "type": "string",
+            "enum": [
+                "AIBD",
+                "PPAY",
+                "TKNF",
+                "EOPT",
+                "TOPT"
+            ]
+        },
+        "CardFallback1Code": {
+            "type": "string",
+            "enum": [
+                "FFLB",
+                "SFLB",
+                "NFLB"
+            ]
+        },
+        "SupportedPaymentOption2Code": {
+            "type": "string",
+            "enum": [
+                "PART",
+                "MSRV",
+                "INSI",
+                "PINQ"
+            ]
+        },
+        "SaleTokenScope1Code": {
+            "type": "string",
+            "enum": [
+                "MULT",
+                "SNGL"
+            ]
+        },
+        "RetailerService2Code": {
+            "type": "string",
+            "enum": [
+                "FSPQ",
+                "FSRQ",
+                "FSIQ",
+                "FSBQ",
+                "FSLQ",
+                "FSVQ",
+                "FSEQ",
+                "FSAQ",
+                "FSCQ"
+            ]
+        },
+        "CardPaymentServiceType5Code": {
+            "type": "string",
+            "enum": [
+                "BALC",
+                "CACT",
+                "CRDP",
+                "CAFH",
+                "CAVR",
+                "CSHW",
+                "CSHD",
+                "DEFR",
+                "LOAD",
+                "ORCR",
+                "PINC",
+                "QUCH",
+                "RFND",
+                "RESA",
+                "VALC",
+                "UNLD",
+                "CAFT",
+                "CAFL"
+            ]
+        },
+        "CardPaymentServiceType9Code": {
+            "type": "string",
+            "enum": [
+                "AGGR",
+                "DCCV",
+                "GRTT",
+                "LOYT",
+                "NRES",
+                "PUCO",
+                "RECP",
+                "SOAF",
+                "VCAU",
+                "INSI",
+                "INSA",
+                "CSHB",
+                "INST",
+                "NRFD"
+            ]
+        },
+        "CardPaymentServiceType14Code": {
+            "type": "string",
+            "enum": [
+                "IRES",
+                "URES",
+                "PRES",
+                "ARES",
+                "FREC",
+                "RREC",
+                "GOPT"
+            ]
+        },
+        "CurrencyConversionResponse3Code": {
+            "type": "string",
+            "enum": [
+                "ODCC",
+                "DCCA",
+                "ICRD",
+                "IMER",
+                "IPRD",
+                "IRAT",
+                "NDCC",
+                "REST",
+                "CATG"
+            ]
+        },
+        "InformationQualify1Code": {
+            "type": "string",
+            "enum": [
+                "CUSA",
+                "DISP",
+                "DOCT",
+                "ERRO",
+                "INPT",
+                "POIR",
+                "RCPT",
+                "SOND",
+                "STAT",
+                "VCHR"
+            ]
+        },
+        "OutputFormat3Code": {
+            "type": "string",
+            "enum": [
+                "BARC",
+                "MENT",
+                "MREF",
+                "SREF",
+                "TEXT",
+                "HTML"
+            ]
+        },
+        "BarcodeType1Code": {
+            "type": "string",
+            "enum": [
+                "COQR",
+                "C128",
+                "C025",
+                "C039",
+                "EA13",
+                "EAN8",
+                "P417",
+                "UPCA"
+            ]
+        },
+        "QRCodeEncodingMode1Code": {
+            "type": "string",
+            "enum": [
+                "ALFA",
+                "BINA",
+                "KANJ",
+                "NUME"
+            ]
+        },
+        "QRCodeErrorCorrection1Code": {
+            "type": "string",
+            "enum": [
+                "M015",
+                "Q025",
+                "H030",
+                "L007"
+            ]
+        },
+        "TypeOfAmount8Code": {
+            "type": "string",
+            "enum": [
+                "ACTL",
+                "ESTM",
+                "MAXI",
+                "DFLT",
+                "RPLT",
+                "INCR",
+                "DECR",
+                "RESD"
+            ]
+        },
+        "OnLineReason2Code": {
+            "type": "string",
+            "enum": [
+                "RNDM",
+                "ICCF",
+                "MERF",
+                "TRMF",
+                "ISSF",
+                "FRLT",
+                "EXFL",
+                "TAMT",
+                "CBIN",
+                "UBIN",
+                "CPAN",
+                "FLOW",
+                "CRCY",
+                "IFPR"
+            ]
+        },
+        "CardAccountType3Code": {
+            "type": "string",
+            "enum": [
+                "CTDP",
+                "CHCK",
+                "CRDT",
+                "CURR",
+                "CDBT",
+                "DFLT",
+                "EPRS",
+                "HEQL",
+                "ISTL",
+                "INVS",
+                "LCDT",
+                "MBNW",
+                "MNMK",
+                "MNMC",
+                "MTGL",
+                "RTRM",
+                "RVLV",
+                "SVNG",
+                "STBD",
+                "UVRL",
+                "PRPD",
+                "FLTC"
+            ]
+        },
+        "InstalmentPlan1Code": {
+            "type": "string",
+            "enum": [
+                "EQPM",
+                "NQPM",
+                "DFRI"
+            ]
+        },
+        "PlanOwner1Code": {
+            "type": "string",
+            "enum": [
+                "ACCP",
+                "ACQR",
+                "ISSR",
+                "OTHN",
+                "OTHP"
+            ]
+        },
+        "Frequency3Code": {
+            "type": "string",
+            "enum": [
+                "YEAR",
+                "MNTH",
+                "QURT",
+                "MIAN",
+                "WEEK",
+                "DAIL",
+                "TEND"
+            ]
+        },
+        "InstalmentAmountDetailsType1Code": {
+            "type": "string",
+            "enum": [
+                "TAXX",
+                "RQST",
+                "OTHP",
+                "OTHN",
+                "OTHC",
+                "INSU",
+                "FUNA",
+                "FEES",
+                "EXPN",
+                "AFCO"
+            ]
+        },
+        "InterestRate1Code": {
+            "type": "string",
+            "enum": [
+                "GSRT",
+                "NTRT",
+                "OTHN",
+                "OTHP"
+            ]
+        },
+        "InstalmentPeriod1Code": {
+            "type": "string",
+            "enum": [
+                "MNTH",
+                "ANNU"
+            ]
+        },
+        "GracePeriodUnitType1Code": {
+            "type": "string",
+            "enum": [
+                "WEKS",
+                "PMTS",
+                "OTHP",
+                "OTHN",
+                "MNTH",
+                "DAYS"
+            ]
+        },
+        "UnitOfMeasure6Code": {
+            "type": "string",
+            "enum": [
+                "PIEC",
+                "TONS",
+                "FOOT",
+                "GBGA",
+                "USGA",
+                "GRAM",
+                "INCH",
+                "KILO",
+                "PUND",
+                "METR",
+                "CMET",
+                "MMET",
+                "LITR",
+                "CELI",
+                "MILI",
+                "GBOU",
+                "USOU",
+                "GBQA",
+                "USQA",
+                "GBPI",
+                "USPI",
+                "MILE",
+                "KMET",
+                "YARD",
+                "SQKI",
+                "HECT",
+                "ARES",
+                "SMET",
+                "SCMT",
+                "SMIL",
+                "SQMI",
+                "SQYA",
+                "SQFO",
+                "SQIN",
+                "ACRE",
+                "KWHO",
+                "DGEU",
+                "GGEU"
+            ]
+        },
+        "AttendanceContext2Code": {
+            "type": "string",
+            "enum": [
+                "ATTL",
+                "CARR",
+                "CUST",
+                "FULL",
+                "SELF"
+            ]
+        },
+        "PartyType14Code": {
+            "type": "string",
+            "enum": [
+                "OPOI",
+                "MERC",
+                "ACCP",
+                "ITAG",
+                "ACQR",
+                "CISS",
+                "DLIS",
+                "ICCA"
+            ]
+        },
+        "Response9Code": {
+            "type": "string",
+            "enum": [
+                "APPR",
+                "DECL",
+                "PART",
+                "SUSP",
+                "TECH"
+            ]
+        },
+        "ReversalReason1Code": {
+            "type": "string",
+            "enum": [
+                "CUSC",
+                "MALF",
+                "MERC",
+                "UNAB"
+            ]
+        },
+        "StoredValueTransactionType3Code": {
+            "type": "string",
+            "enum": [
+                "ACTV",
+                "DUPL",
+                "LOAD",
+                "RESV",
+                "REVS",
+                "ULOA",
+                "CLOS",
+                "DCTV",
+                "OPEN",
+                "BALC"
+            ]
+        },
+        "LoyaltyTransactionType1Code": {
+            "type": "string",
+            "enum": [
+                "AWRD",
+                "AWRR",
+                "REBR",
+                "REBA",
+                "REDE",
+                "REDR"
+            ]
+        },
+        "TransactionAction1Code": {
+            "type": "string",
+            "enum": [
+                "STAR",
+                "STOP"
+            ]
+        },
+        "CardPaymentServiceType13Code": {
+            "type": "string",
+            "enum": [
+                "CRDP",
+                "CSHW",
+                "CSHD",
+                "IRES",
+                "DEFR",
+                "URES",
+                "PRES",
+                "RECP",
+                "INSP",
+                "INSI",
+                "RFND",
+                "VCAU"
+            ]
+        }
+    }
+}
