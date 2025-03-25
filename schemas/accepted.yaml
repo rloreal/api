@@ -1,0 +1,48 @@
+type: object
+additionalProperties: true
+minProperties: 1
+description: >-
+  The short synchronous answer for nexo retailer api in case of HTTP code 202 - Accepted.
+properties:
+  success:
+    type: boolean
+    description: true or false
+  errorNumber:
+    type: integer
+    description: Machine readable error number giving information about the anomaly; 0 (zero) means no error
+  errorMessage:
+    type: string
+    description: Generic error message giving information about the anomaly
+  timestamp:
+    type: string
+    description: timestamp of returned message
+  resourceId:
+   type: string
+   description: Resource ID to use in GET messages
+  status:
+    type: string
+    description: Current status of the resource. These status must be described for any resource (by the Working Group) and documented within the MUG.
+  duration:
+    type: integer
+    description: Duration in units during which the resource can be interrogated (GET); after that duration the result may be undefined or empty (no more resource.
+  durationUnit:
+    type: string
+    description: Duration unit (seconds, minutes, days).
+  errors:
+    type: array
+    description: List of errors when trying to create or creating the resource
+    items:
+     type: object
+     properties:
+      objectName:
+          type: string
+          description: Name of the object that caused the error
+      objectValue:
+          type: string
+          description: Value of the object that caused the error
+      errorNumber:
+       type: integer
+       description: Machine readable error number giving information about the anomaly; 0 (zero) means no error
+      errorMessage:
+        type: string
+        description: Generic error message giving information about the anomaly

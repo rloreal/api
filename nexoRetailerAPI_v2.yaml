@@ -1,4 +1,4 @@
-openapi: '3.1.0'
+openapi: 3.1.0
 info:
   title: nexo retailer API
   version: 0.1.0
@@ -18,13 +18,12 @@ info:
   contact:
     name: Loreal Consulting
     email: romain.loreal@lorealconsulting.com
-    url: http://devlc.lorealconsulting.com
+    url: http://www.lorealconsulting.com
 
 externalDocs:
-  - description: "nexo standards specifications and documentation."
+    description: "nexo standards specifications and documentation."
     url: 'https://www.nexo-standards.org'
-  - description: "ISO20022 retailer message set"
-    url: "https://www.iso20022.org/iso-20022-message-definitions?search=casp"
+
 
 servers:
   - url : https://devlc/lorealconsulting.com:8099
@@ -40,100 +39,22 @@ tags:
   - name: "system"
     description: "system services such as abort"
 
-security:
-       - certs: []
+security:                                                                                                                                                                                                                                                                                                                                                                 
+  - x509: []
 
 components:
   schemas:
-    Document: 
-      $ref: "https://devlc.lorealconsulting.com:8099/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
-
+    SaleToPOIServiceRequestV06: 
+      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+    SaleToPOIServiceResponseV06: 
+      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+  securitySchemes:
+    x509:
+      type: mutualTLS
+      description : mutual auth of client and server using X509 certificates
 
 paths:
-  /financialService/{financialServiceId}:
-    get:
-      tags: 
-        - financial
-      summary : creates a service request to a POI
-      description: request a service, such as payment, to be done on the specified POI
-      operationId: getTransaction
-      parameters:
-        - in: path
-          name: financialServiceId
-          required: true
-          description: Identifier of the financialService (transactionId)
-          schema:
-              type: string
-        - in: header
-          name: Idempotency-Key
-          schema:
-            type: string
-            format: uuid
-          description: |
-              The idempotency key is a free identifier created by the client to
-              identify a request. It is used by the service to identify subsequent
-              retries of the same request and ensure idempotent behavior by sending
-              the same response without executing the request a second time.
-
-              Clients should be careful as any subsequent requests with the same key
-              may return the same response without further check. Therefore, it is
-              recommended to use an UUID version 4 (random) or any other random
-              string with enough entropy to avoid collisions.
-
-              Idempotency keys expire after 24 hours. Clients are responsible to stay
-              within this limits, if they require idempotent behavior.
-          required: false
-          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
-        - in: header  
-          name: traceparent
-          description: |
-              describes the position of the incoming request in its trace graph 
-              in a portable, fixed-length format. 
-              Its design focuses on fast parsing. 
-              Every tracing tool MUST properly set traceparent even when it only relies 
-              on vendor-specific information in tracestate.
-              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
-              - version-format: 2 bytes, "00-" in ASCII
-              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
-              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
-              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
-                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
-                base16(version) = 00
-                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
-                base16(parent-id) = 00f067aa0ba902b7
-                base16(trace-flags) = 01  // sampled
-          schema:
-            type: string
-          required: false
-          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
-        - in: header
-          name: tracestate
-          description: |
-              extends traceparent with vendor-specific data represented by a set of name/value pairs.
-              Storing information in tracestate is optional.
-          schema:
-            type: string
-          required: false
-          example: "congo=t61rcWkgMzE"
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
-      responses:
-        "201":
-          description: service request created
-        "400":
-          description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/Problem.yaml"
-        "404":
-          description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/Problem.yaml"
-        "500":
-          description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/Problem.yaml"
-
+  /poi/{poiId}/financialService:
     post:
       tags: 
         - financial
@@ -203,33 +124,992 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/Problem.yaml"
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/Problem.yaml"
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/Problem.yaml"
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  
+  /poi/{poiId}/reconciliationService:
+    post:
+      tags: 
+        - financial
+      summary : reconciliation request
+      description: initiate a reconcialiation on the specified POI
+      operationId: initiateReconciliation
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
 
-#webhooks:
-#  # Each webhook needs a name
-#  newPet:
-#    # This is a Path Item Object, the only difference is that the request is initiated by the API provider
-#    post:
-#      requestBody:
-#        description: Information about a financialService in the system
-#        content:
-#          application/json:
-#            schema:
-#              $ref: "https://devlc.lorealconsulting.com:8099/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
-#      responses:
-#        "200":
-#          description: Return a 200 status to indicate that the data was received successfully
-#
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/enableService:
+    post:
+      tags: 
+        - financial
+      summary : creates a service request to a POI
+      description: |
+        request a service, such as payment, to be initiated or executed by the specified POI.
+        For example, start a swipe-ahead transaction
+      operationId: enableService
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+
+  /poi/{poiId}/login:
+    post:
+      tags: 
+        - admin
+      summary : login on a POI
+      description: used fby a POS to login on a POI
+      operationId: login
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/logout:
+    post:
+      tags: 
+        - admin
+      summary : logout of a POI
+      description: used by a POS to logout of a POI
+      operationId: logout
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/admin:
+    post:
+      tags: 
+        - admin
+      summary : admin action on a POI
+      description: used by a POS to logdo some administrative action on a POI
+      operationId: admin
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/report:
+    post:
+      tags: 
+        - admin
+      summary : ask a report of a POI
+      description: used by a POS to get reports (transactions, totals) of a POI
+      operationId: report
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+
+  /poi/{poiId}/abort/{exchangeId}:
+    post:
+      tags: 
+        - system
+      summary : abort an action on a POI
+      description: used by a POS to abort an ongoing action on a POI
+      operationId: abort
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: path
+          name: exchangeId
+          required: true
+          description: ExchangeIdentification is a Unique identification of an exchange occurrence.
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/reject/{exchangeId}:
+    post:
+      tags: 
+        - system
+      summary : message rejection by a POS
+      description: used by a POS to reject a POI message
+      operationId: reject
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: path
+          name: exchangeId
+          required: false
+          description: | 
+            this exchange Identification is the Unique identification of the rejected message.
+            It is the original message exchangeId.
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/status/{exchangeId}:
+    post:
+      tags: 
+        - system
+      summary : message status 
+      description: used by a POS to know the status of message sent to POI
+      operationId: status
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: path
+          name: exchangeId
+          required: true
+          description: | 
+            this exchange Identification is the Unique identification 
+            of the message for which the POS needs a status.
+            It is the original message exchangeId.
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+  /poi/{poiId}/event:
+    post:
+      tags: 
+        - system
+      summary: event notification from a POS the POI of an event
+      operationId: eventNotification
+      parameters:
+        - in: path
+          name: poiId
+          required: true
+          description: Identifier of the POI
+          schema:
+              type: string
+              maxLength: 35
+              minLength: 1
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+
+
+webhooks:
+  # Each webhook needs a name
+  /pos/{posId}/financialService:
+    # This is a Path Item Object, the only difference is that the request is initiated by the API provider
+    post:
+      tags: 
+        - financial
+      summary : information update on a FinancialService  to a POI
+      description: Information about a financialService reuqted by POS in the system such as execution status
+      operationId: updateFinancialService
+      parameters:
+        - in: path
+          name: posId
+          required: true
+          description: Identifier of the POS
+          schema:
+              type: string
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+            format: uuid
+          description: |
+              The idempotency key is a free identifier created by the client to
+              identify a request. It is used by the service to identify subsequent
+              retries of the same request and ensure idempotent behavior by sending
+              the same response without executing the request a second time.
+
+              Clients should be careful as any subsequent requests with the same key
+              may return the same response without further check. Therefore, it is
+              recommended to use an UUID version 4 (random) or any other random
+              string with enough entropy to avoid collisions.
+
+              Idempotency keys expire after 24 hours. Clients are responsible to stay
+              within this limits, if they require idempotent behavior.
+          required: false
+          example: "7da7a728-f910-11e6-942a-68f728c1ba70"
+        - in: header  
+          name: traceparent
+          description: |
+              describes the position of the incoming request in its trace graph 
+              in a portable, fixed-length format. 
+              Its design focuses on fast parsing. 
+              Every tracing tool MUST properly set traceparent even when it only relies 
+              on vendor-specific information in tracestate.
+              The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+              - version-format: 2 bytes, "00-" in ASCII
+              - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+              - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+              - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+                Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+                base16(version) = 00
+                base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+                base16(parent-id) = 00f067aa0ba902b7
+                base16(trace-flags) = 01  // sampled
+          schema:
+            type: string
+          required: false
+          example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+        - in: header
+          name: tracestate
+          description: |
+              extends traceparent with vendor-specific data represented by a set of name/value pairs.
+              Storing information in tracestate is optional.
+          schema:
+            type: string
+          required: false
+          example: "congo=t61rcWkgMzE"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+      responses:
+        "201":
+          description: service request created
+        "400":
+          description: Invalid request
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          
 

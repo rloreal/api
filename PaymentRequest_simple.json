@@ -1,0 +1,53 @@
+{
+  "Header": {
+    "CreationDateTime": "2020-05-04T18:13:51.0+01:00",
+    "MessageFunction": "SFSQ",
+    "ProtocolVersion": "8.0",
+    "ExchangeIdentification": "642",
+    "InitiationParty": {
+    	"Identification": "SaleTermA",
+    	"Type": "MERC",
+    	"Issuer": "MERC",
+    	"Country": "FR",
+    	"ShortName": "PointOfSaleCo"
+    },
+    "RecipientParty": {
+    	"Identification": "1374",
+    	"Type": "OPOI"
+    }
+  },
+  "ServiceRequest": {
+    "Environment": {
+      "POI": {
+        "Identification": {
+          "Identification": "POITerm1"
+        }
+      },
+      "SaleEnvironment": {
+        "LoyaltyHandling": "DENY"
+      }
+    },
+        "Context": {
+      "PaymentContext": {
+        "AttendanceContext": "MERC"
+      },
+      "SaleContext": {
+        "SaleIdentification": "SaleTermA"
+      }
+    },
+    "ServiceContent": "FSPQ",
+    "PaymentRequest": {
+      "PaymentTransaction": {
+        "TransactionIdentification": {
+          "TransactionDateTime": "2020-05-04T18:13:51.0+01:00",
+          "TransactionReference": "579"
+        },
+        "TransactionType": "CRDP",
+		"TransactionDetails": {
+				"Currency": "EUR",
+				"TotalAmount": "104.11"
+		}
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+;;;;;;
+;;For nexo analyses;;;;
+Category;MC name;nexo ACQ;nexo TMS;nexo RET;RA Category proposal;Comments from nexo
+Acquirer;KEKIdentifier2;x;x;x;;Switch to Secure Element category
+Address;CommunicationAdress9;x;x;x;;Unchanged
+Amount;AmountAndDirection93;x;;x;;Unchanged
+;DetailedAmount4;;;x;;Unchanged
+;DetailedAmount15;;;x;;Unchanged
+Card;PlainCardData15;;;;;Error ! Shouldn't be an expandable
+Card Transaction;CardPaymentTransaction101;x;;x;;Update of v8
+;CardPaymentTransaction100;;;x;;Update of v8
+;CardPaymentDataSetTransaction30;x;;;;Update of v8
+;CardPaymentDataSetTransaction31;x;;;;Update of v8
+;CardPaymentDataSetTransaction32;x;;;;Update of v8
+;CardPaymentDataSetTransaction33;x;;;;Update of v8
+Configuration (New);TMSProtocolParameters5;;x;;;New
+;AcquirerProtocolParameters13;;x;;;New
+;MerchantConfigurationParameters5;;x;;;New
+;PaymentTerminalParameters7;;x;;;New
+;ApplicationParameters9;;x;;;New
+;HostCommunicationParameter6;;x;;;New
+;SecurityParameters12;;x;;;New
+;SaleToPOIProtocolParameter1;;x;;;New
+;TerminalPackageType1;;x;;;New
+Identification Information;GenericIdentification1;x;;;;Unchanged
+;GenericIdentification4;x;;;;Unchanged
+;GenericIdentification32;x;;x;;Unchanged
+;GenericIdentification36;x;;x;;Unchanged
+;GenericIdentification90;x;;x;;Unchanged
+;GenericIdentification172;x;x;x;;Update of v8
+;DetailedGenericIdentification;x;x;x;;Update of v8
+Miscellaneous;PointOfInteractionComponent10;x;x;x;;Update of v8
+;Acquirer10;x;;;;Switch to Acquirer category
+;ActionMessage7;;;x;;Update of v8
+;AggregationTransaction3;x;;;;Update of v8
+;CardPaymentContext28;x;;x;;Update of v8
+;CardPaymentEnvironment75;x;;x;;Update of v8
+;CustomerDevice1;x;;;;Unchanged
+;CustomerOrder1;;;x;;New
+;DataSetIdentification8;x;x;x;;New
+;EncapsulatedContent3;x;;;;Switch to Secure Element category
+;LoyaltyAccount2;;;x;;Update of v8
+;MaintenanceDelegateAction5;;x;;;New
+;MaintenanceIdentificationAssociation1;;x;;;Unchanged
+;MessageItemCondition1;;x;x;;New
+;PaymentReceipt2;;;x;;Update of v8
+;PointOfInteractionCapabilities9;;x;x;;Update of v8
+;Product6;;;x;;Unchanged
+;RecurringTransaction2;x;;;;Unchanged
+;ResponseType9;;;x;;Unchanged
+;RetailerPaymentResult2;;;x;;Update of v8
+;TransactionIdentifier1;x;;x;;Unchanged
+;Vehicle1;x;;;;Unchanged
+Monitoring (New);Traceability7;x;x;x;;New
+;ErrorAction4;;x;;;New
+;TMSEvent7;;x;;;New
+Network Access;NetworkParameters7;x;x;x;;Update of v8
+Postal Address;PostalAddress1;x;;;;Unchanged
+;PostalAddress22;x;;x;;Unchanged
+Secure Element;CryptographicKey14;x;x;x;;Update of v8
+;ContentInformationType21;x;x;x;;Update of v8
+;ContentInformationType22;x;x;x;;Update of v8
+;ContentInformationType23;x;x;x;;Update of v8
+;DigestedData5;x;x;x;;Unchanged
+;SignedData5;x;x;x;;Unchanged
+;EnvelopedData6;x;x;x;;Update of v8
+;AuthenticatedData6;x;x;x;;Update of v8
+;AlgorithmIdentification18;x;x;x;;Unchanged
+;AlgorithmIdentification19;x;x;x;;Unchanged
+;AlgorithmIdentification20;x;x;x;;Unchanged
+;AlgorithmIdentification21;x;x;x;;Unchanged
+;AlgorithmIdentification22;x;x;x;;Unchanged
+;AlgorithmIdentification25;x;x;x;;Update of v8
+;Recipient7Choice;x;x;x;;Update of v8
+Structured Postal Address;PostalAddress2;x;x;x;;Unchanged
+Synchronisation (New);ProcessRetry2;;x;;;New
+;ProcessTiming3;;x;;;New
+Token;CardPaymentToken5;x;x;x;;Update of v8

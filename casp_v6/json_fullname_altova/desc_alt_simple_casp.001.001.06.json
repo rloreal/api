@@ -1,0 +1,15 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "Comment describing your JSON Schema",
+	"items": false,
+	"properties": {
+		"iso20022:SaleToPOIServiceRequestV06": {
+			"description": "This SaleToPOIServiceRequest message is sent by a sale system to trig a financial service on POI system.",
+			"$ref": "file:///C:/Users/romai/OneDrive/Documents/NEXO/api/casp_v6/json_fullname_altova/desc_alt_casp.001.001.06.json#/$defs/iso20022:SaleToPOIServiceRequestV06"
+		}
+	},
+	"required": [
+		"iso20022:SaleToPOIServiceRequestV06"
+	],
+	"additionalProperties": false
+}

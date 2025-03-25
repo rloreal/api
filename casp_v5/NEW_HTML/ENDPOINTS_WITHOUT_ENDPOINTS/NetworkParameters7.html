@@ -1,0 +1,133 @@
+<html><head><style type="text/css">
+    p {
+        color: #000000;
+        line-height: 95%;
+        text-align: left;
+        orphans: 2;
+        widows: 2;
+        margin-bottom: 0.25cm;
+        direction: ltr;
+        background: transparent
+    }
+    p.western {
+        font-family: "Arial", serif;
+        font-size: 10pt;
+        so-language: en-GB
+    }
+    a:visited { color: #954f72; text-decoration: underline }
+    a:link { color: #0563c1; text-decoration: underline }
+    table.fixed {
+        table-layout: fixed;
+        width: 840px;
+        border-collapse: collapse;
+        border: 1px solid #a6a6a6;
+    }
+    tr.updated {
+        font-color: #0000ff;
+    }
+    tr.new {
+        font-color: #00cc00;
+    }
+    tr.deleted {
+        font-color: #ff0000;
+        text-decoration: line-through;
+    }
+
+    table.fixed td { word-wrap: break-word; }
+    table.fixed td:nth-of-type(1) { width: 32px; }
+    table.fixed td:nth-of-type(2) { width: 190px; }
+    table.fixed td:nth-of-type(3) { width: 60px; }
+    table.fixed td:nth-of-type(4) { width: 60px; }
+    table.fixed td:nth-of-type(5) { width: 60px; }
+    table.fixed td:nth-of-type(6) { width: 438px; }
+</style><title>casp.017.001.05.xsd.NetworkParameters7</title></head>
+    <body>
+    
+        <table class="fixed" cellpadding="7" cellspacing="0" id="NetworkParameters7" title="NetworkParameters7" style="1px solid #a6a6a6; border-collapse: collapse;width: 840px;">
+            <thead>
+                <tr style="background:#f2f2f2;font-size:8pt;font-style: italic;font-weight: bold;vertical-align: top;border: 1px solid #a6a6a6;border-collapse: collapse;">
+                    <td style="width: 32px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Lvl</p></td>
+                    <td style="width:190px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">NetworkParameters7</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Mult</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Rule</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Cstr</p></td>
+                    <td style="width:438px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">Usage</p></td>
+                </tr>
+            </thead>
+    
+    <tr id="Address.NetworkParameters9" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Address</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Network addresses of the host. Priorities of the addresses are defined by the order of their appearance in the message (the first one is the primary address, the second one the secondary address, etc...). <br/><i>&lt;Adr&gt;::NetworkParameters9</i></td>
+    </tr>
+    <tr id="NetworkType.NetworkType1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NetworkType</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Type of communication network. Allowed values:<ul><li>IPNW "InternetProtocol": A transport protocol using an IP network.</li><li>PSTN "PublicTelephone": A transport protocol using Public Switched Telephone Network</li></ul> <br/><br/><!--ISODEF-->Type of communication network.<br/>- <b>IPNW: InternetProtocol</b> : <i>Protocol of an IP network.</i><br/>- <b>PSTN: PublicTelephone</b> : <i>Protocol of a Public Switched Telephone Network (PSTN).</i><br/><!--/ISODEF--><i>&lt;NtwkTp&gt;::NetworkType1Code</i></td>
+    </tr>
+    <tr id="AddressValue.Max500Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddressValue</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Value of the address:  The value of an internet protocol address contains the IP address or the DNS (Domain NameServer) address, followed by the character ':' and the TCP port number if the default port is not used.  The value of a public telephone address contains the phone number with possible prefix and extensions. <br/><i>&lt;AdrVal&gt;::Max500Text</i></td>
+    </tr>
+    <tr id="UserName.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;UserName</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Username for identification of the POI e.g., to login into a server <br/><i>&lt;UsrNm&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="AccessCode.Max35Binary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;AccessCode</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Password for authentication of the POI e.g., to login into a server <br/><i>&lt;AccsCd&gt;::Max35Binary</i></td>
+    </tr>
+    <tr id="ServerCertificate.Max10KBinary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;ServerCertificate</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">X.509 Certificate required to authenticate the server. <br/><i>&lt;SvrCert&gt;::Max10KBinary</i></td>
+    </tr>
+    <tr id="ServerCertificateIdentifier.Max140Binary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;ServerCertificateIdentifier</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a binary string with a maximum length of 140 binary bytes.<br/><!--/ISODEF--><i>&lt;SvrCertIdr&gt;::Max140Binary</i></td>
+    </tr>
+    <tr id="ClientCertificate.Max10KBinary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;ClientCertificate</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">X.509 Certificate required to authenticate the client. <br/><i>&lt;ClntCert&gt;::Max10KBinary</i></td>
+    </tr>
+    <tr id="SecurityProfile.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;SecurityProfile</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identification of the set of security elements to access the host. <br/><i>&lt;SctyPrfl&gt;::Max35Text</i></td>
+    </tr>
+        </table>
+        </body>
+        </html>
+        

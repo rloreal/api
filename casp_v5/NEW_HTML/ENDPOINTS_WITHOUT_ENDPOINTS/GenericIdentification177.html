@@ -1,0 +1,174 @@
+<html><head><style type="text/css">
+    p {
+        color: #000000;
+        line-height: 95%;
+        text-align: left;
+        orphans: 2;
+        widows: 2;
+        margin-bottom: 0.25cm;
+        direction: ltr;
+        background: transparent
+    }
+    p.western {
+        font-family: "Arial", serif;
+        font-size: 10pt;
+        so-language: en-GB
+    }
+    a:visited { color: #954f72; text-decoration: underline }
+    a:link { color: #0563c1; text-decoration: underline }
+    table.fixed {
+        table-layout: fixed;
+        width: 840px;
+        border-collapse: collapse;
+        border: 1px solid #a6a6a6;
+    }
+    tr.updated {
+        font-color: #0000ff;
+    }
+    tr.new {
+        font-color: #00cc00;
+    }
+    tr.deleted {
+        font-color: #ff0000;
+        text-decoration: line-through;
+    }
+
+    table.fixed td { word-wrap: break-word; }
+    table.fixed td:nth-of-type(1) { width: 32px; }
+    table.fixed td:nth-of-type(2) { width: 190px; }
+    table.fixed td:nth-of-type(3) { width: 60px; }
+    table.fixed td:nth-of-type(4) { width: 60px; }
+    table.fixed td:nth-of-type(5) { width: 60px; }
+    table.fixed td:nth-of-type(6) { width: 438px; }
+</style><title>casp.017.001.05.xsd.GenericIdentification177</title></head>
+    <body>
+    
+        <table class="fixed" cellpadding="7" cellspacing="0" id="GenericIdentification177" title="GenericIdentification177" style="1px solid #a6a6a6; border-collapse: collapse;width: 840px;">
+            <thead>
+                <tr style="background:#f2f2f2;font-size:8pt;font-style: italic;font-weight: bold;vertical-align: top;border: 1px solid #a6a6a6;border-collapse: collapse;">
+                    <td style="width: 32px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Lvl</p></td>
+                    <td style="width:190px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">GenericIdentification177</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Mult</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Rule</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Cstr</p></td>
+                    <td style="width:438px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">Usage</p></td>
+                </tr>
+            </thead>
+    
+    <tr id="Identification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identification of the Acquirer or the Intermediary Agent determined by the application from the card and other data used in this transaction. <br/><i>&lt;Id&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Type.PartyType33Code" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Type</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">*</td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default Acquirer. Allowed values: Acquirer, IntermediaryAgent <br/><br/><!--ISODEF-->Identification of the type of entity involved in a transaction.<br/>- <b>OPOI: OriginatingPOI</b> : <i>Point Of Interaction initiating the card payment transaction.</i><br/>- <b>MERC: Merchant</b> : <i>Merchant providing goods and service in the card payment transaction.</i><br/>- <b>ACCP: Acceptor</b> : <i>Card acceptor, party accepting the card and presenting transaction data to the acquirer.</i><br/>- <b>ITAG: IntermediaryAgent</b> : <i>Party acting on behalf of other parties to process or forward data to other parties.</i><br/>- <b>ACQR: Acquirer</b> : <i>Entity acquiring card transactions.</i><br/>- <b>CISS: CardIssuer</b> : <i>Party that issues cards.</i><br/>- <b>DLIS: DelegateIssuer</b> : <i>Party to whom the card issuer delegates to authorise card payment transactions.</i><br/>- <b>MTMG: MasterTerminalManager</b> : <i>Responsible for the maintenance of a card payment acceptance terminal.</i><br/>- <b>TAXH: TaxAuthority</b> : <i>Tax authority.</i><br/>- <b>TMGT: TerminalManager</b> : <i>Responsible for one or several maintenance functions of a card payment acceptance terminal.</i><br/><!--/ISODEF--><i>&lt;Tp&gt;::PartyType33Code</i></td>
+    </tr>
+    <tr id="Issuer.PartyType33Code" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Issuer</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">*</td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Allowed values: Acquirer and IntermediaryAgent <br/><br/><!--ISODEF-->Identification of the type of entity involved in a transaction.<br/>- <b>OPOI: OriginatingPOI</b> : <i>Point Of Interaction initiating the card payment transaction.</i><br/>- <b>MERC: Merchant</b> : <i>Merchant providing goods and service in the card payment transaction.</i><br/>- <b>ACCP: Acceptor</b> : <i>Card acceptor, party accepting the card and presenting transaction data to the acquirer.</i><br/>- <b>ITAG: IntermediaryAgent</b> : <i>Party acting on behalf of other parties to process or forward data to other parties.</i><br/>- <b>ACQR: Acquirer</b> : <i>Entity acquiring card transactions.</i><br/>- <b>CISS: CardIssuer</b> : <i>Party that issues cards.</i><br/>- <b>DLIS: DelegateIssuer</b> : <i>Party to whom the card issuer delegates to authorise card payment transactions.</i><br/>- <b>MTMG: MasterTerminalManager</b> : <i>Responsible for the maintenance of a card payment acceptance terminal.</i><br/>- <b>TAXH: TaxAuthority</b> : <i>Tax authority.</i><br/>- <b>TMGT: TerminalManager</b> : <i>Responsible for one or several maintenance functions of a card payment acceptance terminal.</i><br/><!--/ISODEF--><i>&lt;Issr&gt;::PartyType33Code</i></td>
+    </tr>
+    <tr id="Country.Min2Max3AlphaText" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Country</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Country of the Acquirer (must be ISO3166-1 alpha-2 or alpha-3) <br/><i>&lt;Ctry&gt;::Min2Max3AlphaText</i></td>
+    </tr>
+    <tr id="ShortName.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;ShortName</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Name of the Acquirer or IntermediaryAgent (e.g., name of the bank or theprocessor) <br/><i>&lt;ShrtNm&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="RemoteAccess.NetworkParameters7" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;RemoteAccess</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#NetworkParameters7">NetworkParameters7</a><br/><i>&lt;RmotAccs&gt;::NetworkParameters7</i></td>
+    </tr>
+    <tr id="Geolocation.Geolocation1" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Geolocation</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Geographic location specified by geographic or UTM coordinates.<br/><!--/ISODEF--><i>&lt;Glctn&gt;::Geolocation1</i></td>
+    </tr>
+    <tr id="GeographicCoordinates.GeolocationGeographicCoordinates1" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GeographicCoordinates</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Location on the Earth specified by two numbers representing vertical and horizontal position.<br/><!--/ISODEF--><i>&lt;GeogcCordints&gt;::GeolocationGeographicCoordinates1</i></td>
+    </tr>
+    <tr id="Latitude.Max35Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Latitude</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;Lat&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Longitude.Max35Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Longitude</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;Long&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="UTMCoordinates.GeolocationUTMCoordinates1" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTMCoordinates</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Location on the Earth specified by the Universal Transverse Mercator coordinate system.
+Identifies the geographic location using the WGS84 ellipsoid spatial reference system.<br/><!--/ISODEF--><i>&lt;UTMCordints&gt;::GeolocationUTMCoordinates1</i></td>
+    </tr>
+    <tr id="UTMZone.Max35Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTMZone</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;UTMZone&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="UTMEastward.Max35Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTMEastward</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;UTMEstwrd&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="UTMNorthward.Max35Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTMNorthward</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;UTMNrthwrd&gt;::Max35Text</i></td>
+    </tr>
+        </table>
+        </body>
+        </html>
+        

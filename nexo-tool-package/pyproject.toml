@@ -1,0 +1,17 @@
+[project]
+name = nexo_MUG_tool"
+version = "0.0.1"
+authors = [
+  { name="Romain Loreal", email="romain.loreal@gmail.com" },
+]
+description = "a tool to generate HTML files from ISO20022 Repository and XML Schema for inclusion in nexo protocols MUGs"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Creative Commons Attribution-ShareAlike 4.0",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://www.nexo-standards.org"

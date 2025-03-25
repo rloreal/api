@@ -1,0 +1,46 @@
+@startuml
+
+actor chargecli
+participant espaceco
+participant softpos
+participant acquereur
+actor client
+
+chargecli -> espaceco : créer vente
+chargecli -> espaceco: réglement
+chargecli -> espaceco : choix paiement mobile
+espaceco -> espaceco : afficher qr code
+opt #Wheat annulation paiement mobile
+    chargecli ->X espaceco : annulation paiement mobile
+end opt
+softpos -> espaceco : scanner qr code (IDRH, Montant, CodeRegate)
+opt #Wheat annuler paiement mobile
+    chargecli -> softpos : annulation paiement mobile
+    softpos ->X espaceco : annulation paiement mobile
+    chargecli -> espaceco : choix d'un autre moyen de règlement
+end opt
+
+softpos <-> client : présenter carte
+softpos <-> acquereur : traiter paiement CB
+softpos -> client : présenter carte
+alt paiement accepté 
+    softpos -> client : paiement accepté
+    softpos -> chargecli : paiement accepté
+    softpos -> espaceco : paiement accepté (IDRH, Montant, CodeRegate)
+else paiement CB refusé
+    softpos -> client : paiement refusé
+    softpos -> chargecli : paiement refusé
+    alt ressayer sur espaceco
+        softpos -> espaceco : paiement refusé (IDRH, Montant, CodeRegate)
+        chargecli -> espaceco : ressayer paiement mobile
+    else ressayer sur softpos
+        chargecli -> softpos : ressayer paiement mobile
+    else
+        chargecli -> espaceco : changer de moyen de règlement
+    end
+else annuler paiement mobile
+    chargecli -> client : paiement refusé
+end
+
+
+@enduml

@@ -1,0 +1,91 @@
+@startuml smarteo SoftPOS Process flow
+
+!pragma teoz true
+
+skinparam ActivityDiamondBackgroundColor lavender
+
+
+start
+#grey:POS status\n(STATUS_BROADCAST);
+if () then  (status=="initiated")
+    if () then  (status == true)
+        label start_payment
+        #grey:POS payment\n(POSActivity);
+        #lightgrey:Register SDK Transaction UUID;
+        if () then (with intent response)
+            -[#green]->
+            if (result status) then (RESULT_CANCEL)
+                #lightblue:Transaction has NOT been performed;
+                if (<b>with Extras information ?) then (<color:orange>:Abnormal Cancel)
+                    :Show error that occurred\n during the process\n preceding the cancellation;
+                    #orange: GIE CB Rule\nprint customer receipt if TNA;
+                    : Trace TNA;
+                    #lightgreen:retry;
+                    kill
+                else (<color:orange>:Normal cancel)
+                    :Show cancel cause;
+                    #lightgreen:retry;
+                    kill
+                endif
+            else (<color:#green>RESULT_OK)
+                -[#green]->
+            endif
+            
+        else (without intent response)
+            :WAIT 5 seconds;
+            #grey:POS transaction status\n(TRANSACTION_STATUS_BROADCAST);
+
+            -[#green]->
+        endif
+        -[#green]-> with status response;
+        #lightgrey:Check response;
+        if (response status) then (<color:#red><b>Intent error)
+            if () then (SDK Transaction UUID unknown)
+                #lightblue::Transaction has NOT been performed;
+                :Trace;
+                #lightgreen:retry;
+                kill
+            else (Error fectching transaction status)
+                :Trace;
+                #grey:2ND CALL\nPOS transaction status\n(TRANSACTION_STATUS_BROADCAST);
+                if () then (<color:red>2nd intent error)
+                    #orange:Consider the Transaction DECLINED;
+                    stop
+                endif
+            endif
+        endif
+        -[#green]-> <color:#green><b>Intent Result OK;
+        if (check receipt) then (receipt == null)                  
+            :Wait 5 seconds;
+            #grey:POS transaction status\n(TRANSACTION_STATUS_BROADCAST);
+            if (check receipt) then (receipt == null) 
+                #lightblue:Transaction has NOT been performed;
+                #lightgreen:retry;
+                kill
+            endif
+            -[#green]->
+        endif
+        -[#green]->
+        #green:<b>Transaction Performed;
+        if (receipt != null ) then ( receipt status == "APPROVED" )
+                -[#green]->
+                :Show transaction receipt;
+                stop
+            else ( receipt_status == "DECLINED" )
+                -[#red,dashed]->
+                :Show transaction receipt;
+                if (customer has received debit notification) then (yes)
+                    #orange:explain situation\nprint customer receipt;
+                endif
+                stop
+        endif
+    else (status == false )
+        #lightSalmon:Show error;
+        kill
+    endif
+else (status is ("None","Failed"))
+    #lightSalmon:Show error;
+    kill
+endif
+
+@enduml

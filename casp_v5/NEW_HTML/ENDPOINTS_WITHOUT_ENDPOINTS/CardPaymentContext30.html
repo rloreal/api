@@ -1,0 +1,566 @@
+<html><head><style type="text/css">
+    p {
+        color: #000000;
+        line-height: 95%;
+        text-align: left;
+        orphans: 2;
+        widows: 2;
+        margin-bottom: 0.25cm;
+        direction: ltr;
+        background: transparent
+    }
+    p.western {
+        font-family: "Arial", serif;
+        font-size: 10pt;
+        so-language: en-GB
+    }
+    a:visited { color: #954f72; text-decoration: underline }
+    a:link { color: #0563c1; text-decoration: underline }
+    table.fixed {
+        table-layout: fixed;
+        width: 840px;
+        border-collapse: collapse;
+        border: 1px solid #a6a6a6;
+    }
+    tr.updated {
+        font-color: #0000ff;
+    }
+    tr.new {
+        font-color: #00cc00;
+    }
+    tr.deleted {
+        font-color: #ff0000;
+        text-decoration: line-through;
+    }
+
+    table.fixed td { word-wrap: break-word; }
+    table.fixed td:nth-of-type(1) { width: 32px; }
+    table.fixed td:nth-of-type(2) { width: 190px; }
+    table.fixed td:nth-of-type(3) { width: 60px; }
+    table.fixed td:nth-of-type(4) { width: 60px; }
+    table.fixed td:nth-of-type(5) { width: 60px; }
+    table.fixed td:nth-of-type(6) { width: 438px; }
+</style><title>casp.017.001.05.xsd.CardPaymentContext30</title></head>
+    <body>
+    
+        <table class="fixed" cellpadding="7" cellspacing="0" id="CardPaymentContext30" title="CardPaymentContext30" style="1px solid #a6a6a6; border-collapse: collapse;width: 840px;">
+            <thead>
+                <tr style="background:#f2f2f2;font-size:8pt;font-style: italic;font-weight: bold;vertical-align: top;border: 1px solid #a6a6a6;border-collapse: collapse;">
+                    <td style="width: 32px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Lvl</p></td>
+                    <td style="width:190px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">CardPaymentContext30</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Mult</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Rule</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Cstr</p></td>
+                    <td style="width:438px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">Usage</p></td>
+                </tr>
+            </thead>
+    
+    <tr id="PaymentContext.PaymentContext29" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;PaymentContext</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Payment context in which the transaction is performed.<br/><!--/ISODEF--><i>&lt;PmtCntxt&gt;::PaymentContext29</i></td>
+    </tr>
+    <tr id="CardPresent.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CardPresent</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C1</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default True Indicates whether the transaction has been initiated by a card physically present or not:  Not presen tif CardDataEntryMode="AccountData",Present or not if CardDataEntryMode ="Physical",Present for other values of CardDataEntryMode . <br/><i>&lt;CardPres&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="CardholderPresent.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CardholderPresent</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C2</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default True Indicates whether the transaction has been initiated i npresence of the cardholder or not (e.g.,False for the 2nd and subsequentpayments on a recurring transaction). <br/><i>&lt;CrdhldrPres&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="OnLineContext.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnLineContext</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->A flag indicating a True or False value.<br/><!--/ISODEF--><i>&lt;OnLineCntxt&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="AttendanceContext.AttendanceContext1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttendanceContext</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Config</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C2</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">If CardholderPresent is "True":Attended : an attendant is present and performs the financial transaction (face to face). SemiAttended : one attendant monitors several POIs, to offer assistance if needed. Unattended : an attendant is not present. Otherwise, the element is absent. <br/><br/><!--ISODEF-->Human attendance at the POI location during the transaction.<br/>- <b>ATTD: Attended</b> : <i>Attended payment, with an attendant.</i><br/>- <b>SATT: SemiAttended</b> : <i>Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.</i><br/>- <b>UATT: Unattended</b> : <i>Unattended payment, no attendant present.</i><br/><!--/ISODEF--><i>&lt;AttndncCntxt&gt;::AttendanceContext1Code</i></td>
+    </tr>
+    <tr id="TransactionEnvironment.TransactionEnvironment1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransactionEnvironment</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default True. Merchant Information required by some Acquirers or card scheme. Merchant : POI is located at the premises of the merchant. Private :remote payment, not at the premises of the merchant. Public : POI is located in a public area, not at the premises of the merchant. <br/><br/><!--ISODEF-->Indicates the environment of the transaction.<br/>- <b>MERC: Merchant</b> : <i>Merchant environment.</i><br/>- <b>PRIV: Private</b> : <i>Private environment.</i><br/>- <b>PUBL: Public</b> : <i>Public environment.</i><br/><!--/ISODEF--><i>&lt;TxEnvt&gt;::TransactionEnvironment1Code</i></td>
+    </tr>
+    <tr id="TransactionChannel.TransactionChannel5Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransactionChannel</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Config</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Information required by some Acquirers or card schemes for specific environments. MailOrder : services or goods purchased by mail (written).TelephoneOrder : services or goods purchased by phone (voice). ElectronicCommerce : services or goods purchased by Internet (electronic). TelevisionPayment : services or good purchased by TV. <br/><br/><!--ISODEF-->Identifies the type of the communication channels used by the cardholder to the acceptor system.<br/>- <b>MAIL: MailOrder</b> : <i>Mail order.</i><br/>- <b>TLPH: TelephoneOrder</b> : <i>Telephone order.</i><br/>- <b>ECOM: ElectronicCommerce</b> : <i>Electronic commerce.</i><br/>- <b>TVPY: TelevisionPayment</b> : <i>Payment on television.</i><br/>- <b>SECM: SecuredElectronicCommerce</b> : <i>Electronic commerce with cardholder authentication.</i><br/>- <b>MOBL: MobilePayment</b> : <i>Payment performed through a cardholder mobile device.</i><br/>- <b>MPOS: MobilePOS</b> : <i>Payment performed through a merchant mobile device.</i><br/><!--/ISODEF--><i>&lt;TxChanl&gt;::TransactionChannel5Code</i></td>
+    </tr>
+    <tr id="BusinessArea.BusinessArea2Code" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BusinessArea</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies the business context of the transaction<br/>- <b>AIBD: ArtificialIntelligenceBasedDecision</b> : <i>The payment is initiated by an artificial intelligence based decision.</i><br/>- <b>PPAY: PlainPayment</b> : <i>The card is used to perform a plain payment.</i><br/>- <b>TKNF: TransitKnownFare</b> : <i>The card is used in a Transit business case where the fare amount is known when the transaction is initiated.</i><br/>- <b>EOPT: EnergyOpenPayment</b> : <i>Indicates when the card is used in an energy business case where the amount could not be assessed when the transaction is initiated.</i><br/>- <b>TOPT: TransitOpenPayment</b> : <i>Indicates when the card is used in a transit business case where the fare amount is not known when the transaction is initiated.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Specifies the business context of the transaction<br/>- <b>AIBD: ArtificialIntelligenceBasedDecision</b> : <i>The payment is initiated by an artificial intelligence based decision.</i><br/>- <b>PPAY: PlainPayment</b> : <i>The card is used to perform a plain payment.</i><br/>- <b>TKNF: TransitKnownFare</b> : <i>The card is used in a Transit business case where the fare amount is known when the transaction is initiated.</i><br/>- <b>EOPT: EnergyOpenPayment</b> : <i>Indicates when the card is used in an energy business case where the amount could not be assessed when the transaction is initiated.</i><br/>- <b>TOPT: TransitOpenPayment</b> : <i>Indicates when the card is used in a transit business case where the fare amount is not known when the transaction is initiated.</i><br/><!--/ISODEF--><i>&lt;BizArea&gt;::BusinessArea2Code</i></td>
+    </tr>
+    <tr id="AttendantMessageCapable.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttendantMessageCapable</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C3</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default True. Indicates to the Acquirer whether a message in the authorisation response can be displayed to the Cashier or not. <br/><i>&lt;AttndntMsgCpbl&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="AttendantLanguage.LanguageCode" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttendantLanguage</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C3</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Present If AttendantMessageCapable is True. Indicates to the Acquirer in the Authorisation Response message the language of the message to be displayed to the Cashier. <br/><i>&lt;AttndntLang&gt;::LanguageCode</i></td>
+    </tr>
+    <tr id="CardDataEntryMode.CardDataReading8Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CardDataEntryMode</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C1</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">The entry mode used to get the card data, and not the list of entry modes incase of fallback.<carddatantrymd>:: CardDataReading8Code<br/></carddatantrymd><br/><br/><!--ISODEF-->Type of reading of the card data.<br/>- <b>TAGC: Tag</b> : <i>Tag reading capabilities (RFID, etc.).</i><br/>- <b>PHYS: Physical</b> : <i>Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.</i><br/>- <b>BRCD: BarCode</b> : <i>Bar code.</i><br/>- <b>MGST: MagneticStripe</b> : <i>Magnetic stripe.</i><br/>- <b>CICC: ICC</b> : <i>ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.</i><br/>- <b>DFLE: AccountData</b> : <i>Account data on file.</i><br/>- <b>CTLS: ProximityReader</b> : <i>Contactless proximity reader.</i><br/>- <b>ECTL: EMVProximityReader</b> : <i>Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).</i><br/>- <b>CDFL: CardOnFile</b> : <i>Card information are stored on a file.</i><br/>- <b>SICC: SynchronousIntegratedCircuitCard</b> : <i>Synchronous ICC - (Integrated Circuit Card) with contact.</i><br/>- <b>UNKW: Unknown</b> : <i>Unknown card reading capability.</i><br/>- <b>QRCD: QRCode</b> : <i>Quick response code.</i><br/>- <b>OPTC: OpticalCode</b> : <i>Optical coded reading capabilities (e.g. barcode, QR code, etc.)</i><br/><!--/ISODEF--><i>&lt;CardDataNtryMd&gt;::CardDataReading8Code</i></td>
+    </tr>
+    <tr id="FallbackIndicator.CardFallback1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FallbackIndicator</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default False. Card data entry mode fallback. <br/><br/><!--ISODEF-->Information about card entry mode fallback.<br/>- <b>FFLB: FallbackAfterFailure</b> : <i>Card fall-back occurred during the transaction in progress. The previous transaction on the terminal failed.</i><br/>- <b>SFLB: FallbackAfterSuccess</b> : <i>Card fall-back occurred during the transaction in progress. The previous transaction on the terminal was successful.</i><br/>- <b>NFLB: NoFallback</b> : <i>No card fall-back during the transaction in progress.</i><br/><!--/ISODEF--><i>&lt;FllbckInd&gt;::CardFallback1Code</i></td>
+    </tr>
+    <tr id="SupportedOption.SupportedPaymentOption2Code" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SupportedOption</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Payment options the card acceptor can support.<spprtdoptn>:: SupportedPaymentOption2Code<br/></spprtdoptn><br/><br/><!--ISODEF-->Specifies the options supported for a payment transaction.<br/>- <b>PART: PartialApproval</b> : <i>The entity supports a partial approval of the payment transaction.</i><br/>- <b>MSRV: PaymentApprovalOnly</b> : <i>The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).</i><br/>- <b>INSI: IssuerInstalment</b> : <i>The sender support IssuerInstalment proposals to the Cardholder.</i><br/>- <b>PINQ: PINRequest</b> : <i>The sender is able to support Single Tap transaction.</i><br/><!--/ISODEF--><i>&lt;SpprtdOptn&gt;::SupportedPaymentOption2Code</i></td>
+    </tr>
+    <tr id="SaleContext.SaleContext4" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;SaleContext</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Information provided by the sale system(e.g., nexo Retailer protocol). <br/><i>&lt;SaleCntxt&gt;::SaleContext4</i></td>
+    </tr>
+    <tr id="SaleIdentification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SaleIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;SaleId&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="SaleReferenceNumber.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SaleReferenceNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;SaleRefNb&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="SaleReconciliationIdentification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SaleReconciliationIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;SaleRcncltnId&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="CashierIdentification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CashierIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;CshrId&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="CashierLanguage.LanguageCode" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CashierLanguage</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a language.<br/><!--/ISODEF--><i>&lt;CshrLang&gt;::LanguageCode</i></td>
+    </tr>
+    <tr id="ShiftNumber.Max2NumericText" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShiftNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a numeric string with a maximum length of 2 digits.<br/><!--/ISODEF--><i>&lt;ShftNb&gt;::Max2NumericText</i></td>
+    </tr>
+    <tr id="CustomerOrderRequestFlag.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CustomerOrderRequestFlag</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default False <br/><i>&lt;CstmrOrdrReqFlg&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="PurchaseOrderNumber.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PurchaseOrderNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;PurchsOrdrNb&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="InvoiceNumber.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InvoiceNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;InvcNb&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="DeliveryNoteNumber.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeliveryNoteNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;DlvryNoteNb&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="SponsoredMerchant.Organisation26" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SponsoredMerchant</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Merchant performing the transaction.<br/><!--/ISODEF--><i>&lt;SpnsrdMrchnt&gt;::Organisation26</i></td>
+    </tr>
+    <tr id="CommonName.Max70Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommonName</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 70characters.<br/><!--/ISODEF--><i>&lt;CmonNm&gt;::Max70Text</i></td>
+    </tr>
+    <tr id="Address.Max140Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 140 characters.<br/><!--/ISODEF--><i>&lt;Adr&gt;::Max140Text</i></td>
+    </tr>
+    <tr id="CountryCode.ISO3NumericCountryCode" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CountryCode</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Numeric-3 code). The code is checked against the list of country names coded with three digit characters, defined in the standard.<br/><!--/ISODEF--><i>&lt;CtryCd&gt;::ISO3NumericCountryCode</i></td>
+    </tr>
+    <tr id="MerchantCategoryCode.Min3Max4Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MerchantCategoryCode</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a minimum length of 3 characters, and a maximum length of 4 characters.<br/><!--/ISODEF--><i>&lt;MrchntCtgyCd&gt;::Min3Max4Text</i></td>
+    </tr>
+    <tr id="RegisteredIdentifier.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegisteredIdentifier</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;RegdIdr&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="SplitPayment.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SplitPayment</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default False <br/><i>&lt;SpltPmt&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="RemainingAmount.ImpliedCurrencyAndAmount" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RemainingAmount</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">C4</td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.
+Note: a zero amount is considered a positive amount.<br/><!--/ISODEF--><i>&lt;RmngAmt&gt;::ImpliedCurrencyAndAmount</i></td>
+    </tr>
+    <tr id="ForceOnlineFlag.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ForceOnlineFlag</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default False <br/><i>&lt;ForceOnlnFlg&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="ReuseCardDataFlag.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReuseCardDataFlag</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default False <br/><i>&lt;ReuseCardDataFlg&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="AllowedEntryMode.CardDataReading8Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AllowedEntryMode</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Type of reading of the card data.<br/>- <b>TAGC: Tag</b> : <i>Tag reading capabilities (RFID, etc.).</i><br/>- <b>PHYS: Physical</b> : <i>Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.</i><br/>- <b>BRCD: BarCode</b> : <i>Bar code.</i><br/>- <b>MGST: MagneticStripe</b> : <i>Magnetic stripe.</i><br/>- <b>CICC: ICC</b> : <i>ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.</i><br/>- <b>DFLE: AccountData</b> : <i>Account data on file.</i><br/>- <b>CTLS: ProximityReader</b> : <i>Contactless proximity reader.</i><br/>- <b>ECTL: EMVProximityReader</b> : <i>Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).</i><br/>- <b>CDFL: CardOnFile</b> : <i>Card information are stored on a file.</i><br/>- <b>SICC: SynchronousIntegratedCircuitCard</b> : <i>Synchronous ICC - (Integrated Circuit Card) with contact.</i><br/>- <b>UNKW: Unknown</b> : <i>Unknown card reading capability.</i><br/>- <b>QRCD: QRCode</b> : <i>Quick response code.</i><br/>- <b>OPTC: OpticalCode</b> : <i>Optical coded reading capabilities (e.g. barcode, QR code, etc.)</i><br/><!--/ISODEF--><br/><!--ISODEF-->Type of reading of the card data.<br/>- <b>TAGC: Tag</b> : <i>Tag reading capabilities (RFID, etc.).</i><br/>- <b>PHYS: Physical</b> : <i>Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.</i><br/>- <b>BRCD: BarCode</b> : <i>Bar code.</i><br/>- <b>MGST: MagneticStripe</b> : <i>Magnetic stripe.</i><br/>- <b>CICC: ICC</b> : <i>ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.</i><br/>- <b>DFLE: AccountData</b> : <i>Account data on file.</i><br/>- <b>CTLS: ProximityReader</b> : <i>Contactless proximity reader.</i><br/>- <b>ECTL: EMVProximityReader</b> : <i>Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).</i><br/>- <b>CDFL: CardOnFile</b> : <i>Card information are stored on a file.</i><br/>- <b>SICC: SynchronousIntegratedCircuitCard</b> : <i>Synchronous ICC - (Integrated Circuit Card) with contact.</i><br/>- <b>UNKW: Unknown</b> : <i>Unknown card reading capability.</i><br/>- <b>QRCD: QRCode</b> : <i>Quick response code.</i><br/>- <b>OPTC: OpticalCode</b> : <i>Optical coded reading capabilities (e.g. barcode, QR code, etc.)</i><br/><!--/ISODEF--><i>&lt;AllwdNtryMd&gt;::CardDataReading8Code</i></td>
+    </tr>
+    <tr id="SaleTokenScope.SaleTokenScope1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SaleTokenScope</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Scope of the token that identifies the payment mean of the customer.<br/>- <b>MULT: MultipleUse</b> : <i>The token is generated to recognise a customer for a longer period.</i><br/>- <b>SNGL: SingleUse</b> : <i>The token is generated to recognise  a customer during the lifetime of a transaction.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Scope of the token that identifies the payment mean of the customer.<br/>- <b>MULT: MultipleUse</b> : <i>The token is generated to recognise a customer for a longer period.</i><br/>- <b>SNGL: SingleUse</b> : <i>The token is generated to recognise  a customer during the lifetime of a transaction.</i><br/><!--/ISODEF--><i>&lt;SaleTknScp&gt;::SaleTokenScope1Code</i></td>
+    </tr>
+    <tr id="AdditionalSaleData.Max70Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSaleData</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 70characters.<br/><!--/ISODEF--><i>&lt;AddtlSaleData&gt;::Max70Text</i></td>
+    </tr>
+    <tr id="DirectDebitContext.CardDirectDebit2" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;DirectDebitContext</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Element containing all information needed for a card initiating direct debit.<br/><!--/ISODEF--><i>&lt;DrctDbtCntxt&gt;::CardDirectDebit2</i></td>
+    </tr>
+    <tr id="DebtorIdentification.Debtor4" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DebtorIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Information about the debtor.<br/><!--/ISODEF--><i>&lt;DbtrId&gt;::Debtor4</i></td>
+    </tr>
+    <tr id="Debtor.PartyIdentification178Choice" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debtor</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Identification of a party.<br/><!--/ISODEF--><i>&lt;Dbtr&gt;::PartyIdentification178Choice</i></td>
+    </tr>
+    <tr id="AnyBIC.AnyBICDec2014Identifier" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AnyBIC</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362: 2014 - "Banking - Banking telecommunication messages - Business identifier code (BIC)".<br/><!--/ISODEF--><i>&lt;AnyBIC&gt;::AnyBICDec2014Identifier</i></td>
+    </tr>
+    <tr id="ProprietaryIdentification.GenericIdentification36" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProprietaryIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#GenericIdentification36">GenericIdentification36</a><br/><i>&lt;PrtryId&gt;::GenericIdentification36</i></td>
+    </tr>
+    <tr id="NameAndAddress.NameAndAddress6" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NameAndAddress</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Name and address of an institution.<br/><!--/ISODEF--><i>&lt;NmAndAdr&gt;::NameAndAddress6</i></td>
+    </tr>
+    <tr id="Name.Max70Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">5</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 70characters.<br/><!--/ISODEF--><i>&lt;Nm&gt;::Max70Text</i></td>
+    </tr>
+    <tr id="Address.PostalAddress2" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">5</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#PostalAddress2">PostalAddress2</a><br/><i>&lt;Adr&gt;::PostalAddress2</i></td>
+    </tr>
+    <tr id="AccountIdentification.CashAccountIdentification7Choice" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AccountIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Choice between formats for the identification of a cash account.<br/><!--/ISODEF--><i>&lt;AcctId&gt;::CashAccountIdentification7Choice</i></td>
+    </tr>
+    <tr id="IBAN.IBAN2007Identifier" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IBAN</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->The International Bank Account Number is a code used internationally by financial institutions to uniquely identify the account of a customer at a financial institution as described in the 2007 edition of the ISO 13616 standard "Banking and related financial services - International Bank Account Number (IBAN)" and replaced by the more recent edition of the standard.<br/><!--/ISODEF--><i>&lt;IBAN&gt;::IBAN2007Identifier</i></td>
+    </tr>
+    <tr id="BBAN.BBANIdentifier" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BBAN</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Basic Bank Account Number (BBAN). Identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), which uniquely identifies the account of a customer.<br/><!--/ISODEF--><i>&lt;BBAN&gt;::BBANIdentifier</i></td>
+    </tr>
+    <tr id="UPIC.UPICIdentifier" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UPIC</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Universal Payment Identification Code (UPIC). Identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes.<br/><!--/ISODEF--><i>&lt;UPIC&gt;::UPICIdentifier</i></td>
+    </tr>
+    <tr id="DomesticAccount.SimpleIdentificationInformation4" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomesticAccount</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Information related to an identification, for example, party identification or account identification.<br/><!--/ISODEF--><i>&lt;DmstAcct&gt;::SimpleIdentificationInformation4</i></td>
+    </tr>
+    <tr id="Identification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">5</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;Id&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="CreditorIdentification.Creditor4" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreditorIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Information about the creditor.<br/><!--/ISODEF--><i>&lt;CdtrId&gt;::Creditor4</i></td>
+    </tr>
+    <tr id="Creditor.PartyIdentification178Choice" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creditor</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Identification of a party.<br/><!--/ISODEF--><i>&lt;Cdtr&gt;::PartyIdentification178Choice</i></td>
+    </tr>
+    <tr id="AnyBIC.AnyBICDec2014Identifier" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AnyBIC</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362: 2014 - "Banking - Banking telecommunication messages - Business identifier code (BIC)".<br/><!--/ISODEF--><i>&lt;AnyBIC&gt;::AnyBICDec2014Identifier</i></td>
+    </tr>
+    <tr id="ProprietaryIdentification.GenericIdentification36" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProprietaryIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#GenericIdentification36">GenericIdentification36</a><br/><i>&lt;PrtryId&gt;::GenericIdentification36</i></td>
+    </tr>
+    <tr id="NameAndAddress.NameAndAddress6" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NameAndAddress</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Name and address of an institution.<br/><!--/ISODEF--><i>&lt;NmAndAdr&gt;::NameAndAddress6</i></td>
+    </tr>
+    <tr id="Name.Max70Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">5</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 70characters.<br/><!--/ISODEF--><i>&lt;Nm&gt;::Max70Text</i></td>
+    </tr>
+    <tr id="Address.PostalAddress2" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">5</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#PostalAddress2">PostalAddress2</a><br/><i>&lt;Adr&gt;::PostalAddress2</i></td>
+    </tr>
+    <tr id="RegistrationIdentification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegistrationIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;RegnId&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="MandateRelatedInformation.MandateRelatedInformation13" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MandateRelatedInformation</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Provides further details related to a direct debit mandate signed between the creditor and the debtor.<br/><!--/ISODEF--><i>&lt;MndtRltdInf&gt;::MandateRelatedInformation13</i></td>
+    </tr>
+    <tr id="MandateIdentification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MandateIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;MndtId&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="DateOfSignature.ISODate" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DateOfSignature</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format. This representation is defined in "XML Schema Part 2: Datatypes Second Edition - W3C Recommendation 28 October 2004" which is aligned with ISO 8601.<br/><!--/ISODEF--><i>&lt;DtOfSgntr&gt;::ISODate</i></td>
+    </tr>
+    <tr id="MandateImage.Max2MBBinary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MandateImage</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Binary data of 2MB maximum.<br/><!--/ISODEF--><i>&lt;MndtImg&gt;::Max2MBBinary</i></td>
+    </tr>
+        </table>
+        </body>
+        </html>
+        

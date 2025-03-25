@@ -1,0 +1,604 @@
+Context : integration between two android apps on the same device.
+
+First app is a point of sale application named smarteo.
+
+Second app is a EMV contactless card payment app named softPOS.
+
+ To make a payement, the smarteo app will call  softPOS app intents. 
+
+ I need to develop the calls to the softPOS payment app in the point of sale smarteo app .
+
+ I can not modify the softPOS app.
+
+ The data provided the smarteo app to the softPOS app are :
+
+ - merchantID : string
+
+ - cashierID : a string
+
+ - saleTransactionID : a string identifying the transaction in the sale system smarteo.
+
+ - a token
+
+ - the amount to be paid : a decimal
+
+ - the currency of the amount : a 3 digit string
+
+ The smarteo app will call the softPOS app with the PAYMENT intent.
+
+ The softPOS POS will answer with a receipt, containg the status of the transaction (APPROVED or DECLINED). 
+
+ If the smarteo does not receives a response of the payment intent, after a timeout of 30 seconds is reached, it will call the softPOS TRANSACTION STATUS intent with the transaction ID provided by softPOS app
+
+ In This case, of the smarteo app needs to call the softPOS TRANSACTION_STATUS intent after 10 seconds.
+
+ If the receipt is null, the transaction has not been performed by the softPOS app.
+
+ The smarteo app will retry a new transaction with the same data.
+
+The logic and interactions between the two apps are described in an activity diagram written in plantUML source code.
+
+*Please generate kotlin code for the smarteo POS android app following this activity diagram, whose code is below :*
+
+**UML Activity diagram**
+@startuml smarteo SoftPOS Process flow
+start
+#grey:POS status\n(STATUS_BROADCAST);
+if () then  (status=="initiated")
+    if () then  (status == true)
+        label start_payment
+        #grey:POS payment\n(POSActivity);
+        #lightgrey:Register SDK Transaction UUID;
+        if () then (with intent response)
+            -[#green]->
+            if (result status) then (RESULT_CANCEL)
+                #lightblue:Transaction has NOT been performed;
+                if (<b>with Extras information ?) then (<color:orange>:Abnormal Cancel)
+                    :Show error that occurred\n during the process\n preceding the cancellation;
+                    #orange: GIE CB Rule\nprint customer receipt if TNA;
+                    : Trace TNA;
+                    #lightgreen:retry;
+                    kill
+                else (<color:orange>:Normal cancel)
+                    :Show cancel cause;
+                    #lightgreen:retry;
+                    kill
+                endif
+            else (<color:#green>RESULT_OK)
+                -[#green]->
+            endif
+            
+        else (without intent response)
+            :WAIT 5 seconds;
+            #grey:POS transaction status\n(TRANSACTION_STATUS_BROADCAST);
+
+            -[#green]->
+        endif
+        -[#green]-> with status response;
+        #lightgrey:Check response;
+        if (response status) then (<color:#red><b>Intent error)
+            if () then (SDK Transaction UUID unknown)
+                #lightblue::Transaction has NOT been performed;
+                :Trace;
+                #lightgreen:retry;
+                kill
+            else (Error fectching transaction status)
+                :Trace;
+                #grey:2ND CALL\nPOS transaction status\n(TRANSACTION_STATUS_BROADCAST);
+                if () then (<color:red>2nd intent error)
+                    #orange:Consider the Transaction DECLINED;
+                    stop
+                endif
+            endif
+        endif
+        -[#green]-> <color:#green><b>Intent Result OK;
+        if (check receipt) then (receipt == null)                  
+            :Wait 5 seconds;
+            #grey:POS transaction status\n(TRANSACTION_STATUS_BROADCAST);
+            if (check receipt) then (receipt == null) 
+                #lightblue:Transaction has NOT been performed;
+                #lightgreen:retry;
+                kill
+            endif
+            -[#green]->
+        endif
+        -[#green]->
+        #green:<b>Transaction Performed;
+        if (receipt != null ) then ( receipt status == "APPROVED" )
+                -[#green]->
+                :Show transaction receipt;
+                stop
+            else ( receipt_status == "DECLINED" )
+                -[#red,dashed]->
+                :Show transaction receipt;
+                if (customer has received debit notification) then (yes)
+                    #orange:explain situation\nprint customer receipt;
+                endif
+                stop
+        endif
+    else (status == false )
+        #lightSalmon:Show error;
+        kill
+    endif
+else (status is ("None","Failed"))
+    #lightSalmon:Show error;
+    kill
+endif
+
+@enduml
+
+**END ACTIVITY DIAGRAM**
+
+**PAYMENT INTENT**
+
+Here is a sample class performing a transaction and getting the transaction results back.
+
+class MyFragment : Fragment() {
+
+ 
+
+    var transactionIdReceiver: BroadcastReceiver? = null
+
+    val transactionResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+
+        // Unregistering transaction id broadcast receiver
+
+        this@MyFragment.transactionIdReceiver?.let {
+
+            this@MyFragment.requireContext()?.unregisterReceiver(it)
+
+            this@MyFragment.transactionIdReceiver = null
+
+        }
+
+        // Dealing with the response
+
+        val data = result.data
+
+        if (result.resultCode == Activity.RESULT_OK && data != null) {
+
+            // The transaction is successful
+
+            val userId = data.getIntExtra("userId", -1)
+
+            val merchantId = data.getIntExtra("merchantId", -1)
+
+            val terminalId = data.getStringExtra("terminalId") ?: "None"
+
+ 
+
+            val transactionId = data.getIntExtra("transactionId", -1)
+
+ 
+
+            val amount = data.getLongExtra("amount", 0)
+
+            val currency = data.getStringExtra("currency") ?: "None"
+
+            val date = data.getStringExtra("date") ?: "None"
+
+ 
+
+            val authorized = data.getBooleanExtra("authorized", false)
+
+            val declineCause = data.getStringExtra("declineCause")
+
+            val status = data.getStringExtra("status") ?: "None"
+
+ 
+
+            val mode = data.getStringExtra("mode") ?: "None"
+
+            val scheme = data.getStringExtra("scheme") ?: "None"
+
+            val pan = data.getStringExtra("pan") ?: "None"
+
+            val aid = data.getStringExtra("aid") ?: "None"
+
+            val applicationLabel = data.getStringExtra("applicationLabel") ?: "None"
+
+            val transactionType = data.getStringExtra("transactionType") ?: "None"
+
+ 
+
+            val authMode = data.getStringExtra("authMode") ?: "None"
+
+            val authCode = data.getStringExtra("authCode") ?: "None"
+
+ 
+
+            val loyaltyIdentifier = data.getStringExtra("loyaltyIdentifier") ?: "None"
+
+            val reference = data.getStringExtra("externalTransactionReference") ?: "None"
+
+ 
+
+            val fullReceipt = data.getStringExtra("formatedString") ?: "None" // Full receipt string
+
+            // Use the transaction result here
+
+            if (status == "APPROVED") {
+
+                // Transaction is a success
+
+            }
+
+            else {
+
+                // Transaction failed, see decline cause to know why
+
+            }
+
+        } else if (result.resultCode == Activity.RESULT_CANCELED) {
+
+            // An error occurred
+
+            val errorCode = data.getStringExtra("errorCode") ?: "None"
+
+            val errorName = data.getStringExtra("errorName") ?: "None"
+
+            val errorMessage = data.getStringExtra("errorMessage") ?: "None"
+
+        }
+
+    }
+
+ 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+        myButton.setOnClickListener { performTransactionWithAmount(1000, 100) } // Pay $11 ($10 + $1 tip)
+
+    }
+
+ 
+
+    fun registerForBroadcast() {
+
+        val receiver = object : BroadcastReceiver() {
+
+            override fun onReceive(ctx: Context?, intent: Intent?) {
+
+                val id = intent?.getStringExtra("sdkTransactionId")
+
+                // Id is the newly created transaction id. This receiver can be called multiples time per transaction Intent call
+
+                // (in case any error occur during transaction, a new id will be generated and a new broadcast will be emitted)
+
+            }
+
+        }
+
+        ContextCompat.registerReceiver(requireActivity(), receiver, IntentFilter("com.dejamobile.cbp.sps.app.TRANSACTION_BROADCAST_RESPONSE"), ContextCompat.RECEIVER_EXPORTED)
+
+        this.transactionIdReceiver = receiver
+
+    }
+
+ 
+
+    fun performTransactionWithAmount(amount: Long, tip: Long?) {
+
+        this.registerForBroadcast()
+
+        var finalAmount = amount
+
+        if (tip != null) finalAmount += tip
+
+        val intent = Intent().apply {
+
+            setClassName("com.dejamobile.cbp.sps.app", "com.dejamobile.cbp.sps.app.POSActivity")
+
+            putExtra("userId", userId) // For SSO only
+
+            putExtra("userToken", token) // For SSO only
+
+            putExtra("merchantId", id)
+
+            putExtra("transactionType", "PURCHASE")
+
+            putExtra("amount", finalAmount)
+
+            if (tip != null) putExtra("tip", tip)
+
+            putExtra("paymentMode", "Card")
+
+            putExtra("externalTransactionReference", "XXXX-1234")
+
+            putExtra("locale", "fr_FR")
+
+        }
+
+        transactionResult.launch(intent)
+
+    }
+
+}
+
+ ere is a sample class performing a transaction and getting the transaction results back.
+
+class MyFragment : Fragment() {
+
+ 
+
+    var transactionIdReceiver: BroadcastReceiver? = null
+
+    val transactionResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+
+        // Unregistering transaction id broadcast receiver
+
+        this@MyFragment.transactionIdReceiver?.let {
+
+            this@MyFragment.requireContext()?.unregisterReceiver(it)
+
+            this@MyFragment.transactionIdReceiver = null
+
+        }
+
+        // Dealing with the response
+
+        val data = result.data
+
+        if (result.resultCode == Activity.RESULT_OK && data != null) {
+
+            // The transaction is successful
+
+            val userId = data.getIntExtra("userId", -1)
+
+            val merchantId = data.getIntExtra("merchantId", -1)
+
+            val terminalId = data.getStringExtra("terminalId") ?: "None"
+
+ 
+
+            val transactionId = data.getIntExtra("transactionId", -1)
+
+ 
+
+            val amount = data.getLongExtra("amount", 0)
+
+            val currency = data.getStringExtra("currency") ?: "None"
+
+            val date = data.getStringExtra("date") ?: "None"
+
+ 
+
+            val authorized = data.getBooleanExtra("authorized", false)
+
+            val declineCause = data.getStringExtra("declineCause")
+
+            val status = data.getStringExtra("status") ?: "None"
+
+ 
+
+            val mode = data.getStringExtra("mode") ?: "None"
+
+            val scheme = data.getStringExtra("scheme") ?: "None"
+
+            val pan = data.getStringExtra("pan") ?: "None"
+
+            val aid = data.getStringExtra("aid") ?: "None"
+
+            val applicationLabel = data.getStringExtra("applicationLabel") ?: "None"
+
+            val transactionType = data.getStringExtra("transactionType") ?: "None"
+
+ 
+
+            val authMode = data.getStringExtra("authMode") ?: "None"
+
+            val authCode = data.getStringExtra("authCode") ?: "None"
+
+ 
+
+            val loyaltyIdentifier = data.getStringExtra("loyaltyIdentifier") ?: "None"
+
+            val reference = data.getStringExtra("externalTransactionReference") ?: "None"
+
+ 
+
+            val fullReceipt = data.getStringExtra("formatedString") ?: "None" // Full receipt string
+
+            // Use the transaction result here
+
+            if (status == "APPROVED") {
+
+                // Transaction is a success
+
+            }
+
+            else {
+
+                // Transaction failed, see decline cause to know why
+
+            }
+
+        } else if (result.resultCode == Activity.RESULT_CANCELED) {
+
+            // An error occurred
+
+            val errorCode = data.getStringExtra("errorCode") ?: "None"
+
+            val errorName = data.getStringExtra("errorName") ?: "None"
+
+            val errorMessage = data.getStringExtra("errorMessage") ?: "None"
+
+        }
+
+    }
+
+ 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+        myButton.setOnClickListener { performTransactionWithAmount(1000, 100) } // Pay $11 ($10 + $1 tip)
+
+    }
+
+ 
+
+    fun registerForBroadcast() {
+
+        val receiver = object : BroadcastReceiver() {
+
+            override fun onReceive(ctx: Context?, intent: Intent?) {
+
+                val id = intent?.getStringExtra("sdkTransactionId")
+
+                // Id is the newly created transaction id. This receiver can be called multiples time per transaction Intent call
+
+                // (in case any error occur during transaction, a new id will be generated and a new broadcast will be emitted)
+
+            }
+
+        }
+
+        ContextCompat.registerReceiver(requireActivity(), receiver, IntentFilter("com.dejamobile.cbp.sps.app.TRANSACTION_BROADCAST_RESPONSE"), ContextCompat.RECEIVER_EXPORTED)
+
+        this.transactionIdReceiver = receiver
+
+    }
+
+ 
+
+    fun performTransactionWithAmount(amount: Long, tip: Long?) {
+
+        this.registerForBroadcast()
+
+        var finalAmount = amount
+
+        if (tip != null) finalAmount += tip
+
+        val intent = Intent().apply {
+
+            setClassName("com.dejamobile.cbp.sps.app", "com.dejamobile.cbp.sps.app.POSActivity")
+
+            putExtra("userId", userId) // For SSO only
+
+            putExtra("userToken", token) // For SSO only
+
+            putExtra("merchantId", id)
+
+            putExtra("transactionType", "PURCHASE")
+
+            putExtra("amount", finalAmount)
+
+            if (tip != null) putExtra("tip", tip)
+
+            putExtra("paymentMode", "Card")
+
+            putExtra("externalTransactionReference", "XXXX-1234")
+
+            putExtra("locale", "fr_FR")
+
+        }
+
+        transactionResult.launch(intent)
+
+    }
+
+}
+
+ 
+
+**END PAYMENT INTENT** 
+
+**Transaction Status INTENT**
+
+To get a transaction status, the client app should send a Broadcast with an Intent containing the following data:
+
+action: com.dejamobile.cbp.sps.TRANSACTION_STATUS_BROADCAST
+
+component: A new ComponentName object with the following values:
+
+package: com.dejamobile.cbp.sps.app (or your MerchantApp package name if different)
+
+class: com.dejamobile.cbp.sps.app.broadcast.TransactionStatusBroadcastReceiver
+
+flag: Intent.FLAG_INCLUDE_STOPPED_PACKAGES
+
+extras:
+
+userId: Int -> Your user id
+
+userToken: String -> a String used as a user authentication token. This token is going to be used by dejamobile's backend to ask the permission to customer's platform to execute the requested command. This field is not interpreted by dejamobile's platform.
+
+TransactionId: String -> The transaction UUID you want to check for
+
+ResponseAction: String (optional) -> The name of the broadcast your app will handle to receive the response. If you do not specify this field, a Broadcast will be emitted with the name com.dejamobile.cbp.sps.TRANSACTION_STATUS_BROADCAST_RESPONSE
+
+Sample:
+
+    Intent().also { intent ->
+
+      intent.action = "com.dejamobile.cbp.sps.TRANSACTION_STATUS_BROADCAST"
+
+      intent.component = ComponentName("com.dejamobile.cbp.sps.app", "com.dejamobile.cbp.sps.app.broadcast.TransactionStatusBroadcastReceiver")
+
+      intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+
+      intent.putExtra("userId", userId) // For SSO only
+
+      intent.putExtra("userToken", userToken) // For SSO only
+
+      intent.putExtra("TransactionId", transactionUUID) // For SSO only
+
+      intent.putExtra("ResponseAction", { Your custom broadcast name })
+
+      sendBroadcast(intent)
+
+    }
+
+Get the response Broadcast
+
+Upon fetching the transaction status, the SoftPOS app will emit a broadcast containing the transaction receipt or an error if the transaction does not exist or if there was an issue retrieving its status.
+
+Broadcast action: com.dejamobile.cbp.sps.TRANSACTION_STATUS_BROADCAST_RESPONSE or the one provided in the ResponseAction extra of the Transaction status Broadcast, if any.
+
+extras: Same fields as the payment intent response.
+
+Sample:
+
+    val filter = IntentFilter("com.dejamobile.cbp.sps.TRANSACTION_STATUS_BROADCAST_RESPONSE") // Or your Broadcast name
+
+    val receiver = object: BroadcastReceiver() {   
+
+        override fun onReceive(context: Context?, intent: Intent?) {
+
+          // Get the extra
+
+          val receipt = intent?.getStringExtra("Receipt")
+
+          val failure = intent?.getStringExtra("Failure")
+
+ 
+
+          if (receipt != null) {
+
+            Log.d(TAG, "Got transaction receipt: $receipt")
+
+            // Do something with the receipt
+
+          }
+
+          else {
+
+            Log.d(TAG, "Transaction status failure: $error - $message")
+
+            // Do something with the failure
+
+          }
+
+        }
+
+    }
+
+    registerReceiver(receiver, filter)
+
+	
+
+**END TRANSACTION STATUS INTENT**

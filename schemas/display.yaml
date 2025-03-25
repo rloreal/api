@@ -1,0 +1,32 @@
+type: object
+additionalProperties: true
+minProperties: 1
+description: >-
+  properties of the content to diplay, context and environment (optional)
+properties:
+  context:
+    type: object
+    description: >-
+      Context in which the transaction is performed (payment and sale).
+    schema:
+      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/CardPaymentContext30"
+  environment:
+    type: object
+    description: >-
+      Environment of the transaction.
+    schema:
+      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/CardPaymentEnvironment80"
+  content:
+    type: object
+    required: true
+    description: <-
+      properties of the content to diplay such as text, QRCode,...
+      *Rules*
+      **MinimumDisplayTime**  
+        If DisplayOutput.MinimumDisplayTime is greater than zero, the OutputContent content has to be displayed at least this period in seconds, 
+        but the message response has to be sent immediately.
+        If  a new Display message is sent before the end of this period, 
+        the receiver of the message overwrites the current display and send back a Display response with Response.Response = SUCC (”Success”), if a response is required. 
+        Any new command requiring a display on the same device could overwrite before the end of the minimum display time.
+    schema:
+      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/ActionMessage11"

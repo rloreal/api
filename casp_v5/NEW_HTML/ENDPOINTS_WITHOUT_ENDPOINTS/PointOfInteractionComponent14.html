@@ -1,0 +1,477 @@
+<html><head><style type="text/css">
+    p {
+        color: #000000;
+        line-height: 95%;
+        text-align: left;
+        orphans: 2;
+        widows: 2;
+        margin-bottom: 0.25cm;
+        direction: ltr;
+        background: transparent
+    }
+    p.western {
+        font-family: "Arial", serif;
+        font-size: 10pt;
+        so-language: en-GB
+    }
+    a:visited { color: #954f72; text-decoration: underline }
+    a:link { color: #0563c1; text-decoration: underline }
+    table.fixed {
+        table-layout: fixed;
+        width: 840px;
+        border-collapse: collapse;
+        border: 1px solid #a6a6a6;
+    }
+    tr.updated {
+        font-color: #0000ff;
+    }
+    tr.new {
+        font-color: #00cc00;
+    }
+    tr.deleted {
+        font-color: #ff0000;
+        text-decoration: line-through;
+    }
+
+    table.fixed td { word-wrap: break-word; }
+    table.fixed td:nth-of-type(1) { width: 32px; }
+    table.fixed td:nth-of-type(2) { width: 190px; }
+    table.fixed td:nth-of-type(3) { width: 60px; }
+    table.fixed td:nth-of-type(4) { width: 60px; }
+    table.fixed td:nth-of-type(5) { width: 60px; }
+    table.fixed td:nth-of-type(6) { width: 438px; }
+</style><title>casp.017.001.05.xsd.PointOfInteractionComponent14</title></head>
+    <body>
+    
+        <table class="fixed" cellpadding="7" cellspacing="0" id="PointOfInteractionComponent14" title="PointOfInteractionComponent14" style="1px solid #a6a6a6; border-collapse: collapse;width: 840px;">
+            <thead>
+                <tr style="background:#f2f2f2;font-size:8pt;font-style: italic;font-weight: bold;vertical-align: top;border: 1px solid #a6a6a6;border-collapse: collapse;">
+                    <td style="width: 32px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Lvl</p></td>
+                    <td style="width:190px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">PointOfInteractionComponent14</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Mult</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Rule</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Cstr</p></td>
+                    <td style="width:438px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">Usage</p></td>
+                </tr>
+            </thead>
+    
+    <tr id="Type.POIComponentType6Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Type</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Type of component belonging to a POI (Point of Interaction) Terminal.<br/>- <b>AQPP: AcquirerProtocolParameters</b> : <i>Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.</i><br/>- <b>APPR: ApplicationParameters</b> : <i>Parameters of a payment application running on the point of interaction.</i><br/>- <b>TLPR: TerminalParameters</b> : <i>Manufacturer configuration parameters of the point of interaction.</i><br/>- <b>SCPR: SecurityParameters</b> : <i>Security parameters of the point of interaction.</i><br/>- <b>SERV: Server</b> : <i>Payment server of a point of interaction system.</i><br/>- <b>TERM: Terminal</b> : <i>Payment terminal point of interaction.</i><br/>- <b>DVCE: Device</b> : <i>Device sub-component of a component of the point of interaction.</i><br/>- <b>SECM: SecureModule</b> : <i>Security module.</i><br/>- <b>APLI: PaymentApplication</b> : <i>Payment application software.</i><br/>- <b>EMVK: EMVKernel</b> : <i>EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).</i><br/>- <b>EMVO: EMVLevel1</b> : <i>EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).</i><br/>- <b>MDWR: Middleware</b> : <i>Software module of the point of interaction.</i><br/>- <b>DRVR: Driver</b> : <i>Driver module of the point of interaction.</i><br/>- <b>OPST: OperatingSystem</b> : <i>Software that manages hardware to provide common services to the applications.</i><br/>- <b>MRPR: MerchantParameters</b> : <i>Merchant configuration parameters for the point of interaction (POI).</i><br/>- <b>CRTF: CertificateParameters</b> : <i>Certificate provided by a terminal manager.</i><br/>- <b>TMSP: TMSProtocolParameters</b> : <i>Configuration parameters for the TMS protocol.</i><br/>- <b>SACP: SaleComponent</b> : <i>Component of the Sale system.</i><br/>- <b>SAPR: SaleToPOIProtocolParameters</b> : <i>Parameters related to the Sale to POI protocol.</i><br/>- <b>LOGF: LogFile</b> : <i>Any repository used for recording log traces.</i><br/>- <b>MDFL: MediaFile</b> : <i>Media file managed by an application of the POI.</i><br/>- <b>SOFT: Soft</b> : <i>Payment or other software application.</i><br/>- <b>CONF: ConfigurationFile</b> : <i>Configuration file relevant for the POI.</i><br/>- <b>RPFL: ReportFile</b> : <i>Report file generated by the POI.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Type of component belonging to a POI (Point of Interaction) Terminal.<br/>- <b>AQPP: AcquirerProtocolParameters</b> : <i>Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.</i><br/>- <b>APPR: ApplicationParameters</b> : <i>Parameters of a payment application running on the point of interaction.</i><br/>- <b>TLPR: TerminalParameters</b> : <i>Manufacturer configuration parameters of the point of interaction.</i><br/>- <b>SCPR: SecurityParameters</b> : <i>Security parameters of the point of interaction.</i><br/>- <b>SERV: Server</b> : <i>Payment server of a point of interaction system.</i><br/>- <b>TERM: Terminal</b> : <i>Payment terminal point of interaction.</i><br/>- <b>DVCE: Device</b> : <i>Device sub-component of a component of the point of interaction.</i><br/>- <b>SECM: SecureModule</b> : <i>Security module.</i><br/>- <b>APLI: PaymentApplication</b> : <i>Payment application software.</i><br/>- <b>EMVK: EMVKernel</b> : <i>EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).</i><br/>- <b>EMVO: EMVLevel1</b> : <i>EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).</i><br/>- <b>MDWR: Middleware</b> : <i>Software module of the point of interaction.</i><br/>- <b>DRVR: Driver</b> : <i>Driver module of the point of interaction.</i><br/>- <b>OPST: OperatingSystem</b> : <i>Software that manages hardware to provide common services to the applications.</i><br/>- <b>MRPR: MerchantParameters</b> : <i>Merchant configuration parameters for the point of interaction (POI).</i><br/>- <b>CRTF: CertificateParameters</b> : <i>Certificate provided by a terminal manager.</i><br/>- <b>TMSP: TMSProtocolParameters</b> : <i>Configuration parameters for the TMS protocol.</i><br/>- <b>SACP: SaleComponent</b> : <i>Component of the Sale system.</i><br/>- <b>SAPR: SaleToPOIProtocolParameters</b> : <i>Parameters related to the Sale to POI protocol.</i><br/>- <b>LOGF: LogFile</b> : <i>Any repository used for recording log traces.</i><br/>- <b>MDFL: MediaFile</b> : <i>Media file managed by an application of the POI.</i><br/>- <b>SOFT: Soft</b> : <i>Payment or other software application.</i><br/>- <b>CONF: ConfigurationFile</b> : <i>Configuration file relevant for the POI.</i><br/>- <b>RPFL: ReportFile</b> : <i>Report file generated by the POI.</i><br/><!--/ISODEF--><i>&lt;Tp&gt;::POIComponentType6Code</i></td>
+    </tr>
+    <tr id="SubTypeInformation.Max70Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;SubTypeInformation</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">SubTypeInformation provide free additional information regarding the POIComponent. For instance, it may identify a subtype of Device (e.g Printer, ICC Reader, etc). <br/><i>&lt;SubTpInf&gt;::Max70Text</i></td>
+    </tr>
+    <tr id="Identification.PointOfInteractionComponentIdentification2" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identification of the POI component. <br/><i>&lt;Id&gt;::PointOfInteractionComponentIdentification2</i></td>
+    </tr>
+    <tr id="ItemNumber.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ItemNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Hierarchical identification of a component inside all the component of the POI. It is composed of all itemnumbers of the upper-level components, separated by the '.' character, ended by the item number of the current component: <ul><li>Hardware : unique identification of a hardware component inside the POI system.</li><li>Software : unique identification of the software component inside the main hardware component executing the software.</li><li>Parameters : identify the hardware or software component using these parameters.</li></ul> <br/><i>&lt;ItmNb&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="ProviderIdentification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProviderIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identifies the provider of the software, hardware or parameters of the POIcomponent: <ul><li>Hardware : identify the manufacturer.</li><li>Software : identify the software provider.</li><li>Parameters : identify the entity in charge of the parameters.</li></ul> <br/><i>&lt;PrvdrId&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Identification.Max256Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identification of the POI component assigned by the provider:<ul><li>Hardware: identify the model.</li><li>Software :identify the software product.</li><li>Parameters: identify the set of parameters.</li></ul> <br/><i>&lt;Id&gt;::Max256Text</i></td>
+    </tr>
+    <tr id="SerialNumber.Max256Text" class="" style="">
+        <td style="width: 32px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SerialNumber</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#2874a6;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Serial number of the component. Hardware :identify the physical component. <br/><i>&lt;SrlNb&gt;::Max256Text</i></td>
+    </tr>
+    <tr id="Status.PointOfInteractionComponentStatus3" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Status</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Status of the POI component. <br/><i>&lt;Sts&gt;::PointOfInteractionComponentStatus3</i></td>
+    </tr>
+    <tr id="VersionNumber.Max256Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VersionNumber</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Current version of component that might include the release number.<ul><li>Hardware : version of the model (optional).</li><li>Software : version (optional).</li><li>Parameters : parameters version (mandatory).</li></ul> <br/><i>&lt;VrsnNb&gt;::Max256Text</i></td>
+    </tr>
+    <tr id="Status.POIComponentStatus1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">i&gt;&lt;Sts&gt;::POIComponentStatus1Code<br/><br/><!--ISODEF-->Status of a component belonging to a POI Terminal (Point of Interaction).<br/>- <b>WAIT: WaitingActivation</b> : <i>Component not yet activated.</i><br/>- <b>OUTD: OutOfOrder</b> : <i>Component not working properly.</i><br/>- <b>OPER: InOperation</b> : <i>Component activated and in operation.</i><br/>- <b>DACT: Deactivated</b> : <i>Component has been deactivated.</i><br/><!--/ISODEF--><i>&lt;Sts&gt;::POIComponentStatus1Code</i></td>
+    </tr>
+    <tr id="ExpiryDate.ISODate" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExpiryDate</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Expiration date of the component. <br/><i>&lt;XpryDt&gt;::ISODate</i></td>
+    </tr>
+    <tr id="StandardCompliance.GenericIdentification48" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;StandardCompliance</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identification of the standard or specification for which the component complies with. <br/><i>&lt;StdCmplc&gt;::GenericIdentification48</i></td>
+    </tr>
+    <tr id="Identification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identifies the provider of the software, hardware or parameters of the POIcomponent: <ul><li>Hardware : identify the manufacturer.</li><li>Software : identify the software provider.</li><li>Parameters : identify the entity in charge of the parameters.</li></ul> <br/><i>&lt;Id&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Version.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Version of the standard. <br/><i>&lt;Vrsn&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Issuer.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Issuer</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Issuer of the standard. <br/><i>&lt;Issr&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Characteristics.PointOfInteractionComponentCharacteristics9" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Characteristics</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Physical and logical characteristics of a POI component (Point of Interaction).<br/><!--/ISODEF--><i>&lt;Chrtcs&gt;::PointOfInteractionComponentCharacteristics9</i></td>
+    </tr>
+    <tr id="Memory.MemoryCharacteristics1" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Memory characteristics of the Hardware component. <br/><i>&lt;Mmry&gt;::MemoryCharacteristics1</i></td>
+    </tr>
+    <tr id="Identification.Max35Text" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identifies the provider of the software, hardware or parameters of the POIcomponent: <ul><li>Hardware : identify the manufacturer.</li><li>Software : identify the software provider.</li><li>Parameters : identify the entity in charge of the parameters.</li></ul> <br/><i>&lt;Id&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="TotalSize.DecimalNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TotalSize</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Total size of the memory unit. <br/><i>&lt;TtlSz&gt;::DecimalNumber</i></td>
+    </tr>
+    <tr id="FreeSize.DecimalNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FreeSize</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Total size of the available memory. <br/><i>&lt;FreeSz&gt;::DecimalNumber</i></td>
+    </tr>
+    <tr id="Unit.MemoryUnit1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unit</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"> <br/><br/><!--ISODEF-->Unit of the memory size.<br/>- <b>BYTE: Byte</b> : <i>Byte.</i><br/>- <b>EXAB: ExaByte</b> : <i>Exa byte.</i><br/>- <b>GIGA: GigaByte</b> : <i>Giga byte.</i><br/>- <b>KILO: KiloByte</b> : <i>Kilo byte.</i><br/>- <b>MEGA: MegaByte</b> : <i>Mega byte.</i><br/>- <b>PETA: PetaByte</b> : <i>Peta byte.</i><br/>- <b>TERA: TeraByte</b> : <i>Tera byte.</i><br/><!--/ISODEF--><i>&lt;Unit&gt;::MemoryUnit1Code</i></td>
+    </tr>
+    <tr id="Communication.CommunicationCharacteristics5" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Communication</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Low level communication of the hardware or software component toward another component or an external entity. <br/><i>&lt;Com&gt;::CommunicationCharacteristics5</i></td>
+    </tr>
+    <tr id="CommunicationType.POICommunicationType2Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommunicationType</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Type of communication. <br/><br/><!--ISODEF-->Low level communication of the hardware or software component toward another component or an external entity.<br/>- <b>BLTH: Bluetooth</b> : <i>Communication with a host using Bluetooth.</i><br/>- <b>ETHR: Ethernet</b> : <i>Ethernet port to communicate.</i><br/>- <b>GPRS: GPRS</b> : <i>Communication with a host using GPRS.</i><br/>- <b>GSMF: GSM</b> : <i>Communication with a host using GSM.</i><br/>- <b>PSTN: PSTN</b> : <i>Communication with a host using Public Switching Telephone Network.</i><br/>- <b>RS23: RS232</b> : <i>Serial port to communicate.</i><br/>- <b>USBD: USBDevice</b> : <i>Communication with a USB stick or any USB device.</i><br/>- <b>USBH: USBHost</b> : <i>Communication with a host from an USB port.</i><br/>- <b>WIFI: Wifi</b> : <i>Wifi communication with another component.</i><br/>- <b>WT2G: WirelessTechnology2G</b> : <i>Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).</i><br/>- <b>WT3G: WirelessTechnology3G</b> : <i>Includes all communication technologies which can be qualified as being part of the 3G technology.</i><br/>- <b>WT4G: WirelessTechnology4G</b> : <i>Includes all communication technologies which can be qualified as being part of the 4G technology.</i><br/>- <b>WT5G: WirelessTechnology5G</b> : <i>Includes all communication technologies which can be qualified as being part of the 5G technology.</i><br/><!--/ISODEF--><i>&lt;ComTp&gt;::POICommunicationType2Code</i></td>
+    </tr>
+    <tr id="RemoteParty.PartyType7Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RemoteParty</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"> <br/><br/><!--ISODEF-->Party that communicate with a POI component (Point of Interaction), using a communication device.<br/>- <b>ACQR: Acquirer</b> : <i>Entity acquiring card transactions.</i><br/>- <b>ITAG: IntermediaryAgent</b> : <i>Party acting on behalf of other parties to process or forward data to other parties.</i><br/>- <b>PCPT: POIComponent</b> : <i>Party component of a POI system or POI terminal (Point of Interaction).</i><br/>- <b>TMGT: TerminalManager</b> : <i>Responsible for one or several maintenance functions of a card payment acceptance terminal.</i><br/>- <b>SALE: SaleSystem</b> : <i>Party selling goods and services.</i><br/><!--/ISODEF--><i>&lt;RmotPty&gt;::PartyType7Code</i></td>
+    </tr>
+    <tr id="Active.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Active</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Flag indicating whether the communication is activated. <br/><i>&lt;Actv&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="Parameters.NetworkParameters7" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameters</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#NetworkParameters7">NetworkParameters7</a><br/><i>&lt;Params&gt;::NetworkParameters7</i></td>
+    </tr>
+    <tr id="PhysicalInterface.PhysicalInterfaceParameter1" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PhysicalInterface</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Configuration parameters for physical interface.<br/><!--/ISODEF--><i>&lt;PhysIntrfc&gt;::PhysicalInterfaceParameter1</i></td>
+    </tr>
+    <tr id="InterfaceName.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InterfaceName</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;IntrfcNm&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="InterfaceType.POICommunicationType2Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InterfaceType</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Low level communication of the hardware or software component toward another component or an external entity.<br/>- <b>BLTH: Bluetooth</b> : <i>Communication with a host using Bluetooth.</i><br/>- <b>ETHR: Ethernet</b> : <i>Ethernet port to communicate.</i><br/>- <b>GPRS: GPRS</b> : <i>Communication with a host using GPRS.</i><br/>- <b>GSMF: GSM</b> : <i>Communication with a host using GSM.</i><br/>- <b>PSTN: PSTN</b> : <i>Communication with a host using Public Switching Telephone Network.</i><br/>- <b>RS23: RS232</b> : <i>Serial port to communicate.</i><br/>- <b>USBD: USBDevice</b> : <i>Communication with a USB stick or any USB device.</i><br/>- <b>USBH: USBHost</b> : <i>Communication with a host from an USB port.</i><br/>- <b>WIFI: Wifi</b> : <i>Wifi communication with another component.</i><br/>- <b>WT2G: WirelessTechnology2G</b> : <i>Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).</i><br/>- <b>WT3G: WirelessTechnology3G</b> : <i>Includes all communication technologies which can be qualified as being part of the 3G technology.</i><br/>- <b>WT4G: WirelessTechnology4G</b> : <i>Includes all communication technologies which can be qualified as being part of the 4G technology.</i><br/>- <b>WT5G: WirelessTechnology5G</b> : <i>Includes all communication technologies which can be qualified as being part of the 5G technology.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Low level communication of the hardware or software component toward another component or an external entity.<br/>- <b>BLTH: Bluetooth</b> : <i>Communication with a host using Bluetooth.</i><br/>- <b>ETHR: Ethernet</b> : <i>Ethernet port to communicate.</i><br/>- <b>GPRS: GPRS</b> : <i>Communication with a host using GPRS.</i><br/>- <b>GSMF: GSM</b> : <i>Communication with a host using GSM.</i><br/>- <b>PSTN: PSTN</b> : <i>Communication with a host using Public Switching Telephone Network.</i><br/>- <b>RS23: RS232</b> : <i>Serial port to communicate.</i><br/>- <b>USBD: USBDevice</b> : <i>Communication with a USB stick or any USB device.</i><br/>- <b>USBH: USBHost</b> : <i>Communication with a host from an USB port.</i><br/>- <b>WIFI: Wifi</b> : <i>Wifi communication with another component.</i><br/>- <b>WT2G: WirelessTechnology2G</b> : <i>Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).</i><br/>- <b>WT3G: WirelessTechnology3G</b> : <i>Includes all communication technologies which can be qualified as being part of the 3G technology.</i><br/>- <b>WT4G: WirelessTechnology4G</b> : <i>Includes all communication technologies which can be qualified as being part of the 4G technology.</i><br/>- <b>WT5G: WirelessTechnology5G</b> : <i>Includes all communication technologies which can be qualified as being part of the 5G technology.</i><br/><!--/ISODEF--><i>&lt;IntrfcTp&gt;::POICommunicationType2Code</i></td>
+    </tr>
+    <tr id="UserName.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserName</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;UsrNm&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="AccessCode.Max35Binary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AccessCode</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a binary string with a maximum length of 35 binary bytes.<br/><!--/ISODEF--><i>&lt;AccsCd&gt;::Max35Binary</i></td>
+    </tr>
+    <tr id="SecurityProfile.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SecurityProfile</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 35 characters.<br/><!--/ISODEF--><i>&lt;SctyPrfl&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="AdditionalParameters.Max2KBinary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">4</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AdditionalParameters</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Binary data of 2K maximum.<br/><!--/ISODEF--><i>&lt;AddtlParams&gt;::Max2KBinary</i></td>
+    </tr>
+    <tr id="SecurityAccessModules.Number" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SecurityAccessModules</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Number of security access modules (SAM). <br/><i>&lt;SctyAccsMdls&gt;::Number</i></td>
+    </tr>
+    <tr id="SubscriberIdentityModules.Number" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SubscriberIdentityModules</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Number of subscriber identity modules(SIM). <br/><i>&lt;SbcbrIdntyMdls&gt;::Number</i></td>
+    </tr>
+    <tr id="SecurityElement.CryptographicKey17" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SecurityElement</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#CryptographicKey17">CryptographicKey17</a><br/><i>&lt;SctyElmt&gt;::CryptographicKey17</i></td>
+    </tr>
+    <tr id="Assessment.PointOfInteractionComponentAssessment1" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Assessment</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Assessments for the component of the point of interaction.<br/><!--/ISODEF--><i>&lt;Assmnt&gt;::PointOfInteractionComponentAssessment1</i></td>
+    </tr>
+    <tr id="Type.POIComponentAssessment1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Type of assessment of a POI component (Point of Interaction).<br/>- <b>APPL: Approval</b> : <i>Approval number delivered by an approval centre.</i><br/>- <b>CERT: Certification</b> : <i>Certification number delivered by a certification body.</i><br/>- <b>EVAL: Evaluation</b> : <i>Evaluation by a lab or a tool.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Type of assessment of a POI component (Point of Interaction).<br/>- <b>APPL: Approval</b> : <i>Approval number delivered by an approval centre.</i><br/>- <b>CERT: Certification</b> : <i>Certification number delivered by a certification body.</i><br/>- <b>EVAL: Evaluation</b> : <i>Evaluation by a lab or a tool.</i><br/><!--/ISODEF--><i>&lt;Tp&gt;::POIComponentAssessment1Code</i></td>
+    </tr>
+    <tr id="Assigner.Max35Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assigner</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Body which has delivered the assessment. <br/><i>&lt;Assgnr&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="DeliveryDate.ISODateTime" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeliveryDate</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Date when the assessment has beendelivered. <br/><i>&lt;DlvryDt&gt;::ISODateTime</i></td>
+    </tr>
+    <tr id="ExpirationDate.ISODateTime" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExpirationDate</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Date when the assessment will expire. <br/><i>&lt;XprtnDt&gt;::ISODateTime</i></td>
+    </tr>
+    <tr id="Number.Max35Text" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Appli</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Hierarchical identification of a component inside all the component of the POI. It is composed of all itemnumbers of the upper-level components, separated by the '.' character, ended by the item number of the current component: <ul><li>Hardware : unique identification of a hardware component inside the POI system.</li><li>Software : unique identification of the software component inside the main hardware component executing the software.</li><li>Parameters : identify the hardware or software component using these parameters.</li></ul> <br/><i>&lt;Nb&gt;::Max35Text</i></td>
+    </tr>
+    <tr id="Package.PackageType4" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;Package</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Chunk of a software package.<br/><!--/ISODEF--><i>&lt;Packg&gt;::PackageType4</i></td>
+    </tr>
+    <tr id="PackageIdentification.GenericIdentification176" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PackageIdentification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Identification of the software packagesof which the chunk belongs. <br>See MDR for sub elements and <a href="#GenericIdentification176">GenericIdentification176</a><br/><i>&lt;PackgId&gt;::GenericIdentification176</i></td>
+    </tr>
+    <tr id="PackageLength.PositiveNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PackageLength</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Full length of software package identified through PackageIdentification. <br/><i>&lt;PackgLngth&gt;::PositiveNumber</i></td>
+    </tr>
+    <tr id="OffsetStart.PositiveNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OffsetStart</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Place of the first following Package Block, beginning with 0, in thefull software package identified through PackageIdentification. <br/><i>&lt;OffsetStart&gt;::PositiveNumber</i></td>
+    </tr>
+    <tr id="OffsetEnd.PositiveNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OffsetEnd</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Following place of the last following Package Block in the full software package identified through Package Identification. <br/><i>&lt;OffsetEnd&gt;::PositiveNumber</i></td>
+    </tr>
+    <tr id="PackageBlock.ExternallyDefinedData4" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PackageBlock</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Consecutive slices of the full software package identified through PackageIdentification  starting with first slice at the place identified with OffsetStart and ending with the last slice at the previous place identified with OffsetEnd. <br/><i>&lt;PackgBlck&gt;::ExternallyDefinedData4</i></td>
+    </tr>
+    <tr id="Identification.Max1025Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 1025 characters.<br/><!--/ISODEF--><i>&lt;Id&gt;::Max1025Text</i></td>
+    </tr>
+    <tr id="Value.Max100KBinary" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Binary data of 100K maximum.<br/><!--/ISODEF--><i>&lt;Val&gt;::Max100KBinary</i></td>
+    </tr>
+    <tr id="ProtectedValue.ContentInformationType34" class="" style="">
+        <td style="width: 32px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProtectedValue</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#28b463;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><br>See MDR for sub elements and <a href="#ContentInformationType34">ContentInformationType34</a><br/><i>&lt;PrtctdVal&gt;::ContentInformationType34</i></td>
+    </tr>
+    <tr id="Type.Max1025Text" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">3</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a character string with a maximum length of 1025 characters.<br/><!--/ISODEF--><i>&lt;Tp&gt;::Max1025Text</i></td>
+    </tr>
+        </table>
+        </body>
+        </html>
+        

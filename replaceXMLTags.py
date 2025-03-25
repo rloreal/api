@@ -74,8 +74,8 @@ def short_to_full_func(short_json_schema_file: str, xml_tags: dict[str, str], fu
 if __name__ == '__main__':
     print("===========================START================================")
     print("Conversion from JSON schema with short names to fullnames")
-    short_names_dir="C:/Users/romai/OneDrive/Documents/NEXO/api/casp_V6/json_from_oxy/"
-    full_names_dir="C:/Users/romai/OneDrive/Documents/NEXO/api/casp_V6/json_fullname_oxy/"
+    short_names_dir="C:/Users/romai/OneDrive/Documents/NEXO/api/casp_V6/json_from_altova/new/"
+    full_names_dir="C:/Users/romai/OneDrive/Documents/NEXO/api/casp_V6/json_fullname_altova/"
     ISO20022repo='C:/Users/romai/OneDrive/Documents/NEXO/20240411_ISO20022_2013_eRepository.iso20022'
     print("================================================================")
     print("short_names_dir: "+short_names_dir)

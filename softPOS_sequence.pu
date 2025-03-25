@@ -1,0 +1,98 @@
+@startuml smarteo softPOS
+!pragma teoz true
+hide footbox
+skinparam ParticipantBackgroundColor <<laposte_style>> Yellow 
+<STYLE>
+.laposte_style {
+  backgroundColor Yellow
+}
+</STYLE>
+
+actor postier
+participant smarteo
+participant "Backend La Poste" as backlp 
+participant softPOS
+actor porteur
+participant "Backend softPOS" as backdjm
+participant "Backend monext" as backmon
+
+participant "SAA Transactis" as acq
+
+
+
+skinparam actor {
+  backgroundColor LightYellow
+  BorderColor Gray
+  FontName Arial
+}
+skinparam participant {
+  backgroundColor LightYellow
+  BorderColor Gray
+  FontName Arial
+}
+skinparam FontName Corbel
+
+postier <-> smarteo : connexion
+smarteo <-> backlp: authentification
+postier -> smarteo : saisie vente
+postier -> smarteo : encaissement
+smarteo -> smarteo : Affectation transaction ID externe
+smarteo -> softPOS : initialisation (user LaPoste)
+softPOS -> backdjm : initialisation (user LaPoste)
+backdjm -> backdjm : stockage user session
+
+
+smarteo -> softPOS : démarrage transaction (**ACHAT**, montant, transaction ID externe)
+group #FF000055 Vérification Habilitation
+softPOS -> backmon : Vérification d'habilitation (user LaPoste)
+backmon -> backlp : Vérification d'habilitation (user LaPoste)
+backlp -> backmon : Habilitation (user LaPoste)
+backmon -> backdjm : Habilitation (user LaPoste)
+softPOS -> smarteo : Si habilitation, poursuite démarrage transaction
+end group
+
+porteur -> softPOS : présentation carte
+
+softPOS -> softPOS: Terminal Risk Management
+
+note over softPOS, acq #FFCFB3: Autorisation Online
+
+{startaut} softPOS -> acq : demande d'autorisation
+
+opt #DDDDDD PIN required
+    softPOS <--> acq : Emetteur requiert code (Autor Code A2)
+    softPOS <-> porteur: saisie PIN
+    softPOS -> acq : demande d'autorisation
+end opt
+...
+
+smarteo -> softPOS : démarrage transaction (**ANNULATION**, montant, transaction ID externe)
+group #palegreen Vérification Habilitation, type transaction = CREDIT
+softPOS -> backmon : Vérification d'habilitation (user LaPoste)
+backmon -> backlp : Vérification d'habilitation (user LaPoste)
+backlp -> backmon : Habilitation (user LaPoste)
+backmon -> backdjm : Habilitation (user LaPoste)
+softPOS -> smarteo : Si habilitation, poursuite  transaction
+end group
+
+porteur -> softPOS : présentation carte
+
+softPOS -> softPOS: Terminal Risk Management
+
+note over softPOS, acq #FFCFB3: Autorisation Online
+
+{startaut} softPOS -> acq : demande d'autorisation  sur annulation
+
+
+
+
+{startaut} <-> {endaut}: <b><color:blue>PSP / ACQUIRER PROCESSING
+
+...
+=== FIN DE JOURNEE ==
+
+note over acq : fin de journée
+backmon -> acq : Constitution d'un fichier grand remettant\n vers transactis
+...
+
+@enduml

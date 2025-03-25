@@ -1,0 +1,165 @@
+<html><head><style type="text/css">
+    p {
+        color: #000000;
+        line-height: 95%;
+        text-align: left;
+        orphans: 2;
+        widows: 2;
+        margin-bottom: 0.25cm;
+        direction: ltr;
+        background: transparent
+    }
+    p.western {
+        font-family: "Arial", serif;
+        font-size: 10pt;
+        so-language: en-GB
+    }
+    a:visited { color: #954f72; text-decoration: underline }
+    a:link { color: #0563c1; text-decoration: underline }
+    table.fixed {
+        table-layout: fixed;
+        width: 840px;
+        border-collapse: collapse;
+        border: 1px solid #a6a6a6;
+    }
+    tr.updated {
+        font-color: #0000ff;
+    }
+    tr.new {
+        font-color: #00cc00;
+    }
+    tr.deleted {
+        font-color: #ff0000;
+        text-decoration: line-through;
+    }
+
+    table.fixed td { word-wrap: break-word; }
+    table.fixed td:nth-of-type(1) { width: 32px; }
+    table.fixed td:nth-of-type(2) { width: 190px; }
+    table.fixed td:nth-of-type(3) { width: 60px; }
+    table.fixed td:nth-of-type(4) { width: 60px; }
+    table.fixed td:nth-of-type(5) { width: 60px; }
+    table.fixed td:nth-of-type(6) { width: 438px; }
+</style><title>casp.017.001.05.xsd.PointOfInteractionCapabilities9</title></head>
+    <body>
+    
+        <table class="fixed" cellpadding="7" cellspacing="0" id="PointOfInteractionCapabilities9" title="PointOfInteractionCapabilities9" style="1px solid #a6a6a6; border-collapse: collapse;width: 840px;">
+            <thead>
+                <tr style="background:#f2f2f2;font-size:8pt;font-style: italic;font-weight: bold;vertical-align: top;border: 1px solid #a6a6a6;border-collapse: collapse;">
+                    <td style="width: 32px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Lvl</p></td>
+                    <td style="width:190px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">PointOfInteractionCapabilities9</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Mult</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Rule</p></td>
+                    <td style="width: 60px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:center;color: #808080;">Cstr</p></td>
+                    <td style="width:438px;font-size:10pt;border: 1px solid #a6a6a6;border-collapse: collapse;"><p lang="en-GB" class="western" style="text-align:left;color: #808080;">Usage</p></td>
+                </tr>
+            </thead>
+    
+    <tr id="CardReadingCapabilities.CardDataReading8Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;CardReadingCapabilities</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Config</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Capabilities available to the payment application . <br/><br/><!--ISODEF-->Type of reading of the card data.<br/>- <b>TAGC: Tag</b> : <i>Tag reading capabilities (RFID, etc.).</i><br/>- <b>PHYS: Physical</b> : <i>Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.</i><br/>- <b>BRCD: BarCode</b> : <i>Bar code.</i><br/>- <b>MGST: MagneticStripe</b> : <i>Magnetic stripe.</i><br/>- <b>CICC: ICC</b> : <i>ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.</i><br/>- <b>DFLE: AccountData</b> : <i>Account data on file.</i><br/>- <b>CTLS: ProximityReader</b> : <i>Contactless proximity reader.</i><br/>- <b>ECTL: EMVProximityReader</b> : <i>Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).</i><br/>- <b>CDFL: CardOnFile</b> : <i>Card information are stored on a file.</i><br/>- <b>SICC: SynchronousIntegratedCircuitCard</b> : <i>Synchronous ICC - (Integrated Circuit Card) with contact.</i><br/>- <b>UNKW: Unknown</b> : <i>Unknown card reading capability.</i><br/>- <b>QRCD: QRCode</b> : <i>Quick response code.</i><br/>- <b>OPTC: OpticalCode</b> : <i>Optical coded reading capabilities (e.g. barcode, QR code, etc.)</i><br/><!--/ISODEF--><i>&lt;CardRdngCpblties&gt;::CardDataReading8Code</i></td>
+    </tr>
+    <tr id="CardholderVerificationCapabilities.CardholderVerificationCapability4Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;CardholderVerificationCapabilities</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Cardholder verification capabilities by the terminal.<br/>- <b>APKI: AccountDigitalSignature</b> : <i>Account based digital signature.</i><br/>- <b>CHDT: CardholderData</b> : <i>Cardholder authentication data.</i><br/>- <b>MNSG: ManualSignature</b> : <i>Manual signature verification.</i><br/>- <b>MNVR: ManualVerification</b> : <i>Other manual verification, for example passport or drivers license.</i><br/>- <b>FBIG: OfflineBiographics</b> : <i>Offline biographics.</i><br/>- <b>FBIO: OfflineBiometrics</b> : <i>Offline biometrics.</i><br/>- <b>FDSG: OfflineDigitalSignature</b> : <i>Offline digital signature analysis.</i><br/>- <b>FCPN: OfflinePINClear</b> : <i>Offline PIN in clear (Personal Identification Number).</i><br/>- <b>FEPN: OfflinePINEncrypted</b> : <i>Offline PIN encrypted (Personal Identification Number).</i><br/>- <b>NPIN: OnLinePIN</b> : <i>Online PIN (Personal Identification Number).</i><br/>- <b>PKIS: PKISignature</b> : <i>PKI (Public Key Infrastructure) based digital signature.</i><br/>- <b>SCEC: SecureElectronicCommerce</b> : <i>Three domain secure (three domain secure authentication of the cardholder).</i><br/>- <b>NBIO: OnLineBiometrics</b> : <i>Online biometrics.</i><br/>- <b>NOVF: NoCapabilities</b> : <i>No cardholder verification capability.</i><br/>- <b>OTHR: Other</b> : <i>Other cardholder verification capabilities.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Cardholder verification capabilities by the terminal.<br/>- <b>APKI: AccountDigitalSignature</b> : <i>Account based digital signature.</i><br/>- <b>CHDT: CardholderData</b> : <i>Cardholder authentication data.</i><br/>- <b>MNSG: ManualSignature</b> : <i>Manual signature verification.</i><br/>- <b>MNVR: ManualVerification</b> : <i>Other manual verification, for example passport or drivers license.</i><br/>- <b>FBIG: OfflineBiographics</b> : <i>Offline biographics.</i><br/>- <b>FBIO: OfflineBiometrics</b> : <i>Offline biometrics.</i><br/>- <b>FDSG: OfflineDigitalSignature</b> : <i>Offline digital signature analysis.</i><br/>- <b>FCPN: OfflinePINClear</b> : <i>Offline PIN in clear (Personal Identification Number).</i><br/>- <b>FEPN: OfflinePINEncrypted</b> : <i>Offline PIN encrypted (Personal Identification Number).</i><br/>- <b>NPIN: OnLinePIN</b> : <i>Online PIN (Personal Identification Number).</i><br/>- <b>PKIS: PKISignature</b> : <i>PKI (Public Key Infrastructure) based digital signature.</i><br/>- <b>SCEC: SecureElectronicCommerce</b> : <i>Three domain secure (three domain secure authentication of the cardholder).</i><br/>- <b>NBIO: OnLineBiometrics</b> : <i>Online biometrics.</i><br/>- <b>NOVF: NoCapabilities</b> : <i>No cardholder verification capability.</i><br/>- <b>OTHR: Other</b> : <i>Other cardholder verification capabilities.</i><br/><!--/ISODEF--><i>&lt;CrdhldrVrfctnCpblties&gt;::CardholderVerificationCapability4Code</i></td>
+    </tr>
+    <tr id="PINLengthCapabilities.PositiveNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;PINLengthCapabilities</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Number of objects represented as a positive integer.<br/><!--/ISODEF--><i>&lt;PINLngthCpblties&gt;::PositiveNumber</i></td>
+    </tr>
+    <tr id="ApprovalCodeLength.PositiveNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;ApprovalCodeLength</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Number of objects represented as a positive integer.<br/><!--/ISODEF--><i>&lt;ApprvlCdLngth&gt;::PositiveNumber</i></td>
+    </tr>
+    <tr id="MaxScriptLength.PositiveNumber" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;MaxScriptLength</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Number of objects represented as a positive integer.<br/><!--/ISODEF--><i>&lt;MxScrptLngth&gt;::PositiveNumber</i></td>
+    </tr>
+    <tr id="CardCaptureCapable.TrueFalseIndicator" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;CardCaptureCapable</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">default False <br/><i>&lt;CardCaptrCpbl&gt;::TrueFalseIndicator</i></td>
+    </tr>
+    <tr id="OnLineCapabilities.OnLineCapability1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;OnLineCapabilities</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">Config</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">Indicates whether the POI authorises transactions exclusively offline (OffLine ), exclusively online ( OnLine )or only authorises online if required by the payment application ( Semi OffLine). <br/><br/><!--ISODEF-->On-line and off-line capabilities of the POI (Point Of Interaction).<br/>- <b>OFLN: OffLine</b> : <i>Off-line only capable.</i><br/>- <b>ONLN: OnLine</b> : <i>On-line only capable.</i><br/>- <b>SMON: SemiOffLine</b> : <i>Off-line capable with possible on-line requests to the acquirer.</i><br/><!--/ISODEF--><i>&lt;OnLineCpblties&gt;::OnLineCapability1Code</i></td>
+    </tr>
+    <tr id="MessageCapabilities.DisplayCapabilities4" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">1</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;MessageCapabilities</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Capabilities of the display components performing the transaction.<br/><!--/ISODEF--><i>&lt;MsgCpblties&gt;::DisplayCapabilities4</i></td>
+    </tr>
+    <tr id="Destination.UserInterface4Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destination</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[1..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Destination of the message.<br/>- <b>CDSP: CardholderDisplay</b> : <i>Cardholder display or interface.</i><br/>- <b>CRCP: CardholderReceipt</b> : <i>Cardholder receipt.</i><br/>- <b>MDSP: MerchantDisplay</b> : <i>Merchant display or interface.</i><br/>- <b>MRCP: MerchantReceipt</b> : <i>Merchant receipt.</i><br/>- <b>CRDO: OtherCardholderInterface</b> : <i>Other interface of the cardholder, for instance e-mail or smartphone message.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Destination of the message.<br/>- <b>CDSP: CardholderDisplay</b> : <i>Cardholder display or interface.</i><br/>- <b>CRCP: CardholderReceipt</b> : <i>Cardholder receipt.</i><br/>- <b>MDSP: MerchantDisplay</b> : <i>Merchant display or interface.</i><br/>- <b>MRCP: MerchantReceipt</b> : <i>Merchant receipt.</i><br/>- <b>CRDO: OtherCardholderInterface</b> : <i>Other interface of the cardholder, for instance e-mail or smartphone message.</i><br/><!--/ISODEF--><i>&lt;Dstn&gt;::UserInterface4Code</i></td>
+    </tr>
+    <tr id="AvailableFormat.OutputFormat1Code" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AvailableFormat</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Message format.<br/>- <b>MREF: MessageReference</b> : <i>Predefined configured messages, identified by a reference.</i><br/>- <b>TEXT: SimpleText</b> : <i>Text without format attributes.</i><br/>- <b>HTML: XHTML</b> : <i>XHTML document which includes a subset of the XHTML output tag.</i><br/><!--/ISODEF--><br/><!--ISODEF-->Message format.<br/>- <b>MREF: MessageReference</b> : <i>Predefined configured messages, identified by a reference.</i><br/>- <b>TEXT: SimpleText</b> : <i>Text without format attributes.</i><br/>- <b>HTML: XHTML</b> : <i>XHTML document which includes a subset of the XHTML output tag.</i><br/><!--/ISODEF--><i>&lt;AvlblFrmt&gt;::OutputFormat1Code</i></td>
+    </tr>
+    <tr id="NumberOfLines.Number" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NumberOfLines</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Number of objects represented as an integer.<br/><!--/ISODEF--><i>&lt;NbOfLines&gt;::Number</i></td>
+    </tr>
+    <tr id="LineWidth.Number" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LineWidth</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..1]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Number of objects represented as an integer.<br/><!--/ISODEF--><i>&lt;LineWidth&gt;::Number</i></td>
+    </tr>
+    <tr id="AvailableLanguage.LanguageCode" class="" style="">
+        <td style="width: 32px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">2</font></td>
+        <td style="width:190px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AvailableLanguage</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;">[0..*]</td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width: 60px;color:#000000;font-size:10pt;vertical-align:middle;text-align:center;border: 1px solid #a6a6a6;"></td>
+        <td style="width:438px;color:#000000;font-size:10pt;vertical-align:middle;text-align:left;border: 1px solid #a6a6a6;"><!--ISODEF-->Specifies a language.<br/><!--/ISODEF--><i>&lt;AvlblLang&gt;::LanguageCode</i></td>
+    </tr>
+        </table>
+        </body>
+        </html>
+        

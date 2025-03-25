@@ -1,0 +1,15 @@
+LOG_CONFIGURATION_FILE: "nexo_table_generator_logging.yaml"
+
+OUTPUT_DIR:  "C:/Users/romai/OneDrive/Documents/NEXO/api/casp_v5/NEW_HTML/"
+SCHEMA_DIR:  "C:/Users/romai/OneDrive/Documents/NEXO/api/casp_v5/"
+PREVIOUS_VERSION_DIR:  "C:/Users/romai/OneDrive/Documents/NEXO/api/casp_v5/HTML/"
+V5_VERSION_DIR:  "C:/Users/romai/OneDrive/Documents/NEXO/api/casp_v2/NEW_HTML/"
+# Set this to False if you don't want to generate endpoint tables
+GENERATE_ENDPOINTS:  True
+# Set this to False if you don't want to see stop at sub endpoints in endpoints
+ENDPOINTS_IN_ENDPOINT: False
+# Set this to False if you don't want to compare message to a previous version
+COMPARE_TO_PREVIOUS_VERSION:  True
+# Set this to False if you don't want to compare endpoints to a previous version
+ENDPOINT_COMPARE_TO_PREVIOUS_VERSION: True
+SPECIAL_COMPARE_V5: True

@@ -1,0 +1,122 @@
+Can you package this code in a library written in kotlin. 
+Entry point must be a function named paymentRequest whose parameters are :
+- TransactionType: Min4Max4Text. Mandatory parameter. Main service provided during the card payment transaction.
+Possible Values :
+	 - BALC: Balance : Balance enquiry.
+	- CACT: CardActivation : Card activation.
+	- CRDP: CardPayment : Card payment.
+	- CAFH: CardsFundTransferPush : Transfer of 	funds to a card or an account.
+	- CAVR: CardVerification : Card verification.
+	- CSHW: CashAdvance : Cash advance or withdrawals on a POI (Point Of Interaction), or at 	a bank counter.
+	- CSHD: CashDeposit : Cash deposit.
+	- DEFR: DeferredPayment : Deferred payment.
+	- LOAD: Loading : Loading or reloading nonfinancial account.
+	- ORCR: OriginalCredit : Original credit.
+	- PINC: PINChange : PIN (Personal 	Identification Number) change.
+	- QUCH: QuasiCash : Quasi-cash.
+	- RFND: Refund : Refund transaction.
+	- RESA: Reservation : Reservation (preauthorisation).
+	- VALC: ValidityCheck : Card validity check.
+	- UNLD: Unloading : Unloading non-financial account.
+	- CAFT: CardsFundTransfer : Transfer of funds to and/or from a card account.
+	- CAFL: CardsFundTransferPull : Transfer of funds from a card or an account
+- AdditionalService : Min4Max4Text. Optional parameter.Service provided by the card payment transaction, in addition to the main service.
+Possible Values :
+	- AGGR: Aggregation : Aggregation of low payments.
+	- DCCV: DCC : Dynamic currency conversion (DCC).
+	- GRTT: Gratuity : Card payment with gratuity.
+	- LOYT: Loyalty : Loyalty services.
+	- NRES: NoShow : No show after reservation.
+	- PUCO: PurchaseCorporate : Purchase and corporate data.
+	- RECP: RecurringPayment : Recurring payment.
+	- SOAF: SolicitedAvailableFunds : Solicited available funds.
+	- VCAU: VoiceAuthorisation : Voice authorisation.
+	- INSI: IssuerInstalment : Instalment payment transaction performed by the card issuer.
+	- INSA: AcceptorInstalment : Instalment payment transaction performed by the acceptor or the acquirer.
+	- CSHB: CashBack : Card payment with cashback.
+	- INST: Instant : Instant transaction.
+	- NRFD: NonRefundable : Payment of goods or services which are not refundable, for instance low cost airline tickets.
+
+- Service Attribute : Min4Max4Text. Optional parameter. Additional attributes of the service provided by the card payment transaction.
+Possible Values :
+	- IRES: InitialReservation : Initial reservation.
+	- URES: UpdateReservation : Update 
+	reservation.
+	- PRES: PaymentReservation : Payment after 
+	reservation.
+	- ARES: AdditionalPayment : Additional 
+	payment after reservation.
+	- FREC: FirstRecurring : Initial recurring 
+	payment.
+	- RREC: FollowingRecurring : Repeat recurring 
+	payment.
+	- GOPT: GuaranteeOfPayment : Acceptor claims for guarantee of payment.
+
+- MCC : Min3Max4Tex. Optional. Merchant CaetegoryCode/ Code assigned by the Acquirer,containing the ISO18245-4 MCC code associated with the category of services or goods purchased in this transaction (the merchant can have several MCCs associated to its business). 
+
+- SaleReferenceIdentification. Max35Text. Mandatory. Sale transaction identification. May be common to several paymentRequests. Must be mapped to externalTransactionReference in the payment Intent/ 
+Function returns a paymentResponse.
+
+- Currency. Mandatory. 3 Letters ISO currency code (e.g. EUR, USD,...)
+
+- TotalAmount. Mandatory. Max18 Digits.
+
+This function will respond with a paymentResponse whose data is 
+	- Response : 
+		- WARN: Warning : An additional Response Code, 
+		mainly a functional one, should be considered to identify 
+		the outcome of the request.
+		- FAIL: Failure : Processing of the request fails for 
+		various reasons. Some further processing according to the 
+		type of requested service, the context of the process, and 
+		some additional precision about the failure notified in the 
+		ErrorCondition data element.
+		- SUCC: Success : Processing OK. Information related to 
+		the result of the processing is contained in other parts of 
+		the response message.
+	- ResponseReason : Optional Result of the processing of the message
+		- ABRT: Aborted : The Initiator of the request has sent an
+		Abort message request, which was accepted and 
+		processed.
+		- BUSY: Busy : The system is busy, try later.
+		- CANC: Cancel : The user has aborted the transaction 
+		on the PED keyboard, for instance during PIN entering.
+		- DEVO: DeviceOut : Device out of order.
+		- WPIN: WrongPIN : The user has entered the PIN on 
+		the PED keyboard and the verification fails.
+		- NHOS: UnreachableHost : Acquirer or any host is 
+		unreachable or has not answered to an online request, so 
+		is considered as temporary unavailable. Depending on the
+		Sale context, the request could be repeated (to be 
+		compared with "Refusal").
+		- UNVS: UnavailableService : The service is not 
+		available (not implemented, not configured, protocol 
+		version too old...).
+		- UNVD: UnavailableDevice : The hardware is not 
+		available (absent, not configured...).
+		- REFU: Refusal : The transaction is refused by the host 
+		or by the local rules associated to the card or the POI.
+		- PAYR: PaymentRestriction : Some sale items are not 
+		payable by the card proposed by the Customer.
+		- TNFD: NotFound : The transaction is not found (e.g. 
+		for a reversal or a repeat).
+		- NALW: NotAllowed : A service request is sent during a 
+		Service dialogue. A combination of services not possible 
+		to provide. During the DeviceInitialisationCardReader 
+		message processing, the user has entered a card which has
+		to be protected by the POI, and cannot be processed with 
+		this device request from the external, and then the Sale 
+		System.
+		- LOUT: LoggedOut : Not logged in.
+		- IVCA: InvalidCard : The card entered by the Customer 
+		cannot be processed by the POI because this card is not 
+		configured in the system.
+		- ICAR: InsertedCard : If the Input Device request a 
+		NotifyCardInputFlag and the Customer enters a card in 
+		the card reader without answers to the Input command, 
+		the POI abort the Input command processing, and answer 
+		a dedicated ErrorCondition value in the Input response 
+		message.
+		- WIPG: InProgress : The transaction is still in progress 
+		and then the command cannot be processed.
+	- AdditionalResponseInformation : optional, MAx140Text
