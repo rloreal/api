@@ -1,0 +1,13 @@
+description: Bad Request
+headers:
+  Location:
+    $ref: ../headers/Location.yaml
+  X-Request-ID:
+    $ref: ../headers/Idempotency-Key.yaml
+content:
+  application/json:
+    schema:
+      $ref: https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json
+  application/problem+json:
+    schema:
+      $ref: https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json

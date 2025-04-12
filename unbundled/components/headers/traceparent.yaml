@@ -1,0 +1,34 @@
+description: >
+  describes the position of the incoming request in its trace graph 
+
+  in a portable, fixed-length format. 
+
+  Its design focuses on fast parsing. 
+
+  Every tracing tool MUST properly set traceparent even when it only relies 
+
+  on vendor-specific information in tracestate.
+
+  The traceparent HTTP header field identifies the incoming request in a tracing
+  system. It has four fields:
+
+  - version-format: 2 bytes, "00-"in ASCII
+
+  - trace-id: 32 bytes, a unique identifier for the trace, represented as a
+  16-byte array, formatted as a 32-digit hexadecimal number
+
+  - parent-id: 16 bytes, a unique identifier for the span, represented as an
+  8-byte array, formatted as a 16-digit hexadecimal number
+
+  - trace-flags: An 8-bit field that controls tracing flags such as sampling,
+  trace level, etc
+    Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+    base16(version) = 00
+    base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+    base16(parent-id) = 00f067aa0ba902b7
+    base16(trace-flags) = 01  // sampled
+schema:
+  type: string
+examples:
+  traceparent-example:
+    value: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01

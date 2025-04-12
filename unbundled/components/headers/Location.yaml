@@ -1,0 +1,5 @@
+description: |
+  Location of the created resource.
+schema:
+  type: string
+  format: url

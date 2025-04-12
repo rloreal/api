@@ -1,0 +1,6 @@
+description: Not Acceptable
+headers:
+  Location:
+    $ref: ../headers/Location.yaml
+  X-Request-ID:
+    $ref: ../headers/Idempotency-Key.yaml

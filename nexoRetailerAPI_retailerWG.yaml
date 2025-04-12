@@ -46,11 +46,11 @@ info:
 
     * According to the OpenAPI-Specification [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.1.md]
       
-        "If in is "header" and the name field is "Accept", "Content-Type" or "Authorization", the parameter definition SHALL be ignored."
+        "If in is "header"and the name field is "Accept", "Content-Type"or "Authorization", the parameter definition SHALL be ignored."
       
-      The element "Accept" will not be defined in this file at any place.
+      The element "Accept"will not be defined in this file at any place.
       
-      The elements "Content-Type" and "Authorization" are implicitly defined by the OpenApi tags "content" and "security".
+      The elements "Content-Type"and "Authorization"are implicitly defined by the OpenApi tags "content"and "security".
       
 
     * **We omit the definition of all standard HTTP header elements (mandatory/optional/conditional) 
@@ -65,6 +65,10 @@ info:
     email: romain.loreal@lorealconsulting.com
     url: https://www.nexo-standards.org
 
+  x-logo:
+    url: 'https://https://www.nexo-standards.org/sites/default/files/nexo.png'
+    altText: nexo logo
+
 externalDocs:
     description: |
       Full Documentation of nexo retailer protocol is provided by nexo standards :
@@ -73,7 +77,7 @@ externalDocs:
 
 
 servers:
-  - url : https://test.poisystem.com:8099
+  - url: https://test.poisystem.com:8099
     description: Test server for API exchanges between merchant and payment system, secured with X509
 
 security:
@@ -92,6 +96,8 @@ security:
   - BearerAuthOAuth: []
 
 tags:
+  - name: "retail financial services"
+    description: "Simplified retail financial services such as payment"
   - name: "financial services"
     description: "financial services such as payment"
   - name: "admin services"
@@ -104,32 +110,90 @@ tags:
 
 
 components:
-  schemas:
-    SaleToPOIServiceRequestV06: 
-      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
-    SaleToPOIServiceResponseV06: 
-      $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
-    RetailPayment:
-      $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-    Problem:
-      $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json#/$defs/Problem"
-
-  headers:
   #####################################################
   # Reusable Response Header Elements
   #####################################################
-  
-
+  schemas:
     Location:
       description: |
         Location of the created resource.
-      schema:
-        type: string
-        format: url
-      required: false
-      
+      type: string
+      format: url
+    
+    
     Idempotency-Key:
       description: |
+          ID of the request, unique to the call, as determined by the initiating party.
+          The idempotency key is a free identifier created by the client to
+          identify a request. It is used by the service to identify subsequent
+          retries of the same request and ensure idempotent behavior by sending
+          the same response without executing the request a second time.
+
+          Clients should be careful as any subsequent requests with the same key
+          may return the same response without further check. Therefore, it is
+          recommended to use an UUID version 4 (random) or any other random
+          string with enough entropy to avoid collisions.
+
+          Idempotency keys expire after 24 hours. Clients are responsible to stay
+          within this limits, if they require idempotent behavior.
+      type: string
+      format: uuid
+      examples:
+        - idempotency-key-example: 
+          value: "7da7a728-f910-11e6-942a-68f728c1ba70"
+
+
+    traceparent:
+      description: |
+          describes the position of the incoming request in its trace graph 
+          in a portable, fixed-length format. 
+          Its design focuses on fast parsing. 
+          Every tracing tool MUST properly set traceparent even when it only relies 
+          on vendor-specific information in tracestate.
+          The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
+          - version-format: 2 bytes, "00-"in ASCII
+          - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
+          - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
+          - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
+            Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+            base16(version) = 00
+            base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736
+            base16(parent-id) = 00f067aa0ba902b7
+            base16(trace-flags) = 01  // sampled
+      type: string
+      examples: 
+        - traceparent-example:
+          value: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+
+    tracestate: 
+      description: |
+          extends traceparent with vendor-specific data represented by a set of name/value pairs.
+          Storing information in tracestate is optional.
+      type: string
+      examples: 
+        - tracestate-example:
+          value: "congo=t61rcWkgMzE"
+
+    origin:
+      description: |
+          hostname of the initiating party.
+          Useful if POI want to send event notification to the POS.
+      type: string
+      examples: 
+        - origin-example:
+          value: "myPOS.merchantname.com"
+
+  headers:
+    Location:
+      description: |
+        Location of the created resource.
+      schema: 
+        type: string
+        format: url
+
+    Idempotency-Key:
+      description: |
+          ID of the request, unique to the call, as determined by the initiating party.
           The idempotency key is a free identifier created by the client to
           identify a request. It is used by the service to identify subsequent
           retries of the same request and ensure idempotent behavior by sending
@@ -145,10 +209,9 @@ components:
       schema:
         type: string
         format: uuid
-        examples:
-          - idempotency-key-example:
-            value:  "7da7a728-f910-11e6-942a-68f728c1ba70"
-      required: false
+      examples:
+        idempotency-key-example: 
+          value: "7da7a728-f910-11e6-942a-68f728c1ba70"
 
     traceparent:
       description: |
@@ -158,7 +221,7 @@ components:
           Every tracing tool MUST properly set traceparent even when it only relies 
           on vendor-specific information in tracestate.
           The traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:
-          - version-format: 2 bytes, "00-" in ASCII
+          - version-format: 2 bytes, "00-"in ASCII
           - trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number
           - parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number
           - trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc
@@ -169,21 +232,19 @@ components:
             base16(trace-flags) = 01  // sampled
       schema:
         type: string
-        examples: 
-          - traceparent-example:
-            value: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
-      required: false
+      examples: 
+        traceparent-example:
+          value: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
 
     tracestate: 
       description: |
           extends traceparent with vendor-specific data represented by a set of name/value pairs.
           Storing information in tracestate is optional.
-      schema:
+      schema: 
         type: string
-        examples: 
-          - tracestate-example:
-            value: "congo=t61rcWkgMzE"
-      required: false
+      examples: 
+        tracestate-example:
+          value: "congo=t61rcWkgMzE"
 
     origin:
       description: |
@@ -191,11 +252,32 @@ components:
           Useful if POI want to send event notification to the POS.
       schema:
         type: string
-        examples: 
-          - origin-example:
-            value: "myPOS.merchantname.com"
-      required: false
+      examples: 
+        origin-example:
+          value: "myPOS.merchantname.com"
 
+  securitySchemes:
+  #####################################################
+  # Predefined Security Schemes:
+  #
+  # In this file only the basic security element to transport
+  # the bearer token of an OAuth2 process, which has to 
+  # be included in the HTTP header is described.
+  #
+  # WARNING:
+  # If you want to use this file for a productive implementation, 
+  # it is recommended to adjust the security schemes according to 
+  # your system environments and security policies.
+  #####################################################
+    BearerAuthOAuth:
+      description: |
+        Bearer Token. 
+        
+        Is contained only, if an OAuth2 based authentication was performed in a pre-step or 
+        an OAuth2 based SCA was performed in a preceding AIS service in the same session.
+      type: http
+      scheme: bearer
+      
   responses:
     #####################################################
     # Negative Responses
@@ -213,11 +295,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Problem" 
+            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-            $ref: "#/components/schemas/Problem" 
+            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
     UNAUTHORIZED_401:
       description: Unauthorized
@@ -231,11 +313,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Problem" 
+            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "#/components/schemas/Problem" 
+             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
     FORBIDDEN_403:
       description: Forbidden
@@ -249,11 +331,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Problem" 
+            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "#/components/schemas/Problem" 
+             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
 
     NOT_FOUND_404:
@@ -268,11 +350,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Problem" 
+            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "#/components/schemas/Problem" 
+             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
 
     METHOD_NOT_ALLOWED_405:
@@ -287,11 +369,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Problem" 
+            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "#/components/schemas/Problem" 
+             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
     NOT_ACCEPTABLE_406:
       description: Not Acceptable
@@ -324,11 +406,11 @@ components:
       content:
         application/json:
           schema:
-             $ref: "#/components/schemas/Problem" 
+             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
           
         application/problem+json:
           schema:
-             $ref: "#/components/schemas/Problem" 
+             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
 
     UNSUPPORTED_MEDIA_TYPE_415:
@@ -389,22 +471,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
 
       requestBody:
         required: true
@@ -412,33 +494,33 @@ paths:
           application/json:
             schema:
               $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
-              examples:
-                - body-example:
-                  value:
-                    Hdr:
-                      CreDtTm: '2020-05-04T18:13:51.0+01:00'
-                      MsgFctn: SFSQ
-                      PrtcolVrsn: '8.0'
-                      XchgId: '642'
-                      InitgPty: 
-                        Id: SaleTermA
-                        Tp: MERC
-                      RcptPty:
-                        Id: 'POITerm1'
-                        Tp: OPOI
-                    SvcReq:
-                      Envt:
-                      Cntxt:
-                      SvcCntt: FSPQ
-                      PmtReq:
-                        PmtTx:
-                          TxId:
-                            TxDtTm: '2020-05-04T18:13:51.0+01:00'
-                            TxRef: '579'
-                          TxTp: CRDP
-                          TxDtls:
-                            Ccy: EUR
-                            TtlAmt: '104.11'
+            examples:
+              body-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty: 
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
       responses:
         '200':
           description :  financial service created - Use HTTP GET to get the state of the service
@@ -449,13 +531,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -465,13 +547,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -485,13 +567,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -501,19 +583,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /financial/{exchangeId}:
     get:
@@ -538,22 +620,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       responses:
         '200':
           description: service dialogue representation with its current state
@@ -566,19 +648,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
   
   /retailPayment:
     post:
@@ -593,22 +675,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -617,8 +699,12 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-              examples:
-                - Hdr:
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              retailpayment-example:
+                value:
+                  Hdr:
                     CreDtTm: '2020-05-04T18:13:51.0+01:00'
                     MsgFctn: SFSQ
                     PrtcolVrsn: '8.0'
@@ -652,13 +738,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -668,13 +754,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -688,31 +774,31 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /retailPayment/{exchangeId}:
     get:
@@ -737,22 +823,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
 
       responses:
         '200':
@@ -766,19 +852,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
   
 
   /reconciliation:
@@ -792,22 +878,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -819,13 +905,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /balance:
     post:
@@ -840,22 +935,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -864,34 +959,35 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - balance-example:
-                    value:
-                      Hdr:
-                        CreDtTm: '2020-05-04T18:13:51.0+01:00'
-                        MsgFctn: SFSQ
-                        PrtcolVrsn: '8.0'
-                        XchgId: '642'
-                        InitgPty: 
-                          Id: SaleTermA
-                          Tp: MERC
-                        RcptPty:
-                          Id: 'POITerm1'
-                          Tp: OPOI
-                      SvcReq:
-                        Envt:
-                        Cntxt:
-                        SvcCntt: FSPQ
-                        PmtReq:
-                          PmtTx:
-                            TxId:
-                              TxDtTm: '2020-05-04T18:13:51.0+01:00'
-                              TxRef: '579'
-                            TxTp: CRDP
-                            TxDtls:
-                              Ccy: EUR
-                              TtlAmt: '104.11'
+              discriminator:
+                propertyName: ProtocolVersion    
+            examples:
+              balance-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty: 
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
       responses:
         '200':
           description :  financial service created - Use HTTP GET to get the state of the service
@@ -902,13 +998,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -918,13 +1014,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -938,13 +1034,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -954,19 +1050,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /loyalty:
     post:
@@ -981,22 +1077,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1005,9 +1101,12 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - Hdr:
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              loyalty-example:
+                value:
+                  Hdr:
                     CreDtTm: '2020-05-04T18:13:51.0+01:00'
                     MsgFctn: SFSQ
                     PrtcolVrsn: '8.0'
@@ -1041,13 +1140,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -1057,13 +1156,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1077,13 +1176,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1093,19 +1192,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /reversal:
     post:
@@ -1120,22 +1219,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1144,34 +1243,35 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - reversal-example:
-                  value:
-                    Hdr:
-                      CreDtTm: '2020-05-04T18:13:51.0+01:00'
-                      MsgFctn: SFSQ
-                      PrtcolVrsn: '8.0'
-                      XchgId: '642'
-                      InitgPty: 
-                        Id: SaleTermA
-                        Tp: MERC
-                      RcptPty:
-                        Id: 'POITerm1'
-                        Tp: OPOI
-                    SvcReq:
-                      Envt:
-                      Cntxt:
-                      SvcCntt: FSPQ
-                      PmtReq:
-                        PmtTx:
-                          TxId:
-                            TxDtTm: '2020-05-04T18:13:51.0+01:00'
-                            TxRef: '579'
-                          TxTp: CRDP
-                          TxDtls:
-                            Ccy: EUR
-                            TtlAmt: '104.11'
+              discriminator:
+                propertyName: ProtocolVersion                
+            examples:
+              reversal-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty: 
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
       responses:
         '200':
           description :  financial service created - Use HTTP GET to get the state of the service
@@ -1182,13 +1282,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -1198,13 +1298,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1218,31 +1318,31 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /storedValue:
     post:
@@ -1257,22 +1357,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1281,34 +1381,35 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - storedvalue-example:
-                    value:
-                      Hdr:
-                        CreDtTm: '2020-05-04T18:13:51.0+01:00'
-                        MsgFctn: SFSQ
-                        PrtcolVrsn: '8.0'
-                        XchgId: '642'
-                        InitgPty: 
-                          Id: SaleTermA
-                          Tp: MERC
-                        RcptPty:
-                          Id: 'POITerm1'
-                          Tp: OPOI
-                      SvcReq:
-                        Envt:
-                        Cntxt:
-                        SvcCntt: FSPQ
-                        PmtReq:
-                          PmtTx:
-                            TxId:
-                              TxDtTm: '2020-05-04T18:13:51.0+01:00'
-                              TxRef: '579'
-                            TxTp: CRDP
-                            TxDtls:
-                              Ccy: EUR
-                              TtlAmt: '104.11'
+              discriminator:
+                propertyName: ProtocolVersion                
+            examples:
+              storedvalue-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty: 
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
       responses:
         '200':
           description :  financial service created - Use HTTP GET to get the state of the service
@@ -1319,13 +1420,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -1335,13 +1436,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1355,31 +1456,31 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /cardAcquisition:
     post:
@@ -1394,22 +1495,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1418,34 +1519,35 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - cardacquisition-value:
-                    value:
-                      Hdr:
-                          CreDtTm: '2020-05-04T18:13:51.0+01:00'
-                          MsgFctn: SFSQ
-                          PrtcolVrsn: '8.0'
-                          XchgId: '642'
-                          InitgPty: 
-                            Id: SaleTermA
-                            Tp: MERC
-                          RcptPty:
-                            Id: 'POITerm1'
-                            Tp: OPOI
-                      SvcReq:
-                        Envt:
-                        Cntxt:
-                        SvcCntt: FSPQ
-                        PmtReq:
-                          PmtTx:
-                            TxId:
-                              TxDtTm: '2020-05-04T18:13:51.0+01:00'
-                              TxRef: '579'
-                            TxTp: CRDP
-                            TxDtls:
-                              Ccy: EUR
-                              TtlAmt: '104.11'
+              discriminator:
+                propertyName: ProtocolVersion                
+            examples:
+              cardacquisition-value:
+                value:
+                  Hdr:
+                      CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                      MsgFctn: SFSQ
+                      PrtcolVrsn: '8.0'
+                      XchgId: '642'
+                      InitgPty: 
+                        Id: SaleTermA
+                        Tp: MERC
+                      RcptPty:
+                        Id: 'POITerm1'
+                        Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
       responses:
         '200':
           description :  financial service created - Use HTTP GET to get the state of the service
@@ -1456,13 +1558,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -1472,13 +1574,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1492,13 +1594,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1508,19 +1610,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /batch:
     post:
@@ -1535,22 +1637,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1559,9 +1661,12 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - Hdr:
+              discriminator:
+                propertyName: ProtocolVersion                
+            examples:
+              batch-example:
+                value:
+                  Hdr:
                     CreDtTm: '2020-05-04T18:13:51.0+01:00'
                     MsgFctn: SFSQ
                     PrtcolVrsn: '8.0'
@@ -1595,13 +1700,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -1611,13 +1716,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1631,13 +1736,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1647,19 +1752,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /enable:
     post:
@@ -1674,22 +1779,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1698,9 +1803,12 @@ paths:
               oneOf:
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
                 - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
-                
-              examples:
-                - Hdr:
+              discriminator:
+                propertyName: ProtocolVersion                
+            examples:
+              enable-example:
+                value:
+                  Hdr:
                     CreDtTm: '2020-05-04T18:13:51.0+01:00'
                     MsgFctn: SFSQ
                     PrtcolVrsn: '8.0'
@@ -1734,13 +1842,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
         '201':
           description: service request created - full resource document is provided
           headers:
@@ -1750,13 +1858,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1770,13 +1878,13 @@ paths:
               description : life duration of the resource
             X-Request-ID:
               schema:
-                $ref: "#/components/headers/Idempotency-Key"
+                $ref: "#/components/schemas/Idempotency-Key"
             Location:
               schema:
-                $ref: "#/components/headers/Location"
+                $ref: "#/components/schemas/Location"
             origin:
               schema:
-                $ref: "#/components/headers/origin"
+                $ref: "#/components/schemas/origin"
           content:
             application/json:
               schema:
@@ -1786,19 +1894,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
 
   /device:
@@ -1812,22 +1920,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1839,69 +1947,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
-
-  /display/{deviceId}:
-    post:
-      tags: 
-        - "device services"
-      summary : display something on a pos or poi
-      description: The display message is used by the sale system or POI system to request a display on a device .
-      operationId: print
-      parameters:
-        - in: path
-          required: true
-          name: deviceId 
-          schema:
-            type: string
-            minLength: 1
-            maxLength: 35
-          description: | 
-            deviceIdentifier of the device to display on.
-        - in: header
-          name: X-Request-ID
-          schema:
-            $ref: "#/components/headers/Idempotency-Key"
-
-        - in: header  
-          name: traceparent
-          schema:
-            $ref: "#/components/headers/traceparent"
-
-        - in: header
-          name: tracestate
-          schema:
-            $ref: "#/components/headers/tracestate"
-
-        - in: header
-          name: origin
-          schema:
-            $ref: "#/components/headers/origin"
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/display.yaml"
-      responses:
-        "201":
-          description: service request created
-        "400":
-          description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
-        "404":
-          description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
-        "500":
-          description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
-
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /session:
     post:
@@ -1914,22 +1975,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1941,13 +2002,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
  
   /admin:
@@ -1961,22 +2031,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -1988,13 +2058,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /report:
     post:
@@ -2007,22 +2086,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -2034,13 +2113,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
 
   /abort/{exchangeId}:
@@ -2064,22 +2152,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -2091,13 +2179,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /reject/{exchangeId}:
     post:
@@ -2120,22 +2217,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -2147,13 +2244,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
   /status/{exchangeId}:
     post:
@@ -2176,22 +2282,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -2203,14 +2309,22 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
-
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
   /eventNotification:
     post:
       tags: 
@@ -2222,22 +2336,22 @@ paths:
         - in: header
           name: X-Request-ID
           schema:
-            $ref: "#/components/headers/Idempotency-Key"
+            $ref: "#/components/schemas/Idempotency-Key"
 
         - in: header  
           name: traceparent
           schema:
-            $ref: "#/components/headers/traceparent"
+            $ref: "#/components/schemas/traceparent"
 
         - in: header
           name: tracestate
           schema:
-            $ref: "#/components/headers/tracestate"
+            $ref: "#/components/schemas/tracestate"
 
         - in: header
           name: origin
           schema:
-            $ref: "#/components/headers/origin"
+            $ref: "#/components/schemas/origin"
       requestBody:
         required: true
         content:
@@ -2249,12 +2363,21 @@ paths:
           description: service request created
         "400":
           description: Invalid request
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "404":
           description: POI not found
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
         "500":
           description: Unexpected error
-          $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
 
 

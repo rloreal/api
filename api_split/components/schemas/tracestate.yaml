@@ -1,0 +1,9 @@
+description: >
+  extends traceparent with vendor-specific data represented by a set of
+  name/value pairs.
+
+  Storing information in tracestate is optional.
+type: string
+examples:
+  - tracestate-example: null
+    value: congo=t61rcWkgMzE

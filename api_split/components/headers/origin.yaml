@@ -1,0 +1,8 @@
+description: |
+  hostname of the initiating party.
+  Useful if POI want to send event notification to the POS.
+schema:
+  type: string
+examples:
+  origin-example:
+    value: myPOS.merchantname.com

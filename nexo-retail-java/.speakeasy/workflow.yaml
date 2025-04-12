@@ -1,0 +1,18 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    nexo retailer API:
+        inputs:
+            - location: ..\nexoRetailerAPI_retailerWG.yaml
+        registry:
+            location: registry.speakeasyapi.dev/lorealconsulting/nexo-retail/nexo-retailer-api
+targets:
+    nexo-retail:
+        target: java
+        source: nexo retailer API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/lorealconsulting/nexo-retail/nexo-retailer-api-java-code-samples
+            labelOverride:
+                fixedValue: Java (SDK)
+            blocking: false

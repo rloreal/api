@@ -1,0 +1,69 @@
+get:
+  tags:
+    - retail financial services
+  summary: provides the result of a service previously requested
+  description: >
+    request a service, such as payment, to be done on the specified POI.
+
+    Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case
+    Response will be delivered through a GET request
+  operationId: paymentInformation
+  parameters:
+    - in: path
+      required: true
+      name: exchangeId
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 35
+      description: >
+        exchangeId is the identifier of the resource representing a service
+        dialog that has been initiated by a POST /service message.
+
+        This operation allows to have the result of a service that has been
+        processed asynchronously.
+    - in: header
+      name: X-Request-ID
+      schema:
+        $ref: ../components/schemas/Idempotency-Key.yaml
+    - in: header
+      name: traceparent
+      schema:
+        $ref: ../components/schemas/traceparent.yaml
+    - in: header
+      name: tracestate
+      schema:
+        $ref: ../components/schemas/tracestate.yaml
+    - in: header
+      name: origin
+      schema:
+        $ref: ../components/schemas/origin.yaml
+  responses:
+    '200':
+      description: service dialogue representation with its current state
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json
+    '404':
+      description: POI not found
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json
+    '500':
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json

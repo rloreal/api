@@ -1,0 +1,1835 @@
+openapi: 3.1.0
+info:
+  title: nexo retailer API
+  version: "2025-01"
+  description: "API defining resources for interactions between POI and POS, using underlying nexo messages\n# Summary\nThe **nexo retailer** *Protocol Version 8* offers a modern, open, harmonised and interoperable set of\nApplication Programming Interfaces (APIs) as the safest and most efficient way to exchange data securely,\nbetween a Point Of sale System (POS) and Point Of Interaction (POI) System.\nThe nexo retailer protocol reduces sale to payment terminal communication complexity and costs, \naddresses the problem of multiple private standards, aligned with the goals of nexo association,\nenables point of sale system providers to use a single interface with multiple payment systems, \nfor multiple payment instruments, and payment methods, \nwith a clear delimitation between with the retail world and the payment world.\n\nThe possible approaches are:\n  * Multiple POS to Multiple POI \n  * One to One POS to POI\n  * App 2 App when POS and POI are embedded in a single device\n\n  Not every message defined in this API definition is necessary for all approaches. \n  Furthermore this API definition does not differ between methods which are mandatory, conditional, or optional.\n  Therefore for a particular implementation of a nexo compliant API it is only necessary to support \n  a certain subset of the methods defined in this API definition.\n\n  **Please have a look at the nexo retailer message usage guide if you are not sure \n  which message has to be used for the approach you are going to use.**\n\n## Some General Remarks Related to this version of the OpenAPI Specification:\n* **This API definition is based on the Message Usage Guide of the nexo retailer protocol.** \n  It is not a replacement in any sense.\n  The main specification is always the nexo Message Usage Guide, with ISO20022 definitions of the protocol (MDR Part 1 and 2).\n  It is highly recommended to read through the standards documentations in conjunction with this API definition. \n  Namely regarding :\n    * The rules regarding dialogue initiation, termination and combination \n    * The rules and constraints applied to data fields, depending on the use case\n    * The error management on Sale system and POI system sides\n    * The security that can be applied to the protocol\n* **This API definition contains the messages for all different approaches defined in the Message Usage Guide.**\n\n* According to the OpenAPI-Specification [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.1.md]\n  \n    \"If in is \"header\"and the name field is \"Accept\", \"Content-Type\"or \"Authorization\", the parameter definition SHALL be ignored.\"\n  \n  The element \"Accept\"will not be defined in this file at any place.\n  \n  The elements \"Content-Type\"and \"Authorization\"are implicitly defined by the OpenApi tags \"content\"and \"security\".\n  \n\n* **We omit the definition of all standard HTTP header elements (mandatory/optional/conditional) \n  except they are mentioned in the Implementation Guidelines.**\n  Therefore the implementer might add these in his own realisation of a nexo complient API in addition to the elements defined in this file.\n"
+  license:
+    name: Creative Commons Attribution 4.0 International Public License
+    url: https://creativecommons.org/licenses/by/4.0/
+  contact:
+    name: nexo retailer Working group
+    email: romain.loreal@lorealconsulting.com
+    url: https://www.nexo-standards.org
+externalDocs:
+  description: |
+    Full Documentation of nexo retailer protocol is provided by nexo standards :
+    Messages Usage Guide, Architecture, Examples nexo standards specifications and documentation.
+  url: https://www.nexo-standards.org
+servers:
+  - url: https://test.poisystem.com:8099
+    description: Test server for API exchanges between merchant and payment system, secured with X509
+security:
+  - {}
+  - BearerAuthOAuth: []
+tags:
+  - name: "retail financial services"
+    description: "Simplified retail financial services such as payment"
+  - name: "financial services"
+    description: "financial services such as payment"
+  - name: "admin services"
+    description: "admin services such as login"
+  - name: "device services"
+    description: "device services such as display"
+  - name: "system services"
+    description: "system services such as abort"
+components:
+  headers:
+    Location:
+      description: |
+        Location of the created resource.
+      schema:
+        type: string
+        format: url
+    Idempotency-Key:
+      description: |
+        The idempotency key is a free identifier created by the client to
+        identify a request. It is used by the service to identify subsequent
+        retries of the same request and ensure idempotent behavior by sending
+        the same response without executing the request a second time.
+
+        Clients should be careful as any subsequent requests with the same key
+        may return the same response without further check. Therefore, it is
+        recommended to use an UUID version 4 (random) or any other random
+        string with enough entropy to avoid collisions.
+
+        Idempotency keys expire after 24 hours. Clients are responsible to stay
+        within this limits, if they require idempotent behavior.
+      schema:
+        type: string
+        format: uuid
+      examples:
+        idempotency-key-example:
+          value: "7da7a728-f910-11e6-942a-68f728c1ba70"
+    traceparent:
+      description: "describes the position of the incoming request in its trace graph \nin a portable, fixed-length format. \nIts design focuses on fast parsing. \nEvery tracing tool MUST properly set traceparent even when it only relies \non vendor-specific information in tracestate.\nThe traceparent HTTP header field identifies the incoming request in a tracing system. It has four fields:\n- version-format: 2 bytes, \"00-\"in ASCII\n- trace-id: 32 bytes, a unique identifier for the trace, represented as a 16-byte array, formatted as a 32-digit hexadecimal number\n- parent-id: 16 bytes, a unique identifier for the span, represented as an 8-byte array, formatted as a 16-digit hexadecimal number\n- trace-flags: An 8-bit field that controls tracing flags such as sampling, trace level, etc\n  Example Value = 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\n  base16(version) = 00\n  base16(trace-id) = 4bf92f3577b34da6a3ce929d0e0e4736\n  base16(parent-id) = 00f067aa0ba902b7\n  base16(trace-flags) = 01  // sampled\n"
+      schema:
+        type: string
+      examples:
+        traceparent-example:
+          value: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+    tracestate:
+      description: |
+        extends traceparent with vendor-specific data represented by a set of name/value pairs.
+        Storing information in tracestate is optional.
+      schema:
+        type: string
+      examples:
+        tracestate-example:
+          value: "congo=t61rcWkgMzE"
+    origin:
+      description: |
+        hostname of the initiating party.
+        Useful if POI want to send event notification to the POS.
+      schema:
+        type: string
+      examples:
+        origin-example:
+          value: "myPOS.merchantname.com"
+paths:
+  /financial:
+    post:
+      tags:
+        - "financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: createFinancialService
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+            examples:
+              body-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /financial/{exchangeId}:
+    get:
+      tags:
+        - "financial services"
+      summary: provides the result of a service previously requested
+      description: |
+        request a service, such as payment, to be done on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: serviceInformation
+      parameters:
+        - in: path
+          required: true
+          name: exchangeId
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 35
+          description: |
+            exchangeId is the identifier of the resource representing a service dialog that has been initiated by a POST /service message.
+            This operation allows to have the result of a service that has been processed asynchronously.
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      responses:
+        '200':
+          description: service dialogue representation with its current state
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /retailPayment:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: payment
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              retailpayment-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /retailPayment/{exchangeId}:
+    get:
+      tags:
+        - "retail financial services"
+      summary: provides the result of a service previously requested
+      description: |
+        request a service, such as payment, to be done on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: paymentInformation
+      parameters:
+        - in: path
+          required: true
+          name: exchangeId
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 35
+          description: |
+            exchangeId is the identifier of the resource representing a service dialog that has been initiated by a POST /service message.
+            This operation allows to have the result of a service that has been processed asynchronously.
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      responses:
+        '200':
+          description: service dialogue representation with its current state
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /reconciliation:
+    post:
+      tags:
+        - "financial services"
+      summary: initiate a reconcialiation with the specified POI
+      description: The SaleToPOIReconciliationRequest message is sent by a sale system to request for reconciliation between sale and POI systems.
+      operationId: reconciliation
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /balance:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: balance
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              balance-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /loyalty:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: loyalty
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              loyalty-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /reversal:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: reversal
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              reversal-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /storedValue:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: storedvalue
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              storedvalue-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /cardAcquisition:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: cardacquisition
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              cardacquisition-value:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /batch:
+    post:
+      tags:
+        - "retail financial services"
+      summary: creates a service dialogue between a POI and a POS or enables a service
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: batch
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              batch-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /enable:
+    post:
+      tags:
+        - "retail financial services"
+      summary: enables a service on the POI
+      description: |
+        request a service, such as payment, to be executed on the specified POI.
+        Response can be immediate (HTTP 201) or postponed (HTTP 202) in which case Response will be delivered through a GET request
+      operationId: enableService
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+                - $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              discriminator:
+                propertyName: ProtocolVersion
+            examples:
+              enable-example:
+                value:
+                  Hdr:
+                    CreDtTm: '2020-05-04T18:13:51.0+01:00'
+                    MsgFctn: SFSQ
+                    PrtcolVrsn: '8.0'
+                    XchgId: '642'
+                    InitgPty:
+                      Id: SaleTermA
+                      Tp: MERC
+                    RcptPty:
+                      Id: 'POITerm1'
+                      Tp: OPOI
+                  SvcReq:
+                    Envt:
+                    Cntxt:
+                    SvcCntt: FSPQ
+                    PmtReq:
+                      PmtTx:
+                        TxId:
+                          TxDtTm: '2020-05-04T18:13:51.0+01:00'
+                          TxRef: '579'
+                        TxTp: CRDP
+                        TxDtls:
+                          Ccy: EUR
+                          TtlAmt: '104.11'
+      responses:
+        '200':
+          description: financial service created - Use HTTP GET to get the state of the service
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+        '201':
+          description: service request created - full resource document is provided
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+        "202":
+          description: service creation ongoing - Use GET with provided resource identifier provided for resource description
+          headers:
+            x-duration:
+              schema:
+                type: integer
+              description: life duration of the resource
+            X-Request-ID:
+              schema:
+                $ref: "#/components/headers/Idempotency-Key"
+            Location:
+              schema:
+                $ref: "#/components/headers/Location"
+            origin:
+              schema:
+                $ref: "#/components/headers/origin"
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "404":
+          description: POI not found
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+        "500":
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://devlc.lorealconsulting.com:8099/schemas/Problem.yaml"
+  /device:
+    post:
+      tags:
+        - "device services"
+      summary: act on a device POI, POS or their attached devices such as printer, screen, card reader, input (secured)
+      description: The SaleToPOIReconciliationRequest message is sent by a sale system to request for reconciliation between sale and POI systems.
+      operationId: deviceService
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /display/{deviceId}:
+    post:
+      tags:
+        - "device services"
+      summary: display something on a pos or poi
+      description: The display message is used by the sale system or POI system to request a display on a device .
+      operationId: print
+      parameters:
+        - in: path
+          required: true
+          name: deviceId
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 35
+          description: |
+            deviceIdentifier of the device to display on.
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/display.yaml"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /session:
+    post:
+      tags:
+        - "admin services"
+      summary: session management on a POI such as login, logout, diagnosis
+      description: used by a POS to login on a POI
+      operationId: session
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /admin:
+    post:
+      tags:
+        - "admin services"
+      summary: administrative action on a POI
+      description: used by a POS to trigger some administrative action on a POI
+      operationId: admin
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /report:
+    post:
+      tags:
+        - "admin services"
+      summary: ask a report of a POI
+      description: used by a POS to get reports (transactions, totals) of a POI
+      operationId: report
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /abort/{exchangeId}:
+    patch:
+      tags:
+        - "system services"
+      summary: abort an action on a POI
+      description: used by a POS to abort an ongoing action on a POI
+      operationId: abort
+      parameters:
+        - in: path
+          required: true
+          name: exchangeId
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 35
+          description: |
+            exchangeId is the identifier of the resource representing a service dialog that has been initiated by a POST /service message.
+            This operation allows to have the result of a service that has been processed asynchronously.
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /reject/{exchangeId}:
+    post:
+      tags:
+        - "system services"
+      summary: message rejection by a POS
+      description: used by a POS to reject a POI message
+      operationId: reject
+      parameters:
+        - in: path
+          name: exchangeId
+          required: true
+          description: |
+            this exchange Identification is the Unique identification of the rejected message.
+            It is the original message exchangeId.
+          schema:
+            type: string
+            maxLength: 35
+            minLength: 1
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /status/{exchangeId}:
+    post:
+      tags:
+        - "system services"
+      summary: message status
+      description: used by a POS to know the status of message sent to POI
+      operationId: status
+      parameters:
+        - in: path
+          name: exchangeId
+          required: true
+          description: |
+            this exchange Identification is the Unique identification of the rejected message.
+            It is the original message exchangeId.
+          schema:
+            type: string
+            maxLength: 35
+            minLength: 1
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
+  /eventNotification:
+    post:
+      tags:
+        - "system services"
+      summary: event notification from a POI the a POS of an event
+      description: used by a POI to notify POS of some events, such as parameters updated or lese upto implementors needs
+      operationId: eventNotification
+      parameters:
+        - in: header
+          name: X-Request-ID
+          schema:
+            $ref: "#/components/headers/Idempotency-Key"
+        - in: header
+          name: traceparent
+          schema:
+            $ref: "#/components/headers/traceparent"
+        - in: header
+          name: tracestate
+          schema:
+            $ref: "#/components/headers/tracestate"
+        - in: header
+          name: origin
+          schema:
+            $ref: "#/components/headers/origin"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+      responses:
+        "201":
+          description: service request created
+        "400": {}
+        "404": {}
+        "500": {}
