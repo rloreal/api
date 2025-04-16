@@ -295,11 +295,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+            $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+            $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
     UNAUTHORIZED_401:
       description: Unauthorized
@@ -313,11 +313,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+            $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+             $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
     FORBIDDEN_403:
       description: Forbidden
@@ -331,11 +331,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+            $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+             $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
 
     NOT_FOUND_404:
@@ -350,11 +350,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+            $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+             $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
 
     METHOD_NOT_ALLOWED_405:
@@ -369,11 +369,11 @@ components:
       content:
         application/json:
           schema:
-            $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+            $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
         application/problem+json:
           schema:
-             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+             $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
     NOT_ACCEPTABLE_406:
       description: Not Acceptable
@@ -406,11 +406,11 @@ components:
       content:
         application/json:
           schema:
-             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+             $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
           
         application/problem+json:
           schema:
-             $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+             $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
 
     UNSUPPORTED_MEDIA_TYPE_415:
@@ -493,7 +493,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
             examples:
               body-example:
                 value:
@@ -557,7 +557,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -577,25 +577,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/accepted.yaml"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /financial/{exchangeId}:
     get:
@@ -642,25 +642,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
   
   /retailPayment:
     post:
@@ -696,7 +696,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
             examples:
               retailpayment-example:
                 value:
@@ -760,7 +760,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -782,19 +782,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /retailPayment/{exchangeId}:
     get:
@@ -842,25 +842,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
   
 
   /reconciliation:
@@ -895,7 +895,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -904,19 +904,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /balance:
     post:
@@ -952,7 +952,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"  
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"  
             examples:
               balance-example:
                 value:
@@ -1016,7 +1016,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1036,25 +1036,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/accepted.yaml"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /loyalty:
     post:
@@ -1090,7 +1090,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
             examples:
               loyalty-example:
                 value:
@@ -1154,7 +1154,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1174,25 +1174,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/accepted.yaml"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /reversal:
     post:
@@ -1228,7 +1228,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"           
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"           
             examples:
               reversal-example:
                 value:
@@ -1292,7 +1292,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1314,19 +1314,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /storedValue:
     post:
@@ -1362,7 +1362,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"
             examples:
               storedvalue-example:
                 value:
@@ -1426,7 +1426,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1448,19 +1448,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /cardAcquisition:
     post:
@@ -1496,7 +1496,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"         
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"         
             examples:
               cardacquisition-value:
                 value:
@@ -1560,7 +1560,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1580,25 +1580,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/accepted.yaml"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /batch:
     post:
@@ -1634,7 +1634,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"  
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"  
             examples:
               batch-example:
                 value:
@@ -1698,7 +1698,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1718,25 +1718,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/accepted.yaml"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /enable:
     post:
@@ -1772,7 +1772,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"             
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/desc_alt_casp.001.001.06.json#/$defs/RetailPayment"             
             examples:
               enable-example:
                 value:
@@ -1836,7 +1836,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.002.001.06.schema.json#/$defs/SaleToPOIServiceResponseV06"
         "202":
           description: service creation ongoing - Use GET with provided resource identifier provided for resource description
           headers:
@@ -1856,25 +1856,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/accepted.yaml"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/accepted.yaml"
         "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
 
   /device:
@@ -1909,7 +1909,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -1918,19 +1918,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /session:
     post:
@@ -1964,7 +1964,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -1973,19 +1973,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
  
   /admin:
@@ -2020,7 +2020,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -2029,19 +2029,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /report:
     post:
@@ -2075,7 +2075,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -2084,19 +2084,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
 
   /abort/{exchangeId}:
@@ -2141,7 +2141,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -2150,19 +2150,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /reject/{exchangeId}:
     post:
@@ -2206,7 +2206,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -2215,19 +2215,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
   /status/{exchangeId}:
     post:
@@ -2271,7 +2271,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -2280,19 +2280,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
   /eventNotification:
     post:
       tags: 
@@ -2325,7 +2325,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "https://devlc.lorealconsulting.com:8099/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
+              $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/casp.001.001.06.schema.json#/$defs/SaleToPOIServiceRequestV06"
       responses:
         "201":
           description: service request created
@@ -2334,18 +2334,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "404":
           description: POI not found
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
         "500":
           description: Unexpected error
           content:
             application/json:
               schema:
-                $ref: "https://devlc.lorealconsulting.com:8099/schemas/problem.schema.json"
+                $ref: "https://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/problem.schema.json"
 
 

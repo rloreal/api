@@ -63,9 +63,9 @@ data class PaymentRequest(
     /* Currency associated with the transaction. */
     val currency: kotlin.String? = null,
     /* Amount authorised for the payment transaction. */
-    val authorisedAmount: java.math.BigDecimal? = null,
+    val authorisedAmount: kotlin.String? = null,
     /* Amount requested to be authorised. */
-    val requestedAmount: java.math.BigDecimal? = null,
+    val requestedAmount: kotlin.String? = null,
     /* Flag indicating whether the transaction data must be captured or not in addition to the message process. */
     val transactionCapture: kotlin.Boolean? = null,
     val supplementaryData: PaymentRequestSupplementaryData? = null

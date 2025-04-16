@@ -50,7 +50,7 @@
 		</xsl:call-template>
 		
 		<xsl:element name="documents">
-			<xsl:for-each select="$namespace-documents//document">
+			<xsl:for-each select="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/document">
 				<xsl:variable name="url" select="@url" />
 				
 				<!-- copy document only if it has no preceding siblings with the same url -->
@@ -200,7 +200,7 @@
 			<xsl:call-template name="get-type"/>
 		</xsl:variable>
 		
-		<xsl:if test="not(contains($type, ':')) or not(starts-with($type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
+		<xsl:if test="not(contains($type, ':')) or not(starts-with($type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
 			<xsl:call-template name="get-namespace-documents">
 				<xsl:with-param name="namespace">
 					<xsl:call-template name="get-namespace">

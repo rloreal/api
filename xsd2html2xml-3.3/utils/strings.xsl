@@ -26,7 +26,7 @@
 		
 		<xsl:choose>
 			<xsl:when test="contains($string, ':')">
-				<xsl:if test="not($exclude-schema = 'true' and (contains($string, ':') and starts-with($string, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)))">
+				<xsl:if test="not($exclude-schema = 'true' and (contains($string, ':') and starts-with($string, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)))">
 					<xsl:choose>
 						<xsl:when test="$include-colon = 'true'">
 							<xsl:value-of select="substring-before($string, ':')" /><xsl:text>:</xsl:text>

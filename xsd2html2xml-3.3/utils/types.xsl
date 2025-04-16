@@ -78,7 +78,7 @@
 		</xsl:variable>
 		
 		<xsl:choose>
-			<xsl:when test="not(contains($type, ':')) or (contains($type, ':') and not(starts-with($type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)))">
+			<xsl:when test="not(contains($type, ':')) or (contains($type, ':') and not(starts-with($type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)))">
 				<xsl:variable name="namespace">
 					<xsl:call-template name="get-namespace">
 						<xsl:with-param name="namespace-prefix">
@@ -100,7 +100,7 @@
 					
 					<xsl:with-param name="namespace-documents">
 						<xsl:choose>
-							<xsl:when test="(not($namespace-documents = '') and count($namespace-documents//document) > 0 and $namespace-documents//document[1]/@namespace = $namespace) or (contains($type, ':') and starts-with($type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
+							<xsl:when test="(not($namespace-documents = '') and count($namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/document) > 0 and $namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/document[1]/@namespace = $namespace) or (contains($type, ':') and starts-with($type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
 								<xsl:call-template name="inform">
 									<xsl:with-param name="message">Reusing loaded namespace documents</xsl:with-param>
 								</xsl:call-template>
@@ -172,8 +172,8 @@
 				</xsl:call-template>
 				
 				<!-- call get-primitive-type on all matching types named type suffix -->
-				<xsl:for-each select="$namespace-documents//xs:simpleType[@name=$type-suffix]
-					|$namespace-documents//xs:complexType[@name=$type-suffix]">
+				<xsl:for-each select="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:simpleType[@name=$type-suffix]
+					|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]">
 					<xsl:call-template name="get-primitive-type">
 						<xsl:with-param name="root-document" select="$root-document" />
 						<xsl:with-param name="root-path" select="$root-path" />

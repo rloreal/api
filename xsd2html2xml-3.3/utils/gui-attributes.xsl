@@ -20,7 +20,7 @@
 			<xsl:call-template name="get-base-type" />
 		</xsl:variable>
 		
-		<xsl:if test="not(contains($type, ':')) or (contains($type, ':') and not(starts-with($type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)))">
+		<xsl:if test="not(contains($type, ':')) or (contains($type, ':') and not(starts-with($type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)))">
 			<xsl:variable name="namespace">
 				<xsl:call-template name="get-namespace">
 					<xsl:with-param name="namespace-prefix">
@@ -42,7 +42,7 @@
 				
 				<xsl:with-param name="namespace-documents">
 					<xsl:choose>
-						<xsl:when test="(not($namespace-documents = '') and count($namespace-documents//document) > 0 and $namespace-documents//document[1]/@namespace = $namespace) or (contains($type, ':') and starts-with($type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
+						<xsl:when test="(not($namespace-documents = '') and count($namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/document) > 0 and $namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/document[1]/@namespace = $namespace) or (contains($type, ':') and starts-with($type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
 							<xsl:call-template name="inform">
 								<xsl:with-param name="message">Reusing loaded namespace documents</xsl:with-param>
 							</xsl:call-template>
@@ -100,8 +100,8 @@
 			<xsl:with-param name="reference">set-type-specifics-recursively</xsl:with-param>
 		</xsl:call-template>
 		
-		<xsl:for-each select="$namespace-documents//xs:simpleType[@name=$type-suffix]
-			|$namespace-documents//xs:complexType[@name=$type-suffix]">
+		<xsl:for-each select="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:simpleType[@name=$type-suffix]
+			|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]">
 			<xsl:call-template name="set-type-specifics">
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
@@ -128,7 +128,7 @@
 		
 		<xsl:variable name="fractionDigits">
 			<xsl:call-template name="attr-value">
-				<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />fractionDigits</xsl:with-param>
+				<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />fractionDigits</xsl:with-param>
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
 				<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -474,7 +474,7 @@
 		
 		<xsl:variable name="minInclusive">
 			<xsl:call-template name="attr-value">
-				<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />minInclusive</xsl:with-param>
+				<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />minInclusive</xsl:with-param>
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
 				<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -484,7 +484,7 @@
 		
 		<xsl:variable name="minExclusive">
 			<xsl:call-template name="attr-value">
-				<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />minExclusive</xsl:with-param>
+				<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />minExclusive</xsl:with-param>
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
 				<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -500,7 +500,7 @@
 		
 		<xsl:variable name="maxInclusive">
 			<xsl:call-template name="attr-value">
-				<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />maxInclusive</xsl:with-param>
+				<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />maxInclusive</xsl:with-param>
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
 				<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -510,7 +510,7 @@
 		
 		<xsl:variable name="maxExclusive">
 			<xsl:call-template name="attr-value">
-				<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />maxExclusive</xsl:with-param>
+				<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />maxExclusive</xsl:with-param>
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
 				<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -544,7 +544,7 @@
 		
 		<xsl:variable name="pattern">
 			<xsl:call-template name="attr-value">
-				<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />pattern</xsl:with-param>
+				<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />pattern</xsl:with-param>
 				<xsl:with-param name="root-document" select="$root-document" />
 				<xsl:with-param name="root-path" select="$root-path" />
 				<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -555,7 +555,7 @@
 		<xsl:if test="$pattern=''">
 			<xsl:variable name="length">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />length</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />length</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -565,7 +565,7 @@
 			
 			<xsl:variable name="minLength">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />minLength</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />minLength</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -575,7 +575,7 @@
 			
 			<xsl:variable name="maxLength">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />maxLength</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />maxLength</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -585,7 +585,7 @@
 			
 			<xsl:variable name="totalDigits">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />totalDigits</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />totalDigits</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -595,7 +595,7 @@
 			
 			<xsl:variable name="fractionDigits">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />fractionDigits</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />fractionDigits</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />

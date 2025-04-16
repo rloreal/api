@@ -48,8 +48,8 @@
 						<xsl:text></xsl:text>
 					</xsl:when>
 					<!-- use prefix from root namespaces if available -->
-					<xsl:when test="$root-namespaces//root-namespace[@namespace=$local-namespace]">
-						<xsl:value-of select="$root-namespaces//root-namespace[@namespace=$local-namespace]/@prefix" />
+					<xsl:when test="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace=$local-namespace]">
+						<xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace=$local-namespace]/@prefix" />
 					</xsl:when>
 					<!-- else generate a new namespace prefix -->
 					<!-- <xsl:otherwise>

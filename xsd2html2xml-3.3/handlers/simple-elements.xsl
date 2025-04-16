@@ -31,7 +31,7 @@
 			<xsl:variable name="type-namespace-prefix">
 				<xsl:choose>
 					<!-- reset it if the current element has a non-default prefix -->
-					<xsl:when test="contains(@type, ':') and not(starts-with(@type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
+					<xsl:when test="contains(@type, ':') and not(starts-with(@type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
 						<xsl:call-template name="get-prefix">
 							<xsl:with-param name="root-namespaces" select="$root-namespaces" />
 							<xsl:with-param name="string" select="@type" />
@@ -62,8 +62,8 @@
 			<!-- extract locally declared namespace prefix from schema declarations -->
 			<xsl:variable name="local-namespace-prefix">
 				<xsl:choose>
-					<xsl:when test="$root-namespaces//root-namespace[@namespace=$local-namespace]">
-						<xsl:value-of select="$root-namespaces//root-namespace[@namespace=$local-namespace]/@prefix" />
+					<xsl:when test="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace=$local-namespace]">
+						<xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace=$local-namespace]/@prefix" />
 					</xsl:when>
 					<!-- <xsl:otherwise>
 						<xsl:value-of select="generate-id()" />
@@ -174,7 +174,7 @@
 			<!-- pattern is used later to determine multiline text fields -->
 			<xsl:variable name="pattern">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />pattern</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />pattern</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -185,7 +185,7 @@
 			<!-- enumerations are rendered as select elements -->
 			<xsl:variable name="choice">
 				<xsl:call-template name="attr-value">
-					<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />enumeration</xsl:with-param>
+					<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />enumeration</xsl:with-param>
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -214,7 +214,7 @@
 			<xsl:variable name="whitespace">
 				<xsl:variable name="specified-whitespace">
 					<xsl:call-template name="attr-value">
-						<xsl:with-param name="attr"><xsl:value-of select="$root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />whiteSpace</xsl:with-param>
+						<xsl:with-param name="attr"><xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix" />whiteSpace</xsl:with-param>
 						<xsl:with-param name="root-document" select="$root-document" />
 						<xsl:with-param name="root-path" select="$root-path" />
 						<xsl:with-param name="root-namespaces" select="$root-namespaces" />

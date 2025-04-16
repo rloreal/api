@@ -119,7 +119,7 @@
 				<!-- determine appropriate type and send them to the respective handler -->
 				<xsl:choose>
 					<!-- complexType with simpleContent: treated as simple element -->
-					<xsl:when test="$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent">
+					<xsl:when test="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:simpleContent">
 						<xsl:call-template name="handle-complex-elements">
 							<xsl:with-param name="root-document" select="$root-document" />
 							<xsl:with-param name="root-path" select="$root-path" />
@@ -140,7 +140,7 @@
 						</xsl:call-template>
 					</xsl:when>
 					<!-- complexType: treated as complex element -->
-					<xsl:when test="$namespace-documents//xs:complexType[@name=$type-suffix]">
+					<xsl:when test="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]">
 						<xsl:call-template name="handle-complex-elements">
 							<xsl:with-param name="root-document" select="$root-document" />
 							<xsl:with-param name="root-path" select="$root-path" />
@@ -161,7 +161,7 @@
 						</xsl:call-template>
 					</xsl:when>
 					<!-- simpleType: treated as simple element -->
-					<xsl:when test="$namespace-documents//xs:simpleType[@name=$type-suffix]">
+					<xsl:when test="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:simpleType[@name=$type-suffix]">
 						<xsl:call-template name="handle-simple-elements">
 							<xsl:with-param name="root-document" select="$root-document" />
 							<xsl:with-param name="root-path" select="$root-path" />
@@ -181,7 +181,7 @@
 						</xsl:call-template>
 					</xsl:when>
 					<!-- primitive: treated as simple element -->
-					<xsl:when test="contains(@type, ':') and starts-with(@type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)">
+					<xsl:when test="contains(@type, ':') and starts-with(@type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix)">
 					<!-- <xsl:when test="substring-before(@type, ':') = 'xs'"> -->
 						<xsl:call-template name="handle-simple-elements">
 							<xsl:with-param name="root-document" select="$root-document" />

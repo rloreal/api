@@ -57,19 +57,19 @@ xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xs="http://www.w3.org/200
                 <sch:schema>
                         <!-- get header-type elements - eg title and especially ns -->
                         <!-- title (just one) -->
-                        <xsl:copy-of select="$schemas//xs:appinfo/sch:title[1]"/>
+                        <xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:appinfo/sch:title[1]"/>
                         <!-- get remaining schematron schema children -->
                         <!-- get non-blank namespace elements, dropping duplicates -->
-                        <xsl:for-each select="$schemas//xs:appinfo/sch:ns">
+                        <xsl:for-each select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:appinfo/sch:ns">
                                 <xsl:if test="generate-id(.) = 
-								generate-id($schemas//xs:appinfo/sch:ns[@prefix = current()/@prefix][1])">
+								generate-id($schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:appinfo/sch:ns[@prefix = current()/@prefix][1])">
                                         <xsl:copy-of select="."/>
                                 </xsl:if>
                         </xsl:for-each>
-                        <xsl:copy-of select="$schemas//xs:appinfo/sch:phase"/>
-                        <xsl:copy-of select="$schemas//xs:appinfo/sch:pattern"/>
+                        <xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:appinfo/sch:phase"/>
+                        <xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:appinfo/sch:pattern"/>
                         <sch:diagnostics>
-                                <xsl:copy-of select="$schemas//xs:appinfo/sch:diagnostics/*"/>
+                                <xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:appinfo/sch:diagnostics/*"/>
                         </sch:diagnostics>
                 </sch:schema>
         </xsl:template>

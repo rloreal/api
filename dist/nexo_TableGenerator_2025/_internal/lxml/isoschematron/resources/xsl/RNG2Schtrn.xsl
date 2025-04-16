@@ -36,7 +36,7 @@ xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:rng="http://relaxng.org/n
 					<xsl:with-param name="schemas" select="$schemas | $includes"/>
 					<!-- ... and any *new* includes in the $include parameter -->
 					<xsl:with-param name="includes" select="document($includes/rng:grammar/rng:include/@href
-| $includes//rng:externalRef/@href)"/>
+| $includehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/rng:externalRef/@href)"/>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
@@ -56,18 +56,18 @@ xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:rng="http://relaxng.org/n
 		<sch:schema>
 			<!-- get header-type elements - eg title and especially ns -->
 			<!-- title (just one) -->
-			<xsl:copy-of select="$schemas//sch:title[1]"/>
+			<xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/sch:title[1]"/>
 			<!-- get remaining schematron schema children -->
 			<!-- get non-blank namespace elements, dropping duplicates -->
-			<xsl:for-each select="$schemas//sch:ns">
-				<xsl:if test="generate-id(.) = generate-id($schemas//sch:ns[@prefix = current()/@prefix][1])">
+			<xsl:for-each select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/sch:ns">
+				<xsl:if test="generate-id(.) = generate-id($schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/sch:ns[@prefix = current()/@prefix][1])">
 					<xsl:copy-of select="."/>
 				</xsl:if>
 			</xsl:for-each>
-			<xsl:copy-of select="$schemas//sch:phase"/>
-			<xsl:copy-of select="$schemas//sch:pattern"/>
+			<xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/sch:phase"/>
+			<xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/sch:pattern"/>
 			<sch:diagnostics>
-				<xsl:copy-of select="$schemas//sch:diagnostics/*"/>
+				<xsl:copy-of select="$schemahttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/sch:diagnostics/*"/>
 			</sch:diagnostics>
 		</sch:schema>
 	</xsl:template>

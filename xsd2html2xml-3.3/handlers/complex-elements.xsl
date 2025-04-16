@@ -33,7 +33,7 @@
 			<xsl:variable name="type-namespace-prefix">
 				<xsl:choose>
 					<!-- reset it if the current element has a non-default prefix -->
-					<xsl:when test="contains(@type, ':') and not(starts-with(@type, $root-namespaces//root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
+					<xsl:when test="contains(@type, ':') and not(starts-with(@type, $root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace = 'http://www.w3.org/2001/XMLSchema']/@prefix))">
 						<xsl:call-template name="get-prefix">
 							<xsl:with-param name="root-namespaces" select="$root-namespaces" />
 							<xsl:with-param name="string" select="@type" />
@@ -64,8 +64,8 @@
 			<!-- extract locally declared namespace prefix from schema declarations -->
 			<xsl:variable name="local-namespace-prefix">
 				<xsl:choose>
-					<xsl:when test="$root-namespaces//root-namespace[@namespace=$local-namespace]">
-						<xsl:value-of select="$root-namespaces//root-namespace[@namespace=$local-namespace]/@prefix" />
+					<xsl:when test="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace=$local-namespace]">
+						<xsl:value-of select="$root-namespacehttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/root-namespace[@namespace=$local-namespace]/@prefix" />
 					</xsl:when>
 					<!-- <xsl:otherwise>
 						<xsl:value-of select="generate-id()" />
@@ -237,21 +237,21 @@
 						|xs:complexType/xs:simpleContent/xs:restriction/xs:attribute
 						|xs:complexType/xs:simpleContent/xs:restriction/xs:attributeGroup
 						|xs:complexType/xs:simpleContent/xs:restriction/xs:anyAttribute
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:sequence
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:all
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:choice
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:attribute
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:attributeGroup
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:anyAttribute
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:sequence
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:all
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:choice
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:attribute
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:attributeGroup
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:attribute
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:attributeGroup
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:anyAttribute
-						|$namespace-documents//xs:group[@name=$ref-suffix]/*">
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:sequence
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:all
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:choice
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:attribute
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:attributeGroup
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:anyAttribute
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:sequence
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:all
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:choice
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:attribute
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:complexContent/xs:restriction/xs:attributeGroup
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:attribute
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:attributeGroup
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/xs:simpleContent/xs:restriction/xs:anyAttribute
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:group[@name=$ref-suffix]/*">
 						<xsl:with-param name="root-document" select="$root-document" />
 						<xsl:with-param name="root-path" select="$root-path" />
 						<xsl:with-param name="root-namespaces" select="$root-namespaces" />
@@ -292,7 +292,7 @@
 						<xsl:with-param name="namespace-prefix" select="$namespace-prefix" />
 						<xsl:with-param name="base">
 							<xsl:value-of select="*/*/xs:extension/@base
-								|$namespace-documents//xs:complexType[@name=$type-suffix]/*/xs:extension/@base" />
+								|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/*/xs:extension/@base" />
 						</xsl:with-param>
 						<xsl:with-param name="disabled" select="$disabled" />
 						<xsl:with-param name="xpath" select="$xpath" />
@@ -300,7 +300,7 @@
 					
 					<!-- add added elements -->
 					<xsl:apply-templates select="*/*/xs:extension/*
-						|$namespace-documents//xs:complexType[@name=$type-suffix]/*/xs:extension/*">
+						|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:complexType[@name=$type-suffix]/*/xs:extension/*">
 						<xsl:with-param name="root-document" select="$root-document" />
 						<xsl:with-param name="root-path" select="$root-path" />
 						<xsl:with-param name="root-namespaces" select="$root-namespaces" />

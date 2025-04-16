@@ -103,9 +103,9 @@
 				</xsl:call-template>
 				
 				<!-- find the referenced attribute through the id and let the matching templates handle it -->
-				<xsl:apply-templates select="$namespace-documents//xs:attributeGroup[@name=$ref-suffix]/xs:attribute
-					|$namespace-documents//xs:attributeGroup[@name=$ref-suffix]/xs:attributeGroup
-					|$namespace-documents//xs:attributeGroup[@name=$ref-suffix]/xs:anyAttribute">
+				<xsl:apply-templates select="$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:attributeGroup[@name=$ref-suffix]/xs:attribute
+					|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:attributeGroup[@name=$ref-suffix]/xs:attributeGroup
+					|$namespace-documenthttps://raw.githubusercontent.com/rloreal/api/refs/heads/main/schemas/s/xs:attributeGroup[@name=$ref-suffix]/xs:anyAttribute">
 					<xsl:with-param name="root-document" select="$root-document" />
 					<xsl:with-param name="root-path" select="$root-path" />
 					<xsl:with-param name="root-namespaces" select="$root-namespaces" />
